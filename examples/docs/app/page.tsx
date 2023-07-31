@@ -1,9 +1,9 @@
-import { Button, Header } from "nextjs-themes";
+import { Button } from "nextjs-themes/dist/Button";
 
 export default function Page() {
   return (
     <>
-      <Header text="Docs" />
+      {/* <Header text="Docs" /> */}
       <Button />
     </>
   );
