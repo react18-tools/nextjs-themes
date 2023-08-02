@@ -1,5 +1,8 @@
 {
   "name": "nextjs-themes",
+  "private": true,
+  "repository": "",
+  "author": "Mayank Kumar Chaudhari <https://mayank-chaudhari.vercel.app>",
   "version": "0.0.0",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -8,18 +11,30 @@
     "lint": "eslint \"**/*.ts*\"",
     "build": "tsup src --dts",
     "build:fast": "tsup src",
-    "dev": "pnpm build:fast -- --watch"
+    "dev": "pnpm build:fast --watch"
   },
   "devDependencies": {
     "@types/react": "^18.2.17",
     "@types/react-dom": "^18.2.7",
+    "esbuild-react18-useclient": "^1.0.5",
     "eslint": "^8.46.0",
     "eslint-config-custom": "workspace:*",
     "react": "^18.2.0",
     "tsconfig": "workspace:*",
+    "tsup": "^7.1.0",
     "typescript": "^5.1.6"
   },
-  "dependencies": {
-    "tsup": "^7.1.0"
-  }
+  "peerDependencies": {
+    "@types/react": "^16.8 || ^17 || ^18",
+    "react": "^16.8 || ^17 || ^18"
+  },
+  "keywords": [
+    "nextjs",
+    "react",
+    "react-server-components",
+    "themes",
+    "dark-mode",
+    "dark-themes",
+    "typescript"
+  ]
 }
