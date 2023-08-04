@@ -9,15 +9,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run: npm i -g pnpm && pnpm i && cd packages/nextjs-themes
       - uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 18
           registry-url: https://registry.npmjs.org
+      - run: npm i -g pnpm && pnpm i --filter nextjs-themes
+        name: Install dependencies
       - name: Test
-        run: pnpm test
+        run: ls && cd ./packages/nextjs-themes && pwd && npm test
       - name: Publish to npm
-        run: pnpm build && pnpm publish-package && pnpm publish-package2
+        run: npm build &&  npm publish-package &&  npm publish-package2
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}
 
@@ -25,7 +26,7 @@ jobs:
         with:
           registry-url: https://npm.pkg.github.com/
       - name: Publish to GitHub Public Repository
-        run: pnpm publish-gpr && pnpm publish-gpr2
+        run: cd packages/nextjs-themes &&  npm publish-gpr &&  npm publish-gpr2
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
@@ -33,10 +34,9 @@ jobs:
       - run: node lite.js
       - uses: actions/setup-node@v3
         with:
-          node-version: 16
           registry-url: https://registry.npmjs.org
       - name: Publish to npm
-        run: pnpm build && pnpm publish-package && pnpm publish-package2
+        run: cd packages/nextjs-themes &&  npm build &&  npm publish-package &&  npm publish-package2
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}
 
@@ -44,7 +44,7 @@ jobs:
         with:
           registry-url: https://npm.pkg.github.com/
       - name: Publish to GitHub Public Repository
-        run: pnpm publish-gpr && pnpm publish-gpr2
+        run: cd packages/nextjs-themes &&  npm publish-gpr &&  npm publish-gpr2
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
       - name: Setup Git
