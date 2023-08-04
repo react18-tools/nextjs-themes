@@ -9,15 +9,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run: cd packages/nextjs-themes
+      - run: npm i -g pnpm && pnpm ci && cd packages/nextjs-themes
       - uses: actions/setup-node@v3
         with:
           node-version: 16
           registry-url: https://registry.npmjs.org
       - name: Test
-        run: npm i && npm run test
+        run: pnpm test
       - name: Publish to npm
-        run: npm run build && npm run publish-package && npm run publish-package2
+        run: pnpm build && pnpm publish-package && pnpm publish-package2
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}
 
@@ -25,7 +25,7 @@ jobs:
         with:
           registry-url: https://npm.pkg.github.com/
       - name: Publish to GitHub Public Repository
-        run: npm run publish-gpr && npm run publish-gpr2
+        run: pnpm publish-gpr && pnpm publish-gpr2
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
@@ -36,7 +36,7 @@ jobs:
           node-version: 16
           registry-url: https://registry.npmjs.org
       - name: Publish to npm
-        run: npm run build && npm run publish-package && npm run publish-package2
+        run: pnpm build && pnpm publish-package && pnpm publish-package2
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}
 
@@ -44,7 +44,7 @@ jobs:
         with:
           registry-url: https://npm.pkg.github.com/
       - name: Publish to GitHub Public Repository
-        run: npm run publish-gpr && npm run publish-gpr2
+        run: pnpm publish-gpr && pnpm publish-gpr2
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
       - name: Setup Git
