@@ -1,3 +1,4 @@
+import "./global.css";
 import { ThemeSwitcher } from "nextjs-themes";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
