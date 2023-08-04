@@ -14,6 +14,8 @@ jobs:
         with:
           node-version: 16
           registry-url: https://registry.npmjs.org
+      - name: Test
+        run: npm i && npm run test
       - name: Publish to npm
         run: npm run build && npm run publish-package && npm run publish-package2
         env:
