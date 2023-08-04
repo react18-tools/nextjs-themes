@@ -10,7 +10,7 @@ export function ForceColorScheme(props: { colorScheme: ColorSchemeType }) {
     setForcedColorScheme(props.colorScheme);
     console.log(props);
     return () => {
-      setForcedColorScheme("auto");
+      setForcedColorScheme("");
     };
   }, []);
   return <></>;

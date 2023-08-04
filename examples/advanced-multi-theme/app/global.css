@@ -56,7 +56,8 @@ body {
   margin: auto;
 }
 
-.container header {
+.container header,
+.page-navigator nav {
   display: flex;
   gap: 20px;
   align-items: center;

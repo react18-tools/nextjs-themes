@@ -1,6 +1,7 @@
 import Link from "next/link";
 import "./global.css";
 import { ThemeSwitcher } from "nextjs-themes";
+import PageNavigator from "./pageNavigator";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -13,11 +14,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <Link href="/">
               <h1>🏡</h1>
             </Link>{" "}
-            <h1>Advanced Multi Theme</h1>
+            <h1>Advanced Multi Theme Example</h1>
           </header>
           <p>
-            <Link href="/dark">Dark Page</Link>
+            Example showing how to use <code>nextjs-themes</code> to implement simple multi theme switching
           </p>
+          <PageNavigator />
           <hr />
           {children}
         </div>

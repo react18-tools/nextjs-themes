@@ -1,13 +1,14 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
-export type ColorSchemeType = "" | "auto" | "dark" | "light";
+export type ColorSchemeType = "" | "system" | "dark" | "light";
 
 type ThemeStoreType = {
   theme: string;
   defaultTheme: string;
   defaultDarkTheme: string;
   defaultLightTheme: string;
+  colorSchemePref: ColorSchemeType;
   forcedTheme: string;
   forcedColorScheme: ColorSchemeType;
 };
@@ -17,6 +18,7 @@ type ThemeStoreActionsType = {
   setDefaultTheme: (defaultTheme: string) => void;
   setDefaultDarkTheme: (defaultDarkTheme: string) => void;
   setDefaultLightTheme: (defaultLightTheme: string) => void;
+  setColorSchemePref: (colorSchemePref: ColorSchemeType) => void;
   setForcedTheme: (forcedTheme: string) => void;
   setForcedColorScheme: (forcedColorScheme: ColorSchemeType) => void;
 };
@@ -24,10 +26,11 @@ type ThemeStoreActionsType = {
 export const useTheme = create<ThemeStoreType & ThemeStoreActionsType>()(
   persist(
     (set, get) => ({
-      theme: "auto",
+      theme: "",
       defaultTheme: "",
       defaultDarkTheme: "dark",
       defaultLightTheme: "",
+      colorSchemePref: "system",
       forcedTheme: "",
       forcedColorScheme: "",
       setTheme: (theme: string) => set({ ...get(), theme }),
@@ -36,6 +39,7 @@ export const useTheme = create<ThemeStoreType & ThemeStoreActionsType>()(
       setDefaultLightTheme: (defaultLightTheme: string) => set({ ...get(), defaultLightTheme }),
       setForcedTheme: (forcedTheme: string) => set({ ...get(), forcedTheme }),
       setForcedColorScheme: (forcedColorScheme: ColorSchemeType) => set({ ...get(), forcedColorScheme }),
+      setColorSchemePref: colorSchemePref => set({ ...get(), colorSchemePref }),
     }),
     { name: "nextjs-themes" },
   ),

@@ -5,26 +5,27 @@ import { useEffect } from "react";
 import { useTheme } from "../store";
 
 export function ThemeSwitcher(props: { forcedTheme?: string }) {
-  const [theme, defaultTheme, defaultDarkTheme, defaultLightTheme, forcedTheme, forcedColorScheme] = useTheme(state => [
-    state.theme,
-    state.defaultTheme,
-    state.defaultDarkTheme,
-    state.defaultLightTheme,
-    state.forcedTheme,
-    state.forcedColorScheme,
-  ]);
+  const [theme, defaultTheme, defaultDarkTheme, defaultLightTheme, colorSchemePref, forcedTheme, forcedColorScheme] =
+    useTheme(state => [
+      state.theme,
+      state.defaultTheme,
+      state.defaultDarkTheme,
+      state.defaultLightTheme,
+      state.colorSchemePref,
+      state.forcedTheme,
+      state.forcedColorScheme,
+    ]);
 
   useEffect(() => {
     const media = matchMedia("(prefers-color-scheme: dark)");
     const updateTheme = () => {
       const restoreTransitions = disableAnimation();
+      let newTheme = "";
       if (props.forcedTheme !== undefined || forcedTheme) {
-        document.documentElement.setAttribute("data-theme", props.forcedTheme || forcedTheme);
-      } else if (theme === "auto") {
-        let newTheme = "";
-        switch (forcedColorScheme) {
-          case "":
-          case "auto":
+        newTheme = props.forcedTheme || forcedTheme;
+      } else if (forcedColorScheme || colorSchemePref) {
+        switch (forcedColorScheme || colorSchemePref) {
+          case "system":
             newTheme = media.matches ? defaultDarkTheme : defaultLightTheme;
             break;
           case "dark":
@@ -33,10 +34,8 @@ export function ThemeSwitcher(props: { forcedTheme?: string }) {
           case "light":
             newTheme = defaultLightTheme;
         }
-        document.documentElement.setAttribute("data-theme", newTheme || defaultTheme);
-      } else {
-        document.documentElement.setAttribute("data-theme", theme || defaultTheme);
       }
+      document.documentElement.setAttribute("data-theme", newTheme || theme || defaultTheme);
       restoreTransitions();
     };
     media.addEventListener("change", updateTheme);
@@ -44,7 +43,16 @@ export function ThemeSwitcher(props: { forcedTheme?: string }) {
     return () => {
       media.removeEventListener("change", updateTheme);
     };
-  }, [theme, defaultTheme, defaultDarkTheme, defaultLightTheme, forcedTheme, forcedColorScheme, props.forcedTheme]);
+  }, [
+    theme,
+    defaultTheme,
+    defaultDarkTheme,
+    defaultLightTheme,
+    forcedTheme,
+    colorSchemePref,
+    forcedColorScheme,
+    props.forcedTheme,
+  ]);
 
   return <></>;
 }
