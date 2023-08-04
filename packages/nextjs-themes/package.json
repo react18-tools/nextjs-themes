@@ -1,11 +1,18 @@
 {
   "name": "nextjs-themes",
   "private": true,
-  "repository": "",
   "author": "Mayank Kumar Chaudhari <https://mayank-chaudhari.vercel.app>",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mayank1513/nextjs-themes.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mayank1513/nextjs-themes/issues"
+  },
+  "homepage": "https://github.com/mayank1513/nextjs-themes#readme",
   "sideEffects": false,
   "license": "MIT",
   "scripts": {
@@ -49,6 +56,7 @@
     "react",
     "react18",
     "react-server-components",
+    "react-client-components",
     "themes",
     "dark-mode",
     "dark-themes",
