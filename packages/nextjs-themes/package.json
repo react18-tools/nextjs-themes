@@ -6,12 +6,17 @@
   "version": "0.0.0",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
+  "sideEffects": false,
   "license": "MIT",
   "scripts": {
     "lint": "eslint \"**/*.ts*\"",
     "build": "tsup src --dts",
     "build:fast": "tsup src",
-    "dev": "pnpm build:fast --watch"
+    "dev": "pnpm build:fast --watch",
+    "publish-package": "node createPackageJSON.js && cp ../../README.md dist/README.md && cd dist && npm publish && cd ..",
+    "publish-package2": "node seo.js && cd dist && npm publish && cd ..",
+    "publish-gpr": "node prepGPR.js && cd dist && npm publish && cd ..",
+    "publish-gpr2": "node seoGPR.js && cd dist && npm publish"
   },
   "devDependencies": {
     "@types/react": "^18.2.17",
@@ -31,12 +36,15 @@
   },
   "keywords": [
     "nextjs",
+    "nextjs13",
     "nextjs-themes",
     "react",
+    "react18",
     "react-server-components",
     "themes",
     "dark-mode",
     "dark-themes",
-    "typescript"
+    "typescript",
+    "javascript"
   ]
 }
