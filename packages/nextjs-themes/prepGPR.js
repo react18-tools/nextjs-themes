@@ -4,7 +4,7 @@ const fs = require("fs");
 const path = require("path");
 const packageJson = require(path.resolve(__dirname, "dist", "package.json"));
 
-packageJson.name = `@mayank1513/${packageJson.name}`;
+packageJson.name = `@mayank1513/${packageJson.name.replace("react18", "nextjs")}`;
 packageJson.publishConfig = {
   "@mayank1513:registry": "https://npm.pkg.github.com",
 };

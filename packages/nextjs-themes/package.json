@@ -15,8 +15,8 @@
     "dev": "pnpm build:fast --watch",
     "publish-package": "node createPackageJSON.js && cp ../../README.md dist/README.md && cd dist && npm publish && cd ..",
     "publish-package2": "node seo.js && cd dist && npm publish && cd ..",
-    "publish-gpr": "node prepGPR.js && cd dist && npm publish && cd ..",
-    "publish-gpr2": "node seoGPR.js && cd dist && npm publish"
+    "publish-gpr": "node prepGPR.js && cp ../../README.md dist/README.md && cd dist && npm publish && cd ..",
+    "publish-gpr2": "node seo.js && cd dist && npm publish"
   },
   "devDependencies": {
     "@types/react": "^18.2.17",

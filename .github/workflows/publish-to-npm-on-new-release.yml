@@ -9,17 +9,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - run: cd packages/nextjs-themes
       - uses: actions/setup-node@v3
         with:
           node-version: 16
           registry-url: https://registry.npmjs.org
-      - name: Setup Git
-        run: |
-          git config --global user.name "mayank1513"
-          git config --global user.email "mayank-automate@noreply.github.com"
-      - run: cd packages/nextjs-themes
       - name: Publish to npm
-        run: npm run publish-package && npm run publish-package2
+        run: npm run build && npm run publish-package && npm run publish-package2
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}
 
@@ -30,5 +26,28 @@ jobs:
         run: npm run publish-gpr && npm run publish-gpr2
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+
+      # Publish lite versions
+      - run: node lite.js
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          registry-url: https://registry.npmjs.org
+      - name: Publish to npm
+        run: npm run build && npm run publish-package && npm run publish-package2
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}
+
+      - uses: actions/setup-node@v3
+        with:
+          registry-url: https://npm.pkg.github.com/
+      - name: Publish to GitHub Public Repository
+        run: npm run publish-gpr && npm run publish-gpr2
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      - name: Setup Git
+        run: |
+          git config --global user.name "mayank1513"
+          git config --global user.email "mayank-automate@noreply.github.com"
       - name: patch version and push back to the repo
-        run: npm version patch && git push origin main
+        run: git reset --hard && npm version patch && git push origin main
