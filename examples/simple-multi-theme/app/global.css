@@ -1,0 +1,39 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-color: #fff;
+  --text-color: #000;
+}
+
+[data-theme="black"] {
+  --bg-color: #000;
+  --text-color: #fff;
+}
+
+[data-theme="blue"] {
+  --bg-color: #00f;
+  --text-color: #ff0;
+}
+
+[data-theme="red"] {
+  --bg-color: #f00;
+  --text-color: #0ff;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background: var(--bg-color);
+  color: var(--text-color);
+}
+
+.container {
+  max-width: 800px;
+  margin: auto;
+}
