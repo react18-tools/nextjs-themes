@@ -1,7 +1,12 @@
+import { ThemeSwitcher } from "nextjs-themes";
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <ThemeSwitcher />
+        {children}
+      </body>
     </html>
   );
 }
