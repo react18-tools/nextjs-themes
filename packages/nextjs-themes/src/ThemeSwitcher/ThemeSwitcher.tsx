@@ -2,14 +2,15 @@
 import * as React from "react";
 
 import { useEffect } from "react";
-import { useThemeStore } from "../store";
+import { useTheme } from "../store";
 
-export function ThemeSwitcher() {
-  const [theme, defaultTheme, defaultDarkTheme, defaultLightTheme, forcedColorScheme] = useThemeStore(state => [
+export function ThemeSwitcher(props: { forcedTheme?: string }) {
+  const [theme, defaultTheme, defaultDarkTheme, defaultLightTheme, forcedTheme, forcedColorScheme] = useTheme(state => [
     state.theme,
     state.defaultTheme,
     state.defaultDarkTheme,
     state.defaultLightTheme,
+    state.forcedTheme,
     state.forcedColorScheme,
   ]);
 
@@ -17,7 +18,9 @@ export function ThemeSwitcher() {
     const media = matchMedia("(prefers-color-scheme: dark)");
     const updateTheme = () => {
       const restoreTransitions = disableAnimation();
-      if (theme === "auto") {
+      if (props.forcedTheme !== undefined || forcedTheme) {
+        document.documentElement.setAttribute("data-theme", props.forcedTheme || forcedTheme);
+      } else if (theme === "auto") {
         let newTheme = "";
         switch (forcedColorScheme) {
           case "":
@@ -41,7 +44,7 @@ export function ThemeSwitcher() {
     return () => {
       media.removeEventListener("change", updateTheme);
     };
-  }, [theme, defaultTheme, defaultDarkTheme, defaultLightTheme, forcedColorScheme]);
+  }, [theme, defaultTheme, defaultDarkTheme, defaultLightTheme, forcedTheme, forcedColorScheme, props.forcedTheme]);
 
   return <></>;
 }

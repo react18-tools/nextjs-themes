@@ -55,3 +55,9 @@ body {
   max-width: 800px;
   margin: auto;
 }
+
+.container header {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}

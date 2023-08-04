@@ -1,10 +1,10 @@
 "use client";
-import { useThemeStore } from "nextjs-themes";
+import { useTheme } from "nextjs-themes";
 import { darkThemes } from "./themes";
 import { useEffect } from "react";
 
 export default function DarkThemeSelector() {
-  const [defaultDarkTheme, setDefaultDarkTheme] = useThemeStore(state => [
+  const [defaultDarkTheme, setDefaultDarkTheme] = useTheme(state => [
     state.defaultDarkTheme,
     state.setDefaultDarkTheme,
   ]);

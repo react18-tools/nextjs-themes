@@ -1,10 +1,10 @@
 "use client";
-import { useThemeStore } from "nextjs-themes";
+import { useTheme } from "nextjs-themes";
 import { lightThemes } from "./themes";
 import { useEffect } from "react";
 
 export default function LightThemeSelector() {
-  const [defaultLightTheme, setDefaultLightTheme] = useThemeStore(state => [
+  const [defaultLightTheme, setDefaultLightTheme] = useTheme(state => [
     state.defaultLightTheme,
     state.setDefaultLightTheme,
   ]);

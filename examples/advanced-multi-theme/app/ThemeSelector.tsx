@@ -1,9 +1,9 @@
 "use client";
-import { useThemeStore } from "nextjs-themes";
+import { useTheme } from "nextjs-themes";
 import { darkThemes, lightThemes } from "./themes";
 
 export default function ThemeSelector() {
-  const [theme, setTheme] = useThemeStore(state => [state.theme, state.setTheme]);
+  const [theme, setTheme] = useTheme(state => [state.theme, state.setTheme]);
   return (
     <p>
       Select Theme{" "}

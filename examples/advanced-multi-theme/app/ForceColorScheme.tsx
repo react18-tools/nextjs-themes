@@ -1,10 +1,10 @@
 "use client";
-import { useThemeStore, ColorSchemeType } from "nextjs-themes";
+import { useTheme, ColorSchemeType } from "nextjs-themes";
 
 const colorSchemes: ColorSchemeType[] = ["auto", "light", "dark"];
 
 export default function ForceColorScheme() {
-  const [forcedColorScheme, setForcedColorScheme] = useThemeStore(state => [
+  const [forcedColorScheme, setForcedColorScheme] = useTheme(state => [
     state.forcedColorScheme,
     state.setForcedColorScheme,
   ]);

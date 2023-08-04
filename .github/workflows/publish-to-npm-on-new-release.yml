@@ -17,6 +17,7 @@ jobs:
         run: |
           git config --global user.name "mayank1513"
           git config --global user.email "mayank-automate@noreply.github.com"
+      - run: cd packages/nextjs-themes
       - name: Publish to npm
         run: npm run publish-package && npm run publish-package2
         env:
