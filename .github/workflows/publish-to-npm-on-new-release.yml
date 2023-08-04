@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run: npm i -g pnpm && pnpm ci && cd packages/nextjs-themes
+      - run: npm i -g pnpm && pnpm i && cd packages/nextjs-themes
       - uses: actions/setup-node@v3
         with:
           node-version: 16
