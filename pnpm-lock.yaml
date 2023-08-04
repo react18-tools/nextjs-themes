@@ -24,6 +24,40 @@ importers:
         specifier: ^1.10.12
         version: 1.10.12
 
+  examples/advanced-multi-theme:
+    dependencies:
+      next:
+        specifier: ^13.4.12
+        version: 13.4.12(react-dom@18.2.0)(react@18.2.0)
+      nextjs-themes:
+        specifier: workspace:*
+        version: link:../../packages/nextjs-themes
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
+      react-dom:
+        specifier: ^18.2.0
+        version: 18.2.0(react@18.2.0)
+    devDependencies:
+      '@types/node':
+        specifier: ^20.4.5
+        version: 20.4.5
+      '@types/react':
+        specifier: ^18.2.17
+        version: 18.2.17
+      '@types/react-dom':
+        specifier: ^18.2.7
+        version: 18.2.7
+      eslint-config-custom:
+        specifier: workspace:*
+        version: link:../../packages/eslint-config-custom
+      tsconfig:
+        specifier: workspace:*
+        version: link:../../packages/tsconfig
+      typescript:
+        specifier: ^5.1.6
+        version: 5.1.6
+
   examples/simple-dark-light-mode:
     dependencies:
       next:
