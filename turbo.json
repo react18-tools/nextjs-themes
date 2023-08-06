@@ -4,8 +4,10 @@
   "pipeline": {
     "build": {
       "dependsOn": ["^build"],
-      "cache": false,
       "outputs": [".next/**", "!.next/cache/**", "dist/**"]
+    },
+    "nextjs-themes#build": {
+      "cache": false
     },
     "lint": {},
     "dev": {

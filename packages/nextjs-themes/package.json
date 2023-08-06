@@ -49,6 +49,10 @@
     "@types/react": "^16.8 || ^17 || ^18",
     "react": "^16.8 || ^17 || ^18"
   },
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/mayank1513"
+  },
   "keywords": [
     "nextjs",
     "nextjs13",
