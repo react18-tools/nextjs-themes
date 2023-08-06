@@ -2,9 +2,9 @@
 import * as React from "react";
 
 import { useEffect } from "react";
-import { useTheme } from "../store";
+import { ColorSchemeType, useTheme } from "../store";
 
-export function ThemeSwitcher(props: { forcedTheme?: string; forcedColorScheme?: string }) {
+export function ThemeSwitcher(props: { forcedTheme?: string; forcedColorScheme?: ColorSchemeType }) {
   const [theme, defaultTheme, defaultDarkTheme, defaultLightTheme, colorSchemePref, _forcedTheme, _forcedColorScheme] =
     useTheme(state => [
       state.theme,

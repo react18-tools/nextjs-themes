@@ -1,13 +1,15 @@
 import { AppProps } from "next/app";
 import Link from "next/link";
-import { ThemeSwitcher } from "nextjs-themes";
+import { ThemeSwitcher, ColorSchemeType } from "nextjs-themes";
 import PageNavigator from "../components/pageNavigator";
 import "../global.css";
 
-export default function App({ Component, pageProps }: AppProps & { Component: { theme?: string } }) {
+type _AppProps = AppProps & { Component: { theme?: string; colorScheme?: ColorSchemeType } };
+
+export default function App({ Component, pageProps }: _AppProps) {
   return (
     <>
-      <ThemeSwitcher forcedTheme={Component.theme} />
+      <ThemeSwitcher forcedTheme={Component.theme} forcedColorScheme={Component.colorScheme} />
       <div className="container">
         <header>
           <Link href="/">
