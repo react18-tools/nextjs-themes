@@ -17,7 +17,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <h1>Advanced Multi Theme Example</h1>
           </header>
           <p>
-            Example showing how to use <code>nextjs-themes</code> to implement simple multi theme switching
+            Example showing how to use <code>nextjs-themes</code> to implement multi theme switching
           </p>
           <PageNavigator />
           <hr />
