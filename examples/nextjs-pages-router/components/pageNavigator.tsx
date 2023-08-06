@@ -39,6 +39,9 @@ export default function PageNavigator() {
         <Link href="static-black-theme">
           force black theme with <code>Component.theme</code>
         </Link>
+        <Link href="static-dark-color-scheme">
+          force dark theme with <code>Component.colorScheme</code>
+        </Link>
       </nav>
     </div>
   );

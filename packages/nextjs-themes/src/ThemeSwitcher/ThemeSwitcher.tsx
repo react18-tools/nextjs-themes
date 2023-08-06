@@ -2,10 +2,10 @@
 import * as React from "react";
 
 import { useEffect } from "react";
-import { useTheme } from "../store";
+import { ColorSchemeType, useTheme } from "../store";
 
-export function ThemeSwitcher(props: { forcedTheme?: string }) {
-  const [theme, defaultTheme, defaultDarkTheme, defaultLightTheme, colorSchemePref, forcedTheme, forcedColorScheme] =
+export function ThemeSwitcher(props: { forcedTheme?: string; forcedColorScheme?: ColorSchemeType }) {
+  const [theme, defaultTheme, defaultDarkTheme, defaultLightTheme, colorSchemePref, _forcedTheme, _forcedColorScheme] =
     useTheme(state => [
       state.theme,
       state.defaultTheme,
@@ -16,13 +16,15 @@ export function ThemeSwitcher(props: { forcedTheme?: string }) {
       state.forcedColorScheme,
     ]);
 
+  const forcedTheme = props.forcedTheme === undefined ? _forcedTheme : props.forcedTheme;
+  const forcedColorScheme = props.forcedColorScheme === undefined ? _forcedColorScheme : props.forcedColorScheme;
   useEffect(() => {
     const media = matchMedia("(prefers-color-scheme: dark)");
     const updateTheme = () => {
       const restoreTransitions = disableAnimation();
       let newTheme = "";
-      if (props.forcedTheme !== undefined || forcedTheme) {
-        newTheme = props.forcedTheme || forcedTheme;
+      if (forcedTheme) {
+        newTheme = forcedTheme;
       } else if (forcedColorScheme || colorSchemePref) {
         switch (forcedColorScheme || colorSchemePref) {
           case "system":
@@ -43,16 +45,7 @@ export function ThemeSwitcher(props: { forcedTheme?: string }) {
     return () => {
       media.removeEventListener("change", updateTheme);
     };
-  }, [
-    theme,
-    defaultTheme,
-    defaultDarkTheme,
-    defaultLightTheme,
-    forcedTheme,
-    colorSchemePref,
-    forcedColorScheme,
-    props.forcedTheme,
-  ]);
+  }, [theme, defaultTheme, defaultDarkTheme, defaultLightTheme, forcedTheme, colorSchemePref, forcedColorScheme]);
 
   return <></>;
 }
