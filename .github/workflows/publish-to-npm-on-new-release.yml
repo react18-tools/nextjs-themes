@@ -7,6 +7,9 @@ on:
 jobs:
   publish:
     runs-on: ubuntu-latest
+    permissions:
+      packages: write
+
     defaults:
       run:
         working-directory: ./packages/nextjs-themes
