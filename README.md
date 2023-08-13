@@ -1,4 +1,4 @@
-# Nextjs-Themes [![Version](https://img.shields.io/npm/v/nextjs-themes.svg?colorB=green)](https://www.npmjs.com/package/nextjs-themes)
+# Nextjs-Themes [![Version](https://img.shields.io/npm/v/nextjs-themes.svg?colorB=green)](https://www.npmjs.com/package/nextjs-themes) [![Downloads](https://img.jsdelivr.com/img.shields.io/npm/dt/nextjs-themes.svg)](https://www.npmjs.com/package/nextjs-themes)
 
 This project is inspired by next-themes. Next-themes is an awesome package, however, it requires wrapping everything in a provider. The provider has to be a client component as it uses hooks. And thus, it takes away all the benefits of Server Components.
 
@@ -10,7 +10,7 @@ This project is inspired by next-themes. Next-themes is an awesome package, howe
 - ✅ Perfect dark mode in 2 lines of code
 - ✅ System setting with prefers-color-scheme
 - ✅ Themed browser UI with color-scheme
-- ✅ Support for Next.js 13 `appDir` 
+- ✅ Support for Next.js 13 `appDir`
 - ✅ Sync theme across tabs and windows
 - ✅ Disable flashing when changing themes
 - ✅ Force pages to specific themes
@@ -55,7 +55,7 @@ import { ThemeSwitcher } from "next-themes";
 function MyApp({ Component, pageProps }) {
   return (
     <>
-      <ThemeSwitcher forcedTheme={Component.theme}/>
+      <ThemeSwitcher forcedTheme={Component.theme} />
       <Component {...pageProps} />
     </>
   );
@@ -131,20 +131,20 @@ const ThemeChanger = () => {
 };
 ```
 
-
-
 ## Force per page theme and color-scheme
 
-### Next.js app router 
+### Next.js app router
 
 ```javascript
 import { ForceTheme } from "nextjs-themes";
 
-function MyPage(){
-    return (<>
-       <ForceTheme theme={"my-theme"} />
-       ...
-    </>)
+function MyPage() {
+  return (
+    <>
+      <ForceTheme theme={"my-theme"} />
+      ...
+    </>
+  );
 }
 
 export default MyPage;
@@ -156,15 +156,13 @@ For pages router, you have 2 options. One is the same as the app router and the 
 
 ```javascript
 function MyPage() {
-    return (<>...</>)
+  return <>...</>;
 }
 
 MyPage.theme = "my-theme";
 
 export default MyPage;
 ```
-
-
 
 In a similar way, you can also force color scheme.
 

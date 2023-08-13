@@ -37,7 +37,9 @@ export function ThemeSwitcher(props: { forcedTheme?: string; forcedColorScheme?:
             newTheme = defaultLightTheme;
         }
       }
-      document.documentElement.setAttribute("data-theme", newTheme || theme || defaultTheme);
+      newTheme = newTheme || theme || defaultTheme;
+      document.documentElement.setAttribute("data-theme", newTheme);
+      document.cookie = "data-theme=" + newTheme;
       restoreTransitions();
     };
     media.addEventListener("change", updateTheme);
