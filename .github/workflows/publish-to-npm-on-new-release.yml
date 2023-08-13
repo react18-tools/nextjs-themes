@@ -8,6 +8,7 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     permissions:
+      contents: write
       packages: write
 
     defaults:
@@ -34,7 +35,7 @@ jobs:
           git fetch
           git checkout main
       - name: update version and push back to the repo
-        run: cp -r ../../.changeset .changeset && pnpm changeset version && git push origin main
+        run: cp -r ../../.changeset . && pnpm changeset version && git push origin main
       - name: Publish to npm
         run: pnpm build && pnpm publish-package && pnpm publish-package2
         env:
