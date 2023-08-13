@@ -23,6 +23,14 @@ jobs:
         name: Install dependencies
       - name: Test
         run: npm test
+      - name: Setup Git
+        run: |
+          git config --global user.name "mayank1513"
+          git config --global user.email "mayank-automate@noreply.github.com"
+          git fetch
+          git checkout main
+      - name: update version and push back to the repo
+        run: pnpm changeset version && git push origin main
       - name: Publish to npm
         run: pnpm build && pnpm publish-package && pnpm publish-package2
         env:
@@ -53,9 +61,3 @@ jobs:
         run: pnpm publish-gpr && pnpm publish-gpr2
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
-      - name: Setup Git
-        run: |
-          git config --global user.name "mayank1513"
-          git config --global user.email "mayank-automate@noreply.github.com"
-      - name: patch version and push back to the repo
-        run: git reset --hard && git clean -f && npm version patch && git push origin main

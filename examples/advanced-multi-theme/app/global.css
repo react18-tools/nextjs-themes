@@ -40,13 +40,18 @@
   --text-color: #05f;
 }
 
-html,
-body {
+html {
   padding: 0;
   margin: 0;
 }
 
-body {
+body,
+.ssc-wrapper {
+  padding: 0;
+  margin: 0;
+  height: 100vh;
+  width: 100vw;
+  overflow: auto;
   background: var(--bg-color);
   color: var(--text-color);
 }
