@@ -1,4 +1,4 @@
-name: Publish to npm and GitHub
+name: Publish (NPM & GPR)
 
 on:
   release:

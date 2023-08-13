@@ -19,9 +19,9 @@
     "build": "tsup src --dts",
     "build:fast": "tsup src",
     "dev": "pnpm build:fast --watch",
-    "publish-package": "node createPackageJSON.js && cp ../../README.md dist/README.md && cd dist && npm publish && cd ..",
+    "publish-package": "cp ../../README.md dist && node createPackageJSON.js && cd dist && npm publish && cd ..",
     "publish-package2": "node seo.js && cd dist && npm publish && cd ..",
-    "publish-gpr": "node prepGPR.js && cp ../../README.md dist/README.md && cd dist && npm publish && cd ..",
+    "publish-gpr": "cp ../../README.md dist && node prepGPR.js && cd dist && npm publish && cd ..",
     "publish-gpr2": "node seo.js && cd dist && npm publish",
     "test": "vitest run --coverage"
   },
