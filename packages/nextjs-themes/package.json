@@ -19,10 +19,10 @@
     "build": "tsup src --dts",
     "build:fast": "tsup src",
     "dev": "pnpm build:fast --watch",
-    "publish-package": "node createPackageJSON.js && cp ../../README.md dist/README.md && mv .changeset dist && cd dist && changeset publish && cd ..",
-    "publish-package2": "node seo.js && cd dist && changeset publish && cd ..",
-    "publish-gpr": "node prepGPR.js && cp ../../README.md dist/README.md && cd dist && changeset publish && cd ..",
-    "publish-gpr2": "node seo.js && cd dist && changeset publish",
+    "publish-package": "node createPackageJSON.js && cp ../../README.md dist/README.md && cd dist && npm publish && cd ..",
+    "publish-package2": "node seo.js && cd dist && npm publish && cd ..",
+    "publish-gpr": "node prepGPR.js && cp ../../README.md dist/README.md && cd dist && npm publish && cd ..",
+    "publish-gpr2": "node seo.js && cd dist && npm publish",
     "test": "vitest run --coverage"
   },
   "devDependencies": {
