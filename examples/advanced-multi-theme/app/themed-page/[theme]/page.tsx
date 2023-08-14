@@ -1,6 +1,6 @@
 import { ForceTheme } from "nextjs-themes";
 
-export default function PageWithForcedColorScheme({ params: { theme } }) {
+export default function PageWithForcedTheme({ params: { theme } }) {
   return (
     <>
       <ForceTheme theme={theme} />

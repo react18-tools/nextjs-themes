@@ -6,26 +6,24 @@ import PageNavigator from "./pageNavigator";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <SSCWrapper tag="html" lang="en">
       <body>
-        <SSCWrapper className="ssc-wrapper">
-          <ThemeSwitcher />
-          <div className="container">
-            <header>
-              <Link href="/">
-                <h1>🏡</h1>
-              </Link>{" "}
-              <h1>Advanced Multi Theme Example</h1>
-            </header>
-            <p>
-              Example showing how to use <code>nextjs-themes</code> to implement multi theme switching
-            </p>
-            <PageNavigator />
-            <hr />
-            {children}
-          </div>
-        </SSCWrapper>
+        <ThemeSwitcher />
+        <div className="container">
+          <header>
+            <Link href="/">
+              <h1>🏡</h1>
+            </Link>{" "}
+            <h1>Advanced Multi Theme Example</h1>
+          </header>
+          <p>
+            Example showing how to use <code>nextjs-themes</code> to implement multi theme switching
+          </p>
+          <PageNavigator />
+          <hr />
+          {children}
+        </div>
       </body>
-    </html>
+    </SSCWrapper>
   );
 }
