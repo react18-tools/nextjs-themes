@@ -70,21 +70,22 @@ Check out examples for advanced usage.
 
 ### With app/
 
-Update your `app/layout.jsx` to add `ThemeSwitcher` from `nextjs-themes`.
+Update your `app/layout.jsx` to add `ThemeSwitcher` and `SSCWrapper` from `nextjs-themes`. `SSCWrapper` is required to avoid flash of un-themed content on reload.
 
 ```js
 // app/layout.jsx
 import { ThemeSwitcher } from "next-themes";
+import { SSCWrapper } from "next-themes/server/nextjs";
 
 export default function Layout({ children }) {
   return (
-    <html>
+    <SSCWrapper tag="html" lang="en">
       <head />
       <body>
         <ThemeSwitcher />
         {children}
       </body>
-    </html>
+    </SSCWrapper>
   );
 }
 ```
