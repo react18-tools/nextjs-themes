@@ -40,7 +40,7 @@ jobs:
         id: persistNsync
         working-directory: ./packages/persistnsync
         continue-on-error: true
-        run: pnpm publish-package && pnpm publish-package2 && pnpm publish-package3
+        run: pnpm build && pnpm publish-package && pnpm publish-package2 # build again to include version update
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}
       - uses: actions/setup-node@v3
@@ -50,7 +50,7 @@ jobs:
       - name: Publish to GitHub Public Repository
         if: steps.persistNsync.outcome == 'success'
         working-directory: ./packages/persistnsync
-        run: pnpm publish-gpr && pnpm publish-package2 && pnpm publish-package3
+        run: pnpm publish-gpr && pnpm publish-package2
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
       - uses: actions/setup-node@v3

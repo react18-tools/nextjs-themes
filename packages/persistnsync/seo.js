@@ -3,7 +3,7 @@
 const fs = require("fs");
 const path = require("path");
 
-const name = "persist-n-sync";
+const name = "persist-and-sync";
 const ref = "persistnsync";
 
 const packageJsonPath = path.resolve(__dirname, "dist", "package.json");

@@ -13,7 +13,6 @@
     "build": "tsc && node createPackageJSON.js",
     "publish-package": "cp README.md dist && cd dist && npm publish && cd ..",
     "publish-package2": "node seo.js && cd dist && npm publish && cd ..",
-    "publish-package3": "node seo1.js && cd dist && npm publish && cd ..",
     "publish-gpr": "node createPackageJSON.js && cp README.md dist && node prepGPR.js && cd dist && npm publish && cd .."
   },
   "funding": {
