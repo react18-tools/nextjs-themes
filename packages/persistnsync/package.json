@@ -5,7 +5,8 @@
   "description": "Zustand middleware to easily persist and sync Zustand state between tabs and windows",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "homepage": "https://github.com/mayank1513/nextjs-themes#readme",
+  "repository": "https://github.com/mayank1513/nextjs-themes/tree/main/packages/persistnsync",
+  "homepage": "https://github.com/mayank1513/nextjs-themes/tree/main/packages/persistnsync#readme",
   "sideEffects": false,
   "license": "MIT",
   "scripts": {
