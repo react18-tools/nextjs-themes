@@ -1,5 +1,12 @@
 # advanced-multi-theme
 
+## 1.0.2
+
+### Patch Changes
+
+- Updated dependencies [c792f67]
+  - nextjs-themes@0.3.1
+
 ## 1.0.1
 
 ### Patch Changes
