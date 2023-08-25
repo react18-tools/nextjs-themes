@@ -1,10 +1,13 @@
 # Nextjs-Themes [![Version](https://img.shields.io/npm/v/nextjs-themes.svg?colorB=green)](https://www.npmjs.com/package/nextjs-themes) [![codecov](https://codecov.io/gh/mayank1513/nextjs-themes/branch/main/graph/badge.svg?token=SUTY0GHPHV)](https://codecov.io/gh/mayank1513/nextjs-themes) [![Downloads](https://img.jsdelivr.com/img.shields.io/npm/dt/nextjs-themes.svg)](https://www.npmjs.com/package/nextjs-themes) [![Publish to npm and GitHub](https://github.com/mayank1513/nextjs-themes/actions/workflows/publish-to-npm-on-new-release.yml/badge.svg)](https://github.com/mayank1513/nextjs-themes/actions/workflows/publish-to-npm-on-new-release.yml)
 
+🤟 👉 [Unleash the Power of React Server Components](https://medium.com/javascript-in-plain-english/unleash-the-power-of-react-server-components-eb3fe7201231)
+
 This project is inspired by next-themes. Next-themes is an awesome package, however, it requires wrapping everything in a provider. The provider has to be a client component as it uses hooks. And thus, it takes away all the benefits of Server Components.
 
 `nextjs-themes` removes this limitation and enables you to unleash the full power of React 18 Server Components. In addition, more features are coming up soon... Stay tuned!
 
 - ✅ Designed for excellence
+- ✅ Full TypeScript Support
 - ✅ Unleash the full power of React18 Server components
 - ✅ Works with all build systems/tools/frameworks for React18
 - ✅ Perfect dark mode in 2 lines of code

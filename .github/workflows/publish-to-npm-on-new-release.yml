@@ -20,14 +20,10 @@ jobs:
         with:
           node-version: 18
           registry-url: https://registry.npmjs.org
-      - run: npm i -g pnpm && pnpm i --filter nextjs-themes
+      - run: npm i -g pnpm && pnpm i
         name: Install dependencies
       - name: Test
-        run: npm test
-      - name: Upload coverage reports to Codecov
-        uses: codecov/codecov-action@v3
-        env:
-          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+        run: pnpm turbo build --filter persistnsync && npm test
       - name: Setup Git
         run: |
           git config --global user.name "mayank1513"
@@ -35,8 +31,30 @@ jobs:
           git fetch
           git checkout main
       - name: update version and push back to the repo
-        run: cp -r ../../.changeset . && pnpm changeset version && git push origin main
-      - name: Publish to npm
+        run: pnpm changeset version && git push origin main
+        working-directory: .
+
+      - name: Publish persistNsync to NPM
+        id: persistNsync
+        working-directory: ./packages/persistnsync
+        continue-on-error: true
+        run: pnpm publish-package && pnpm publish-package2 && pnpm publish-package3
+      - uses: actions/setup-node@v3
+        if: steps.persistNsync.outcome == 'success'
+        with:
+          registry-url: https://npm.pkg.github.com/
+      - name: Publish to GitHub Public Repository
+        if: steps.persistNsync.outcome == 'success'
+        working-directory: ./packages/persistnsync
+        run: pnpm publish-gpr && pnpm publish-package2 && pnpm publish-package3
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      - uses: actions/setup-node@v3
+        if: steps.persistNsync.outcome == 'success'
+        with:
+          registry-url: https://registry.npmjs.org
+
+      - name: Publish nextjs-themes to NPM
         run: pnpm build && pnpm publish-package && pnpm publish-package2
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}

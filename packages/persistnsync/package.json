@@ -1,14 +1,24 @@
 {
   "name": "persistnsync",
+  "author": "Mayank Kumar Chaudhari <https://mayank-chaudhari.vercel.app>",
   "version": "0.0.0",
-  "description": "",
+  "description": "Zustand middleware to easily persist and sync Zustand state between tabs and windows",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "homepage": "https://github.com/mayank1513/nextjs-themes#readme",
+  "sideEffects": false,
+  "license": "MIT",
   "scripts": {
-    "build": "tsc && node createPackageJSON.js"
+    "build": "tsc && node createPackageJSON.js",
+    "publish-package": "cp README.md dist && cd dist && npm publish && cd ..",
+    "publish-package2": "node seo.js && cd dist && npm publish && cd ..",
+    "publish-package3": "node seo1.js && cd dist && npm publish && cd ..",
+    "publish-gpr": "node createPackageJSON.js && cp README.md dist && node prepGPR.js && cd dist && npm publish && cd .."
   },
-  "author": "",
-  "license": "ISC",
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/mayank1513"
+  },
   "devDependencies": {
     "@types/node": "^20.4.5",
     "typescript": "^5.1.6",
@@ -16,5 +26,22 @@
   },
   "peerDependencies": {
     "zustand": "^3 || ^4"
-  }
+  },
+  "keywords": [
+    "web",
+    "api",
+    "broadcast",
+    "channel",
+    "broadcast-channel",
+    "hooks",
+    "react",
+    "react 18",
+    "zustand",
+    "middleware",
+    "state",
+    "optimized",
+    "tiny",
+    "typescript",
+    "javascript"
+  ]
 }
