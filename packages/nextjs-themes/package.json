@@ -18,7 +18,7 @@
     "lint": "eslint \"**/*.ts*\"",
     "build": "tsup src --dts",
     "build:fast": "tsup src",
-    "dev": "pnpm build:fast --watch",
+    "dev": "pnpm build --watch",
     "publish-package": "cp ../../README.md dist && node createPackageJSON.js && cd dist && npm publish && cd ..",
     "publish-package2": "node seo.js && cd dist && npm publish && cd ..",
     "publish-gpr": "cp ../../README.md dist && node prepGPR.js && cd dist && npm publish && cd ..",
@@ -35,19 +35,22 @@
     "eslint": "^8.47.0",
     "eslint-config-custom": "workspace:*",
     "jsdom": "^22.1.0",
+    "next": "^13.4.12",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "tsconfig": "workspace:*",
     "tsup": "^7.2.0",
     "typescript": "^5.1.6",
-    "use-broadcast-ts": "^1.3.1",
     "vite-tsconfig-paths": "^4.2.0",
     "vitest": "^0.34.1",
     "zustand": "^4.4.1"
   },
+  "dependencies": {
+    "persistnsync": "workspace:*"
+  },
   "peerDependencies": {
     "@types/react": "^16.8 || ^17 || ^18",
-    "next": "^13",
+    "next": "^8",
     "react": "^16.8 || ^17 || ^18"
   },
   "peerDependenciesMeta": {

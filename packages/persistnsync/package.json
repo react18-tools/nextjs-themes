@@ -1,0 +1,20 @@
+{
+  "name": "persistnsync",
+  "version": "0.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc && node createPackageJSON.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.4.5",
+    "typescript": "^5.1.6",
+    "zustand": "^4.4.1"
+  },
+  "peerDependencies": {
+    "zustand": "^3 || ^4"
+  }
+}

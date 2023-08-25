@@ -15,8 +15,11 @@ jobs:
         with:
           node-version: 18
           registry-url: https://registry.npmjs.org
-      - run: npm i -g pnpm && pnpm i --filter nextjs-themes
+      - run: npm i -g pnpm && pnpm i
         name: Install dependencies
+      - run: pnpm build
+        working-directory: ./packages/persistnsync
+        name: Build Persist N Sync
       - name: Test
         run: npm test
       - name: Upload coverage reports to Codecov

@@ -58,4 +58,19 @@ describe.concurrent("", () => {
     /** matchMedia is light and default light theme is "" */
     expect(document.documentElement.getAttribute("data-theme")).toBe("");
   });
+
+  test("Force theme simple for pages router", ({ expect }) => {
+    render(<ThemeSwitcher forcedTheme="red" />);
+    expect(document.documentElement.getAttribute("data-theme")).toBe("red");
+  });
+
+  test("Force color scheme to light for pages router", ({ expect }) => {
+    render(<ThemeSwitcher forcedColorScheme="light" />);
+    expect(document.documentElement.getAttribute("data-theme")).toBe("");
+  });
+
+  test("Force color scheme to system for pages router", ({ expect }) => {
+    render(<ThemeSwitcher forcedColorScheme="system" />);
+    expect(document.documentElement.getAttribute("data-theme")).toBe("");
+  });
 });
