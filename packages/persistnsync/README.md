@@ -4,7 +4,7 @@
 
 > Motivation: Recently I got cought up in several issues working with persist miggleware and syncing tabs with zustand. This is a simple light weight middleware to persist and instantly share state between tabs or windows
 
-- ✅ 🐙 size cross-tab state sharing for zustand
+- ✅ 🐙 (574 Bytes gZiped) ~ 0.5 kB size cross-tab state sharing + persistance for zustand
 - ✅ Full TypeScript Support
 - ✅ solid reliability in 1 writing and n reading tab-scenarios (with changing writing tab)
 - ✅ Fire and forget approach of always using the latest state. Perfect for single user systems
