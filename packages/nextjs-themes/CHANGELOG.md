@@ -1,5 +1,13 @@
 # nextjs-themes
 
+## 0.3.2
+
+### Patch Changes
+
+- b23b5c7: Update readme and versions
+- Updated dependencies [b23b5c7]
+  - persistnsync@0.0.1
+
 ## 0.3.1
 
 ### Patch Changes

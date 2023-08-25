@@ -1,5 +1,12 @@
 # nextjs-pages-router
 
+## 1.0.3
+
+### Patch Changes
+
+- Updated dependencies [b23b5c7]
+  - nextjs-themes@0.3.2
+
 ## 1.0.2
 
 ### Patch Changes
