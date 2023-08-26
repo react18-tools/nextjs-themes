@@ -16,8 +16,12 @@ fs.writeFileSync(path.resolve(__dirname, "dist", "package.json"), JSON.stringify
 
 const readMePath = path.resolve(__dirname, "dist", "README.md");
 let readMe = fs.readFileSync(readMePath, { encoding: "utf8" });
-readMe.replace(
+readMe = readMe.replace(
   "[![Publish to npm and GitHub](https://github.com/mayank1513/nextjs-themes/actions/workflows/publish-to-npm-on-new-release.yml/badge.svg)](https://github.com/mayank1513/nextjs-themes/actions/workflows/publish-to-npm-on-new-release.yml)",
   "",
 );
+if (packageJson.name.endsWith("-lite")) {
+  readMe = readMe.replace(/(## Want Lite)([^_]*)(## Use)/, "## Use");
+  readMe = readMe.replace(/nextjs-themes/g, "nextjs-themes-lite");
+}
 fs.writeFileSync(readMePath, readMe);

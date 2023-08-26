@@ -14,5 +14,4 @@ readMe = readMe.replace(/nextjs-themes/g, "react18-themes");
 readMe = readMe.replace(/Nextjs-themes/g, "React18-themes");
 readMe = readMe.replace(/Nextjs-Themes/g, "React18-Themes");
 readMe = readMe.replace(/mayank1513\/react18[^/\)]*/g, "mayank1513/nextjs-themes"); //codecov and action badge
-console.log(readMePath, readMe);
 fs.writeFileSync(readMePath, readMe);
