@@ -1,7 +1,7 @@
 import "./globals.css";
 import { ThemeSwitcher } from "nextjs-themes";
 import { SSCWrapper } from "nextjs-themes/dist/server/nextjs";
-import ForkMe from "./_components/ForkMe";
+import ForkMe from "./_components/forkMe";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
