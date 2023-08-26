@@ -1,6 +1,6 @@
 import { StateCreator } from "zustand";
 
-export type SyncTabsOptionsType = { name: string };
+export type SyncTabsOptionsType = { name: string; regExpToIgnore?: RegExp };
 type SyncTabsType = <T>(f: StateCreator<T, [], []>, options: SyncTabsOptionsType) => StateCreator<T, [], []>;
 
 export const syncTabs: SyncTabsType = (f, options) => (set, get, store) => {
@@ -19,7 +19,7 @@ export const syncTabs: SyncTabsType = (f, options) => (set, get, store) => {
     const stateUpdates: { [k: string]: any } = {};
     /** sync only updated state to avoid un-necessary re-renders */
     Object.keys(currentState).forEach(k => {
-      if (currentState[k] !== prevState[k]) {
+      if (!options.regExpToIgnore?.test(k) && currentState[k] !== prevState[k]) {
         stateUpdates[k] = currentState[k];
       }
     });
