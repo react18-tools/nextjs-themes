@@ -33,6 +33,8 @@
     "broadcast",
     "channel",
     "broadcast-channel",
+    "persist",
+    "localStorage",
     "hooks",
     "react",
     "react 18",
