@@ -1,5 +1,19 @@
 # nextjs-themes
 
+## 0.4.0
+
+### Minor Changes
+
+- e7ca315: allow adding regExp to ingore fields
+
+### Patch Changes
+
+- a4862ee: Update readme
+- Updated dependencies [5761879]
+- Updated dependencies [e7ca315]
+- Updated dependencies [a4862ee]
+  - persistnsync@0.1.0
+
 ## 0.3.2
 
 ### Patch Changes

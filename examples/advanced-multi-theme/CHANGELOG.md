@@ -1,5 +1,17 @@
 # advanced-multi-theme
 
+## 1.1.0
+
+### Minor Changes
+
+- 7366a50: Complete redesign of the UI
+
+### Patch Changes
+
+- Updated dependencies [e7ca315]
+- Updated dependencies [a4862ee]
+  - nextjs-themes@0.4.0
+
 ## 1.0.3
 
 ### Patch Changes
