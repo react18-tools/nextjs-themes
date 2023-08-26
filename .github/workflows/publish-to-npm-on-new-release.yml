@@ -58,6 +58,28 @@ jobs:
         with:
           registry-url: https://registry.npmjs.org
 
+      - name: Publish Zustand-Sync to NPM
+        id: syncZustand
+        working-directory: ./packages/zustand-sync
+        continue-on-error: true
+        run: pnpm build && pnpm publish-package && pnpm pp2 && pnpm pp3 && pnpm pp4
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}
+      - uses: actions/setup-node@v3
+        if: steps.syncZustand.outcome == 'success'
+        with:
+          registry-url: https://npm.pkg.github.com/
+      - name: Publish to GitHub Public Repository
+        if: steps.syncZustand.outcome == 'success'
+        working-directory: ./packages/zustand-sync
+        run: pnpm p-gpr && pnpm pp2 && pnpm pp3 && pnpm pp4
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      - uses: actions/setup-node@v3
+        if: steps.syncZustand.outcome == 'success'
+        with:
+          registry-url: https://registry.npmjs.org
+
       - name: Publish nextjs-themes to NPM
         run: pnpm build && pnpm publish-package && pnpm publish-package2
         env:

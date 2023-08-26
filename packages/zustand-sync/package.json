@@ -12,8 +12,10 @@
   "scripts": {
     "build": "tsc && node createPackageJSON.js",
     "publish-package": "cp README.md dist && cd dist && npm publish && cd ..",
-    "publish-package2": "node seo.js && cd dist && npm publish && cd ..",
-    "publish-gpr": "node createPackageJSON.js && cp README.md dist && node prepGPR.js && cd dist && npm publish && cd .."
+    "pp2": "node seo.js && cd dist && npm publish && cd ..",
+    "pp3": "node seo1.js && cd dist && npm publish && cd ..",
+    "pp4": "node seo2.js && cd dist && npm publish && cd ..",
+    "p-gpr": "node createPackageJSON.js && cp README.md dist && node prepGPR.js && cd dist && npm publish && cd .."
   },
   "funding": {
     "type": "github",
@@ -32,6 +34,9 @@
     "api",
     "broadcast",
     "channel",
+    "sync-tabs",
+    "sync-windows",
+    "sync",
     "broadcast-channel",
     "hooks",
     "react",

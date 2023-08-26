@@ -8,7 +8,7 @@
 - ✅ Full TypeScript Support
 - ✅ solid reliability in 1 writing and n reading tab-scenarios (with changing writing tab)
 - ✅ Fire and forget approach of always using the latest state. Perfect for single user systems
-- ✅ Share state between multiple browsing contexts
+- ✅ Sync Zustand state between multiple browsing contexts
 
 > Checkout `[persistnsync](https://github.com/mayank1513/nextjs-themes/tree/main/packages/persistnsync#readme)` if you are looking for persisting state locally over reload/refresh or after closing site
 
