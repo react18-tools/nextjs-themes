@@ -41,6 +41,6 @@ export const useTheme = create<ThemeStoreType & ThemeStoreActionsType>()(
       setForcedColorScheme: (forcedColorScheme: ColorSchemeType) => set({ ...get(), forcedColorScheme }),
       setColorSchemePref: colorSchemePref => set({ ...get(), colorSchemePref }),
     }),
-    { name: "nextjs-themes" },
+    { name: "nextjs-themes", regExpToIgnore: /forced/ },
   ),
 );
