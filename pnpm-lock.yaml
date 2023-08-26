@@ -253,6 +253,18 @@ importers:
 
   packages/tsconfig: {}
 
+  packages/zustand-sync:
+    devDependencies:
+      '@types/node':
+        specifier: ^20.4.5
+        version: 20.4.5
+      typescript:
+        specifier: ^5.1.6
+        version: 5.1.6
+      zustand:
+        specifier: ^4.4.1
+        version: 4.4.1(@types/react@18.2.20)(react@18.2.0)
+
 packages:
 
   /@aashutoshrathi/word-wrap@1.2.6:
