@@ -1,19 +1,21 @@
 {
-  "name": "persistnsync",
+  "name": "zustand-sync",
   "author": "Mayank Kumar Chaudhari <https://mayank-chaudhari.vercel.app>",
-  "version": "0.0.1",
-  "description": "Zustand middleware to easily persist and sync Zustand state between tabs and windows",
+  "version": "0.0.0",
+  "description": "Zustand middleware to easily sync Zustand state between tabs and windows",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "repository": "https://github.com/mayank1513/nextjs-themes/tree/main/packages/persistnsync",
-  "homepage": "https://github.com/mayank1513/nextjs-themes/tree/main/packages/persistnsync#readme",
+  "repository": "https://github.com/mayank1513/nextjs-themes/tree/main/packages/zustand-sync",
+  "homepage": "https://github.com/mayank1513/nextjs-themes/tree/main/packages/zustand-sync#readme",
   "sideEffects": false,
   "license": "MIT",
   "scripts": {
     "build": "tsc && node createPackageJSON.js",
     "publish-package": "cp README.md dist && cd dist && npm publish && cd ..",
-    "publish-package2": "node seo.js && cd dist && npm publish && cd ..",
-    "publish-gpr": "node createPackageJSON.js && cp README.md dist && node prepGPR.js && cd dist && npm publish && cd .."
+    "pp2": "node seo.js && cd dist && npm publish && cd ..",
+    "pp3": "node seo1.js && cd dist && npm publish && cd ..",
+    "pp4": "node seo2.js && cd dist && npm publish && cd ..",
+    "p-gpr": "node createPackageJSON.js && cp README.md dist && node prepGPR.js && cd dist && npm publish && cd .."
   },
   "funding": {
     "type": "github",
@@ -36,8 +38,6 @@
     "sync-windows",
     "sync",
     "broadcast-channel",
-    "persist",
-    "localStorage",
     "hooks",
     "react",
     "react 18",

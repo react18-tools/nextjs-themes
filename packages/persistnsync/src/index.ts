@@ -1,7 +1,7 @@
 import { StateCreator } from "zustand";
 
-export type PersistNSyncTypeOptions = { name: string };
-type PersistNSyncType = <T>(f: StateCreator<T, [], []>, options: PersistNSyncTypeOptions) => StateCreator<T, [], []>;
+export type PersistNSyncOptionsType = { name: string };
+type PersistNSyncType = <T>(f: StateCreator<T, [], []>, options: PersistNSyncOptionsType) => StateCreator<T, [], []>;
 
 export const persistNSync: PersistNSyncType = (f, options) => (set, get, store) => {
   const { name } = options;
