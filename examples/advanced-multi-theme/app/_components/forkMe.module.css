@@ -1,0 +1,21 @@
+.ribbon {
+  --w: 15em;
+  --h: 35px;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  width: var(--w);
+  height: var(--h);
+  transform: rotate(45deg);
+  top: calc(0.354 * var(--w) - var(--h));
+  right: calc(-0.14 * var(--w) - 0.5 * var(--h));
+  color: var(--bg-color);
+  background-color: var(--text-color);
+  text-shadow:
+    0px 1px 0px rgba(255, 255, 255, 0.3),
+    0px -1px 0px rgba(0, 0, 0, 0.7);
+  border: 1px dashed gray;
+  outline: 4px solid var(--text-color);
+}
