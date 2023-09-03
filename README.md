@@ -1,4 +1,4 @@
-# Nextjs-Themes [![Version](https://img.shields.io/npm/v/nextjs-themes.svg?colorB=green)](https://www.npmjs.com/package/nextjs-themes) [![codecov](https://codecov.io/gh/mayank1513/nextjs-themes/branch/main/graph/badge.svg?token=SUTY0GHPHV)](https://codecov.io/gh/mayank1513/nextjs-themes) [![Downloads](https://img.jsdelivr.com/img.shields.io/npm/dt/nextjs-themes.svg)](https://www.npmjs.com/package/nextjs-themes) [![npm bundle size](https://img.shields.io/bundlephobia/minzip/nextjs-themes)](https://www.npmjs.com/package/nextjs-themes) [![Publish to npm and GitHub](https://github.com/mayank1513/nextjs-themes/actions/workflows/publish-to-npm-on-new-release.yml/badge.svg)](https://github.com/mayank1513/nextjs-themes/actions/workflows/publish-to-npm-on-new-release.yml)
+# Nextjs-Themes [![Version](https://img.shields.io/npm/v/nextjs-themes.svg?colorB=green)](https://www.npmjs.com/package/nextjs-themes) [![codecov](https://codecov.io/gh/mayank1513/nextjs-themes/branch/main/graph/badge.svg?token=SUTY0GHPHV)](https://codecov.io/gh/mayank1513/nextjs-themes) [![Downloads](https://img.jsdelivr.com/img.shields.io/npm/dt/nextjs-themes.svg)](https://www.npmjs.com/package/nextjs-themes) [![npm bundle size](https://img.shields.io/bundlephobia/minzip/nextjs-themes)](https://www.npmjs.com/package/nextjs-themes) [![Publish to npm and GitHub](https://github.com/mayank1513/nextjs-themes/actions/workflows/test.yml/badge.svg)](https://github.com/mayank1513/nextjs-themes/actions/workflows/publish-to-npm-on-new-release.yml)
 
 🤟 👉 [Unleash the Power of React Server Components](https://medium.com/javascript-in-plain-english/unleash-the-power-of-react-server-components-eb3fe7201231)
 
@@ -172,6 +172,13 @@ export default MyPage;
 In a similar way, you can also force color scheme.
 
 Forcing color scheme will apply your defaultDark or defaultLight theme, configurable via hooks.
+
+## Migrating from v0 to v1
+
+- `defaultDarkTheme` is renamed to `darkTheme`
+- `setDefaultDarkTheme` is renamed to `setDarkTheme`
+- `defaultLightTheme` is renamed to `lightTheme`
+- `setDefaultLightTheme` is renamed to `setLightTheme`
 
 > Full docs coming soon!
 
