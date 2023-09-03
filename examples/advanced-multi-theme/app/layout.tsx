@@ -1,4 +1,3 @@
-import { ForkMe } from "@mayank1513/fork-me/server";
 import "./globals.css";
 import { ThemeSwitcher } from "nextjs-themes";
 import type { ForcedPage } from "nextjs-themes/server";
@@ -6,12 +5,13 @@ import { ServerSideWrapper } from "nextjs-themes/server";
 import { darkThemes, lightThemes } from "./themes";
 import { Inter } from "next/font/google";
 import styles from "./page.module.css";
-import { StarMe } from "@mayank1513/fork-me";
 import ColorSchemePreference from "./color-scheme-preference";
 import ThemeSelector from "./theme-selector";
 import DarkThemeSelector from "./dark-theme-selector";
 import LightThemeSelector from "./light-theme-selector";
 import PageNavigator from "./page-navigator";
+import Logo from "./logo";
+import Star from "./star";
 
 const inter = Inter({ subsets: ["latin"] });
 const forcedPages: ForcedPage[] = [
@@ -34,7 +34,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 rel="noopener noreferrer"
                 className={styles.logo}>
                 <p>
-                  <code className={styles.code}>nextjs-themes</code>
+                  <Logo className={styles.code} />
                 </p>
               </a>
               {children}
@@ -48,7 +48,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <div className={styles.center}>
               <div>
                 <h1>
-                  Build with <code>nextjs-themes</code>
+                  Build with <Logo />
                 </h1>
                 <p>Unleash the power of React Server Components!</p>
               </div>
@@ -75,12 +75,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 </h2>
                 <p>Explore more examples on official GitHub Repo.</p>
               </a>
-              <StarMe gitHubUrl="https://github.com/mayank1513/nextjs-themes" className={styles.card}>
-                <h2>
-                  Star this repo <span>-&gt;</span>
-                </h2>
-                <p>Star this repo for your new library!</p>
-              </StarMe>
+              <Star />
             </div>
           </main>
         </div>
@@ -90,11 +85,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             Mayank Chaudhari
           </a>
         </footer>
-        <ForkMe
-          gitHubUrl="https://github.com/mayank1513/nextjs-themes"
-          bgColor="var(--text-color)"
-          textColor="var(--bg-color)"
-        />
       </body>
     </ServerSideWrapper>
   );
