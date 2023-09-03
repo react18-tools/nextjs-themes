@@ -4,17 +4,14 @@ import { lightThemes } from "../data/themes";
 import { useEffect } from "react";
 
 export default function LightThemeSelector() {
-  const [defaultLightTheme, setDefaultLightTheme] = useTheme(state => [
-    state.defaultLightTheme,
-    state.setDefaultLightTheme,
-  ]);
+  const [lightTheme, setLightTheme] = useTheme(state => [state.lightTheme, state.setLightTheme]);
   useEffect(() => {
-    setDefaultLightTheme(lightThemes[0]);
+    setLightTheme(lightThemes[0]);
   }, []);
   return (
     <p>
       Select default light theme{" "}
-      <select value={defaultLightTheme} onChange={e => setDefaultLightTheme(e.target.value)}>
+      <select value={lightTheme} onChange={e => setLightTheme(e.target.value)}>
         {lightThemes.map(theme => (
           <option key={theme} value={theme}>
             {theme}

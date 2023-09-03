@@ -4,17 +4,14 @@ import { darkThemes } from "../data/themes";
 import { useEffect } from "react";
 
 export default function DarkThemeSelector() {
-  const [defaultDarkTheme, setDefaultDarkTheme] = useTheme(state => [
-    state.defaultDarkTheme,
-    state.setDefaultDarkTheme,
-  ]);
+  const [darkTheme, setDarkTheme] = useTheme(state => [state.darkTheme, state.setDarkTheme]);
   useEffect(() => {
-    setDefaultDarkTheme(darkThemes[0]);
+    setDarkTheme(darkThemes[0]);
   }, []);
   return (
     <p>
       Select default dark theme{" "}
-      <select value={defaultDarkTheme} onChange={e => setDefaultDarkTheme(e.target.value)}>
+      <select value={darkTheme} onChange={e => setDarkTheme(e.target.value)}>
         {darkThemes.map(theme => (
           <option key={theme} value={theme}>
             {theme}
