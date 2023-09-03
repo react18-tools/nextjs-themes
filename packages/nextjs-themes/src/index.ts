@@ -1,6 +1,4 @@
 "use client";
-
-export * from "./ThemeSwitcher";
-export * from "./ForceTheme";
-export * from "./ForceColorScheme";
+// client component exports
+export * from "./client";
 export * from "./store";

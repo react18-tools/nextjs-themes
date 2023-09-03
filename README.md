@@ -6,6 +6,7 @@ This project is inspired by next-themes. Next-themes is an awesome package, howe
 
 `nextjs-themes` removes this limitation and enables you to unleash the full power of React 18 Server Components. In addition, more features are coming up soon... Stay tuned!
 
+- ✅ Fully Treeshakable (`import from nextjs-themes/client/component`)
 - ✅ Designed for excellence
 - ✅ Full TypeScript Support
 - ✅ Unleash the full power of React18 Server components

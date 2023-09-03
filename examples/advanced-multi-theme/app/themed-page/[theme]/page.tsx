@@ -1,10 +1,10 @@
 import { ForceTheme } from "nextjs-themes";
 
-export default function PageWithForcedTheme({ params: { theme } }) {
+export default function PageWithForcedTheme({ params: { theme } }: { params: { theme: string } }) {
   return (
     <>
       <ForceTheme theme={theme} />
-      <p>Theme is forced to {theme}</p>
+      <p>Theme is forced to {theme}. | Try changing theme or colorScheme and verify!</p>
     </>
   );
 }
