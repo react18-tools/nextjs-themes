@@ -42,6 +42,12 @@ function sharedServerComponentRenderer(
   );
 }
 
+/**
+ * @example
+ * ```tsx
+ * <NextJsSSGThemeSwitcher />
+ * ```
+ */
 export function NextJsSSGThemeSwitcher(props: NextJsSSRThemeSwitcherProps) {
   return sharedServerComponentRenderer(props, "div");
 }
@@ -53,8 +59,18 @@ export interface ServerSideWrapperProps extends NextJsSSRThemeSwitcherProps {
   /** @defaultValue 'html' */
   tag?: keyof JSX.IntrinsicElements;
 }
+
 /**
  * Server side wrapper for Next.js to replace &#x60;html&#x60; tag
+ * @example
+ * ```tsx
+ * <ServerSideWrapperProps lang="en">
+ *  <body>
+ *    <ThemeSwitcher />
+ *    {children}
+ *  </body>
+ * </ServerSideWrapperProps>
+ * ```
  */
 export function ServerSideWrapper(props: ServerSideWrapperProps) {
   return sharedServerComponentRenderer(props, "html");

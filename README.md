@@ -50,6 +50,10 @@ $ yarn add nextjs-themes-lite
 
 > You need Zustand as a peer-dependency
 
+## To do
+
+- [ ] Update examples
+
 ## Usage
 
 ### SPA (e.g., Vite, CRA) and Next.js pages directory (No server components)
