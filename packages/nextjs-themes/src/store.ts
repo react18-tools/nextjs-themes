@@ -3,7 +3,7 @@ import { persistNSync } from "persist-and-sync";
 
 export type ColorSchemeType = "" | "system" | "dark" | "light";
 
-type ThemeStoreType = {
+export type ThemeStoreType = {
   theme: string;
   darkTheme: string;
   lightTheme: string;
