@@ -1,7 +1,7 @@
 {
   "name": "vite-example",
   "private": true,
-  "version": "0.0.1",
+  "version": "0.0.11",
   "type": "module",
   "scripts": {
     "dev": "vite --port 3001",
@@ -11,17 +11,19 @@
   },
   "dependencies": {
     "@mayank1513/fork-me": "^2.0.0",
-    "nextjs-themes": "workspace:*",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.20.0",
+    "nextjs-themes": "workspace:*",
+    "shared-ui": "workspace:*"
   },
   "devDependencies": {
-    "@types/react": "^18.2.40",
+    "@types/react": "^18.2.39",
     "@types/react-dom": "^18.2.17",
     "@typescript-eslint/eslint-plugin": "^6.13.1",
     "@typescript-eslint/parser": "^6.13.1",
     "@vitejs/plugin-react-swc": "^3.5.0",
-    "eslint": "^8.55.0",
+    "eslint": "^8.54.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.4",
     "typescript": "^5.3.2",

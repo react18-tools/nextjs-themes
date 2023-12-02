@@ -7,7 +7,7 @@ describe("server-side-target", () => {
 
   beforeEach(() => {
     globalThis.cookies = {
-      "react18-themes": {
+      "nextjs-themes": {
         value: JSON.stringify({
           theme: "yellow",
           darkTheme: "dark-blue",

@@ -1,8 +1,9 @@
 import ThemeSelector from "./ThemeSelector";
+import styles from "./page.module.css";
 
 export default function Page() {
   return (
-    <div className="container">
+    <div className={styles.container}>
       <h1>Simple Multi Theme</h1>
       <hr />
       <p>
