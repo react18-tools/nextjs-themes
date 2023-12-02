@@ -19,6 +19,7 @@
   "scripts": {
     "test": "vitest run --coverage",
     "build": "tsup src && tsc --p tsconfig.build.json && node touchup.js",
+		"doc": "typedoc",
     "publish-package": "cd dist && npm publish --access public",
     "lint": "eslint . --quiet"
   },
@@ -37,19 +38,22 @@
     "jsdom": "^23.0.1",
     "next": "^14.0.3",
     "octokit": "^3.1.2",
-    "persist-and-sync": "^1.1.0",
     "react": "^18.2.0",
     "tsconfig": "workspace:*",
     "tsup": "^8.0.1",
+    "typedoc": "^0.25.4",
     "typescript": "5.3.2",
     "vite-tsconfig-paths": "^4.2.1",
-    "vitest": "^0.34.6",
+    "vitest": "^0.34.6"
+  },
+  "dependencies": {
+    "persist-and-sync": "^1.1.0",
     "zustand": "^4.4.7"
   },
   "peerDependencies": {
-    "@types/react": "^16.8 || ^17 || ^18",
-    "next": "^8",
-    "react": "^16.8 || ^17 || ^18"
+    "@types/react": "16.8 - 18",
+    "next": "8 - 14",
+    "react": "16.8 - 18"
   },
   "peerDependenciesMeta": {
     "next": {

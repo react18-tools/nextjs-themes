@@ -18,12 +18,13 @@ This project is inspired by next-themes. Next-themes is an awesome package, howe
 - ✅ Perfect dark mode in 2 lines of code
 - ✅ System setting with prefers-color-scheme
 - ✅ Themed browser UI with color-scheme
-- ✅ Support for Next.js 13 `appDir`
+- ✅ Support for Next.js 13 & Next.js 14 `appDir`
 - ✅ Sync theme across tabs and windows
 - ✅ Disable flashing when changing themes
 - ✅ Force pages to specific themes
 - ✅ Class or data attribute selector
 - ✅ Manipulate theme via `useTheme` hook
+- ✅ Doccumented with [Typedoc](https://react18-tools.github.io/nextjs-themes) ([Docs](https://react18-tools.github.io/nextjs-themes))
 
 Check out the [live example](https://nextjs-themes.vercel.app/).
 
