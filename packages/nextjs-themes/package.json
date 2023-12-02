@@ -8,12 +8,12 @@
   "types": "./index.ts",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mayank1513/nextjs-themes.git"
+    "url": "git+https://github.com/react18-tools/nextjs-themes.git"
   },
   "bugs": {
-    "url": "https://github.com/mayank1513/nextjs-themes/issues"
+    "url": "https://github.com/react18-tools/nextjs-themes/issues"
   },
-  "homepage": "https://github.com/mayank1513/nextjs-themes#readme",
+  "homepage": "https://github.com/react18-tools/nextjs-themes#readme",
   "sideEffects": false,
   "license": "MIT",
   "scripts": {
@@ -71,6 +71,7 @@
     "nextjs13-themes",
     "react",
     "react18",
+    "react18-tools",
     "react-themes",
     "react18-themes",
     "react-server-components",
