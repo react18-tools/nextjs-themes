@@ -19,27 +19,27 @@ if (process.env.TOKEN) {
 			"X-GitHub-Api-Version": "2022-11-28",
 		},
 	};
-	octokit.request("GET /repos/{owner}/{repo}/topics", octoOptions).then(({ data }) => {
-		octoOptions.names = [...new Set([...data.names, ...packageJson.keywords])];
-		if (octoOptions.names.length !== data.names.length)
-			octokit
-				.request("PUT /repos/{owner}/{repo}/topics", octoOptions)
-				.then(console.log) // eslint-disable-line no-console -- intentional debug log
-				.catch(console.error); // eslint-disable-line no-console -- intentional error log
+	const tagName = `v${packageJson.version}`;
+	const name = `Release ${tagName}`;
+	/** Create a release */
+	octokit.request("POST /repos/{owner}/{repo}/releases", {
+		...octoOptions,
+		tag_name: tagName,
+		target_commitish: "main",
+		name,
+		draft: false,
+		prerelease: false,
+		generate_release_notes: true,
+		headers: {
+			"X-GitHub-Api-Version": "2022-11-28",
+		},
 	});
 }
-delete packageJson.devDependencies;
 delete packageJson.scripts;
 
 packageJson.main = "index.js";
 packageJson.types = "index.d.ts";
 
-fs.writeFileSync(
-	path.resolve(process.cwd(), "dist", "package.json"),
-	JSON.stringify(packageJson, null, 2),
-);
+fs.writeFileSync(path.resolve(process.cwd(), "dist", "package.json"), JSON.stringify(packageJson, null, 2));
 
-fs.copyFileSync(
-	path.resolve(process.cwd(), "..", "..", "README.md"),
-	path.resolve(process.cwd(), "dist", "README.md"),
-);
+fs.copyFileSync(path.resolve(process.cwd(), "..", "..", "README.md"), path.resolve(process.cwd(), "dist", "README.md"));
