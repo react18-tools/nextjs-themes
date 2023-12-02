@@ -18,7 +18,7 @@ function sharedServerComponentRenderer(
   defaultTag: "div" | "html",
 ) {
   const Tag: keyof JSX.IntrinsicElements = tag || defaultTag;
-  const state = cookies().get("react18-themes")?.value;
+  const state = cookies().get("nextjs-themes")?.value;
 
   const path = headers().get("referer");
   const forcedPageData = forcedPages?.find(forcedPage => path?.match(forcedPage[0]));
@@ -36,7 +36,7 @@ function sharedServerComponentRenderer(
 
   return (
     // @ts-expect-error -> svg props and html element props conflict
-    <Tag id="react18-themes" {...dataProps} {...props} data-testid="server-side-target">
+    <Tag id="nextjs-themes" {...dataProps} {...props} data-testid="server-side-target">
       {children}
     </Tag>
   );
