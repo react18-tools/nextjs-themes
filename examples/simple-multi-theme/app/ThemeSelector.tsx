@@ -1,15 +1,16 @@
 "use client";
 import { useTheme } from "nextjs-themes";
+import { darkThemes, lightThemes } from "shared-ui";
+import styles from "shared-ui/src/root-layout.module.css";
 
 export default function ThemeSelector() {
   const [theme, setTheme] = useTheme(state => [state.theme, state.setTheme]);
   return (
-    <p>
+    <p className={styles.center}>
       <select value={theme} onChange={e => setTheme(e.target.value)}>
-        {["", "black", "blue", "red"].map(theme => (
+        {[...darkThemes, ...lightThemes].map(theme => (
           <option key={theme} value={theme}>
-            {/* using light theme as default - you can also set your own default theme */}
-            {theme || "default"}
+            {theme}
           </option>
         ))}
       </select>
