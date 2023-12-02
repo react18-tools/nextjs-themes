@@ -2,7 +2,7 @@
   "name": "nextjs-themes",
   "author": "Mayank Kumar Chaudhari <https://mayank-chaudhari.vercel.app>",
   "private": false,
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Unleash the Power of React Server Components! Use multiple themes on your site with confidence, without losing any advantages of React Server Components.",
   "main": "./index.ts",
   "types": "./index.ts",
