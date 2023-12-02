@@ -1,5 +1,12 @@
 # simple-multi-theme
 
+## 1.0.5
+
+### Patch Changes
+
+- Updated dependencies [da1cdd9]
+  - nextjs-themes@1.1.0
+
 ## 1.0.4
 
 ### Patch Changes
