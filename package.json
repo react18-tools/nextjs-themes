@@ -8,12 +8,12 @@
     "format": "prettier --write \"**/*.{ts,tsx,md,mdx,css,scss}\""
   },
   "devDependencies": {
-    "@turbo/gen": "^1.10.12",
-    "eslint": "^8.46.0",
+    "@changesets/cli": "^2.27.1",
+    "@turbo/gen": "^1.10.16",
+    "eslint": "^8.55.0",
     "eslint-config-custom": "workspace:*",
-    "prettier": "^3.0.0",
-    "@changesets/cli": "^2.26.2",
-    "turbo": "^1.10.12"
+    "prettier": "^3.1.0",
+    "turbo": "^1.10.16"
   },
   "packageManager": "pnpm@8.6.10",
   "name": "theme-switch"
