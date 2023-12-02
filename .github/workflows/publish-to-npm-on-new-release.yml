@@ -29,7 +29,7 @@ jobs:
       - name: Setup Git
         run: |
           git config --global user.name "mayank1513"
-          git config --global user.email "mayank-automate@noreply.github.com"
+          git config --global user.email "mayank.srmu@gmail.com"
           git fetch
           git checkout main
       - name: update version and push back to the repo
