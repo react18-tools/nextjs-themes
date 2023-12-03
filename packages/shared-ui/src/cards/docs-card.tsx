@@ -6,7 +6,8 @@ export function DocsCard() {
       className={styles.card}
       href="https://react18-tools.github.io/nextjs-themes/"
       rel="noopener noreferrer"
-      target="_blank">
+      target="_blank"
+    >
       <h2>
         Docs <span>-&gt;</span>
       </h2>

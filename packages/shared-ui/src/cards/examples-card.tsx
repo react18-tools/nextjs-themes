@@ -6,7 +6,8 @@ export function ExamplesCard() {
       className={styles.card}
       href="https://github.com/react18-tools/nextjs-themes"
       rel="noopener noreferrer"
-      target="_blank">
+      target="_blank"
+    >
       <h2>
         More Examples <span>-&gt;</span>
       </h2>

@@ -66,12 +66,12 @@ Adding dark mode support takes 2 lines of code:
 import { ThemeSwitcher } from "nextjs-themes";
 
 function MyApp({ Component, pageProps }) {
-	return (
-		<>
-			<ThemeSwitcher forcedTheme={Component.theme} />
-			<Component {...pageProps} />
-		</>
-	);
+  return (
+    <>
+      <ThemeSwitcher forcedTheme={Component.theme} />
+      <Component {...pageProps} />
+    </>
+  );
 }
 
 export default MyApp;
@@ -96,17 +96,17 @@ import { ThemeSwitcher } from "nextjs-themes";
 import { NextJsSSGThemeSwitcher } from "nextjs-themes/server/nextjs";
 
 export default function Layout({ children }) {
-	return (
-		<html lang="en">
-			<head />
-			<body>
-				/** use NextJsSSGThemeSwitcher as first element inside body */
-				<NextJsSSGThemeSwitcher />
-				<ThemeSwitcher />
-				{children}
-			</body>
-		</html>
-	);
+  return (
+    <html lang="en">
+      <head />
+      <body>
+        /** use NextJsSSGThemeSwitcher as first element inside body */
+        <NextJsSSGThemeSwitcher />
+        <ThemeSwitcher />
+        {children}
+      </body>
+    </html>
+  );
 }
 ```
 
@@ -124,15 +124,15 @@ import { ThemeSwitcher } from "nextjs-themes";
 import { ServerSideWrapper } from "nextjs-themes/server/nextjs";
 
 export default function Layout({ children }) {
-	return (
-		<ServerSideWrapper tag="html" lang="en">
-			<head />
-			<body>
-				<ThemeSwitcher />
-				{children}
-			</body>
-		</ServerSideWrapper>
-	);
+  return (
+    <ServerSideWrapper tag="html" lang="en">
+      <head />
+      <body>
+        <ThemeSwitcher />
+        {children}
+      </body>
+    </ServerSideWrapper>
+  );
 }
 ```
 
@@ -144,20 +144,20 @@ That's it, your Next.js app fully supports dark mode, including System preferenc
 
 ```css
 :root {
-	/* Your default theme */
-	--background: white;
-	--foreground: black;
+  /* Your default theme */
+  --background: white;
+  --foreground: black;
 }
 
 [data-theme="dark"] {
-	--background: black;
-	--foreground: white;
+  --background: black;
+  --foreground: white;
 }
 
 // v2 onwards when using NextJsSSGThemeSwitcher, we need to use CSS Combinators
 [data-theme="dark"] ~ * {
-	--background: black;
-	--foreground: white;
+  --background: black;
+  --foreground: white;
 }
 ```
 
@@ -169,18 +169,18 @@ In case your components need to know the current theme and be able to change it.
 import { useTheme } from "nextjs-themes";
 
 const ThemeChanger = () => {
-	/* you can also improve performance by using selectors
-	 * const [theme, setTheme] = useTheme(state => [state.theme, state.setTheme]);
-	 */
-	const { theme, setTheme } = useTheme();
+  /* you can also improve performance by using selectors
+   * const [theme, setTheme] = useTheme(state => [state.theme, state.setTheme]);
+   */
+  const { theme, setTheme } = useTheme();
 
-	return (
-		<div>
-			The current theme is: {theme}
-			<button onClick={() => setTheme("light")}>Light Mode</button>
-			<button onClick={() => setTheme("dark")}>Dark Mode</button>
-		</div>
-	);
+  return (
+    <div>
+      The current theme is: {theme}
+      <button onClick={() => setTheme("light")}>Light Mode</button>
+      <button onClick={() => setTheme("dark")}>Dark Mode</button>
+    </div>
+  );
 };
 ```
 
@@ -192,12 +192,12 @@ const ThemeChanger = () => {
 import { ForceTheme } from "nextjs-themes";
 
 function MyPage() {
-	return (
-		<>
-			<ForceTheme theme={"my-theme"} />
-			...
-		</>
-	);
+  return (
+    <>
+      <ForceTheme theme={"my-theme"} />
+      ...
+    </>
+  );
 }
 
 export default MyPage;
@@ -209,7 +209,7 @@ For pages router, you have 2 options. One is the same as the app router and the 
 
 ```javascript
 function MyPage() {
-	return <>...</>;
+  return <>...</>;
 }
 
 MyPage.theme = "my-theme";
@@ -248,7 +248,6 @@ Take care of the following while migrating to `v2`.
 ### 🤩 Don't forger to start this repo!
 
 Want handson course for getting started with Turborepo? Check out [React and Next.js with TypeScript](https://www.udemy.com/course/react-and-next-js-with-typescript/?referralCode=7202184A1E57C3DCA8B2)
-
 
 ## License
 
