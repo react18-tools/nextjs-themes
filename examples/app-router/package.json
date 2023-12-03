@@ -11,15 +11,15 @@
   "dependencies": {
     "@mayank1513/fork-me": "^2.0.0",
     "next": "^14.0.3",
+    "nextjs-themes": "workspace:*",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "nextjs-themes": "workspace:*",
     "shared-ui": "workspace:*"
   },
   "devDependencies": {
     "@next/eslint-plugin-next": "^14.0.3",
-    "@types/node": "^20.10.1",
-    "@types/react": "^18.2.39",
+    "@types/node": "^20.10.2",
+    "@types/react": "^18.2.41",
     "@types/react-dom": "^18.2.17",
     "eslint-config-custom": "workspace:*",
     "tsconfig": "workspace:*",
