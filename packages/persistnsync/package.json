@@ -20,7 +20,7 @@
     "url": "https://github.com/sponsors/mayank1513"
   },
   "devDependencies": {
-    "@types/node": "^20.10.2",
+    "@types/node": "^20.10.3",
     "typescript": "^5.3.2",
     "zustand": "^4.4.7"
   },
