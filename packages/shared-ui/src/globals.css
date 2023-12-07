@@ -30,8 +30,8 @@
 /* dark themes */
 [data-theme="dark"],
 [data-theme="dark"] ~ *,
-[data-theme="black"],
-[data-theme="black"] ~ * {
+[data-theme="dark"],
+[data-theme="dark"] ~ * {
   --bg-color: #000;
   --text-color: #fff;
 }
@@ -50,8 +50,8 @@
 
 [data-theme="dark"],
 [data-theme="dark"] ~ *,
-[data-theme="black"],
-[data-theme="black"] ~ *,
+[data-theme="dark"],
+[data-theme="dark"] ~ *,
 [data-theme="gray"],
 [data-theme="gray"] ~ *,
 [data-theme="dark-blue"],
