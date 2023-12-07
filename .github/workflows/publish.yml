@@ -4,7 +4,7 @@ name: Publish to NPM
 on:
   push:
     branches: [main]
-    paths: "packages/nextjs-themes/package.json"
+    paths: "lib/nextjs-themes/package.json"
 
 jobs:
   publish:
@@ -15,7 +15,7 @@ jobs:
 
     defaults:
       run:
-        working-directory: ./packages/nextjs-themes
+        working-directory: ./lib/nextjs-themes
 
     steps:
       - uses: actions/checkout@v3

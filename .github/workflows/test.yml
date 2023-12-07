@@ -8,7 +8,7 @@ jobs:
 
     defaults:
       run:
-        working-directory: ./packages/nextjs-themes
+        working-directory: ./lib/nextjs-themes
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
