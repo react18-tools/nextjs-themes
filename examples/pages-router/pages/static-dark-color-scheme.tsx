@@ -1,16 +1,16 @@
 import { ColorSchemeType } from "nextjs-themes";
 
-function StaticBlackTheme() {
+function StaticDarkColorScheme() {
   return (
     <div>
-      <h1>Static Black theme by setting theme on page Component</h1>
+      <h1>Static Color Scheme by setting colorScheme on page Component</h1>
       <code>
         <pre>
           {`function MyPage() {
     return (<>...</>)
 }
 
-MyPage.theme = "my-theme";
+MyPage.colorScheme = "dark";
 
 export default MyPage;`}
         </pre>
@@ -19,6 +19,6 @@ export default MyPage;`}
   );
 }
 
-StaticBlackTheme.colorScheme = "dark" as ColorSchemeType;
+StaticDarkColorScheme.colorScheme = "dark" as ColorSchemeType;
 
-export default StaticBlackTheme;
+export default StaticDarkColorScheme;
