@@ -1,5 +1,11 @@
 # nextjs-themes
 
+## 1.2.0
+
+### Minor Changes
+
+- Support Tailwind CSS
+
 ## 1.1.1
 
 ### Patch Changes
