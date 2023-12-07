@@ -1,4 +1,5 @@
 .nextjs-themes--color-switch {
+  all: unset;
   position: relative;
   box-shadow: none;
   color: #aaa;

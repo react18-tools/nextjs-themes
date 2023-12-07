@@ -7,6 +7,7 @@ describe("color-switch", () => {
 
   test("color-scheme-toggle", ({ expect }) => {
     const hook = renderHook(() => useTheme());
+    act(() => hook.result.current.setColorSchemePref(""));
     render(<ColorSwitch />);
     const element = screen.getByTestId("color-switch");
     act(() => fireEvent.click(element));
@@ -15,5 +16,7 @@ describe("color-switch", () => {
     expect(hook.result.current.colorSchemePref).toBe("light");
     act(() => fireEvent.click(element));
     expect(hook.result.current.colorSchemePref).toBe("system");
+    act(() => fireEvent.click(element));
+    expect(hook.result.current.colorSchemePref).toBe("dark");
   });
 });
