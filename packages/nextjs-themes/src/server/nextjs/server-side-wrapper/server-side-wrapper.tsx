@@ -34,7 +34,7 @@ function sharedServerComponentRenderer(
     className: "",
   };
   if (dataTheme !== undefined) {
-    dataProps["data-theme"] += dataTheme;
+    dataProps["data-theme"] = dataTheme;
     dataProps.className = dataTheme;
   }
   if (dataColorScheme !== undefined) {

@@ -14,3 +14,11 @@ export function resolveThemeFromColorScheme(state: ThemeStoreType, isSystemDark:
       return theme;
   }
 }
+
+export function getResolvedTheme() {
+  return document.documentElement.getAttribute("data-theme");
+}
+
+export function getResolvedColorScheme() {
+  return document.documentElement.getAttribute("data-color-scheme");
+}

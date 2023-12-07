@@ -37,6 +37,7 @@ export function ColorSwitch({ size = 25 }: ColorSwitchProps) {
   return (
     <div
       className="nextjs-themes--color-switch"
+      data-testid="color-switch"
       onClick={toggleColorScheme}
       onKeyUp={e => e.key === "Enter" && toggleColorScheme()}
       role="button"

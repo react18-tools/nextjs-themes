@@ -6,23 +6,24 @@
 
 🤟 👉 [Unleash the Power of React Server Components](https://medium.com/javascript-in-plain-english/unleash-the-power-of-react-server-components-eb3fe7201231)
 
-This project is inspired by next-themes. Next-themes is an awesome package, however, it requires wrapping everything in a provider. The provider has to be a client component as it uses hooks. And thus, it takes away all the benefits of Server Components.
+This project was originally inspired by next-themes. Next-themes is an awesome package, however, it requires wrapping everything in a provider. The provider has to be a client component as it uses hooks. And thus, it takes away all the benefits of Server Components.
 
-`nextjs-themes` removes this limitation and enables you to unleash the full power of React 18 Server Components. In addition, more features are coming up soon... Stay tuned!
+`nextjs-themes` removes this limitation and enables you to unleash the full power of React 18 Server Components. In addition, it adds more features and control over how you theme your app. Stay tuned!
 
+- ✅ Perfect dark mode in 2 lines of code
 - ✅ Fully Treeshakable (`import from nextjs-themes/client/component`)
 - ✅ Designed for excellence
 - ✅ Full TypeScript Support
 - ✅ Unleash the full power of React18 Server components
-- ✅ Works with all build systems/tools/frameworks for React18
 - ✅ Perfect dark mode in 2 lines of code
 - ✅ System setting with prefers-color-scheme
 - ✅ Themed browser UI with color-scheme
 - ✅ Support for Next.js 13 & Next.js 14 `appDir`
+- ✅ No flash on load (for all - SSG, SSR, ISG, Server Components)
 - ✅ Sync theme across tabs and windows
 - ✅ Disable flashing when changing themes
 - ✅ Force pages to specific themes
-- ✅ Class or data attribute selector
+- ✅ Class and data attribute selector
 - ✅ Manipulate theme via `useTheme` hook
 - ✅ Doccumented with [Typedoc](https://react18-tools.github.io/nextjs-themes) ([Docs](https://react18-tools.github.io/nextjs-themes))
 
@@ -161,6 +162,36 @@ That's it, your Next.js app fully supports dark mode, including System preferenc
 }
 ```
 
+## Images
+
+You can also show different images based on the current theme.
+
+```jsx
+import Image from "next/image";
+import { getResolvedTheme } from "nextjs-themes/utils";
+
+function ThemedImage() {
+  const resolvedTheme = getResolvedTheme();
+  let src;
+
+  switch (resolvedTheme) {
+    case "light":
+      src = "/light.png";
+      break;
+    case "dark":
+      src = "/dark.png";
+      break;
+    default:
+      src = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
+      break;
+  }
+
+  return <Image src={src} width={400} height={400} />;
+}
+
+export default ThemedImage;
+```
+
 ### useTheme
 
 In case your components need to know the current theme and be able to change it. The `useTheme` hook provides theme information:
@@ -221,6 +252,60 @@ In a similar way, you can also force color scheme.
 
 Forcing color scheme will apply your defaultDark or defaultLight theme, configurable via hooks.
 
+### With Styled Components and any CSS-in-JS
+
+Next Themes is completely CSS independent, it will work with any library. For example, with Styled Components you just need to `createGlobalStyle` in your custom App:
+
+```js
+// pages/_app.js
+import { createGlobalStyle } from "styled-components";
+import { ThemeSwitcher } from "nextjs-themes";
+
+// Your themeing variables
+const GlobalStyle = createGlobalStyle`
+  :root {
+    --fg: #000;
+    --bg: #fff;
+  }
+
+  [data-theme="dark"] {
+    --fg: #fff;
+    --bg: #000;
+  }
+`;
+
+function MyApp({ Component, pageProps }) {
+  return (
+    <>
+      <GlobalStyle />
+      <ThemeSwitcher forcedTheme={Component.theme} />
+      <Component {...pageProps} />
+    </>
+  );
+}
+```
+
+### With Tailwind
+
+In your `tailwind.config.js`, set the dark mode property to class:
+
+```js
+// tailwind.config.js
+module.exports = {
+  darkMode: "class",
+};
+```
+
+⚡🎉Boom! You are ready to use darkTheme in tailwind.
+
+> Caution! Your class must be set to `"dark"`, which is the default value we have used for this library. Tailwind, as of now, requires that class name must be `"dark"` for dark-theme.
+
+That's it! Now you can use dark-mode specific classes:
+
+```tsx
+<h1 className="text-black dark:text-white">
+```
+
 ## Migrating from v1 to v2
 
 #### Motivation:
@@ -248,6 +333,22 @@ Take care of the following while migrating to `v2`.
 ### 🤩 Don't forger to start this repo!
 
 Want handson course for getting started with Turborepo? Check out [React and Next.js with TypeScript](https://www.udemy.com/course/react-and-next-js-with-typescript/?referralCode=7202184A1E57C3DCA8B2)
+
+## FAQ
+
+**Do I need to use CSS variables with this library?**
+
+Nope. It's just a convenient way. You can hard code values for every class as follows.
+
+```css
+.my-class {
+  color: #555;
+}
+
+[data-theme="dark"] .my-class {
+  color: white;
+}
+```
 
 ## License
 
