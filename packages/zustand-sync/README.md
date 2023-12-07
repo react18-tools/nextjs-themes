@@ -1,5 +1,7 @@
 # Zustand Sync Tabs [![Version](https://img.shields.io/npm/v/zustand-sync.svg?colorB=green)](https://www.npmjs.com/package/zustand-sync) [![Downloads](https://img.jsdelivr.com/img.shields.io/npm/dt/zustand-sync.svg)](https://www.npmjs.com/package/zustand-sync) ![npm bundle size](https://img.shields.io/bundlephobia/minzip/zustand-sync)
 
+> This package is no longer maintained here. Please check out https://github.com/react18-tools/zustand-sync-tabs
+
 > Zustand middleware to easily persist and sync Zustand state between tabs / windows / iframes (SameOrigin)
 
 > Motivation: Recently I got cought up in several issues working with persist miggleware and syncing tabs with zustand. This is a simple light weight middleware to persist and instantly share state between tabs or windows

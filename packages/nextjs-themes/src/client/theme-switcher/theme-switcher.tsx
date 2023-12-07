@@ -57,6 +57,7 @@ interface UpdateDOMProps {
 
 function updateDOM({ newTheme, colorScheme, media }: UpdateDOMProps, targetSelector?: string) {
   [document.querySelector(targetSelector || "#nextjs-themes"), document.documentElement].forEach(target => {
+    if (target) target.className = `${newTheme} cs-${colorScheme}`; /** cs == color-scheme */
     target?.setAttribute("data-theme", newTheme);
     target?.setAttribute("data-color-scheme", colorScheme);
   });

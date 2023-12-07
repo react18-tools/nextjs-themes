@@ -6,12 +6,12 @@ import { StarMeCard } from "./star-me-card";
 import { DocsCard } from "./docs-card";
 
 export function Cards({ LinkElement }: PageNavigatorCardProps) {
-	return (
-		<div className={styles.cards}>
-			<PageNavigatorCard LinkElement={LinkElement} />
-			<DocsCard />
-			<ExamplesCard />
-			<StarMeCard />
-		</div>
-	);
+  return (
+    <div className={styles.cards}>
+      <PageNavigatorCard LinkElement={LinkElement} />
+      <DocsCard />
+      <ExamplesCard />
+      <StarMeCard />
+    </div>
+  );
 }

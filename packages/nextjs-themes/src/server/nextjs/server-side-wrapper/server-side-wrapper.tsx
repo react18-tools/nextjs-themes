@@ -30,9 +30,17 @@ function sharedServerComponentRenderer(
       ? getTheme(themeState, isSystemDark)
       : getForcedPageTheme(themeState, forcedPageData, isSystemDark);
 
-  const dataProps: { "data-theme"?: string; "data-color-scheme"?: ColorSchemeType } = {};
-  if (dataTheme !== undefined) dataProps["data-theme"] = dataTheme;
-  if (dataColorScheme !== undefined) dataProps["data-color-scheme"] = dataColorScheme;
+  const dataProps: { "data-theme"?: string; "data-color-scheme"?: ColorSchemeType; className?: string } = {
+    className: "",
+  };
+  if (dataTheme !== undefined) {
+    dataProps["data-theme"] = dataTheme;
+    dataProps.className = dataTheme;
+  }
+  if (dataColorScheme !== undefined) {
+    dataProps["data-color-scheme"] = dataColorScheme;
+    dataProps.className += ` cs-${dataColorScheme}`;
+  }
 
   return (
     // @ts-expect-error -> svg props and html element props conflict
