@@ -1,5 +1,14 @@
 # simple-multi-theme
 
+## 1.0.8
+
+### Patch Changes
+
+- Add resolvedTheme and resolvedColorScheme to useTheme state.
+- Updated dependencies
+  - nextjs-themes@1.2.1
+  - shared-ui@1.0.2
+
 ## 1.0.7
 
 ### Patch Changes

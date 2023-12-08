@@ -352,6 +352,22 @@ Nope. It's just a convenient way. You can hard code values for every class as fo
 }
 ```
 
+**Why is `resolvedTheme` and `resolvedColorScheme` necessary?**
+
+When supporting the System theme preference, and forced theme/colorScheme pages, you want to make sure that's reflected in your UI. This means your buttons, selects, dropdowns, or whatever you use to indicate the current colorScheme should say "system" when the System colorScheme preference is active. And also the appropreate theme is available in resolvedTheme.
+
+`resolvedTheme` is then useful for modifying behavior or styles at runtime:
+
+```js
+const { resolvedTheme, resolvedColorScheme } = useTheme();
+
+const background = getBackground(resolvedTheme);
+
+<div style={{ color: resolvedColorScheme === 'dark' ? white : black, background }}>
+```
+
+If we didn't have `resolvedTheme` and only used `theme`, you'd lose information about the state of your UI (you would only know the theme is "system", and not what it resolved to).
+
 ## License
 
 Licensed as MIT open source.
