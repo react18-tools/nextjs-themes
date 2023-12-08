@@ -1,5 +1,11 @@
 # nextjs-themes
 
+## 1.2.1
+
+### Patch Changes
+
+- Add resolvedTheme and resolvedColorScheme to useTheme state.
+
 ## 1.2.0
 
 ### Minor Changes

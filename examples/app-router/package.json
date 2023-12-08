@@ -1,6 +1,6 @@
 {
   "name": "app-router",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "private": true,
   "scripts": {
     "dev": "next dev --port 3002",
@@ -10,15 +10,15 @@
   },
   "dependencies": {
     "@mayank1513/fork-me": "^2.0.0",
-    "next": "^14.0.3",
+    "next": "^14.0.4",
     "nextjs-themes": "workspace:*",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "shared-ui": "workspace:*"
   },
   "devDependencies": {
-    "@next/eslint-plugin-next": "^14.0.3",
-    "@types/node": "^20.10.3",
+    "@next/eslint-plugin-next": "^14.0.4",
+    "@types/node": "^20.10.4",
     "@types/react": "^18.2.42",
     "@types/react-dom": "^18.2.17",
     "eslint-config-custom": "workspace:*",

@@ -1,5 +1,14 @@
 # app-router
 
+## 0.0.13
+
+### Patch Changes
+
+- Add resolvedTheme and resolvedColorScheme to useTheme state.
+- Updated dependencies
+  - nextjs-themes@1.2.1
+  - shared-ui@1.0.2
+
 ## 0.0.12
 
 ### Patch Changes

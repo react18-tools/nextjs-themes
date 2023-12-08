@@ -1,4 +1,6 @@
-# Nextjs-Themes [![Version](https://img.shields.io/npm/v/nextjs-themes.svg?colorB=green)](https://www.npmjs.com/package/nextjs-themes) [![codecov](https://codecov.io/gh/mayank1513/nextjs-themes/branch/main/graph/badge.svg?token=SUTY0GHPHV)](https://codecov.io/gh/mayank1513/nextjs-themes) [![Downloads](https://img.jsdelivr.com/img.shields.io/npm/dt/nextjs-themes.svg)](https://www.npmjs.com/package/nextjs-themes) [![npm bundle size](https://img.shields.io/bundlephobia/minzip/nextjs-themes)](https://www.npmjs.com/package/nextjs-themes) [![Publish to npm and GitHub](https://github.com/mayank1513/nextjs-themes/actions/workflows/test.yml/badge.svg)](https://github.com/mayank1513/nextjs-themes/actions/workflows/publish-to-npm-on-new-release.yml) [![Contact me on Codementor](https://www.codementor.io/m-badges/mayank1513/get-help.svg)](https://www.codementor.io/@mayank1513?refer=badge)
+# Nextjs-Themes
+
+[![test](https://github.com/react18-tools/nextjs-themes/actions/workflows/test.yml/badge.svg)](https://github.com/react18-tools/nextjs-themes/actions/workflows/test.yml) [![Maintainability](https://api.codeclimate.com/v1/badges/149263e95a1388369bb9/maintainability)](https://codeclimate.com/github/react18-tools/nextjs-themes/maintainability) [![codecov](https://codecov.io/gh/mayank1513/nextjs-themes/branch/main/graph/badge.svg?token=SUTY0GHPHV)](https://codecov.io/gh/mayank1513/nextjs-themes) [![Version](https://img.shields.io/npm/v/nextjs-themes.svg?colorB=green)](https://www.npmjs.com/package/nextjs-themes) [![Downloads](https://img.jsdelivr.com/img.shields.io/npm/dt/nextjs-themes.svg)](https://www.npmjs.com/package/nextjs-themes) [![npm bundle size](https://img.shields.io/bundlephobia/minzip/nextjs-themes)](https://www.npmjs.com/package/nextjs-themes) [![Contact me on Codementor](https://www.codementor.io/m-badges/mayank1513/get-help.svg)](https://www.codementor.io/@mayank1513?refer=badge)
 
 > This is a sister package of [react18-themes](https://github.com/react18-tools/react18-themes/). Initially we targeted only Next.js and thus this package was named `nextjs-themes`. However, we have expanded support for `Vite` and `Remix` as well. And thus published a package with more generic name, `react18-themes`.
 
@@ -168,10 +170,10 @@ You can also show different images based on the current theme.
 
 ```jsx
 import Image from "next/image";
-import { getResolvedTheme } from "nextjs-themes/utils";
+import { useTheme } from "nextjs-themes";
 
 function ThemedImage() {
-  const resolvedTheme = getResolvedTheme();
+  const { resolvedTheme } = useTheme();
   let src;
 
   switch (resolvedTheme) {
@@ -349,6 +351,22 @@ Nope. It's just a convenient way. You can hard code values for every class as fo
   color: white;
 }
 ```
+
+**Why is `resolvedTheme` and `resolvedColorScheme` necessary?**
+
+When supporting the System theme preference, and forced theme/colorScheme pages, you want to make sure that's reflected in your UI. This means your buttons, selects, dropdowns, or whatever you use to indicate the current colorScheme should say "system" when the System colorScheme preference is active. And also the appropreate theme is available in resolvedTheme.
+
+`resolvedTheme` is then useful for modifying behavior or styles at runtime:
+
+```js
+const { resolvedTheme, resolvedColorScheme } = useTheme();
+
+const background = getBackground(resolvedTheme);
+
+<div style={{ color: resolvedColorScheme === 'dark' ? white : black, background }}>
+```
+
+If we didn't have `resolvedTheme` and only used `theme`, you'd lose information about the state of your UI (you would only know the theme is "system", and not what it resolved to).
 
 ## License
 
