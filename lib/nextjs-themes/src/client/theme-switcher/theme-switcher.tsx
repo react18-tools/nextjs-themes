@@ -16,10 +16,18 @@ export function ThemeSwitcher(props: ThemeSwitcherProps) {
 }
 
 export function useThemeSwitcher(props: ThemeSwitcherProps) {
-  const themeState = useTheme();
+  const depArray = useTheme(state => [
+    state.theme,
+    state.darkTheme,
+    state.lightTheme,
+    state.colorSchemePref,
+    state.forcedColorScheme,
+    state.forcedTheme,
+  ]);
 
   useEffect(() => {
-    const { colorSchemePref, forcedTheme, forcedColorScheme } = themeState;
+    const themeState = useTheme.getState();
+    const { colorSchemePref, forcedTheme, forcedColorScheme, setResolved } = themeState;
     const resolvedForcedTheme = props.forcedTheme === undefined ? forcedTheme : props.forcedTheme;
     const resolvedForcedColorScheme =
       props.forcedColorScheme === undefined ? forcedColorScheme : props.forcedColorScheme;
@@ -34,6 +42,7 @@ export function useThemeSwitcher(props: ThemeSwitcherProps) {
           ? resolvedForcedTheme
           : resolveThemeFromColorScheme({ ...themeState, colorSchemePref: colorScheme }, media.matches);
 
+      setResolved({ resolvedTheme: newTheme, resolvedColorScheme: colorScheme });
       updateDOM({ newTheme, colorScheme, media }, props.targetSelector);
 
       restoreTransitions();
@@ -46,7 +55,7 @@ export function useThemeSwitcher(props: ThemeSwitcherProps) {
     return () => {
       media.removeEventListener("change", updateTheme);
     };
-  }, [props.forcedColorScheme, props.forcedTheme, props.targetSelector, themeState]);
+  }, [props.forcedColorScheme, props.forcedTheme, props.targetSelector, ...depArray]);
 }
 
 interface UpdateDOMProps {

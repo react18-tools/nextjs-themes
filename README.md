@@ -170,10 +170,10 @@ You can also show different images based on the current theme.
 
 ```jsx
 import Image from "next/image";
-import { getResolvedTheme } from "nextjs-themes/utils";
+import { useTheme } from "nextjs-themes";
 
 function ThemedImage() {
-  const resolvedTheme = getResolvedTheme();
+  const { resolvedTheme } = useTheme();
   let src;
 
   switch (resolvedTheme) {
