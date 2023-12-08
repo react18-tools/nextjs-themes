@@ -6,8 +6,8 @@ on:
   schedule:
     - cron: "0 0 */2 * *"
 jobs:
-  publish:
-    if: github.repository_owner.login == 'react18-tools'
+  doc:
+    if: github.event.repository.owner.login == 'react18-tools'
     runs-on: ubuntu-latest
     permissions:
       packages: write
