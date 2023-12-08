@@ -9,7 +9,7 @@ export function resolveTheme(isSystemDark: boolean, state?: ThemeStoreType, prop
     (resolvedForcedColorScheme === undefined ? state?.colorSchemePref : resolvedForcedColorScheme) || "";
 
   let resolvedColorScheme: "dark" | "light" = isSystemDark ? "dark" : "light";
-  let resolvedTheme = resolvedForcedTheme || state?.theme || "";
+  let resolvedTheme = resolvedForcedTheme === undefined ? state?.theme || "" : resolvedForcedTheme;
 
   if (resolvedForcedTheme === undefined)
     switch (resolvedColorSchemePref) {

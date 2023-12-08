@@ -35,37 +35,59 @@ describe("server-side-target", () => {
   });
   test("forced theme", ({ expect }) => {
     globalThis.path = "/themed-page/dark1";
-    render(<NextJsSSGThemeSwitcher forcedPages={[[/themed-page\/dark1/, { theme: "dark1" }]]} />);
+    render(
+      <NextJsSSGThemeSwitcher forcedPages={[{ pathMatcher: /themed-page\/dark1/, props: { forcedTheme: "dark1" } }]} />,
+    );
     expect(screen.getByTestId("server-side-target").getAttribute("data-theme")).toBe("dark1");
   });
 
   /** test cookies and forced pages */
   test("forced color scheme dark", ({ expect }) => {
     globalThis.path = "/forced-color-scheme/dark";
-    render(<NextJsSSGThemeSwitcher forcedPages={[[/forced-color-scheme\/dark/, { colorScheme: "dark" }]]} />);
+    render(
+      <NextJsSSGThemeSwitcher
+        forcedPages={[{ pathMatcher: /forced-color-scheme\/dark/, props: { forcedColorScheme: "dark" } }]}
+      />,
+    );
     expect(screen.getByTestId("server-side-target").getAttribute("data-theme")).toBe("dark-blue");
     expect(screen.getByTestId("server-side-target").getAttribute("data-color-scheme")).toBe("dark");
   });
   test("forced color scheme light", ({ expect }) => {
     globalThis.path = "/forced-color-scheme/light";
-    render(<NextJsSSGThemeSwitcher forcedPages={[[/forced-color-scheme\/light/, { colorScheme: "light" }]]} />);
+    render(
+      <NextJsSSGThemeSwitcher
+        forcedPages={[{ pathMatcher: /forced-color-scheme\/light/, props: { forcedColorScheme: "light" } }]}
+      />,
+    );
     expect(screen.getByTestId("server-side-target").getAttribute("data-theme")).toBe("light-yellow");
   });
   test("forced color scheme system", ({ expect }) => {
     globalThis.path = "/forced-color-scheme/system";
-    render(<NextJsSSGThemeSwitcher forcedPages={[[/forced-color-scheme\/system/, { colorScheme: "system" }]]} />);
+    render(
+      <NextJsSSGThemeSwitcher
+        forcedPages={[{ pathMatcher: /forced-color-scheme\/system/, props: { forcedColorScheme: "system" } }]}
+      />,
+    );
     expect(screen.getByTestId("server-side-target").getAttribute("data-theme")).toBe("dark-blue");
   });
   test("force disable color scheme", ({ expect }) => {
     globalThis.path = "/forced-color-scheme";
-    render(<NextJsSSGThemeSwitcher forcedPages={[[/forced-color-scheme$/, { colorScheme: "" }]]} />);
+    render(
+      <NextJsSSGThemeSwitcher
+        forcedPages={[{ pathMatcher: /forced-color-scheme$/, props: { forcedColorScheme: "" } }]}
+      />,
+    );
     expect(screen.getByTestId("server-side-target").getAttribute("data-theme")).toBe("yellow");
   });
   /** forced page but no cookies */
-  test("force disable color scheme", ({ expect }) => {
+  test("force disable color scheme - no cookies", ({ expect }) => {
     globalThis.cookies = {};
     globalThis.path = "/forced-color-scheme";
-    render(<NextJsSSGThemeSwitcher forcedPages={[[/forced-color-scheme$/, { colorScheme: "" }]]} />);
-    expect(screen.getByTestId("server-side-target").getAttribute("data-color-scheme")).toBe("");
+    render(
+      <NextJsSSGThemeSwitcher
+        forcedPages={[{ pathMatcher: /forced-color-scheme$/, props: { forcedColorScheme: "" } }]}
+      />,
+    );
+    expect(screen.getByTestId("server-side-target").getAttribute("data-csp")).toBe("");
   });
 });
