@@ -8,6 +8,7 @@ export interface ThemeSwitcherProps {
   forcedTheme?: string;
   forcedColorScheme?: ColorSchemeType;
   targetSelector?: string;
+  themeTransition?: string;
 }
 
 export function ThemeSwitcher(props: ThemeSwitcherProps) {
@@ -29,7 +30,7 @@ export function useThemeSwitcher(props: ThemeSwitcherProps) {
     const themeState = useTheme.getState();
     const media = matchMedia("(prefers-color-scheme: dark)");
     const updateTheme = () => {
-      const restoreTransitions = disableAnimation();
+      const restoreTransitions = disableAnimation(props.themeTransition);
 
       const resolvedData = resolveTheme(media.matches, themeState, props);
       const { resolvedColorScheme, resolvedTheme } = resolvedData;
@@ -82,12 +83,11 @@ function updateDOM(
 }
 
 // todo: customizable transition time
-const disableAnimation = () => {
+const disableAnimation = (themeTransition = "none") => {
   const css = document.createElement("style");
+  const transition = `transition: ${themeTransition} !important;`;
   css.appendChild(
-    document.createTextNode(
-      `*{-webkit-transition:none!important;-moz-transition:none!important;-o-transition:none!important;-ms-transition:none!important;transition:none!important}`,
-    ),
+    document.createTextNode(`*{-webkit-${transition}-moz-${transition}-o-${transition}-ms-${transition}${transition}}`),
   );
   document.head.appendChild(css);
 
