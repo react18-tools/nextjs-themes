@@ -27,7 +27,9 @@ This project was originally inspired by next-themes. Next-themes is an awesome p
 - ✅ Force pages to specific themes
 - ✅ Class and data attribute selector
 - ✅ Manipulate theme via `useTheme` hook
-- ✅ Doccumented with [Typedoc](https://react18-tools.github.io/nextjs-themes) ([Docs](https://react18-tools.github.io/nextjs-themes))
+- ✅ Documented with [Typedoc](https://react18-tools.github.io/nextjs-themes) ([Docs](https://react18-tools.github.io/nextjs-themes))
+- ✅ Use combinations of [data-th=""] and [data-color-scheme=""] for dark/light varients of themes
+- ✅ Use [data-csp=""] to style based on colorSchemePreference.
 
 Check out the [live example](https://nextjs-themes.vercel.app/).
 
@@ -55,7 +57,7 @@ $ yarn add nextjs-themes-lite
 
 ## To do
 
-- [ ] Update examples
+- [ ] Update examples, docs and Readme
 
 ## Usage
 
@@ -309,6 +311,25 @@ That's it! Now you can use dark-mode specific classes:
 ```
 
 ## Migrating from v1 to v2
+
+## 2.0.0
+
+### Major Changes
+
+- 6f17cce: # Additonal CSS Combinations + Ensure seamless support for Tailwind
+
+  - No changes required for client side code as `[data-theme=]` selectors work as before.
+  - If you are using `ServerSideWrapper` or `NextJsServerTarget` or `NextJsSSGThemeSwitcher`, you need to convert `forcedPages` elements to objects of the shape `{ pathMatcher: RegExp | string; props: ThemeSwitcherProps }`.
+  - Use `resolvedColorScheme` for more sturdy dark/light/system modes
+  - Use combinations of `[data-th=""]` and `[data-color-scheme=""]` for dark/light varients of themes
+  - Use `[data-csp=""]` to style based on colorSchemePreference.
+
+### Minor Changes
+
+- # Support custom themeTransition
+
+  - Provide `themeTransition` prop to `ThemeSwitcher` component to apply smooth transition while changing theme.
+  - Use `setThemeSet` to set `lightTheme` and `darkTheme` together.
 
 #### Motivation:
 
