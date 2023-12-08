@@ -33,8 +33,7 @@ export function useThemeSwitcher(props: ThemeSwitcherProps) {
       const restoreTransitions = disableAnimation(props.themeTransition);
 
       const resolvedData = resolveTheme(media.matches, themeState, props);
-      const { resolvedColorScheme, resolvedTheme } = resolvedData;
-      themeState.setResolved({ resolvedColorScheme, resolvedTheme });
+      themeState.setResolved(resolvedData);
       updateDOM(resolvedData, media.matches, props.targetSelector);
 
       restoreTransitions();
