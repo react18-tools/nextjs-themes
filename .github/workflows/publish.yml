@@ -8,6 +8,7 @@ on:
 
 jobs:
   publish:
+    if: github.repository_owner.login == 'react18-tools'
     runs-on: ubuntu-latest
     permissions:
       packages: write

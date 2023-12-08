@@ -20,7 +20,7 @@ describe("theme-switcher", () => {
     window.media = "light";
     await act(() => render(<ThemeSwitcher />));
     expect(getResolvedTheme()).toBe("light1");
-    expect(getResolvedColorScheme()).toBe("system");
+    expect(getResolvedColorScheme()).toBe("light");
   });
 
   // colorScheme has higher preference

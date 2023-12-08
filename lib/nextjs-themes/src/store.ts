@@ -14,10 +14,11 @@ export type ThemeStoreType = {
   forcedColorScheme?: ColorSchemeType;
 };
 
-type ThemeStoreActionsType = {
+export type ThemeStoreActionsType = {
   setTheme: (theme: string) => void;
-  setDarkTheme: (defaultDarkTheme: string) => void;
-  setLightTheme: (defaultLightTheme: string) => void;
+  setDarkTheme: (darkTheme: string) => void;
+  setLightTheme: (lightTheme: string) => void;
+  setThemeSet: (themeSet: { darkTheme: string; lightTheme: string }) => void;
   setColorSchemePref: (colorSchemePref: ColorSchemeType) => void;
   setForcedTheme: (forcedTheme?: string) => void;
   setForcedColorScheme: (forcedColorScheme?: ColorSchemeType) => void;
@@ -43,7 +44,8 @@ export const useTheme = create<ThemeStoreType & ThemeStoreActionsType>()(
       setForcedTheme: forcedTheme => set({ ...get(), forcedTheme }),
       setForcedColorScheme: forcedColorScheme => set({ ...get(), forcedColorScheme }),
       setColorSchemePref: colorSchemePref => set({ ...get(), colorSchemePref }),
-      setResolved: resolved => set({ ...get(), ...resolved }),
+      setResolved: ({ resolvedColorScheme, resolvedTheme }) => set({ ...get(), resolvedColorScheme, resolvedTheme }),
+      setThemeSet: ({ lightTheme, darkTheme }) => set({ ...get(), lightTheme, darkTheme }),
     }),
     { name: "nextjs-themes", exclude: [/forced/, /resolved/], storage: "cookies" },
   ),

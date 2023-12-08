@@ -24,7 +24,10 @@ export function SharedRootLayout({
 }: SharedRootLayoutProps) {
   return (
     <>
-      <ThemeSwitcher {...{ forcedColorScheme, forcedTheme, targetSelector }} />
+      <ThemeSwitcher
+        {...{ forcedColorScheme, forcedTheme, targetSelector }}
+        themeTransition="all 0.3s ease-in-out 0s"
+      />
       <main className={`${styles.main} ${className}`} {...props}>
         <Description />
         {children}
