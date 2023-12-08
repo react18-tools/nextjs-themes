@@ -14,7 +14,7 @@ export type ThemeStoreType = {
   forcedColorScheme?: ColorSchemeType;
 };
 
-type ThemeStoreActionsType = {
+export type ThemeStoreActionsType = {
   setTheme: (theme: string) => void;
   setDarkTheme: (defaultDarkTheme: string) => void;
   setLightTheme: (defaultLightTheme: string) => void;

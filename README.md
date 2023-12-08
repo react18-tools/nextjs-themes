@@ -4,7 +4,7 @@
 
 > This is a sister package of [react18-themes](https://github.com/react18-tools/react18-themes/). Initially we targeted only Next.js and thus this package was named `nextjs-themes`. However, we have expanded support for `Vite` and `Remix` as well. And thus published a package with more generic name, `react18-themes`.
 
-> We recommend using [react18-themes](https://github.com/react18-tools/react18-themes/) for latest updates. Though this package is also maintained with specific focus on Next.js, all the functionality of this package along with extended support for other build tools is available in [react18-themes](https://github.com/react18-tools/react18-themes/)
+> We recommend using [react18-themes](https://github.com/react18-tools/react18-themes/) for Remix. This package is maintained with specific focus on Next.js and Vite. Most of the functionality of this package along with extended support for other build tools is available in [react18-themes](https://github.com/react18-tools/react18-themes/)
 
 🤟 👉 [Unleash the Power of React Server Components](https://medium.com/javascript-in-plain-english/unleash-the-power-of-react-server-components-eb3fe7201231)
 

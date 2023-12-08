@@ -11,9 +11,9 @@
   width: var(--size);
 }
 
-[data-color-scheme="system"] .nextjs-themes--color-switch::after,
-[data-color-scheme="system"] ~ .nextjs-themes--color-switch::after,
-[data-color-scheme="system"] ~ * .nextjs-themes--color-switch::after {
+[data-csp="system"] .nextjs-themes--color-switch::after,
+[data-csp="system"] ~ .nextjs-themes--color-switch::after,
+[data-csp="system"] ~ * .nextjs-themes--color-switch::after {
   position: absolute;
   height: 100%;
   width: 100%;
@@ -27,17 +27,17 @@
   content: "A";
 }
 
-[data-color-scheme="dark"] .nextjs-themes--color-switch,
-[data-color-scheme="dark"] ~ .nextjs-themes--color-switch,
-[data-color-scheme="dark"] ~ * .nextjs-themes--color-switch {
+[data-csp="dark"] .nextjs-themes--color-switch,
+[data-csp="dark"] ~ .nextjs-themes--color-switch,
+[data-csp="dark"] ~ * .nextjs-themes--color-switch {
   box-shadow: calc(var(--size) / 4) calc(var(--size) / -4) calc(var(--size) / 8) inset #fff;
   border: none;
   background: transparent;
 }
 
-[data-color-scheme="light"] .nextjs-themes--color-switch,
-[data-color-scheme="light"] ~ .nextjs-themes--color-switch,
-[data-color-scheme="light"] ~ * .nextjs-themes--color-switch {
+[data-csp="light"] .nextjs-themes--color-switch,
+[data-csp="light"] ~ .nextjs-themes--color-switch,
+[data-csp="light"] ~ * .nextjs-themes--color-switch {
   box-shadow: 0 0 50px 10px yellow;
   background-color: yellow;
   border: 1px solid orangered;
