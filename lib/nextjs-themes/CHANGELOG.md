@@ -1,5 +1,11 @@
 # nextjs-themes
 
+## 2.0.1
+
+### Patch Changes
+
+- 6de3493: Add option to skip System colorScheme | Make forcedPage options backward compatible
+
 ## 2.0.0
 
 ### Major Changes

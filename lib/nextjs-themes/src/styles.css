@@ -9,6 +9,7 @@
   --size: 25px;
   height: var(--size);
   width: var(--size);
+  transition: all 0.3s ease-in-out 0s !important;
 }
 
 [data-csp="system"] .nextjs-themes--color-switch::after,

@@ -79,6 +79,11 @@ describe("server-side-target", () => {
     );
     expect(screen.getByTestId("server-side-target").getAttribute("data-theme")).toBe("yellow");
   });
+  test("force disable color scheme -- legacy input format", ({ expect }) => {
+    globalThis.path = "/forced-color-scheme";
+    render(<NextJsSSGThemeSwitcher forcedPages={[[/forced-color-scheme$/, { colorScheme: "" }]]} />);
+    expect(screen.getByTestId("server-side-target").getAttribute("data-theme")).toBe("yellow");
+  });
   /** forced page but no cookies */
   test("force disable color scheme - no cookies", ({ expect }) => {
     globalThis.cookies = {};

@@ -1,11 +1,13 @@
 import * as React from "react";
 import type { HTMLProps, ReactNode } from "react";
 import { cookies, headers } from "next/headers";
-import type { ThemeStoreType } from "../../../store";
+import type { ColorSchemeType, ThemeStoreType } from "../../../store";
 import { resolveTheme } from "../../../utils";
-import { DataProps, ThemeSwitcherProps, UpdateProps } from "../../../client";
+import { DataProps, UpdateProps } from "../../../client";
 
-export type ForcedPage = { pathMatcher: RegExp | string; props: ThemeSwitcherProps };
+export type ForcedPage =
+  | { pathMatcher: RegExp | string; props: { forcedTheme?: string; forcedColorScheme?: ColorSchemeType } }
+  | [pathMatcher: RegExp | string, themes: { theme?: string; colorScheme?: ColorSchemeType }];
 
 export interface NextJsSSRThemeSwitcherProps extends HTMLProps<HTMLElement> {
   children?: ReactNode;
@@ -22,8 +24,12 @@ function sharedServerComponentRenderer(
   const state = cookies().get("nextjs-themes")?.value;
 
   const path = headers().get("referer");
-  const forcedPageProps = forcedPages?.find(forcedPage => path?.match(forcedPage.pathMatcher))?.props;
-
+  const forcedPage = forcedPages?.find(
+    forcedPage => path?.match(Array.isArray(forcedPage) ? forcedPage[0] : forcedPage.pathMatcher),
+  );
+  const forcedPageProps = Array.isArray(forcedPage)
+    ? { forcedTheme: forcedPage[1].theme, forcedColorScheme: forcedPage[1].colorScheme }
+    : forcedPage?.props;
   const themeState = state ? (JSON.parse(state) as ThemeStoreType) : undefined;
   const isSystemDark = cookies().get("data-color-scheme-system")?.value === "dark";
   const resolvedData = resolveTheme(isSystemDark, themeState, forcedPageProps);
