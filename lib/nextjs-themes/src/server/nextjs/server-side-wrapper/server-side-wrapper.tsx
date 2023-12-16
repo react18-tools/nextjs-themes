@@ -3,10 +3,10 @@ import type { HTMLProps, ReactNode } from "react";
 import { cookies, headers } from "next/headers";
 import type { ColorSchemeType, ThemeStoreType } from "../../../store";
 import { resolveTheme } from "../../../utils";
-import { DataProps, ThemeSwitcherProps, UpdateProps } from "../../../client";
+import { DataProps, UpdateProps } from "../../../client";
 
 export type ForcedPage =
-  | { pathMatcher: RegExp | string; props: ThemeSwitcherProps }
+  | { pathMatcher: RegExp | string; props: { forcedTheme?: string; forcedColorScheme?: ColorSchemeType } }
   | [pathMatcher: RegExp | string, themes: { theme?: string; colorScheme?: ColorSchemeType }];
 
 export interface NextJsSSRThemeSwitcherProps extends HTMLProps<HTMLElement> {
