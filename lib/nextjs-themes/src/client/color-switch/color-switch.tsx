@@ -2,8 +2,10 @@ import * as React from "react";
 import { useTheme } from "../../store";
 
 export interface ColorSwitchProps {
-  /** Diameter of the color color switch */
+  /** Diameter of the color switch */
   size?: number;
+  /** Skip system colorScheme while toggling */
+  skipSystem?: boolean;
 }
 
 /**
@@ -14,12 +16,13 @@ export interface ColorSwitchProps {
  * <ColorSwitch />
  * ```
  *
- * custom size
+ * Custom size & skipSystem
+ *
  * ```ts
- * <ColorSwitch size={20} />
+ * <ColorSwitch size={20} skipSystem />
  * ```
  */
-export function ColorSwitch({ size = 25 }: ColorSwitchProps) {
+export function ColorSwitch({ size = 25, skipSystem }: ColorSwitchProps) {
   const [colorSchemePref, setColorSchemePref] = useTheme(state => [state.colorSchemePref, state.setColorSchemePref]);
   const toggleColorScheme = () => {
     switch (colorSchemePref) {
@@ -31,7 +34,7 @@ export function ColorSwitch({ size = 25 }: ColorSwitchProps) {
         setColorSchemePref("light");
         break;
       case "light":
-        setColorSchemePref("system");
+        setColorSchemePref(skipSystem ? "dark" : "system");
     }
   };
   return (
