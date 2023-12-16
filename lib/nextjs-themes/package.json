@@ -32,6 +32,7 @@
     "@vitejs/plugin-react": "^4.2.1",
     "@vitest/coverage-v8": "^1.0.2",
     "esbuild-plugin-ignoretests": "^0.0.7",
+    "esbuild-plugin-react18": "^0.0.6",
     "esbuild-plugin-removetestid": "^0.0.5",
     "esbuild-react18-useclient": "^1.0.7",
     "eslint-config-custom": "workspace:*",
