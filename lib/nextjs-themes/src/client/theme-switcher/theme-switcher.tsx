@@ -32,11 +32,11 @@ export interface UpdateProps {
   th: string;
 }
 
-function updateDOM(
+const updateDOM = (
   { resolvedTheme, resolvedColorScheme, resolvedColorSchemePref, th }: UpdateProps,
   isSystemDark: boolean,
   targetSelector?: string,
-) {
+) => {
   [document.querySelector(targetSelector || "#nextjs-themes"), document.documentElement].forEach(target => {
     /** ensuring that class 'dark' is always present when dark color scheme is applied to support Tailwind  */
     if (target)
@@ -49,9 +49,8 @@ function updateDOM(
 
   /** store system preference for computing data-theme on server side */
   document.cookie = `data-color-scheme-system=${isSystemDark ? "dark" : "light"}`;
-}
+};
 
-// todo: customizable transition time
 const disableAnimation = (themeTransition = "none") => {
   const css = document.createElement("style");
   const transition = `transition: ${themeTransition} !important;`;
@@ -70,6 +69,10 @@ const disableAnimation = (themeTransition = "none") => {
   };
 };
 
+/**
+ * You can use this hook in place of `<ThemeSwitcher />` component.
+ * Please note that you need to add "use client" on top of the component in which you are using this hook.
+ */
 export function useThemeSwitcher(props: ThemeSwitcherProps) {
   const [setStorage, ...depArray] = useTheme(state => [
     state.setStorage,
@@ -106,6 +109,10 @@ export function useThemeSwitcher(props: ThemeSwitcherProps) {
   }, [props.forcedColorScheme, props.forcedTheme, props.targetSelector, ...depArray]);
 }
 
+/**
+ * Use this component in your layout - `app/layout.tsx` or your custom layout or in `_app.tsx` file.
+ * @component
+ */
 export function ThemeSwitcher(props: ThemeSwitcherProps) {
   useThemeSwitcher(props);
   return null;
