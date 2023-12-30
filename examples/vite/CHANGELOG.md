@@ -1,5 +1,13 @@
 # vite-example
 
+## 0.0.16
+
+### Patch Changes
+
+- Updated dependencies
+  - nextjs-themes@2.1.0
+  - shared-ui@1.0.2
+
 ## 0.0.15
 
 ### Patch Changes

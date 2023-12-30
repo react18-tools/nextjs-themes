@@ -30,6 +30,7 @@ This project was originally inspired by next-themes. Next-themes is an awesome p
 - ✅ Documented with [Typedoc](https://react18-tools.github.io/nextjs-themes) ([Docs](https://react18-tools.github.io/nextjs-themes))
 - ✅ Use combinations of [data-th=""] and [data-color-scheme=""] for dark/light varients of themes
 - ✅ Use [data-csp=""] to style based on colorSchemePreference.
+- ✅ Want to avoid cookies (Not recommended), set storage prop to `localStorage` or `sessionStorage` (to avoid persistance)
 
 Check out the [live example](https://nextjs-themes.vercel.app/).
 
@@ -37,9 +38,17 @@ Check out the [live example](https://nextjs-themes.vercel.app/).
 
 ```bash
 $ pnpm add nextjs-themes
-# or
+```
+
+**OR**
+
+```bash
 $ npm install nextjs-themes
-# or
+```
+
+**OR**
+
+```bash
 $ yarn add nextjs-themes
 ```
 
@@ -47,9 +56,17 @@ $ yarn add nextjs-themes
 
 ```bash
 $ pnpm add nextjs-themes-lite
-# or
+```
+
+**or**
+
+```bash
 $ npm install nextjs-themes-lite
-# or
+```
+
+**or**
+
+```bash
 $ yarn add nextjs-themes-lite
 ```
 

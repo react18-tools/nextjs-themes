@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { persistNSync } from "persist-and-sync";
+import { PersistNSyncOptionsType, StorageType, persistNSync } from "persist-and-sync";
 
 export type ColorSchemeType = "" | "system" | "dark" | "light";
 
@@ -12,6 +12,7 @@ export type ThemeStoreType = {
   resolvedColorScheme: ColorSchemeType;
   forcedTheme?: string;
   forcedColorScheme?: ColorSchemeType;
+  __persistNSyncOptions: PersistNSyncOptionsType;
 };
 
 export type ThemeStoreActionsType = {
@@ -23,6 +24,13 @@ export type ThemeStoreActionsType = {
   setForcedTheme: (forcedTheme?: string) => void;
   setForcedColorScheme: (forcedColorScheme?: ColorSchemeType) => void;
   setResolved: (resolved: { resolvedTheme: string; resolvedColorScheme: ColorSchemeType }) => void;
+  setStorage: (storage: StorageType) => void;
+};
+
+const storeOptions: PersistNSyncOptionsType = {
+  name: "nextjs-themes",
+  exclude: [/forced/, /resolved/, /^__/],
+  storage: "cookies",
 };
 
 export const initialState: ThemeStoreType = {
@@ -32,6 +40,7 @@ export const initialState: ThemeStoreType = {
   lightTheme: "",
   colorSchemePref: "system",
   resolvedColorScheme: "system",
+  __persistNSyncOptions: storeOptions,
 };
 
 export const useTheme = create<ThemeStoreType & ThemeStoreActionsType>()(
@@ -46,7 +55,8 @@ export const useTheme = create<ThemeStoreType & ThemeStoreActionsType>()(
       setColorSchemePref: colorSchemePref => set({ ...get(), colorSchemePref }),
       setResolved: ({ resolvedColorScheme, resolvedTheme }) => set({ ...get(), resolvedColorScheme, resolvedTheme }),
       setThemeSet: ({ lightTheme, darkTheme }) => set({ ...get(), lightTheme, darkTheme }),
+      setStorage: storage => set({ ...get(), __persistNSyncOptions: { ...storeOptions, storage } }),
     }),
-    { name: "nextjs-themes", exclude: [/forced/, /resolved/], storage: "cookies" },
+    storeOptions,
   ),
 );
