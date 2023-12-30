@@ -1,5 +1,13 @@
 # simple-multi-theme
 
+## 1.0.11
+
+### Patch Changes
+
+- Updated dependencies
+  - nextjs-themes@2.1.0
+  - shared-ui@1.0.2
+
 ## 1.0.10
 
 ### Patch Changes
