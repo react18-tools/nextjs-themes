@@ -17,47 +17,6 @@ export interface ThemeSwitcherProps {
   storage?: StorageType;
 }
 
-export function ThemeSwitcher(props: ThemeSwitcherProps) {
-  useThemeSwitcher(props);
-  return null;
-}
-
-export function useThemeSwitcher(props: ThemeSwitcherProps) {
-  const [setStorage, ...depArray] = useTheme(state => [
-    state.setStorage,
-    state.theme,
-    state.darkTheme,
-    state.lightTheme,
-    state.colorSchemePref,
-    state.forcedColorScheme,
-    state.forcedTheme,
-  ]);
-
-  useEffect(() => {
-    setStorage(props.storage || "cookies");
-  }, [props.storage]);
-
-  useEffect(() => {
-    const themeState = useTheme.getState();
-    const media = matchMedia("(prefers-color-scheme: dark)");
-    const updateTheme = () => {
-      const restoreTransitions = disableAnimation(props.themeTransition);
-
-      const resolvedData = resolveTheme(media.matches, themeState, props);
-      themeState.setResolved(resolvedData);
-      updateDOM(resolvedData, media.matches, props.targetSelector);
-
-      restoreTransitions();
-    };
-
-    media.addEventListener("change", updateTheme);
-    updateTheme();
-    return () => {
-      media.removeEventListener("change", updateTheme);
-    };
-  }, [props.forcedColorScheme, props.forcedTheme, props.targetSelector, ...depArray]);
-}
-
 export interface DataProps {
   className: string;
   "data-th"?: string;
@@ -110,3 +69,44 @@ const disableAnimation = (themeTransition = "none") => {
     }, 1);
   };
 };
+
+export function useThemeSwitcher(props: ThemeSwitcherProps) {
+  const [setStorage, ...depArray] = useTheme(state => [
+    state.setStorage,
+    state.theme,
+    state.darkTheme,
+    state.lightTheme,
+    state.colorSchemePref,
+    state.forcedColorScheme,
+    state.forcedTheme,
+  ]);
+
+  useEffect(() => {
+    setStorage(props.storage ?? "cookies");
+  }, [props.storage]);
+
+  useEffect(() => {
+    const themeState = useTheme.getState();
+    const media = matchMedia("(prefers-color-scheme: dark)");
+    const updateTheme = () => {
+      const restoreTransitions = disableAnimation(props.themeTransition);
+
+      const resolvedData = resolveTheme(media.matches, themeState, props);
+      themeState.setResolved(resolvedData);
+      updateDOM(resolvedData, media.matches, props.targetSelector);
+
+      restoreTransitions();
+    };
+
+    media.addEventListener("change", updateTheme);
+    updateTheme();
+    return () => {
+      media.removeEventListener("change", updateTheme);
+    };
+  }, [props.forcedColorScheme, props.forcedTheme, props.targetSelector, ...depArray]);
+}
+
+export function ThemeSwitcher(props: ThemeSwitcherProps) {
+  useThemeSwitcher(props);
+  return null;
+}
