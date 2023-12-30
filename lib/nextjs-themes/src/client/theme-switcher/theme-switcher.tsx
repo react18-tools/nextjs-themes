@@ -3,12 +3,18 @@ import { useEffect } from "react";
 import type { ColorSchemeType } from "../../store";
 import { useTheme } from "../../store";
 import { resolveTheme } from "../../utils";
+import { StorageType } from "persist-and-sync";
 
 export interface ThemeSwitcherProps {
   forcedTheme?: string;
   forcedColorScheme?: ColorSchemeType;
   targetSelector?: string;
   themeTransition?: string;
+  /**
+   * defaultValue `"cookies"`
+   * set storage to `localStorage` or `sessionsStorage` when using only client side or when you must avoid using cookies
+   */
+  storage?: StorageType;
 }
 
 export function ThemeSwitcher(props: ThemeSwitcherProps) {
@@ -17,7 +23,8 @@ export function ThemeSwitcher(props: ThemeSwitcherProps) {
 }
 
 export function useThemeSwitcher(props: ThemeSwitcherProps) {
-  const depArray = useTheme(state => [
+  const [setStorage, ...depArray] = useTheme(state => [
+    state.setStorage,
     state.theme,
     state.darkTheme,
     state.lightTheme,
@@ -25,6 +32,10 @@ export function useThemeSwitcher(props: ThemeSwitcherProps) {
     state.forcedColorScheme,
     state.forcedTheme,
   ]);
+
+  useEffect(() => {
+    setStorage(props.storage || "cookies");
+  }, [props.storage]);
 
   useEffect(() => {
     const themeState = useTheme.getState();
