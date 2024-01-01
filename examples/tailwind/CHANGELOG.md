@@ -1,5 +1,12 @@
 # tailwind
 
+## 0.1.6
+
+### Patch Changes
+
+- Updated dependencies
+  - nextjs-themes@2.1.1
+
 ## 0.1.5
 
 ### Patch Changes

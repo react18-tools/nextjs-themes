@@ -1,5 +1,11 @@
 # nextjs-themes
 
+## 2.1.1
+
+### Patch Changes
+
+- Add npm provance
+
 ## 2.1.0
 
 ### Minor Changes
