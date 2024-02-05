@@ -13,7 +13,7 @@
     "@turbo/gen": "^1.12.2",
     "eslint": "^8.56.0",
     "eslint-config-custom": "workspace:*",
-    "prettier": "^3.2.4",
+    "prettier": "^3.2.5",
     "turbo": "^1.12.2"
   },
   "packageManager": "pnpm@8.6.10",
