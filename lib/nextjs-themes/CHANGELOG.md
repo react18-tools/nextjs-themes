@@ -1,5 +1,11 @@
 # nextjs-themes
 
+## 2.1.2
+
+### Patch Changes
+
+- Upgrade dependencies
+
 ## 2.1.1
 
 ### Patch Changes
