@@ -24,8 +24,8 @@ function sharedServerComponentRenderer(
   const state = cookies().get("nextjs-themes")?.value;
 
   const path = headers().get("referer");
-  const forcedPage = forcedPages?.find(
-    forcedPage => path?.match(Array.isArray(forcedPage) ? forcedPage[0] : forcedPage.pathMatcher),
+  const forcedPage = forcedPages?.find(forcedPage =>
+    path?.match(Array.isArray(forcedPage) ? forcedPage[0] : forcedPage.pathMatcher),
   );
   const forcedPageProps = Array.isArray(forcedPage)
     ? { forcedTheme: forcedPage[1].theme, forcedColorScheme: forcedPage[1].colorScheme }
