@@ -1,4 +1,3 @@
-import type { HTMLProps } from "react";
 import { Logo } from "../common/logo";
 import styles from "../root-layout.module.css";
 

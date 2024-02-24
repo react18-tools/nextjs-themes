@@ -49,6 +49,7 @@
   },
   "dependencies": {
     "persist-and-sync": "^1.2.1",
+    "r18gs": "^0.0.3",
     "zustand": "^4.5.1"
   },
   "peerDependencies": {
