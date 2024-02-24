@@ -1,7 +1,7 @@
 import * as React from "react";
 import type { HTMLProps, ReactNode } from "react";
 import { cookies, headers } from "next/headers";
-import type { ColorSchemeType, ThemeStoreType } from "../../../store";
+import type { ColorSchemeType, ThemeStoreType } from "../../../constants";
 import { resolveTheme } from "../../../utils";
 import { DataProps, UpdateProps } from "../../../client";
 
@@ -32,7 +32,7 @@ function sharedServerComponentRenderer(
     : forcedPage?.props;
   const themeState = state ? (JSON.parse(state) as ThemeStoreType) : undefined;
   const isSystemDark = cookies().get("data-color-scheme-system")?.value === "dark";
-  const resolvedData = resolveTheme(isSystemDark, themeState, forcedPageProps);
+  const resolvedData = resolveTheme(themeState, forcedPageProps);
   const dataProps = getDataProps(resolvedData);
 
   return (

@@ -4,6 +4,7 @@ import { resolveTheme } from "../../utils";
 import { ColorSchemeType, DEFAULT_ID, ThemeStoreType, initialState } from "../../constants";
 import useRGS, { SetStateAction } from "r18gs";
 
+/** todo - set persistance and cookies */
 export interface ThemeSwitcherProps {
   forcedTheme?: string;
   forcedColorScheme?: ColorSchemeType;
