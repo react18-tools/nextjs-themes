@@ -1,20 +1,29 @@
 import * as React from "react";
 import { useEffect } from "react";
-import type { ColorSchemeType } from "../../store";
-import { useTheme } from "../../store";
 import { resolveTheme } from "../../utils";
-import { StorageType } from "persist-and-sync";
+import { ColorSchemeType, DEFAULT_ID, ThemeStoreType, initialState } from "../../constants";
+import useRGS, { SetStateAction } from "r18gs";
 
 export interface ThemeSwitcherProps {
   forcedTheme?: string;
   forcedColorScheme?: ColorSchemeType;
   targetSelector?: string;
   themeTransition?: string;
-  /**
-   * defaultValue `"cookies"`
-   * set storage to `localStorage` or `sessionsStorage` when using only client side or when you must avoid using cookies
-   */
-  storage?: StorageType;
+}
+
+function useMediaQuery(setThemeState: SetStateAction<ThemeStoreType>) {
+  React.useEffect(() => {
+    // set event listener for media
+    const media = matchMedia("(prefers-color-scheme: dark)");
+    const updateSystemColorScheme = () => {
+      setThemeState(state => ({ ...state, systemColorScheme: media.matches ? "dark" : "light" }));
+    };
+    updateSystemColorScheme();
+    media.addEventListener("change", updateSystemColorScheme);
+    return () => {
+      media.removeEventListener("change", updateSystemColorScheme);
+    };
+  }, [setThemeState]);
 }
 
 export interface DataProps {
@@ -53,7 +62,8 @@ const updateDOM = (
 
 const disableAnimation = (themeTransition = "none") => {
   const css = document.createElement("style");
-  const transition = `transition: ${themeTransition} !important;`;
+  /** split by ';' to prevent CSS injection */
+  const transition = `transition: ${themeTransition.split(";")[0]} !important;`;
   css.appendChild(
     document.createTextNode(`*{-webkit-${transition}-moz-${transition}-o-${transition}-ms-${transition}${transition}}`),
   );
@@ -74,39 +84,19 @@ const disableAnimation = (themeTransition = "none") => {
  * Please note that you need to add "use client" on top of the component in which you are using this hook.
  */
 export function useThemeSwitcher(props: ThemeSwitcherProps) {
-  const [setStorage, ...depArray] = useTheme(state => [
-    state.setStorage,
-    state.theme,
-    state.darkTheme,
-    state.lightTheme,
-    state.colorSchemePref,
-    state.forcedColorScheme,
-    state.forcedTheme,
-  ]);
+  const [themeState, setThemeState] = useRGS<ThemeStoreType>(props.targetSelector ?? DEFAULT_ID, initialState);
 
+  useMediaQuery(setThemeState);
   useEffect(() => {
-    setStorage(props.storage ?? "cookies");
-  }, [props.storage]);
+    const restoreTransitions = disableAnimation(props.themeTransition);
 
-  useEffect(() => {
-    const themeState = useTheme.getState();
-    const media = matchMedia("(prefers-color-scheme: dark)");
-    const updateTheme = () => {
-      const restoreTransitions = disableAnimation(props.themeTransition);
+    const resolvedData = resolveTheme(themeState, props);
+    const { resolvedColorScheme, resolvedTheme } = resolvedData;
+    setThemeState(state => ({ ...state, resolvedColorScheme, resolvedTheme }));
+    updateDOM(resolvedData, themeState.systemColorScheme === "dark", props.targetSelector);
 
-      const resolvedData = resolveTheme(media.matches, themeState, props);
-      themeState.setResolved(resolvedData);
-      updateDOM(resolvedData, media.matches, props.targetSelector);
-
-      restoreTransitions();
-    };
-
-    media.addEventListener("change", updateTheme);
-    updateTheme();
-    return () => {
-      media.removeEventListener("change", updateTheme);
-    };
-  }, [props.forcedColorScheme, props.forcedTheme, props.targetSelector, ...depArray]);
+    restoreTransitions();
+  }, [props, themeState]);
 }
 
 /**

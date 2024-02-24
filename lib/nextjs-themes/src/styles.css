@@ -34,6 +34,7 @@
   box-shadow: calc(var(--size) / 4) calc(var(--size) / -4) calc(var(--size) / 8) inset #fff;
   border: none;
   background: transparent;
+  animation: swing linear 0.5s;
 }
 
 [data-csp="light"] .nextjs-themes--color-switch,
@@ -42,4 +43,19 @@
   box-shadow: 0 0 50px 10px yellow;
   background-color: yellow;
   border: 1px solid orangered;
+}
+
+@keyframes swing {
+  40% {
+    transform: rotate(-15deg);
+  }
+
+  80% {
+    transform: rotate(10deg);
+  }
+
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
 }
