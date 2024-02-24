@@ -1,4 +1,5 @@
 {
     "editor.formatOnSave": true,
-    "editor.formatOnPaste": true
+    "editor.formatOnPaste": true,
+    "mayank1513.trello-kanban.Workspace.filePath": ".tkb"
 }

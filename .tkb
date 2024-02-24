@@ -1,0 +1,29 @@
+{
+  "scope": "Workspace",
+  "tasks": {
+    "task-hlCkRvoudoMFloe9AQamt": {
+      "id": "task-hlCkRvoudoMFloe9AQamt",
+      "description": "Add persistence and cookies\n",
+      "columnId": "column-todo"
+    }
+  },
+  "columns": [
+    {
+      "id": "column-todo",
+      "title": "To do",
+      "tasksIds": [
+        "task-hlCkRvoudoMFloe9AQamt"
+      ]
+    },
+    {
+      "id": "column-doing",
+      "title": "Doing",
+      "tasksIds": []
+    },
+    {
+      "id": "column-done",
+      "title": "Done",
+      "tasksIds": []
+    }
+  ]
+}
