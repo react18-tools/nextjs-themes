@@ -32,7 +32,10 @@ function useLoadSyncedState(setThemeState: SetStateAction<ThemeStoreType>, targe
   React.useEffect(() => {
     tInit = Date.now();
     const key = targetSelector ?? DEFAULT_ID;
-    setThemeState(state => ({ ...state, ...parseState(localStorage.getItem(key)) }));
+    const storedState = parseState(localStorage.getItem(key));
+    // @ts-expect-error -- using only as a partial
+    delete storedState.systemColorScheme;
+    setThemeState(state => ({ ...state, ...storedState }));
     const storageListener = (e: StorageEvent) => {
       if (e.key === key) setThemeState(state => ({ ...state, ...parseState(e.newValue) }));
     };
@@ -62,7 +65,7 @@ const updateDOM = (
   { resolvedTheme, resolvedColorScheme, resolvedColorSchemePref, th }: UpdateProps,
   targetSelector?: string,
 ) => {
-  [document.querySelector(targetSelector || "#nextjs-themes"), document.documentElement].forEach(target => {
+  [document.querySelector(targetSelector || `#${DEFAULT_ID}`), document.documentElement].forEach(target => {
     /** ensuring that class 'dark' is always present when dark color scheme is applied to support Tailwind  */
     if (target)
       target.className = `${resolvedColorScheme} theme-${resolvedTheme} th-${th} csp-${resolvedColorSchemePref}`;
