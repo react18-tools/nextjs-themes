@@ -1,5 +1,5 @@
 import { cleanup, render, screen } from "@testing-library/react";
-import { afterEach, describe, test } from "vitest";
+import { afterEach, describe, test, beforeEach } from "vitest";
 import { NextJsSSGThemeSwitcher, ServerSideWrapper } from ".";
 
 describe("server-side-target", () => {

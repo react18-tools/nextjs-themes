@@ -10,6 +10,6 @@ export function ForceTheme(props: { theme: string }) {
     return () => {
       setForcedTheme(undefined);
     };
-  }, [props.theme, setForcedTheme]);
+  }, [props.theme]);
   return null;
 }
