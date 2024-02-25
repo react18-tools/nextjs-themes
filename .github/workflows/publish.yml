@@ -20,11 +20,11 @@ jobs:
         working-directory: ./lib/nextjs-themes
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           registry-url: https://registry.npmjs.org
           node-version: 20
