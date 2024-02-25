@@ -1,4 +1,7 @@
-import { vi } from "vitest";
+import useRGS from "r18gs";
+import { vi, beforeEach } from "vitest";
+import { DEFAULT_ID, initialState } from "./src/constants";
+import { act, renderHook } from "@testing-library/react";
 
 // mock matchMedia
 Object.defineProperty(window, "matchMedia", {
@@ -32,5 +35,3 @@ vi.mock("next/headers", () => ({
   cookies: () => ({ get: (cookieName: string) => globalThis.cookies[cookieName] }),
   headers: () => ({ get: (h: string) => globalThis.path }),
 }));
-
-vi.mock("zustand");

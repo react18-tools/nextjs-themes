@@ -1,8 +1,8 @@
 import * as React from "react";
 import type { HTMLProps, ReactNode } from "react";
 import { cookies, headers } from "next/headers";
-import type { ColorSchemeType, ThemeStoreType } from "../../../store";
-import { resolveTheme } from "../../../utils";
+import { DEFAULT_ID, type ColorSchemeType, type ThemeStoreType } from "../../../constants";
+import { parseState, resolveTheme } from "../../../utils";
 import { DataProps, UpdateProps } from "../../../client";
 
 export type ForcedPage =
@@ -14,30 +14,32 @@ export interface NextJsSSRThemeSwitcherProps extends HTMLProps<HTMLElement> {
   /** @defaultValue 'div' */
   tag?: keyof JSX.IntrinsicElements;
   forcedPages?: ForcedPage[];
+  /** id of target element to apply classes to. This is useful when you want to apply theme only to specific container. */
+  targetId?: string;
 }
 
 function sharedServerComponentRenderer(
-  { children, tag, forcedPages, ...props }: NextJsSSRThemeSwitcherProps,
+  { children, tag, forcedPages, targetId, ...props }: NextJsSSRThemeSwitcherProps,
   defaultTag: "div" | "html",
 ) {
   const Tag: keyof JSX.IntrinsicElements = tag || defaultTag;
-  const state = cookies().get("nextjs-themes")?.value;
+  const state = cookies().get(DEFAULT_ID)?.value;
 
   const path = headers().get("referer");
-  const forcedPage = forcedPages?.find(
-    forcedPage => path?.match(Array.isArray(forcedPage) ? forcedPage[0] : forcedPage.pathMatcher),
+  const forcedPage = forcedPages?.find(forcedPage =>
+    path?.match(Array.isArray(forcedPage) ? forcedPage[0] : forcedPage.pathMatcher),
   );
   const forcedPageProps = Array.isArray(forcedPage)
     ? { forcedTheme: forcedPage[1].theme, forcedColorScheme: forcedPage[1].colorScheme }
     : forcedPage?.props;
-  const themeState = state ? (JSON.parse(state) as ThemeStoreType) : undefined;
-  const isSystemDark = cookies().get("data-color-scheme-system")?.value === "dark";
-  const resolvedData = resolveTheme(isSystemDark, themeState, forcedPageProps);
+  const themeState = state ? (parseState(state) as ThemeStoreType) : undefined;
+  const resolvedData = resolveTheme(themeState, forcedPageProps);
   const dataProps = getDataProps(resolvedData);
+  if(targetId) dataProps.className += " nth-scoped";
 
   return (
     // @ts-expect-error -> svg props and html element props conflict
-    <Tag id="nextjs-themes" {...dataProps} {...props} data-testid="server-side-target">
+    <Tag id={targetId || DEFAULT_ID} {...dataProps} {...props} data-nth="next" data-testid="server-side-target">
       {children}
     </Tag>
   );

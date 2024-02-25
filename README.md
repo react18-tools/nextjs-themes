@@ -2,7 +2,9 @@
 
 [![test](https://github.com/react18-tools/nextjs-themes/actions/workflows/test.yml/badge.svg)](https://github.com/react18-tools/nextjs-themes/actions/workflows/test.yml) [![Maintainability](https://api.codeclimate.com/v1/badges/149263e95a1388369bb9/maintainability)](https://codeclimate.com/github/react18-tools/nextjs-themes/maintainability) [![codecov](https://codecov.io/gh/mayank1513/nextjs-themes/branch/main/graph/badge.svg?token=SUTY0GHPHV)](https://codecov.io/gh/mayank1513/nextjs-themes) [![Version](https://img.shields.io/npm/v/nextjs-themes.svg?colorB=green)](https://www.npmjs.com/package/nextjs-themes) [![Downloads](https://img.jsdelivr.com/img.shields.io/npm/dt/nextjs-themes.svg)](https://www.npmjs.com/package/nextjs-themes) [![npm bundle size](https://img.shields.io/bundlephobia/minzip/nextjs-themes)](https://www.npmjs.com/package/nextjs-themes) [![Contact me on Codementor](https://www.codementor.io/m-badges/mayank1513/get-help.svg)](https://www.codementor.io/@mayank1513?refer=badge)
 
-> This is a sister package of [react18-themes](https://github.com/react18-tools/react18-themes/). Initially we targeted only Next.js and thus this package was named `nextjs-themes`. However, we have expanded support for `Vite` and `Remix` as well. And thus published a package with more generic name, `react18-themes`.
+> We are launching version 3.0 with minor API changes and major performance improvement and fixes.
+> We have tried our best to ensure minimum changes to existing APIs.
+> For most users we recommend using [nthul](https://github.com/react18-tools/nextjs-themes-ultralight) package.
 
 > We recommend using [react18-themes](https://github.com/react18-tools/react18-themes/) for Remix. This package is maintained with specific focus on Next.js and Vite. Most of the functionality of this package along with extended support for other build tools is available in [react18-themes](https://github.com/react18-tools/react18-themes/)
 
@@ -221,9 +223,6 @@ In case your components need to know the current theme and be able to change it.
 import { useTheme } from "nextjs-themes";
 
 const ThemeChanger = () => {
-  /* you can also improve performance by using selectors
-   * const [theme, setTheme] = useTheme(state => [state.theme, state.setTheme]);
-   */
   const { theme, setTheme } = useTheme();
 
   return (

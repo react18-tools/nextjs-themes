@@ -1,6 +1,6 @@
 {
   "name": "pages-router",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "private": true,
   "scripts": {
     "dev": "next dev --port 3003",
@@ -16,8 +16,8 @@
     "shared-ui": "workspace:*"
   },
   "devDependencies": {
-    "@types/node": "^20.11.19",
-    "@types/react": "^18.2.56",
+    "@types/node": "^20.11.20",
+    "@types/react": "^18.2.58",
     "@types/react-dom": "^18.2.19",
     "eslint-config-custom": "workspace:*",
     "tsconfig": "workspace:*",

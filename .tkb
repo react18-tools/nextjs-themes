@@ -1,0 +1,36 @@
+{
+  "scope": "Workspace",
+  "tasks": {
+    "task-hlCkRvoudoMFloe9AQamt": {
+      "id": "task-hlCkRvoudoMFloe9AQamt",
+      "description": "Add persistence and cookies\n",
+      "columnId": "column-done"
+    },
+    "Ls_zB0mgomuqP75XrrxOe": {
+      "id": "Ls_zB0mgomuqP75XrrxOe",
+      "description": "Add support for CSS modules / scoped styles -- v3.1",
+      "columnId": "column-todo"
+    }
+  },
+  "columns": [
+    {
+      "id": "column-todo",
+      "title": "To do",
+      "tasksIds": [
+        "Ls_zB0mgomuqP75XrrxOe"
+      ]
+    },
+    {
+      "id": "column-doing",
+      "title": "Doing",
+      "tasksIds": []
+    },
+    {
+      "id": "column-done",
+      "title": "Done",
+      "tasksIds": [
+        "task-hlCkRvoudoMFloe9AQamt"
+      ]
+    }
+  ]
+}

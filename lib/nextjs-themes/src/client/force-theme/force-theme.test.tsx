@@ -1,6 +1,6 @@
 import { act, cleanup, render, renderHook } from "@testing-library/react";
 import { afterEach, describe, test } from "vitest";
-import { useTheme } from "../../store";
+import { useTheme } from "../../hooks";
 import { ForceTheme } from "./force-theme";
 
 describe.concurrent("force-color-scheme", () => {

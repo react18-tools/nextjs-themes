@@ -1,21 +1,23 @@
 import { cleanup, render, screen } from "@testing-library/react";
-import { afterEach, describe, test } from "vitest";
+import { afterEach, describe, test, beforeEach } from "vitest";
 import { NextJsSSGThemeSwitcher, ServerSideWrapper } from ".";
+import { DEFAULT_ID } from "../../../constants";
+import { encodeState } from "../../../utils";
 
 describe("server-side-target", () => {
   afterEach(cleanup);
 
   beforeEach(() => {
     globalThis.cookies = {
-      "nextjs-themes": {
-        value: JSON.stringify({
+      [DEFAULT_ID]: {
+        value: encodeState({
           theme: "yellow",
           darkTheme: "dark-blue",
           lightTheme: "light-yellow",
           colorSchemePref: "dark",
+          systemColorScheme: "dark"
         }),
       },
-      "data-color-scheme-system": { value: "dark" },
     };
     globalThis.path = "";
   });
@@ -61,6 +63,7 @@ describe("server-side-target", () => {
     );
     expect(screen.getByTestId("server-side-target").getAttribute("data-theme")).toBe("light-yellow");
   });
+
   test("forced color scheme system", ({ expect }) => {
     globalThis.path = "/forced-color-scheme/system";
     render(
@@ -70,6 +73,7 @@ describe("server-side-target", () => {
     );
     expect(screen.getByTestId("server-side-target").getAttribute("data-theme")).toBe("dark-blue");
   });
+
   test("force disable color scheme", ({ expect }) => {
     globalThis.path = "/forced-color-scheme";
     render(

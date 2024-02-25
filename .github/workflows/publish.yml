@@ -20,11 +20,11 @@ jobs:
         working-directory: ./lib/nextjs-themes
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           registry-url: https://registry.npmjs.org
           node-version: 20
@@ -43,5 +43,12 @@ jobs:
 
       # Publish lite version
       - run: node lite.js && pnpm build && pnpm publish-package && node scope.js && pnpm publish-package
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+
+      - name: Mark scoped package as deprecated
+        run: |
+          npm deprecate @mayank1513/nextjs-themes "Please use https://www.npmjs.com/package/nextjs-themes instead. We initially created scoped packages to have similarities with the GitHub Public Repository (which requires packages to be scoped). We are no longer using GPR and thus deprecating all scoped packages for which corresponding un-scoped packages exist."
+          npm deprecate @mayank1513/nextjs-themes-lite "Please use https://www.npmjs.com/package/nextjs-themes-lite instead. We initially created scoped packages to have similarities with the GitHub Public Repository (which requires packages to be scoped). We are no longer using GPR and thus deprecating all scoped packages for which corresponding un-scoped packages exist."
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}

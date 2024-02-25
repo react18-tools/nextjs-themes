@@ -1,4 +1,3 @@
-import type { HTMLProps } from "react";
 import { Logo } from "../common/logo";
 import styles from "../root-layout.module.css";
 
@@ -9,8 +8,7 @@ export function Description() {
         className={styles.logo}
         href="https://github.com/react18-tools/nextjs-themes"
         rel="noopener noreferrer"
-        target="_blank"
-      >
+        target="_blank">
         <p>
           <Logo className={styles.code} />
         </p>

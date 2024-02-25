@@ -1,5 +1,20 @@
 # nextjs-themes
 
+## 3.0.0
+
+### Major Changes
+
+- 9f30638: Replaced Zustand with r18gs. Added more functionality and perfomance improvements. Minor changes to existing APIs.
+
+  better support for tree-shaking
+  reduced package size
+  improved performance
+  Ability to create localized themes
+
+### Patch Changes
+
+- 9f30638: Create cookies only if ServerTarget is used.
+
 ## 2.1.2
 
 ### Patch Changes
