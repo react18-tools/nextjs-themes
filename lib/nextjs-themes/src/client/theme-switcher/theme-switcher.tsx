@@ -33,7 +33,7 @@ function useLoadSyncedState(setThemeState: SetStateAction<ThemeStoreType>, targe
     tInit = Date.now();
     const key = targetSelector ?? DEFAULT_ID;
     const storedState = parseState(localStorage.getItem(key));
-    // @ts-expect-error -- using only as a partial
+    // @ts-ignore
     delete storedState.systemColorScheme;
     setThemeState(state => ({ ...state, ...storedState }));
     const storageListener = (e: StorageEvent) => {
