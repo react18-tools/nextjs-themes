@@ -4,16 +4,14 @@
     "task-hlCkRvoudoMFloe9AQamt": {
       "id": "task-hlCkRvoudoMFloe9AQamt",
       "description": "Add persistence and cookies\n",
-      "columnId": "column-todo"
+      "columnId": "column-done"
     }
   },
   "columns": [
     {
       "id": "column-todo",
       "title": "To do",
-      "tasksIds": [
-        "task-hlCkRvoudoMFloe9AQamt"
-      ]
+      "tasksIds": []
     },
     {
       "id": "column-doing",
@@ -23,7 +21,9 @@
     {
       "id": "column-done",
       "title": "Done",
-      "tasksIds": []
+      "tasksIds": [
+        "task-hlCkRvoudoMFloe9AQamt"
+      ]
     }
   ]
 }
