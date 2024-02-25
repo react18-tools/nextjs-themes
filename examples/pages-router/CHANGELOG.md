@@ -1,5 +1,14 @@
 # nextjs-pages-router
 
+## 1.0.14
+
+### Patch Changes
+
+- Updated dependencies [9f30638]
+- Updated dependencies [9f30638]
+  - nextjs-themes@3.0.0
+  - shared-ui@1.0.2
+
 ## 1.0.13
 
 ### Patch Changes
