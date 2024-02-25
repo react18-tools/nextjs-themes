@@ -14,10 +14,12 @@ export interface NextJsSSRThemeSwitcherProps extends HTMLProps<HTMLElement> {
   /** @defaultValue 'div' */
   tag?: keyof JSX.IntrinsicElements;
   forcedPages?: ForcedPage[];
+  /** id of target element to apply classes to. This is useful when you want to apply theme only to specific container. */
+  targetId?: string;
 }
 
 function sharedServerComponentRenderer(
-  { children, tag, forcedPages, ...props }: NextJsSSRThemeSwitcherProps,
+  { children, tag, forcedPages, targetId, ...props }: NextJsSSRThemeSwitcherProps,
   defaultTag: "div" | "html",
 ) {
   const Tag: keyof JSX.IntrinsicElements = tag || defaultTag;
@@ -33,10 +35,11 @@ function sharedServerComponentRenderer(
   const themeState = state ? (parseState(state) as ThemeStoreType) : undefined;
   const resolvedData = resolveTheme(themeState, forcedPageProps);
   const dataProps = getDataProps(resolvedData);
+  if(targetId) dataProps.className += " nth-scoped";
 
   return (
     // @ts-expect-error -> svg props and html element props conflict
-    <Tag id={DEFAULT_ID} {...dataProps} {...props} data-nth="next" data-testid="server-side-target">
+    <Tag id={targetId || DEFAULT_ID} {...dataProps} {...props} data-nth="next" data-testid="server-side-target">
       {children}
     </Tag>
   );

@@ -66,7 +66,8 @@ const updateDOM = (
   targetSelector?: string,
 ) => {
   const target = document.querySelector(targetSelector || `#${DEFAULT_ID}`);
-  [target, document.documentElement].forEach(target => {
+  /** don't apply theme to documentElement for localized targets */
+  [target, targetSelector && target ? null : document.documentElement].forEach(target => {
     /** ensuring that class 'dark' is always present when dark color scheme is applied to support Tailwind  */
     if (target)
       target.className = `${resolvedColorScheme} theme-${resolvedTheme} th-${th} csp-${resolvedColorSchemePref}`;
