@@ -4,7 +4,7 @@ import { darkThemes, lightThemes } from "shared-ui";
 import styles from "shared-ui/src/root-layout.module.css";
 
 export default function ThemeSelector() {
-  const [theme, setTheme] = useTheme(state => [state.theme, state.setTheme]);
+  const { theme, setTheme } = useTheme();
   return (
     <p className={styles.center}>
       <select value={theme} onChange={e => setTheme(e.target.value)}>

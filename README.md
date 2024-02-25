@@ -221,9 +221,6 @@ In case your components need to know the current theme and be able to change it.
 import { useTheme } from "nextjs-themes";
 
 const ThemeChanger = () => {
-  /* you can also improve performance by using selectors
-   * const [theme, setTheme] = useTheme(state => [state.theme, state.setTheme]);
-   */
   const { theme, setTheme } = useTheme();
 
   return (

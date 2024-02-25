@@ -8,7 +8,7 @@ import styles from "../root-layout.module.css";
 const colorSchemes: ColorSchemeType[] = ["", "system", "light", "dark"];
 
 export function ColorSchemePreference() {
-  const [colorSchemePref, setColorSchemePref] = useTheme(state => [state.colorSchemePref, state.setColorSchemePref]);
+  const { colorSchemePref, setColorSchemePref } = useTheme();
   const handleChange: (e: ChangeEvent<HTMLSelectElement>) => void = e =>
     setColorSchemePref(e.target.value as ColorSchemeType);
 
