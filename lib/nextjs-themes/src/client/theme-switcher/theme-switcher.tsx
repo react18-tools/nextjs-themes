@@ -27,13 +27,8 @@ function useMediaQuery(setThemeState: SetStateAction<ThemeStoreType>) {
   }, [setThemeState]);
 }
 
-interface LoadSyncedStateProps {
-  targetSelector?: string;
-  setThemeState: SetStateAction<ThemeStoreType>;
-}
-
 let tInit = 0;
-function useLoadSyncedState({ targetSelector, setThemeState }: LoadSyncedStateProps) {
+function useLoadSyncedState(setThemeState: SetStateAction<ThemeStoreType>, targetSelector?: string) {
   React.useEffect(() => {
     tInit = Date.now();
     const key = targetSelector ?? DEFAULT_ID;
@@ -104,10 +99,8 @@ const disableAnimation = (themeTransition = "none") => {
 export function useThemeSwitcher(props: ThemeSwitcherProps) {
   const [themeState, setThemeState] = useRGS<ThemeStoreType>(props.targetSelector ?? DEFAULT_ID, initialState);
 
-  console.log({ themeState });
-
   useMediaQuery(setThemeState);
-  // useLoadSyncedState({ targetSelector: props.targetSelector, setThemeState });
+  useLoadSyncedState(setThemeState, props.targetSelector);
   useEffect(() => {
     const restoreTransitions = disableAnimation(props.themeTransition);
 

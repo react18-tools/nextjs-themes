@@ -35,9 +35,3 @@ vi.mock("next/headers", () => ({
   cookies: () => ({ get: (cookieName: string) => globalThis.cookies[cookieName] }),
   headers: () => ({ get: (h: string) => globalThis.path }),
 }));
-
-/** reset global state */
-beforeEach(() => {
-  const { result } = renderHook(() => useRGS(DEFAULT_ID));
-  act(() => result.current[1](initialState));
-});

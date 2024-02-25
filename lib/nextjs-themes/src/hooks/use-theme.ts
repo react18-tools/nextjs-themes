@@ -1,30 +1,40 @@
-import useRGS from "r18gs";
+import useRGS, { SetStateAction } from "r18gs";
 import { ColorSchemeType, DEFAULT_ID, ThemeStoreType, initialState } from "../constants";
 import { resolveTheme } from "../utils";
-import { useCallback } from "react";
+import { useCallback, useMemo } from "react";
+
+const DELAY = 200; // ms - delay to allow reading from localStorage so that local storage does not override the new state
+const map: Record<string, Function | number> = {};
+function createSetterWithFirstTimeDelay(setThemeState: SetStateAction<ThemeStoreType>) {
+  return <T>(key: string) => {
+    if (map[key] === undefined) {
+      map[key] = 1;
+      return (arg: T) => setTimeout(() => setThemeState(state => ({ ...state, [key]: arg })), DELAY);
+    } else if (map[key] === 1) {
+      const fn = (arg: T) => setThemeState(state => ({ ...state, [key]: arg }));
+      map[key] = fn;
+    }
+    return map[key] as (arg: T) => void;
+  };
+}
 
 export function useTheme(targetId?: string) {
   const [themeState, setThemeState] = useRGS<ThemeStoreType>(targetId ?? DEFAULT_ID, initialState);
   const { resolvedColorScheme, resolvedTheme } = resolveTheme(themeState);
+  const setterWithFirstTimeDelay = useMemo(() => createSetterWithFirstTimeDelay(setThemeState), []);
   return {
     ...themeState,
     resolvedColorScheme,
     resolvedTheme,
-    setTheme: useCallback((theme: string) => setThemeState(state => ({ ...state, theme })), []),
-    setDarkTheme: useCallback((darkTheme: string) => setThemeState(state => ({ ...state, darkTheme })), []),
-    setLightTheme: useCallback((lightTheme: string) => setThemeState(state => ({ ...state, lightTheme })), []),
+    setTheme: setterWithFirstTimeDelay<string>("theme"),
+    setDarkTheme: setterWithFirstTimeDelay<string>("darkTheme"),
+    setLightTheme: setterWithFirstTimeDelay<string>("lightTheme"),
     setThemeSet: useCallback(
       (themeSet: { darkTheme: string; lightTheme: string }) => setThemeState(state => ({ ...state, ...themeSet })),
       [],
     ),
-    setColorSchemePref: useCallback(
-      (colorSchemePref: ColorSchemeType) => setThemeState(state => ({ ...state, colorSchemePref })),
-      [],
-    ),
-    setForcedTheme: useCallback((forcedTheme?: string) => setThemeState(state => ({ ...state, forcedTheme })), []),
-    setForcedColorScheme: useCallback(
-      (forcedColorScheme?: ColorSchemeType) => setThemeState(state => ({ ...state, forcedColorScheme })),
-      [],
-    ),
+    setColorSchemePref: setterWithFirstTimeDelay<ColorSchemeType>("colorSchemePref"),
+    setForcedTheme: setterWithFirstTimeDelay<string | undefined>("forcedTheme"),
+    setForcedColorScheme: setterWithFirstTimeDelay<ColorSchemeType | undefined>("forcedColorScheme"),
   };
 }
