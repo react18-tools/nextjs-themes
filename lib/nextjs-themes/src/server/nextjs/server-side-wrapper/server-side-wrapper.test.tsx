@@ -13,9 +13,9 @@ describe("server-side-target", () => {
           darkTheme: "dark-blue",
           lightTheme: "light-yellow",
           colorSchemePref: "dark",
+          systemColorScheme: "dark"
         }),
       },
-      "data-color-scheme-system": { value: "dark" },
     };
     globalThis.path = "";
   });
@@ -61,6 +61,7 @@ describe("server-side-target", () => {
     );
     expect(screen.getByTestId("server-side-target").getAttribute("data-theme")).toBe("light-yellow");
   });
+
   test("forced color scheme system", ({ expect }) => {
     globalThis.path = "/forced-color-scheme/system";
     render(
@@ -70,6 +71,7 @@ describe("server-side-target", () => {
     );
     expect(screen.getByTestId("server-side-target").getAttribute("data-theme")).toBe("dark-blue");
   });
+
   test("force disable color scheme", ({ expect }) => {
     globalThis.path = "/forced-color-scheme";
     render(

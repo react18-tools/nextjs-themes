@@ -31,7 +31,6 @@ function sharedServerComponentRenderer(
     ? { forcedTheme: forcedPage[1].theme, forcedColorScheme: forcedPage[1].colorScheme }
     : forcedPage?.props;
   const themeState = state ? (JSON.parse(state) as ThemeStoreType) : undefined;
-  const isSystemDark = cookies().get("data-color-scheme-system")?.value === "dark";
   const resolvedData = resolveTheme(themeState, forcedPageProps);
   const dataProps = getDataProps(resolvedData);
 
