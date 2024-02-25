@@ -11,6 +11,6 @@ export function ForceColorScheme(props: { colorScheme: ColorSchemeType }) {
     return () => {
       setForcedColorScheme(undefined);
     };
-  }, [props.colorScheme, setForcedColorScheme]);
+  }, [props.colorScheme]);
   return null;
 }
