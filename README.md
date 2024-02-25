@@ -72,7 +72,7 @@ $ npm install nextjs-themes-lite
 $ yarn add nextjs-themes-lite
 ```
 
-> You need Zustand as a peer-dependency
+> You need r18gs as a peer-dependency
 
 ## To do
 
