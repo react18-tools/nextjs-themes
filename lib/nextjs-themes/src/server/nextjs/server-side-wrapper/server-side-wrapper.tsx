@@ -1,8 +1,8 @@
 import * as React from "react";
 import type { HTMLProps, ReactNode } from "react";
 import { cookies, headers } from "next/headers";
-import type { ColorSchemeType, ThemeStoreType } from "../../../constants";
-import { resolveTheme } from "../../../utils";
+import { DEFAULT_ID, type ColorSchemeType, type ThemeStoreType } from "../../../constants";
+import { parseState, resolveTheme } from "../../../utils";
 import { DataProps, UpdateProps } from "../../../client";
 
 export type ForcedPage =
@@ -21,7 +21,7 @@ function sharedServerComponentRenderer(
   defaultTag: "div" | "html",
 ) {
   const Tag: keyof JSX.IntrinsicElements = tag || defaultTag;
-  const state = cookies().get("nextjs-themes")?.value;
+  const state = cookies().get(DEFAULT_ID)?.value;
 
   const path = headers().get("referer");
   const forcedPage = forcedPages?.find(forcedPage =>
@@ -30,13 +30,13 @@ function sharedServerComponentRenderer(
   const forcedPageProps = Array.isArray(forcedPage)
     ? { forcedTheme: forcedPage[1].theme, forcedColorScheme: forcedPage[1].colorScheme }
     : forcedPage?.props;
-  const themeState = state ? (JSON.parse(state) as ThemeStoreType) : undefined;
+  const themeState = state ? (parseState(state) as ThemeStoreType) : undefined;
   const resolvedData = resolveTheme(themeState, forcedPageProps);
   const dataProps = getDataProps(resolvedData);
 
   return (
     // @ts-expect-error -> svg props and html element props conflict
-    <Tag id="nextjs-themes" {...dataProps} {...props} data-testid="server-side-target">
+    <Tag id={DEFAULT_ID} {...dataProps} {...props} data-testid="server-side-target">
       {children}
     </Tag>
   );

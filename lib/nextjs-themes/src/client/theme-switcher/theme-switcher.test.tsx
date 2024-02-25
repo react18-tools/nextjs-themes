@@ -3,8 +3,6 @@ import { afterEach, describe, test } from "vitest";
 import { useTheme } from "../../hooks";
 import { ThemeSwitcher } from "./theme-switcher";
 import { getResolvedColorScheme, getResolvedTheme } from "../../utils";
-import useRGS from "r18gs";
-import { DEFAULT_ID, initialState } from "../../constants";
 
 /**
  * -> concurrency is not feasible because of global store conflicts

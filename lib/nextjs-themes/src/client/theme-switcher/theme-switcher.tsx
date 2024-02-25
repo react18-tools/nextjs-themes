@@ -45,7 +45,7 @@ function useLoadSyncedState({ targetSelector, setThemeState }: LoadSyncedStatePr
     return () => {
       window.removeEventListener("storage", storageListener);
     };
-  }, [setThemeState, targetSelector]);
+  }, [targetSelector]);
 }
 
 export interface DataProps {
@@ -104,19 +104,22 @@ const disableAnimation = (themeTransition = "none") => {
 export function useThemeSwitcher(props: ThemeSwitcherProps) {
   const [themeState, setThemeState] = useRGS<ThemeStoreType>(props.targetSelector ?? DEFAULT_ID, initialState);
 
+  console.log({ themeState });
+
   useMediaQuery(setThemeState);
-  useLoadSyncedState({targetSelector: props.targetSelector, setThemeState})
+  // useLoadSyncedState({ targetSelector: props.targetSelector, setThemeState });
   useEffect(() => {
     const restoreTransitions = disableAnimation(props.themeTransition);
 
     const resolvedData = resolveTheme(themeState, props);
     updateDOM(resolvedData, props.targetSelector);
-    if (tInit < Date.now() - 300){
+    if (tInit < Date.now() - 300) {
       const stateStr = encodeState(themeState);
       const key = props.targetSelector || DEFAULT_ID;
       localStorage.setItem(key, stateStr);
       document.cookie = `${key}=${stateStr}; max-age=31536000; SameSite=Strict;`;
-    } restoreTransitions();
+    }
+    restoreTransitions();
   }, [props, themeState]);
 }
 

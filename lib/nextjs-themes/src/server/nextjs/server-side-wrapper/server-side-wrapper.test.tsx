@@ -1,14 +1,16 @@
 import { cleanup, render, screen } from "@testing-library/react";
 import { afterEach, describe, test, beforeEach } from "vitest";
 import { NextJsSSGThemeSwitcher, ServerSideWrapper } from ".";
+import { DEFAULT_ID } from "../../../constants";
+import { encodeState } from "../../../utils";
 
 describe("server-side-target", () => {
   afterEach(cleanup);
 
   beforeEach(() => {
     globalThis.cookies = {
-      "nextjs-themes": {
-        value: JSON.stringify({
+      [DEFAULT_ID]: {
+        value: encodeState({
           theme: "yellow",
           darkTheme: "dark-blue",
           lightTheme: "light-yellow",
