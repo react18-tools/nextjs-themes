@@ -65,7 +65,8 @@ const updateDOM = (
   { resolvedTheme, resolvedColorScheme, resolvedColorSchemePref, th }: UpdateProps,
   targetSelector?: string,
 ) => {
-  [document.querySelector(targetSelector || `#${DEFAULT_ID}`), document.documentElement].forEach(target => {
+  const target = document.querySelector(targetSelector || `#${DEFAULT_ID}`);
+  [target, document.documentElement].forEach(target => {
     /** ensuring that class 'dark' is always present when dark color scheme is applied to support Tailwind  */
     if (target)
       target.className = `${resolvedColorScheme} theme-${resolvedTheme} th-${th} csp-${resolvedColorSchemePref}`;
@@ -74,6 +75,8 @@ const updateDOM = (
     target?.setAttribute("data-color-scheme", resolvedColorScheme);
     target?.setAttribute("data-csp", resolvedColorSchemePref); /** color-scheme-preference */
   });
+  const shouldCreateCookie = target?.getAttribute("data-nth") === "next";
+  return shouldCreateCookie;
 };
 
 const disableAnimation = (themeTransition = "none") => {
@@ -108,12 +111,12 @@ export function useThemeSwitcher(props: ThemeSwitcherProps) {
     const restoreTransitions = disableAnimation(props.themeTransition);
 
     const resolvedData = resolveTheme(themeState, props);
-    updateDOM(resolvedData, props.targetSelector);
+    const shouldCreateCookie = updateDOM(resolvedData, props.targetSelector);
     if (tInit < Date.now() - 300) {
       const stateStr = encodeState(themeState);
       const key = props.targetSelector || DEFAULT_ID;
       localStorage.setItem(key, stateStr);
-      document.cookie = `${key}=${stateStr}; max-age=31536000; SameSite=Strict;`;
+      if (shouldCreateCookie) document.cookie = `${key}=${stateStr}; max-age=31536000; SameSite=Strict;`;
     }
     restoreTransitions();
   }, [props, themeState]);

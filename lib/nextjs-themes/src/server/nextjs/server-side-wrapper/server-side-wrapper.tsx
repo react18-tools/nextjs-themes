@@ -36,7 +36,7 @@ function sharedServerComponentRenderer(
 
   return (
     // @ts-expect-error -> svg props and html element props conflict
-    <Tag id={DEFAULT_ID} {...dataProps} {...props} data-testid="server-side-target">
+    <Tag id={DEFAULT_ID} {...dataProps} {...props} data-nth="next" data-testid="server-side-target">
       {children}
     </Tag>
   );
