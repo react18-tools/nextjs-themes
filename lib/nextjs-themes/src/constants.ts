@@ -8,8 +8,6 @@ export interface ThemeStoreType {
   darkTheme: string;
   lightTheme: string;
   colorSchemePref: ColorSchemeType;
-  resolvedTheme: string;
-  resolvedColorScheme: "dark" | "light";
   systemColorScheme: "dark" | "light";
   forcedTheme?: string;
   forcedColorScheme?: ColorSchemeType;
@@ -27,10 +25,8 @@ export type ThemeStoreActionsType = {
 
 export const initialState: ThemeStoreType = {
   theme: "",
-  resolvedTheme: "",
   darkTheme: "dark",
   lightTheme: "",
   colorSchemePref: "system",
   systemColorScheme: "light",
-  resolvedColorScheme: "light",
 };
