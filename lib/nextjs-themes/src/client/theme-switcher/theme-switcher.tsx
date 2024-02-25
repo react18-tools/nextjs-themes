@@ -1,6 +1,6 @@
 import * as React from "react";
 import { useEffect } from "react";
-import { resolveTheme } from "../../utils";
+import { resolveTheme, parseState, encodeState } from "../../utils";
 import { ColorSchemeType, DEFAULT_ID, ThemeStoreType, initialState } from "../../constants";
 import useRGS, { SetStateAction } from "r18gs";
 
@@ -27,6 +27,27 @@ function useMediaQuery(setThemeState: SetStateAction<ThemeStoreType>) {
   }, [setThemeState]);
 }
 
+interface LoadSyncedStateProps {
+  targetSelector?: string;
+  setThemeState: SetStateAction<ThemeStoreType>;
+}
+
+let tInit = 0;
+function useLoadSyncedState({ targetSelector, setThemeState }: LoadSyncedStateProps) {
+  React.useEffect(() => {
+    tInit = Date.now();
+    const key = targetSelector ?? DEFAULT_ID;
+    setThemeState(state => ({ ...state, ...parseState(localStorage.getItem(key)) }));
+    const storageListener = (e: StorageEvent) => {
+      if (e.key === key) setThemeState(state => ({ ...state, ...parseState(e.newValue) }));
+    };
+    window.addEventListener("storage", storageListener);
+    return () => {
+      window.removeEventListener("storage", storageListener);
+    };
+  }, [setThemeState, targetSelector]);
+}
+
 export interface DataProps {
   className: string;
   "data-th"?: string;
@@ -44,7 +65,6 @@ export interface UpdateProps {
 
 const updateDOM = (
   { resolvedTheme, resolvedColorScheme, resolvedColorSchemePref, th }: UpdateProps,
-  isSystemDark: boolean,
   targetSelector?: string,
 ) => {
   [document.querySelector(targetSelector || "#nextjs-themes"), document.documentElement].forEach(target => {
@@ -56,9 +76,6 @@ const updateDOM = (
     target?.setAttribute("data-color-scheme", resolvedColorScheme);
     target?.setAttribute("data-csp", resolvedColorSchemePref); /** color-scheme-preference */
   });
-
-  /** store system preference for computing data-theme on server side */
-  document.cookie = `data-color-scheme-system=${isSystemDark ? "dark" : "light"}`;
 };
 
 const disableAnimation = (themeTransition = "none") => {
@@ -88,13 +105,18 @@ export function useThemeSwitcher(props: ThemeSwitcherProps) {
   const [themeState, setThemeState] = useRGS<ThemeStoreType>(props.targetSelector ?? DEFAULT_ID, initialState);
 
   useMediaQuery(setThemeState);
+  useLoadSyncedState({targetSelector: props.targetSelector, setThemeState})
   useEffect(() => {
     const restoreTransitions = disableAnimation(props.themeTransition);
 
     const resolvedData = resolveTheme(themeState, props);
-    updateDOM(resolvedData, themeState.systemColorScheme === "dark", props.targetSelector);
-
-    restoreTransitions();
+    updateDOM(resolvedData, props.targetSelector);
+    if (tInit < Date.now() - 300){
+      const stateStr = encodeState(themeState);
+      const key = props.targetSelector || DEFAULT_ID;
+      localStorage.setItem(key, stateStr);
+      document.cookie = `${key}=${stateStr}; max-age=31536000; SameSite=Strict;`;
+    } restoreTransitions();
   }, [props, themeState]);
 }
 
