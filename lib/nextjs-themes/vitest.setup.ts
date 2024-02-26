@@ -1,7 +1,4 @@
-import useRGS from "r18gs";
-import { vi, beforeEach } from "vitest";
-import { DEFAULT_ID, initialState } from "./src/constants";
-import { act, renderHook } from "@testing-library/react";
+import { vi } from "vitest";
 
 // mock matchMedia
 Object.defineProperty(window, "matchMedia", {

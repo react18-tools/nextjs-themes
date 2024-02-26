@@ -23,7 +23,8 @@ function sharedServerComponentRenderer(
   defaultTag: "div" | "html",
 ) {
   const Tag: keyof JSX.IntrinsicElements = tag || defaultTag;
-  const state = cookies().get(DEFAULT_ID)?.value;
+  const key = targetId ? `#${targetId}` : DEFAULT_ID;
+  const state = cookies().get(key)?.value;
 
   const path = headers().get("referer");
   const forcedPage = forcedPages?.find(forcedPage =>
@@ -35,7 +36,7 @@ function sharedServerComponentRenderer(
   const themeState = state ? (parseState(state) as ThemeStoreType) : undefined;
   const resolvedData = resolveTheme(themeState, forcedPageProps);
   const dataProps = getDataProps(resolvedData);
-  if(targetId) dataProps.className += " nth-scoped";
+  if (targetId) dataProps.className += " nth-scoped";
 
   return (
     // @ts-expect-error -> svg props and html element props conflict
