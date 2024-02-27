@@ -1,5 +1,11 @@
 # nextjs-themes
 
+## 3.1.0
+
+### Minor Changes
+
+- Add support for CSS modules and minor fixes.
+
 ## 3.0.0
 
 ### Major Changes
