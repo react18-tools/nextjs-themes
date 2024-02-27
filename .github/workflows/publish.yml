@@ -45,6 +45,7 @@ jobs:
       - run: node lite.js && pnpm build && pnpm publish-package && node scope.js && pnpm publish-package
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+          OWNER: ${{ github.event.repository.owner.login }}
 
       - name: Mark scoped package as deprecated
         run: |

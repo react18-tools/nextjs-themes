@@ -16,14 +16,41 @@ export interface NextJsSSRThemeSwitcherProps extends HTMLProps<HTMLElement> {
   forcedPages?: ForcedPage[];
   /** id of target element to apply classes to. This is useful when you want to apply theme only to specific container. */
   targetId?: string;
+  /** provide styles object imported from CSS/SCSS modules, if you are using CSS/SCSS modules. */
+  styles?: Record<string, string>;
+}
+
+function getDataProps(resolvedData: UpdateProps, styles?: Record<string, string>) {
+  const dataProps: DataProps = { className: "" };
+  let classeNames = [];
+  if (resolvedData.resolvedColorScheme !== undefined) {
+    dataProps["data-color-scheme"] = resolvedData.resolvedColorScheme;
+    classeNames.push(resolvedData.resolvedColorScheme);
+  }
+  if (resolvedData.resolvedTheme !== undefined) {
+    dataProps["data-theme"] = resolvedData.resolvedTheme;
+    classeNames.push(`theme-${resolvedData.resolvedTheme}`);
+  }
+  if (resolvedData.th) {
+    dataProps["data-th"] = resolvedData.th;
+    classeNames.push(`th-${resolvedData.th}`);
+  }
+  if (resolvedData.resolvedColorSchemePref !== undefined) {
+    dataProps["data-csp"] = resolvedData.resolvedColorSchemePref;
+    classeNames.push(`csp-${resolvedData.resolvedColorSchemePref}`);
+  }
+  if (styles) classeNames = classeNames.map(cls => styles[cls] ?? cls);
+  dataProps.className = classeNames.join(" ");
+  return dataProps;
 }
 
 function sharedServerComponentRenderer(
-  { children, tag, forcedPages, targetId, ...props }: NextJsSSRThemeSwitcherProps,
+  { children, tag, forcedPages, targetId, styles, ...props }: NextJsSSRThemeSwitcherProps,
   defaultTag: "div" | "html",
 ) {
   const Tag: keyof JSX.IntrinsicElements = tag || defaultTag;
-  const state = cookies().get(DEFAULT_ID)?.value;
+  const key = targetId ? `#${targetId}` : DEFAULT_ID;
+  const state = cookies().get(key)?.value;
 
   const path = headers().get("referer");
   const forcedPage = forcedPages?.find(forcedPage =>
@@ -34,8 +61,8 @@ function sharedServerComponentRenderer(
     : forcedPage?.props;
   const themeState = state ? (parseState(state) as ThemeStoreType) : undefined;
   const resolvedData = resolveTheme(themeState, forcedPageProps);
-  const dataProps = getDataProps(resolvedData);
-  if(targetId) dataProps.className += " nth-scoped";
+  const dataProps = getDataProps(resolvedData, styles);
+  if (targetId) dataProps.className += styles?.[" nth-scoped"] ?? " nth-scoped";
 
   return (
     // @ts-expect-error -> svg props and html element props conflict
@@ -43,27 +70,6 @@ function sharedServerComponentRenderer(
       {children}
     </Tag>
   );
-}
-
-function getDataProps(resolvedData: UpdateProps) {
-  const dataProps: DataProps = { className: "" };
-  if (resolvedData.resolvedColorScheme !== undefined) {
-    dataProps["data-color-scheme"] = resolvedData.resolvedColorScheme;
-    dataProps.className = resolvedData.resolvedColorScheme;
-  }
-  if (resolvedData.resolvedTheme !== undefined) {
-    dataProps["data-theme"] = resolvedData.resolvedTheme;
-    dataProps.className += `theme-${resolvedData.resolvedTheme}`;
-  }
-  if (resolvedData.th) {
-    dataProps["data-th"] = resolvedData.th;
-    dataProps.className += ` th-${resolvedData.th}`;
-  }
-  if (resolvedData.resolvedColorSchemePref !== undefined) {
-    dataProps["data-csp"] = resolvedData.resolvedColorSchemePref;
-    dataProps.className += ` csp-${resolvedData.resolvedColorSchemePref}`;
-  }
-  return dataProps;
 }
 
 /**

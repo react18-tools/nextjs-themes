@@ -1,5 +1,13 @@
 # app-router
 
+## 0.0.20
+
+### Patch Changes
+
+- Updated dependencies
+  - nextjs-themes@3.1.0
+  - shared-ui@1.0.2
+
 ## 0.0.19
 
 ### Patch Changes
