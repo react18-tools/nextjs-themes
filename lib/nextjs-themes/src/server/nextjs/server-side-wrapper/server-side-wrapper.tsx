@@ -20,6 +20,30 @@ export interface NextJsSSRThemeSwitcherProps extends HTMLProps<HTMLElement> {
   styles?: Record<string, string>;
 }
 
+function getDataProps(resolvedData: UpdateProps, styles?: Record<string, string>) {
+  const dataProps: DataProps = { className: "" };
+  let classeNames = [];
+  if (resolvedData.resolvedColorScheme !== undefined) {
+    dataProps["data-color-scheme"] = resolvedData.resolvedColorScheme;
+    classeNames.push(resolvedData.resolvedColorScheme);
+  }
+  if (resolvedData.resolvedTheme !== undefined) {
+    dataProps["data-theme"] = resolvedData.resolvedTheme;
+    classeNames.push(`theme-${resolvedData.resolvedTheme}`);
+  }
+  if (resolvedData.th) {
+    dataProps["data-th"] = resolvedData.th;
+    classeNames.push(`th-${resolvedData.th}`);
+  }
+  if (resolvedData.resolvedColorSchemePref !== undefined) {
+    dataProps["data-csp"] = resolvedData.resolvedColorSchemePref;
+    classeNames.push(`csp-${resolvedData.resolvedColorSchemePref}`);
+  }
+  if (styles) classeNames = classeNames.map(cls => styles[cls] ?? cls);
+  dataProps.className = classeNames.join(" ");
+  return dataProps;
+}
+
 function sharedServerComponentRenderer(
   { children, tag, forcedPages, targetId, styles, ...props }: NextJsSSRThemeSwitcherProps,
   defaultTag: "div" | "html",
@@ -46,30 +70,6 @@ function sharedServerComponentRenderer(
       {children}
     </Tag>
   );
-}
-
-function getDataProps(resolvedData: UpdateProps, styles?: Record<string, string>) {
-  const dataProps: DataProps = { className: "" };
-  let classeNames = [];
-  if (resolvedData.resolvedColorScheme !== undefined) {
-    dataProps["data-color-scheme"] = resolvedData.resolvedColorScheme;
-    classeNames.push(resolvedData.resolvedColorScheme);
-  }
-  if (resolvedData.resolvedTheme !== undefined) {
-    dataProps["data-theme"] = resolvedData.resolvedTheme;
-    classeNames.push(`theme-${resolvedData.resolvedTheme}`);
-  }
-  if (resolvedData.th) {
-    dataProps["data-th"] = resolvedData.th;
-    classeNames.push(`th-${resolvedData.th}`);
-  }
-  if (resolvedData.resolvedColorSchemePref !== undefined) {
-    dataProps["data-csp"] = resolvedData.resolvedColorSchemePref;
-    classeNames.push(`csp-${resolvedData.resolvedColorSchemePref}`);
-  }
-  if (styles) classeNames = classeNames.map(cls => styles[cls] ?? cls);
-  dataProps.className = classeNames.join(" ");
-  return dataProps;
 }
 
 /**
