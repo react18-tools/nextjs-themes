@@ -9,16 +9,14 @@
     "Ls_zB0mgomuqP75XrrxOe": {
       "id": "Ls_zB0mgomuqP75XrrxOe",
       "description": "Add support for CSS modules / scoped styles -- v3.1",
-      "columnId": "column-todo"
+      "columnId": "column-done"
     }
   },
   "columns": [
     {
       "id": "column-todo",
       "title": "To do",
-      "tasksIds": [
-        "Ls_zB0mgomuqP75XrrxOe"
-      ]
+      "tasksIds": []
     },
     {
       "id": "column-doing",
@@ -29,6 +27,7 @@
       "id": "column-done",
       "title": "Done",
       "tasksIds": [
+        "Ls_zB0mgomuqP75XrrxOe",
         "task-hlCkRvoudoMFloe9AQamt"
       ]
     }
