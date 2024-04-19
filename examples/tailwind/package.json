@@ -9,22 +9,22 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@mayank1513/fork-me": "^2.0.1",
-    "next": "14.1.0",
+    "@mayank1513/fork-me": "^2.1.2",
+    "next": "14.2.2",
     "nextjs-themes": "workspace:*",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@types/node": "^20.11.21",
-    "@types/react": "^18.2.60",
-    "@types/react-dom": "^18.2.19",
-    "autoprefixer": "^10.4.17",
-    "eslint": "^8.57.0",
+    "@types/node": "^20.12.7",
+    "@types/react": "^18.2.79",
+    "@types/react-dom": "^18.2.25",
+    "autoprefixer": "^10.4.19",
+    "eslint": "^9.0.0",
     "eslint-config-custom": "workspace:*",
-    "postcss": "^8.4.35",
-    "tailwindcss": "^3.4.1",
+    "postcss": "^8.4.38",
+    "tailwindcss": "^3.4.3",
     "tsconfig": "workspace:*",
-    "typescript": "^5.3.3"
+    "typescript": "^5.4.5"
   }
 }
