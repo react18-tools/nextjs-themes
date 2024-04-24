@@ -10,6 +10,7 @@ export default defineConfig({
     environment: "jsdom",
     globals: true,
     setupFiles: ["vitest.setup.ts"],
+    isolate: false,
     coverage: {
       reporter: ["text", "json", "clover", "html"],
       exclude: ["__mocks__", "**/index.ts"],

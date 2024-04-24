@@ -125,6 +125,6 @@ describe("theme-switcher with props", () => {
   test("forced colorScheme prop", async ({ expect }) => {
     // global state is continuing from previous testss
     await act(() => render(<ThemeSwitcher forcedColorScheme="light" />));
-    expect(getResolvedTheme()).toBe("");
+    expect(getResolvedColorScheme()).toBe("light");
   });
 });
