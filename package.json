@@ -13,7 +13,7 @@
     "@turbo/gen": "^1.13.3",
     "eslint": "^9.4.0",
     "eslint-config-custom": "workspace:*",
-    "prettier": "^3.2.5",
+    "prettier": "^3.3.0",
     "turbo": "^1.13.3"
   },
   "name": "theme-switch"
