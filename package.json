@@ -10,11 +10,11 @@
   },
   "devDependencies": {
     "@changesets/cli": "^2.27.5",
-    "@turbo/gen": "^2.0.1",
+    "@turbo/gen": "^2.0.3",
     "eslint": "^9.4.0",
     "eslint-config-custom": "workspace:*",
-    "prettier": "^3.3.0",
-    "turbo": "^2.0.1"
+    "prettier": "^3.3.1",
+    "turbo": "^2.0.3"
   },
   "name": "theme-switch",
   "packageManager": "pnpm@9.1.4"
