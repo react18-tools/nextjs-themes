@@ -22,7 +22,7 @@ export interface ColorSwitchProps {
  * <ColorSwitch size={20} skipSystem />
  * ```
  */
-export function ColorSwitch({ size = 25, skipSystem }: ColorSwitchProps) {
+export const ColorSwitch = ({ size = 25, skipSystem }: ColorSwitchProps) => {
   const { colorSchemePref, setColorSchemePref } = useTheme();
   const toggleColorScheme = () => {
     switch (colorSchemePref) {

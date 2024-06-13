@@ -3,7 +3,7 @@ import * as React from "react";
 import { useEffect } from "react";
 import { useTheme } from "../../hooks";
 
-export function ForceTheme(props: { theme: string }) {
+export const ForceTheme = (props: { theme: string }) => {
   const { setForcedTheme } = useTheme();
   useEffect(() => {
     setForcedTheme(props.theme);
