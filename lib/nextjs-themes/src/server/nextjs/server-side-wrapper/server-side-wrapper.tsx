@@ -2,7 +2,7 @@ import * as React from "react";
 import type { HTMLProps, ReactNode } from "react";
 import { cookies, headers } from "next/headers";
 import { DEFAULT_ID, type ColorSchemeType, type ThemeStoreType } from "../../../constants";
-import { parseState, resolveTheme } from "../../../utils";
+import { resolveTheme } from "../../../utils";
 import { DataProps, UpdateProps } from "../../../client";
 
 export type ForcedPage =
@@ -59,7 +59,7 @@ const sharedServerComponentRenderer = (
   const forcedPageProps = Array.isArray(forcedPage)
     ? { forcedTheme: forcedPage[1].theme, forcedColorScheme: forcedPage[1].colorScheme }
     : forcedPage?.props;
-  const themeState = state ? (parseState(state) as ThemeStoreType) : undefined;
+  const themeState = state ? (JSON.parse(state) as ThemeStoreType) : undefined;
   const resolvedData = resolveTheme(themeState, forcedPageProps);
   const dataProps = getDataProps(resolvedData, styles);
   if (targetId) dataProps.className += styles?.[" nth-scoped"] ?? " nth-scoped";
