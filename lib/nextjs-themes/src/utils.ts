@@ -1,7 +1,7 @@
 import { ThemeSwitcherProps, UpdateProps } from "./client";
 import { ColorSchemeType, ThemeStoreType, initialState } from "./constants";
 
-export function resolveTheme(state?: ThemeStoreType, props?: ThemeSwitcherProps): UpdateProps {
+export const resolveTheme = (state?: ThemeStoreType, props?: ThemeSwitcherProps): UpdateProps => {
   const resolvedForcedTheme = props?.forcedTheme === undefined ? state?.forcedTheme : props.forcedTheme;
   const resolvedForcedColorScheme =
     props?.forcedColorScheme === undefined ? state?.forcedColorScheme : props.forcedColorScheme;
@@ -30,20 +30,20 @@ export function resolveTheme(state?: ThemeStoreType, props?: ThemeSwitcherProps)
   return { resolvedTheme, resolvedColorScheme, resolvedColorSchemePref, th };
 }
 
-export function getResolvedTheme() {
+export const getResolvedTheme = () => {
   return document.documentElement.getAttribute("data-theme");
 }
 
-export function getResolvedColorScheme() {
+export const getResolvedColorScheme = () => {
   return document.documentElement.getAttribute("data-color-scheme");
 }
 
-export function encodeState(themeState: ThemeStoreType) {
+export const encodeState = (themeState: ThemeStoreType) => {
   const { colorSchemePref, systemColorScheme, darkTheme, lightTheme, theme } = themeState;
   return [colorSchemePref, systemColorScheme, darkTheme, lightTheme, theme].join(",");
 }
 
-export function parseState(str?: string | null): ThemeStoreType {
+export const parseState = (str?: string | null): ThemeStoreType => {
   if(!str) return initialState;
   type StrSplitType = [ColorSchemeType, "dark" | "light", string, string, string];
   const [colorSchemePref, systemColorScheme, darkTheme, lightTheme, theme] = str.split(",") as StrSplitType;
