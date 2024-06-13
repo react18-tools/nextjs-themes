@@ -2,7 +2,7 @@ import * as React from "react";
 import type { HTMLProps, ReactNode } from "react";
 import { cookies, headers } from "next/headers";
 import { DEFAULT_ID, type ColorSchemeType, type ThemeStoreType } from "../../../constants";
-import { parseState, resolveTheme } from "../../../utils";
+import { resolveTheme } from "../../../utils";
 import { DataProps, UpdateProps } from "../../../client";
 
 export type ForcedPage =
@@ -20,7 +20,8 @@ export interface NextJsSSRThemeSwitcherProps extends HTMLProps<HTMLElement> {
   styles?: Record<string, string>;
 }
 
-function getDataProps(resolvedData: UpdateProps, styles?: Record<string, string>) {
+/** getData props */
+const getDataProps = (resolvedData: UpdateProps, styles?: Record<string, string>) => {
   const dataProps: DataProps = { className: "" };
   let classeNames = [];
   if (resolvedData.resolvedColorScheme !== undefined) {
@@ -42,12 +43,14 @@ function getDataProps(resolvedData: UpdateProps, styles?: Record<string, string>
   if (styles) classeNames = classeNames.map(cls => styles[cls] ?? cls);
   dataProps.className = classeNames.join(" ");
   return dataProps;
-}
+};
 
-function sharedServerComponentRenderer(
+/** Shared server component renderer for Next.js SSG and SSR */
+/** @internal */
+const sharedServerComponentRenderer = (
   { children, tag, forcedPages, targetId, styles, ...props }: NextJsSSRThemeSwitcherProps,
   defaultTag: "div" | "html",
-) {
+) => {
   const Tag: keyof JSX.IntrinsicElements = tag || defaultTag;
   const key = targetId ? `#${targetId}` : DEFAULT_ID;
   const state = cookies().get(key)?.value;
@@ -59,7 +62,7 @@ function sharedServerComponentRenderer(
   const forcedPageProps = Array.isArray(forcedPage)
     ? { forcedTheme: forcedPage[1].theme, forcedColorScheme: forcedPage[1].colorScheme }
     : forcedPage?.props;
-  const themeState = state ? (parseState(state) as ThemeStoreType) : undefined;
+  const themeState = state ? (JSON.parse(state) as ThemeStoreType) : undefined;
   const resolvedData = resolveTheme(themeState, forcedPageProps);
   const dataProps = getDataProps(resolvedData, styles);
   if (targetId) dataProps.className += styles?.[" nth-scoped"] ?? " nth-scoped";
@@ -70,7 +73,7 @@ function sharedServerComponentRenderer(
       {children}
     </Tag>
   );
-}
+};
 
 /**
  * @example
@@ -78,9 +81,9 @@ function sharedServerComponentRenderer(
  * <NextJsSSGThemeSwitcher />
  * ```
  */
-export function NextJsSSGThemeSwitcher(props: NextJsSSRThemeSwitcherProps) {
+export const NextJsSSGThemeSwitcher = (props: NextJsSSRThemeSwitcherProps) => {
   return sharedServerComponentRenderer(props, "div");
-}
+};
 
 /** For naming consistancy, clarity, and minimizing API updates */
 export { NextJsSSGThemeSwitcher as NextJsServerTarget };
@@ -102,6 +105,6 @@ export interface ServerSideWrapperProps extends NextJsSSRThemeSwitcherProps {
  * </ServerSideWrapperProps>
  * ```
  */
-export function ServerSideWrapper(props: ServerSideWrapperProps) {
+export const ServerSideWrapper = (props: ServerSideWrapperProps) => {
   return sharedServerComponentRenderer(props, "html");
-}
+};

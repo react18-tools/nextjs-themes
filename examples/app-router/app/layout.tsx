@@ -3,6 +3,7 @@ import { NextJsSSGThemeSwitcher } from "nextjs-themes/server";
 import { Inter } from "next/font/google";
 import { SharedRootLayout, darkThemes, lightThemes } from "shared-ui";
 import Link from "next/link";
+import "nextjs-themes/src/styles.css";
 
 const inter = Inter({ subsets: ["latin"] });
 const forcedPages: ForcedPage[] = [

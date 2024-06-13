@@ -1,9 +1,9 @@
 "use client";
-import * as React from "react";
 import { useEffect } from "react";
 import { useTheme } from "../../hooks";
 
-export function ForceTheme(props: { theme: string }) {
+/** Force theme on a page */
+export const ForceTheme = (props: { theme: string }) => {
   const { setForcedTheme } = useTheme();
   useEffect(() => {
     setForcedTheme(props.theme);
@@ -12,4 +12,4 @@ export function ForceTheme(props: { theme: string }) {
     };
   }, [props.theme]);
   return null;
-}
+};

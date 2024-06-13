@@ -1,5 +1,6 @@
 import * as React from "react";
 import { useTheme } from "../../hooks";
+import { DARK, LIGHT, SYSTEM } from "../../constants";
 
 export interface ColorSwitchProps {
   /** Diameter of the color switch */
@@ -22,19 +23,19 @@ export interface ColorSwitchProps {
  * <ColorSwitch size={20} skipSystem />
  * ```
  */
-export function ColorSwitch({ size = 25, skipSystem }: ColorSwitchProps) {
+export const ColorSwitch = ({ size = 25, skipSystem }: ColorSwitchProps) => {
   const { colorSchemePref, setColorSchemePref } = useTheme();
   const toggleColorScheme = () => {
     switch (colorSchemePref) {
       case "":
-      case "system":
-        setColorSchemePref("dark");
+      case SYSTEM:
+        setColorSchemePref(DARK);
         break;
-      case "dark":
-        setColorSchemePref("light");
+      case DARK:
+        setColorSchemePref(LIGHT);
         break;
-      case "light":
-        setColorSchemePref(skipSystem ? "dark" : "system");
+      case LIGHT:
+        setColorSchemePref(skipSystem ? DARK : SYSTEM);
     }
   };
   return (
@@ -47,4 +48,4 @@ export function ColorSwitch({ size = 25, skipSystem }: ColorSwitchProps) {
       style={{ "--size": `${size}px` }}
     />
   );
-}
+};

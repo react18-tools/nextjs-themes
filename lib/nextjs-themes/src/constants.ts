@@ -1,7 +1,11 @@
 /** shared constants -- keep in separate files for better tree-shaking and dependency injection */
-export const DEFAULT_ID = "nth";
+export const DEFAULT_ID = "nth-1";
+export const LIGHT = "light";
+export const DARK = "dark";
+export const SYSTEM = "system";
 
 export type ColorSchemeType = "" | "system" | "dark" | "light";
+export type ResolvedColorSchemeType = "dark" | "light";
 
 export interface ThemeStoreType {
   theme: string;
@@ -25,8 +29,8 @@ export type ThemeStoreActionsType = {
 
 export const initialState: ThemeStoreType = {
   theme: "",
-  darkTheme: "dark",
+  darkTheme: DARK,
   lightTheme: "",
-  colorSchemePref: "system",
-  systemColorScheme: "light",
+  colorSchemePref: SYSTEM,
+  systemColorScheme: LIGHT,
 };

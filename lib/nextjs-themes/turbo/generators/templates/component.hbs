@@ -9,7 +9,7 @@ interface {{ pascalCase name }}Props {
  * @example
  * <{{pascalCase name}} />
  */
-export function {{ pascalCase name }}({ children }: {{ pascalCase name }}Props) {
+export const {{ pascalCase name }} = ({ children }: {{ pascalCase name }}Props) => {
 	return (
 		<div>
 			<h1 data-testid="{{ kebabCase name }}-h1">{{ name }}</h1>

@@ -1,10 +1,10 @@
 "use client";
-import * as React from "react";
 import { useEffect } from "react";
 import type { ColorSchemeType } from "../../constants";
 import { useTheme } from "../../hooks";
 
-export function ForceColorScheme(props: { colorScheme: ColorSchemeType }) {
+/** Force color scheme on a page */
+export const ForceColorScheme = (props: { colorScheme: ColorSchemeType }) => {
   const { setForcedColorScheme } = useTheme();
   useEffect(() => {
     setForcedColorScheme(props.colorScheme);
@@ -13,4 +13,4 @@ export function ForceColorScheme(props: { colorScheme: ColorSchemeType }) {
     };
   }, [props.colorScheme]);
   return null;
-}
+};

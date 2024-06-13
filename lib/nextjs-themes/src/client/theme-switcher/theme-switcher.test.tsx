@@ -2,9 +2,15 @@ import { RenderHookResult, act, cleanup, fireEvent, render, renderHook } from "@
 import { afterEach, beforeEach, describe, test } from "vitest";
 import { useTheme } from "../../hooks";
 import { ThemeSwitcher } from "./theme-switcher";
-import { encodeState, getResolvedColorScheme, getResolvedTheme } from "../../utils";
 import useRGS, { SetterArgType } from "r18gs";
-import { DEFAULT_ID, ThemeStoreType, initialState } from "../../constants";
+import { DARK, DEFAULT_ID, LIGHT, ThemeStoreType, initialState } from "../../constants";
+import { MEDIA } from "../../utils";
+
+/** get dom attribute */
+const getResolvedTheme = () => {
+  const theme = document.documentElement.getAttribute("data-theme");
+  return theme;
+};
 
 /**
  * -> concurrency is not feasible because of global store conflicts
@@ -35,7 +41,7 @@ describe("theme-switcher", () => {
   test("Test defaultDark theme", async ({ expect }) => {
     const darkTheme = "dark1";
     /** simulate system dark mode */
-    act(() => rgsHook.result.current[1](state => ({ ...state, systemColorScheme: "dark" })));
+    act(() => rgsHook.result.current[1](state => ({ ...state, systemColorScheme: DARK })));
     /** simulate changing darkTheme by another component by user */
     await new Promise(res => setTimeout(res, 350));
     const { result } = renderHook(() => useTheme());
@@ -56,13 +62,13 @@ describe("theme-switcher", () => {
 
   test("test color scheme preference", async ({ expect }) => {
     const { result } = renderHook(() => useTheme());
-    act(() => result.current.setColorSchemePref("light"));
+    act(() => result.current.setColorSchemePref(LIGHT));
     act(() => result.current.setLightTheme("yellow"));
     act(() => result.current.setDarkTheme("dark-blue"));
     act(() => result.current.setTheme("blue"));
     await new Promise(res => setTimeout(res, 250));
     expect(getResolvedTheme()).toBe("yellow");
-    act(() => result.current.setColorSchemePref("dark"));
+    act(() => result.current.setColorSchemePref(DARK));
     /** note we do not require to await second time -- ?? what is user is setting theme from multuple useEffects? */
     expect(getResolvedTheme()).toBe("dark-blue");
   });
@@ -89,7 +95,6 @@ describe("theme-switcher", () => {
     expect(getResolvedTheme()).toBe("");
     act(() => result.current.setForcedTheme(undefined));
     expect(getResolvedTheme()).toBe("black");
-    expect(getResolvedColorScheme()).toBe("dark");
   });
 
   test("Storage event", async ({ expect }) => {
@@ -98,7 +103,10 @@ describe("theme-switcher", () => {
     await act(() =>
       fireEvent(
         window,
-        new StorageEvent("storage", { key: DEFAULT_ID, newValue: encodeState({ ...initialState, theme: MY_THEME }) }),
+        new StorageEvent("storage", {
+          key: DEFAULT_ID,
+          newValue: JSON.stringify({ ...initialState, theme: MY_THEME }),
+        }),
       ),
     );
     expect(hook.result.current.theme).toBe(MY_THEME);
@@ -125,6 +133,16 @@ describe("theme-switcher with props", () => {
   test("forced colorScheme prop", async ({ expect }) => {
     // global state is continuing from previous testss
     await act(() => render(<ThemeSwitcher forcedColorScheme="light" />));
-    expect(getResolvedColorScheme()).toBe("light");
+    expect(getResolvedTheme()).toBe("");
+  });
+
+  test("media change event", async ({ expect }) => {
+    await act(() => render(<ThemeSwitcher />));
+    await act(() => {
+      // globalThis.window.media = LIGHT as ResolvedScheme;
+      // @ts-expect-error -- ok
+      matchMedia(MEDIA).onchange?.();
+    });
+    expect(getResolvedTheme()).toBe(DARK);
   });
 });
