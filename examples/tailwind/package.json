@@ -10,20 +10,20 @@
   },
   "dependencies": {
     "@mayank1513/fork-me": "^2.1.2",
-    "next": "14.2.2",
+    "next": "14.2.4",
     "nextjs-themes": "workspace:*",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
-    "@types/node": "^20.12.7",
-    "@types/react": "^18.2.79",
-    "@types/react-dom": "^18.2.25",
+    "@types/node": "^20.14.2",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
     "autoprefixer": "^10.4.19",
-    "eslint": "^9.1.0",
+    "eslint": "^9.4.0",
     "eslint-config-custom": "workspace:*",
     "postcss": "^8.4.38",
-    "tailwindcss": "^3.4.3",
+    "tailwindcss": "^3.4.4",
     "tsconfig": "workspace:*",
     "typescript": "^5.4.5"
   }
