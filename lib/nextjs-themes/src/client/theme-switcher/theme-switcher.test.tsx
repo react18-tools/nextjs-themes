@@ -4,7 +4,7 @@ import { useTheme } from "../../hooks";
 import { ThemeSwitcher } from "./theme-switcher";
 import { encodeState, getResolvedColorScheme, getResolvedTheme } from "../../utils";
 import useRGS, { SetterArgType } from "r18gs";
-import { DEFAULT_ID, ThemeStoreType, initialState } from "../../constants";
+import { DARK, DEFAULT_ID, LIGHT, ThemeStoreType, initialState } from "../../constants";
 
 /**
  * -> concurrency is not feasible because of global store conflicts
@@ -35,7 +35,7 @@ describe("theme-switcher", () => {
   test("Test defaultDark theme", async ({ expect }) => {
     const darkTheme = "dark1";
     /** simulate system dark mode */
-    act(() => rgsHook.result.current[1](state => ({ ...state, systemColorScheme: "dark" })));
+    act(() => rgsHook.result.current[1](state => ({ ...state, systemColorScheme: DARK })));
     /** simulate changing darkTheme by another component by user */
     await new Promise(res => setTimeout(res, 350));
     const { result } = renderHook(() => useTheme());
@@ -56,13 +56,13 @@ describe("theme-switcher", () => {
 
   test("test color scheme preference", async ({ expect }) => {
     const { result } = renderHook(() => useTheme());
-    act(() => result.current.setColorSchemePref("light"));
+    act(() => result.current.setColorSchemePref(LIGHT));
     act(() => result.current.setLightTheme("yellow"));
     act(() => result.current.setDarkTheme("dark-blue"));
     act(() => result.current.setTheme("blue"));
     await new Promise(res => setTimeout(res, 250));
     expect(getResolvedTheme()).toBe("yellow");
-    act(() => result.current.setColorSchemePref("dark"));
+    act(() => result.current.setColorSchemePref(DARK));
     /** note we do not require to await second time -- ?? what is user is setting theme from multuple useEffects? */
     expect(getResolvedTheme()).toBe("dark-blue");
   });

@@ -1,6 +1,6 @@
 import useRGS from "r18gs";
 import { ThemeSwitcherProps, UpdateProps } from "./client";
-import { DARK, DEFAULT_ID, ResolvedColorSchemeType, ThemeStoreType, initialState } from "./constants";
+import { DARK, DEFAULT_ID, LIGHT, ResolvedColorSchemeType, SYSTEM, ThemeStoreType, initialState } from "./constants";
 
 /** resolve props and state to a final attributes that should be applied to the DOM */
 export const resolveTheme = (state?: ThemeStoreType, props?: ThemeSwitcherProps): UpdateProps => {
@@ -11,19 +11,19 @@ export const resolveTheme = (state?: ThemeStoreType, props?: ThemeSwitcherProps)
   const isSystemDark = state?.systemColorScheme === DARK;
 
   /** these will be modified in the switch statement */
-  let resolvedColorScheme: ResolvedColorSchemeType = isSystemDark ? "dark" : "light";
+  let resolvedColorScheme: ResolvedColorSchemeType = isSystemDark ? DARK : LIGHT;
   let resolvedTheme = (resolvedForcedTheme ?? state?.theme) || "";
 
   if (resolvedForcedTheme === undefined)
     switch (resolvedColorSchemePref) {
-      case "system":
+      case SYSTEM:
         resolvedTheme = (isSystemDark ? state?.darkTheme : state?.lightTheme) || "";
         break;
-      case "dark":
-        [resolvedTheme, resolvedColorScheme] = [state?.darkTheme || "", "dark"];
+      case DARK:
+        [resolvedTheme, resolvedColorScheme] = [state?.darkTheme || "", DARK];
         break;
-      case "light":
-        [resolvedTheme, resolvedColorScheme] = [state?.lightTheme || "", "light"];
+      case LIGHT:
+        [resolvedTheme, resolvedColorScheme] = [state?.lightTheme || "", LIGHT];
         break;
     }
 
@@ -39,6 +39,6 @@ export const useStore = (targetId?: string) => {
   const key = targetId ?? DEFAULT_ID;
   return useRGS<ThemeStoreType>(key, () => {
     const str = isServer ? null : localStorage.getItem(key);
-    return str ? { ...JSON.parse(str), systemColorScheme: media.matches ? "dark" : "light" } : initialState;
+    return str ? { ...JSON.parse(str), systemColorScheme: media.matches ? DARK : LIGHT } : initialState;
   });
 };

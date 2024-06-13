@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { resolveTheme, media, useStore } from "../../utils";
-import { ColorSchemeType, DEFAULT_ID } from "../../constants";
+import { ColorSchemeType, DARK, DEFAULT_ID, LIGHT, ResolvedColorSchemeType } from "../../constants";
 
 export interface ThemeSwitcherProps {
   forcedTheme?: string;
@@ -15,14 +15,14 @@ export interface DataProps {
   className: string;
   "data-th"?: string;
   "data-theme"?: string;
-  "data-color-scheme"?: "dark" | "light";
+  "data-color-scheme"?: ResolvedColorSchemeType;
   /** color-scheme-preference */
   "data-csp"?: ColorSchemeType;
 }
 
 export interface UpdateProps {
   resolvedTheme: string;
-  resolvedColorScheme: "dark" | "light";
+  resolvedColorScheme: ResolvedColorSchemeType;
   resolvedColorSchemePref: ColorSchemeType;
   th: string;
 }
@@ -74,7 +74,7 @@ export const useThemeSwitcher = (props: ThemeSwitcherProps) => {
   /** set listeners for system preference and syncing store */
   useEffect(() => {
     media.addEventListener("change", () =>
-      setThemeState(state => ({ ...state, systemColorScheme: media.matches ? "dark" : "light" })),
+      setThemeState(state => ({ ...state, systemColorScheme: media.matches ? DARK : LIGHT })),
     );
     addEventListener("storage", e => {
       if (e.key === key) setThemeState(state => ({ ...state, ...JSON.parse(e.newValue || "{}") }));

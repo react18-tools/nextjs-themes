@@ -2,6 +2,7 @@
 export const DEFAULT_ID = "nth";
 export const LIGHT = "light";
 export const DARK = "dark";
+export const SYSTEM = "system";
 
 export type ColorSchemeType = "" | "system" | "dark" | "light";
 export type ResolvedColorSchemeType = "dark" | "light";
@@ -28,8 +29,8 @@ export type ThemeStoreActionsType = {
 
 export const initialState: ThemeStoreType = {
   theme: "",
-  darkTheme: "dark",
+  darkTheme: DARK,
   lightTheme: "",
-  colorSchemePref: "system",
-  systemColorScheme: "light",
+  colorSchemePref: SYSTEM,
+  systemColorScheme: LIGHT,
 };
