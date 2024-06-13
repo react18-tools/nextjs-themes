@@ -14,7 +14,7 @@ export interface ThemeSwitcherProps {
   styles?: Record<string, string>;
 }
 
-function useMediaQuery(setThemeState: SetStateAction<ThemeStoreType>) {
+const useMediaQuery = (setThemeState: SetStateAction<ThemeStoreType>) => {
   React.useEffect(() => {
     // set event listener for media
     const media = matchMedia("(prefers-color-scheme: dark)");
@@ -30,7 +30,7 @@ function useMediaQuery(setThemeState: SetStateAction<ThemeStoreType>) {
 }
 
 let tInit = 0;
-function useLoadSyncedState(setThemeState: SetStateAction<ThemeStoreType>, targetSelector?: string) {
+const useLoadSyncedState = (setThemeState: SetStateAction<ThemeStoreType>, targetSelector?: string) => {
   React.useEffect(() => {
     tInit = Date.now();
     const key = targetSelector ?? DEFAULT_ID;
@@ -107,7 +107,7 @@ const disableAnimation = (themeTransition = "none") => {
  * You can use this hook in place of `<ThemeSwitcher />` component.
  * Please note that you need to add "use client" on top of the component in which you are using this hook.
  */
-export function useThemeSwitcher(props: ThemeSwitcherProps) {
+export const useThemeSwitcher = (props: ThemeSwitcherProps) => {
   const [themeState, setThemeState] = useRGS<ThemeStoreType>(props.targetSelector ?? DEFAULT_ID, initialState);
 
   useMediaQuery(setThemeState);
@@ -131,7 +131,7 @@ export function useThemeSwitcher(props: ThemeSwitcherProps) {
  * Use this component in your layout - `app/layout.tsx` or your custom layout or in `_app.tsx` file.
  * @component
  */
-export function ThemeSwitcher(props: ThemeSwitcherProps) {
+export const ThemeSwitcher = (props: ThemeSwitcherProps) => {
   useThemeSwitcher(props);
   return null;
 }
