@@ -5,6 +5,7 @@ on:
   push:
     branches: [main]
     paths: "lib/nextjs-themes/package.json"
+  workflow_dispatch:
 
 jobs:
   publish:
