@@ -41,9 +41,9 @@ const useLoadSyncedState = (setThemeState: SetStateAction<ThemeStoreType>, targe
     const storageListener = (e: StorageEvent) => {
       if (e.key === key) setThemeState(state => ({ ...state, ...parseState(e.newValue) }));
     };
-    window.addEventListener("storage", storageListener);
+    addEventListener("storage", storageListener);
     return () => {
-      window.removeEventListener("storage", storageListener);
+      removeEventListener("storage", storageListener);
     };
   }, [targetSelector]);
 }
@@ -95,7 +95,7 @@ const disableAnimation = (themeTransition = "none") => {
 
   return () => {
     // Force restyle
-    (() => window.getComputedStyle(document.body))();
+    getComputedStyle(document.body);
     // Wait for next tick before removing
     setTimeout(() => {
       document.head.removeChild(css);
