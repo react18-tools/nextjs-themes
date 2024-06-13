@@ -20,6 +20,7 @@ export interface NextJsSSRThemeSwitcherProps extends HTMLProps<HTMLElement> {
   styles?: Record<string, string>;
 }
 
+/** getData props */
 const getDataProps = (resolvedData: UpdateProps, styles?: Record<string, string>) => {
   const dataProps: DataProps = { className: "" };
   let classeNames = [];
@@ -44,6 +45,8 @@ const getDataProps = (resolvedData: UpdateProps, styles?: Record<string, string>
   return dataProps;
 };
 
+/** Shared server component renderer for Next.js SSG and SSR */
+/** @internal */
 const sharedServerComponentRenderer = (
   { children, tag, forcedPages, targetId, styles, ...props }: NextJsSSRThemeSwitcherProps,
   defaultTag: "div" | "html",
