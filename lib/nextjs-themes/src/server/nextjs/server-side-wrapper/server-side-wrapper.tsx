@@ -20,7 +20,7 @@ export interface NextJsSSRThemeSwitcherProps extends HTMLProps<HTMLElement> {
   styles?: Record<string, string>;
 }
 
-function getDataProps(resolvedData: UpdateProps, styles?: Record<string, string>) {
+const getDataProps = (resolvedData: UpdateProps, styles?: Record<string, string>) => {
   const dataProps: DataProps = { className: "" };
   let classeNames = [];
   if (resolvedData.resolvedColorScheme !== undefined) {
@@ -44,10 +44,10 @@ function getDataProps(resolvedData: UpdateProps, styles?: Record<string, string>
   return dataProps;
 }
 
-function sharedServerComponentRenderer(
+const sharedServerComponentRenderer = (
   { children, tag, forcedPages, targetId, styles, ...props }: NextJsSSRThemeSwitcherProps,
   defaultTag: "div" | "html",
-) {
+) => {
   const Tag: keyof JSX.IntrinsicElements = tag || defaultTag;
   const key = targetId ? `#${targetId}` : DEFAULT_ID;
   const state = cookies().get(key)?.value;
@@ -78,7 +78,7 @@ function sharedServerComponentRenderer(
  * <NextJsSSGThemeSwitcher />
  * ```
  */
-export function NextJsSSGThemeSwitcher(props: NextJsSSRThemeSwitcherProps) {
+export const NextJsSSGThemeSwitcher = (props: NextJsSSRThemeSwitcherProps) => {
   return sharedServerComponentRenderer(props, "div");
 }
 
@@ -102,6 +102,6 @@ export interface ServerSideWrapperProps extends NextJsSSRThemeSwitcherProps {
  * </ServerSideWrapperProps>
  * ```
  */
-export function ServerSideWrapper(props: ServerSideWrapperProps) {
+export const ServerSideWrapper = (props: ServerSideWrapperProps) => {
   return sharedServerComponentRenderer(props, "html");
 }

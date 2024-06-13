@@ -5,7 +5,7 @@ import { useCallback, useMemo } from "react";
 
 const DELAY = 200; // ms - delay to allow reading from localStorage so that local storage does not override the new state
 const map: Record<string, Function | number> = {};
-function createSetterWithFirstTimeDelay(setThemeState: SetStateAction<ThemeStoreType>) {
+const createSetterWithFirstTimeDelay = (setThemeState: SetStateAction<ThemeStoreType>) => {
   return <T>(key: string) => {
     if (map[key] === undefined) {
       map[key] = 1;
@@ -18,7 +18,7 @@ function createSetterWithFirstTimeDelay(setThemeState: SetStateAction<ThemeStore
   };
 }
 
-export function useTheme(targetId?: string) {
+export const useTheme = (targetId?: string) => {
   const [themeState, setThemeState] = useRGS<ThemeStoreType>(targetId ?? DEFAULT_ID, initialState);
   const { resolvedColorScheme, resolvedTheme } = resolveTheme(themeState);
   const setterWithFirstTimeDelay = useMemo(() => createSetterWithFirstTimeDelay(setThemeState), []);
