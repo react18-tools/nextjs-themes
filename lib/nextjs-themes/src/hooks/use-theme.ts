@@ -16,7 +16,7 @@ const createSetterWithFirstTimeDelay = (setThemeState: SetStateAction<ThemeStore
     }
     return map[key] as (arg: T) => void;
   };
-}
+};
 
 export const useTheme = (targetId?: string) => {
   const [themeState, setThemeState] = useRGS<ThemeStoreType>(targetId ?? DEFAULT_ID, initialState);
@@ -37,4 +37,4 @@ export const useTheme = (targetId?: string) => {
     setForcedTheme: setterWithFirstTimeDelay<string | undefined>("forcedTheme"),
     setForcedColorScheme: setterWithFirstTimeDelay<ColorSchemeType | undefined>("forcedColorScheme"),
   };
-}
+};

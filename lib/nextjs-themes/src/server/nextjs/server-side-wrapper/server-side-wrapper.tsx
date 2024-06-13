@@ -42,7 +42,7 @@ const getDataProps = (resolvedData: UpdateProps, styles?: Record<string, string>
   if (styles) classeNames = classeNames.map(cls => styles[cls] ?? cls);
   dataProps.className = classeNames.join(" ");
   return dataProps;
-}
+};
 
 const sharedServerComponentRenderer = (
   { children, tag, forcedPages, targetId, styles, ...props }: NextJsSSRThemeSwitcherProps,
@@ -70,7 +70,7 @@ const sharedServerComponentRenderer = (
       {children}
     </Tag>
   );
-}
+};
 
 /**
  * @example
@@ -80,7 +80,7 @@ const sharedServerComponentRenderer = (
  */
 export const NextJsSSGThemeSwitcher = (props: NextJsSSRThemeSwitcherProps) => {
   return sharedServerComponentRenderer(props, "div");
-}
+};
 
 /** For naming consistancy, clarity, and minimizing API updates */
 export { NextJsSSGThemeSwitcher as NextJsServerTarget };
@@ -104,4 +104,4 @@ export interface ServerSideWrapperProps extends NextJsSSRThemeSwitcherProps {
  */
 export const ServerSideWrapper = (props: ServerSideWrapperProps) => {
   return sharedServerComponentRenderer(props, "html");
-}
+};

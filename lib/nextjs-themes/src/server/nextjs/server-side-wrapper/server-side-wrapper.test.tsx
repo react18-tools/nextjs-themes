@@ -15,7 +15,7 @@ describe("server-side-target", () => {
           darkTheme: "dark-blue",
           lightTheme: "light-yellow",
           colorSchemePref: "dark",
-          systemColorScheme: "dark"
+          systemColorScheme: "dark",
         }),
       },
     };

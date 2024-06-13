@@ -47,4 +47,4 @@ export const ColorSwitch = ({ size = 25, skipSystem }: ColorSwitchProps) => {
       style={{ "--size": `${size}px` }}
     />
   );
-}
+};

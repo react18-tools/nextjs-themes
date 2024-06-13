@@ -13,4 +13,4 @@ export const ForceColorScheme = (props: { colorScheme: ColorSchemeType }) => {
     };
   }, [props.colorScheme]);
   return null;
-}
+};

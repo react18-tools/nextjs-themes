@@ -27,7 +27,7 @@ const useMediaQuery = (setThemeState: SetStateAction<ThemeStoreType>) => {
       media.removeEventListener("change", updateSystemColorScheme);
     };
   }, [setThemeState]);
-}
+};
 
 let tInit = 0;
 const useLoadSyncedState = (setThemeState: SetStateAction<ThemeStoreType>, targetSelector?: string) => {
@@ -46,7 +46,7 @@ const useLoadSyncedState = (setThemeState: SetStateAction<ThemeStoreType>, targe
       removeEventListener("storage", storageListener);
     };
   }, [targetSelector]);
-}
+};
 
 export interface DataProps {
   className: string;
@@ -125,7 +125,7 @@ export const useThemeSwitcher = (props: ThemeSwitcherProps) => {
     }
     restoreTransitions();
   }, [props, themeState]);
-}
+};
 
 /**
  * Use this component in your layout - `app/layout.tsx` or your custom layout or in `_app.tsx` file.
@@ -134,4 +134,4 @@ export const useThemeSwitcher = (props: ThemeSwitcherProps) => {
 export const ThemeSwitcher = (props: ThemeSwitcherProps) => {
   useThemeSwitcher(props);
   return null;
-}
+};

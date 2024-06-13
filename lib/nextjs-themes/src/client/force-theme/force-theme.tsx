@@ -12,4 +12,4 @@ export const ForceTheme = (props: { theme: string }) => {
     };
   }, [props.theme]);
   return null;
-}
+};
