@@ -1,5 +1,5 @@
 /** shared constants -- keep in separate files for better tree-shaking and dependency injection */
-export const DEFAULT_ID = "nth";
+export const DEFAULT_ID = "nth-1";
 export const LIGHT = "light";
 export const DARK = "dark";
 export const SYSTEM = "system";

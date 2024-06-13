@@ -4,8 +4,9 @@ import { useTheme } from "../../hooks";
 import { ThemeSwitcher } from "./theme-switcher";
 import useRGS, { SetterArgType } from "r18gs";
 import { DARK, DEFAULT_ID, LIGHT, ThemeStoreType, initialState } from "../../constants";
-import { media } from "../../utils";
+import { MEDIA } from "../../utils";
 
+/** get dom attribute */
 const getResolvedTheme = () => {
   const theme = document.documentElement.getAttribute("data-theme");
   return theme;
@@ -140,7 +141,7 @@ describe("theme-switcher with props", () => {
     await act(() => {
       // globalThis.window.media = LIGHT as ResolvedScheme;
       // @ts-expect-error -- ok
-      media.onchange?.();
+      matchMedia(MEDIA).onchange?.();
     });
     expect(getResolvedTheme()).toBe(DARK);
   });

@@ -32,13 +32,13 @@ export const resolveTheme = (state?: ThemeStoreType, props?: ThemeSwitcherProps)
 };
 
 const isServer = typeof localStorage === "undefined";
-export const media = matchMedia("(prefers-color-scheme: dark)");
+export const MEDIA = "(prefers-color-scheme: dark)";
 
 /** internal store API */
 export const useStore = (targetId?: string) => {
   const key = targetId ?? DEFAULT_ID;
   return useRGS<ThemeStoreType>(key, () => {
     const str = isServer ? null : localStorage.getItem(key);
-    return str ? { ...JSON.parse(str), systemColorScheme: media.matches ? DARK : LIGHT } : initialState;
+    return str ? { ...JSON.parse(str), systemColorScheme: matchMedia(MEDIA).matches ? DARK : LIGHT } : initialState;
   });
 };

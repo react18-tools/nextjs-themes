@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { resolveTheme, media, useStore } from "../../utils";
+import { resolveTheme, MEDIA, useStore } from "../../utils";
 import { ColorSchemeType, DARK, DEFAULT_ID, LIGHT, ResolvedColorSchemeType } from "../../constants";
 
 export interface ThemeSwitcherProps {
@@ -73,6 +73,7 @@ export const useThemeSwitcher = (props: ThemeSwitcherProps) => {
   const key = props.targetSelector || DEFAULT_ID;
   /** set listeners for system preference and syncing store */
   useEffect(() => {
+    const media = matchMedia(MEDIA);
     media.addEventListener("change", () =>
       setThemeState(state => ({ ...state, systemColorScheme: media.matches ? DARK : LIGHT })),
     );
