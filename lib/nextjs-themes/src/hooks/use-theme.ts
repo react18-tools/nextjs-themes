@@ -3,7 +3,7 @@ import { ColorSchemeType, DEFAULT_ID, ThemeStoreType, initialState } from "../co
 import { resolveTheme } from "../utils";
 import { useMemo } from "react";
 
-/** create setter */
+/** create setter for memoized setter */
 const createSetter = (setThemeState: SetStateAction<ThemeStoreType>) => {
   return <T>(key: string) =>
     (arg: T) =>
