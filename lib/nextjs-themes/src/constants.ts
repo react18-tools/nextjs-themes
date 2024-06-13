@@ -1,7 +1,10 @@
 /** shared constants -- keep in separate files for better tree-shaking and dependency injection */
 export const DEFAULT_ID = "nth";
+export const LIGHT = "light";
+export const DARK = "dark";
 
 export type ColorSchemeType = "" | "system" | "dark" | "light";
+export type ResolvedColorSchemeType = "dark" | "light";
 
 export interface ThemeStoreType {
   theme: string;
