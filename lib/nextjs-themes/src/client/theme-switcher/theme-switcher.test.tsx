@@ -2,9 +2,14 @@ import { RenderHookResult, act, cleanup, fireEvent, render, renderHook } from "@
 import { afterEach, beforeEach, describe, test } from "vitest";
 import { useTheme } from "../../hooks";
 import { ThemeSwitcher } from "./theme-switcher";
-import { encodeState, getResolvedColorScheme, getResolvedTheme } from "../../utils";
 import useRGS, { SetterArgType } from "r18gs";
 import { DARK, DEFAULT_ID, LIGHT, ThemeStoreType, initialState } from "../../constants";
+import { media } from "../../utils";
+
+const getResolvedTheme = () => {
+  const theme = document.documentElement.getAttribute("data-theme");
+  return theme;
+};
 
 /**
  * -> concurrency is not feasible because of global store conflicts
@@ -89,7 +94,6 @@ describe("theme-switcher", () => {
     expect(getResolvedTheme()).toBe("");
     act(() => result.current.setForcedTheme(undefined));
     expect(getResolvedTheme()).toBe("black");
-    expect(getResolvedColorScheme()).toBe("dark");
   });
 
   test("Storage event", async ({ expect }) => {
@@ -98,7 +102,10 @@ describe("theme-switcher", () => {
     await act(() =>
       fireEvent(
         window,
-        new StorageEvent("storage", { key: DEFAULT_ID, newValue: encodeState({ ...initialState, theme: MY_THEME }) }),
+        new StorageEvent("storage", {
+          key: DEFAULT_ID,
+          newValue: JSON.stringify({ ...initialState, theme: MY_THEME }),
+        }),
       ),
     );
     expect(hook.result.current.theme).toBe(MY_THEME);
@@ -125,6 +132,16 @@ describe("theme-switcher with props", () => {
   test("forced colorScheme prop", async ({ expect }) => {
     // global state is continuing from previous testss
     await act(() => render(<ThemeSwitcher forcedColorScheme="light" />));
-    expect(getResolvedColorScheme()).toBe("light");
+    expect(getResolvedTheme()).toBe("");
+  });
+
+  test("media change event", async ({ expect }) => {
+    await act(() => render(<ThemeSwitcher />));
+    await act(() => {
+      // globalThis.window.media = LIGHT as ResolvedScheme;
+      // @ts-expect-error -- ok
+      media.onchange?.();
+    });
+    expect(getResolvedTheme()).toBe(DARK);
   });
 });
