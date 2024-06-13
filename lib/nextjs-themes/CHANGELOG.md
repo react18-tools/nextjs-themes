@@ -1,5 +1,11 @@
 # nextjs-themes
 
+## 3.1.2
+
+### Patch Changes
+
+- Fix FOUC
+
 ## 3.1.1
 
 ### Patch Changes

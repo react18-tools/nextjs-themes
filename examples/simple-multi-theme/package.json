@@ -1,6 +1,6 @@
 {
   "name": "simple-multi-theme",
-  "version": "1.0.16",
+  "version": "1.0.17",
   "private": true,
   "scripts": {
     "dev": "next dev --port 3001",
