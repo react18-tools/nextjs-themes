@@ -10,7 +10,7 @@ export interface ColorSwitchProps {
   targetId?: string;
 }
 
-const colorSchemes: ColorSchemeType[] = [SYSTEM, LIGHT, DARK];
+const colorSchemes: ColorSchemeType[] = [SYSTEM, DARK, LIGHT];
 
 /**
  * Color switch button to quickly set user preference
