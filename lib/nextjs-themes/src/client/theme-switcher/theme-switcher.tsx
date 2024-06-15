@@ -5,7 +5,9 @@ import { ColorSchemeType, DARK, DEFAULT_ID, LIGHT, ResolvedColorSchemeType } fro
 export interface ThemeSwitcherProps {
   forcedTheme?: string;
   forcedColorScheme?: ColorSchemeType;
+  /** @deprecated use targetId */
   targetSelector?: string;
+  targetId?: string;
   themeTransition?: string;
   /** provide styles object imported from CSS/SCSS modules, if you are using CSS/SCSS modules. */
   styles?: Record<string, string>;
@@ -70,7 +72,7 @@ const disableTransition = (themeTransition = "none") => {
 export const useThemeSwitcher = (props: ThemeSwitcherProps) => {
   const [themeState, setThemeState] = useStore(props.targetSelector);
   // not using ?? as we don't want key to be an empty string ever
-  const key = props.targetSelector || DEFAULT_ID;
+  const key = props.targetId || props.targetSelector || DEFAULT_ID;
   /** set listeners for system preference and syncing store */
   useEffect(() => {
     const media = matchMedia(MEDIA);
