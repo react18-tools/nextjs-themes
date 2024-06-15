@@ -34,7 +34,7 @@ const updateDOM = (
   props: ThemeSwitcherProps,
 ) => {
   const { targetSelector, targetId, styles } = props;
-  const target = document.querySelector(targetSelector || `#${targetId}` || `#${DEFAULT_ID}`);
+  const target = document.querySelector(targetSelector || `#${targetId || DEFAULT_ID}`);
   let classes = [resolvedColorScheme, `theme-${resolvedTheme}`, `th-${th}`, `csp-${resolvedColorSchemePref}`];
   if (styles) classes = classes.map(cls => styles[cls] ?? cls);
   /** don't apply theme to documentElement for localized targets */
