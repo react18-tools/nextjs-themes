@@ -33,12 +33,12 @@ const updateDOM = (
   { resolvedTheme, resolvedColorScheme, resolvedColorSchemePref, th }: UpdateProps,
   props: ThemeSwitcherProps,
 ) => {
-  const { targetSelector, styles } = props;
-  const target = document.querySelector(targetSelector || `#${DEFAULT_ID}`);
+  const { targetSelector, targetId, styles } = props;
+  const target = document.querySelector(targetSelector || `#${targetId}` || `#${DEFAULT_ID}`);
   let classes = [resolvedColorScheme, `theme-${resolvedTheme}`, `th-${th}`, `csp-${resolvedColorSchemePref}`];
   if (styles) classes = classes.map(cls => styles[cls] ?? cls);
   /** don't apply theme to documentElement for localized targets */
-  [target, targetSelector && target ? null : document.documentElement].forEach(target => {
+  [target, (targetSelector || targetId) && target ? null : document.documentElement].forEach(target => {
     /** ensuring that class 'dark' is always present when dark color scheme is applied to support Tailwind  */
     if (target) target.className = classes.join(" ");
     target?.setAttribute("data-th", th);
@@ -70,9 +70,9 @@ const disableTransition = (themeTransition = "none") => {
  * Please note that you need to add "use client" on top of the component in which you are using this hook.
  */
 export const useThemeSwitcher = (props: ThemeSwitcherProps) => {
-  const [themeState, setThemeState] = useStore(props.targetSelector);
   // not using ?? as we don't want key to be an empty string ever
   const key = props.targetId || props.targetSelector || DEFAULT_ID;
+  const [themeState, setThemeState] = useStore(key);
   /** set listeners for system preference and syncing store */
   useEffect(() => {
     const media = matchMedia(MEDIA);
