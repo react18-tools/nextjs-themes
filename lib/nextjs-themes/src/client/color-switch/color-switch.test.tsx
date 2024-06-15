@@ -13,6 +13,8 @@ describe("color-switch", () => {
     render(<ColorSwitch />);
     const element = screen.getByTestId("color-switch");
     act(() => fireEvent.click(element));
+    expect(hook.result.current.colorSchemePref).toBe(SYSTEM);
+    act(() => fireEvent.click(element));
     expect(hook.result.current.colorSchemePref).toBe(DARK);
     act(() => fireEvent.click(element));
     expect(hook.result.current.colorSchemePref).toBe(LIGHT);
