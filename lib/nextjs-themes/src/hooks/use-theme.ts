@@ -1,4 +1,4 @@
-import { SetStateAction } from "r18gs";
+import type { SetStateAction } from "r18gs";
 import { ColorSchemeType, ThemeStoreType } from "../constants";
 import { resolveTheme, useStore } from "../utils";
 import { useMemo } from "react";
