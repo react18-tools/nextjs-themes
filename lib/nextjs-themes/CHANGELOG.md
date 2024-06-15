@@ -1,5 +1,12 @@
 # nextjs-themes
 
+## 3.1.3
+
+### Patch Changes
+
+- 54f0f23: Update peer dependencies to include React 19 and Next.js 15
+- 0d8c743: Fix: Add `targetId` to ColorSwitch to properly handle contenarized themes.
+
 ## 3.1.2
 
 ### Patch Changes
