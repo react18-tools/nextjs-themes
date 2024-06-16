@@ -7,9 +7,9 @@ export const DARK: ResolvedColorSchemeType = "dark";
 export const SYSTEM: ColorSchemeType = "system";
 
 export const initialState: ThemeStoreType = {
-  theme: "",
-  darkTheme: DARK,
-  lightTheme: "",
-  colorSchemePref: SYSTEM,
-  systemColorScheme: LIGHT,
+  t: "",
+  d: DARK,
+  l: "",
+  c: SYSTEM,
+  s: LIGHT,
 };

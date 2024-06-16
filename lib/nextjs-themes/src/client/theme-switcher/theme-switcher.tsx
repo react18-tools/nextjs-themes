@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { resolveTheme, MEDIA, useStore } from "../../utils";
 import { DARK, DEFAULT_ID, LIGHT } from "../../constants";
-import { ColorSchemeType, ResolvedColorSchemeType } from "../../types";
+import { ColorSchemeType, ResolvedColorSchemeType, ThemeStoreType } from "../../types";
 
 export interface ThemeSwitcherProps {
   forcedTheme?: string;
@@ -14,54 +14,40 @@ export interface ThemeSwitcherProps {
   styles?: Record<string, string>;
 }
 
-export interface DataProps {
-  className: string;
-  "data-th"?: string;
-  "data-theme"?: string;
-  "data-color-scheme"?: ResolvedColorSchemeType;
-  /** color-scheme-preference */
-  "data-csp"?: ColorSchemeType;
-}
+export type UpdateProps = [
+  resolvedColorScheme: ResolvedColorSchemeType,
+  resolvedColorSchemePref: ColorSchemeType,
+  resolvedTheme: string,
+  theme: string,
+];
 
-export interface UpdateProps {
-  resolvedTheme: string;
-  resolvedColorScheme: ResolvedColorSchemeType;
-  resolvedColorSchemePref: ColorSchemeType;
-  th: string;
-}
-
+let updateDOM: (values: UpdateProps) => void;
 declare global {
-  var u: () => void;
+  var u: (values: UpdateProps) => void;
+  var m: MediaQueryList;
+  var i: ThemeStoreType;
 }
 
 /** Script to inject to avoid FOUC (Flash of Unstyled Content) */
 const NoFOUCScript = (key: string, styles?: Record<string, string>) => {
-  window.u = () => {
-    const target = document.querySelector(key);
-  };
-};
+  const keys = ["color-scheme", "csp", "theme", "th"];
+  window.u = values => {
+    const target = document.querySelector(key) ?? document.documentElement;
 
-const updateDOM = (
-  { resolvedTheme, resolvedColorScheme, resolvedColorSchemePref, th }: UpdateProps,
-  props: ThemeSwitcherProps,
-) => {
-  const { targetSelector, targetId, styles } = props;
-  const target = document.querySelector("");
-  let classes = [resolvedColorScheme, `theme-${resolvedTheme}`, `th-${th}`, `csp-${resolvedColorSchemePref}`];
-  if (styles) classes = classes.map(cls => styles[cls] ?? cls);
-  /** don't apply theme to documentElement for localized targets */
-  [target, (targetSelector || targetId) && target ? null : document.documentElement].forEach(target => {
-    /** ensuring that class 'dark' is always present when dark color scheme is applied to support Tailwind  */
-    if (target) target.className = classes.join(" ");
-    target?.setAttribute("data-th", th);
-    target?.setAttribute("data-theme", resolvedTheme);
-    target?.setAttribute("data-color-scheme", resolvedColorScheme);
-    target?.setAttribute("data-csp", resolvedColorSchemePref); /** color-scheme-preference */
-  });
+    let classes = [];
+    keys.forEach((key, index) => {
+      classes.push(`${key}-${values[index]}`);
+      target.setAttribute(`data-${key}`, values[index]);
+    });
+    classes[0] = values[0];
+    if (styles) classes = classes.map(cls => styles[cls] ?? cls);
+    target.className = classes.join(" ");
+  };
+  window.m = matchMedia("(prefers-color-scheme: dark)");
 };
 
 /** disable transition while switching theme */
-const disableTransition = (themeTransition = "none") => {
+const modifyTransition = (themeTransition = "none") => {
   const css = document.createElement("style");
   /** split by ';' to prevent CSS injection */
   css.textContent = `transition: ${themeTransition.split(";")[0]} !important;`;
@@ -86,16 +72,14 @@ export const useThemeSwitcher = (props: ThemeSwitcherProps) => {
   /** set listeners for system preference and syncing store */
   useEffect(() => {
     const media = matchMedia(MEDIA);
-    media.addEventListener("change", () =>
-      setThemeState(state => ({ ...state, systemColorScheme: media.matches ? DARK : LIGHT })),
-    );
+    media.addEventListener("change", () => setThemeState(state => ({ ...state, s: media.matches ? DARK : LIGHT })));
     addEventListener("storage", e => {
       if (e.key === key) setThemeState(state => ({ ...state, ...JSON.parse(e.newValue || "{}") }));
     });
   }, []);
 
   useEffect(() => {
-    const restoreTransitions = disableTransition(props.themeTransition);
+    const restoreTransitions = modifyTransition(props.themeTransition);
     const resolvedData = resolveTheme(themeState, props);
     updateDOM(resolvedData, props);
     const stateStr = JSON.stringify(themeState);

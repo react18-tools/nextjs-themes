@@ -4,7 +4,7 @@ import { resolveTheme, useStore } from "../utils";
 /** useTheme hook */
 export const useTheme = (targetId?: string) => {
   const [themeState, setThemeState] = useStore(targetId);
-  const { resolvedColorScheme, resolvedTheme } = resolveTheme(themeState);
+  const [resolvedTheme, resolvedColorScheme] = resolveTheme(themeState);
   const setter =
     <T>(key: string) =>
     (arg: T) =>
