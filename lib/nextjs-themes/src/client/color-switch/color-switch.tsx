@@ -1,4 +1,5 @@
-import { ColorSchemeType, DARK, LIGHT, SYSTEM } from "../../constants";
+import { DARK, LIGHT, SYSTEM } from "../../constants";
+import { ColorSchemeType } from "../../types";
 import { useStore } from "../../utils";
 
 export interface ColorSwitchProps {

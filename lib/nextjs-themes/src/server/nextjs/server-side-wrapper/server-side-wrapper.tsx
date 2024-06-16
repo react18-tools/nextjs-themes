@@ -1,5 +1,5 @@
 import type { HTMLProps, ReactNode } from "react";
-import { type ColorSchemeType } from "../../../constants";
+import { type ColorSchemeType } from "../../../types";
 
 type ForcedPage =
   | { pathMatcher: RegExp | string; props: { forcedTheme?: string; forcedColorScheme?: ColorSchemeType } }
