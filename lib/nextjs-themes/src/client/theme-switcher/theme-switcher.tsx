@@ -1,7 +1,7 @@
 import { useEffect } from "react";
-import { resolveTheme, MEDIA, useStore } from "../../utils";
+import { resolveTheme, MEDIA, useStore, ThemeStoreType } from "../../utils";
 import { DARK, DEFAULT_ID, LIGHT } from "../../constants";
-import { ColorSchemeType, ResolvedColorSchemeType, ThemeStoreType } from "../../types";
+import { ColorSchemeType, ResolvedColorSchemeType } from "../../types";
 
 export interface ThemeSwitcherProps {
   forcedTheme?: string;
@@ -30,6 +30,7 @@ declare global {
 
 /** Script to inject to avoid FOUC (Flash of Unstyled Content) */
 const NoFOUCScript = (key: string, styles?: Record<string, string>) => {
+  window.i = { t: "", d: DARK, l: "", c: SYSTEM, s: LIGHT };
   const keys = ["color-scheme", "csp", "theme", "th"];
   window.u = values => {
     const target = document.querySelector(key) ?? document.documentElement;
