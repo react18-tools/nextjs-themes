@@ -1,7 +1,34 @@
 import useRGS from "r18gs";
 import { ThemeSwitcherProps, UpdateProps } from "./client";
 import { DARK, DEFAULT_ID, LIGHT, SYSTEM, initialState } from "./constants";
-import { ResolvedColorSchemeType, ThemeStoreType } from "./types";
+import { ColorSchemeType, ResolvedColorSchemeType } from "./types";
+
+export interface ThemeStoreType {
+  /** theme */
+  t: string;
+  /** darkTheme */
+  d: string;
+  /** lightTheme */
+  l: string;
+  /** colorSchemePref */
+  c: ColorSchemeType;
+  /** systemColorScheme */
+  s: ResolvedColorSchemeType;
+  /** resolvedTheme */
+  rt: string;
+  /** resolved color scheme */
+  rc: ResolvedColorSchemeType;
+}
+
+export interface ThemeStoreActionsType {
+  setTheme: (theme: string) => void;
+  setDarkTheme: (darkTheme: string) => void;
+  setLightTheme: (lightTheme: string) => void;
+  setThemeSet: (themeSet: { darkTheme: string; lightTheme: string }) => void;
+  setColorSchemePref: (colorSchemePref: ColorSchemeType) => void;
+  setForcedTheme: (forcedTheme?: string) => void;
+  setForcedColorScheme: (forcedColorScheme?: ColorSchemeType) => void;
+}
 
 /** resolve props and state to a final attributes that should be applied to the DOM */
 export const resolveTheme = (state?: ThemeStoreType, props?: ThemeSwitcherProps): UpdateProps => {
