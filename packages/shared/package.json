@@ -1,0 +1,59 @@
+{
+  "name": "@repo/shared",
+  "version": "0.0.8",
+  "private": true,
+  "sideEffects": false,
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist/**"
+  ],
+  "scripts": {
+    "build": "tsup && tsc -p tsconfig-build.json",
+    "clean": "rm -rf dist",
+    "dev": "tsup --watch && tsc -p tsconfig-build.json -w",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint src/",
+    "test": "vitest run --coverage"
+  },
+  "devDependencies": {
+    "@repo/eslint-config": "workspace:*",
+    "@repo/jest-presets": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
+    "@testing-library/react": "^16.0.0",
+    "@types/node": "^20.14.2",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "@vitest/coverage-v8": "^1.6.0",
+    "esbuild-plugin-react18": "^0.2.4",
+    "esbuild-plugin-react18-css": "^0.0.4",
+    "jsdom": "^24.1.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "tsup": "^8.1.0",
+    "typescript": "^5.4.5",
+    "vite-tsconfig-paths": "^4.3.2",
+    "vitest": "^1.6.0"
+  },
+  "dependencies": {
+    "@mayank1513/fork-me": "^2.1.2",
+    "@repo/scripts": "workspace:*",
+    "nextjs-darkmode": "^1.0.1",
+    "nextjs-themes": "^3.1.2",
+    "r18gs": "^1.1.1",
+    "react-live": "^4.1.6",
+    "react18-loaders": "workspace:*"
+  },
+  "peerDependencies": {
+    "@types/react": "16.8 - 19",
+    "next": "10 - 14",
+    "react": "16.8 - 19"
+  },
+  "peerDependenciesMeta": {
+    "next": {
+      "optional": true
+    }
+  }
+}
