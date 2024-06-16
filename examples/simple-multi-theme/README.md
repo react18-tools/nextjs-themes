@@ -1,1 +1,0 @@
-# Simple Muti Theme Example
