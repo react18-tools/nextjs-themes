@@ -16,10 +16,10 @@
     "@repo/shared": "workspace:*",
     "next": "^14.2.4",
     "nextjs-darkmode": "^1.0.1",
-    "nextjs-themes": "^3.1.2",
+    "nextjs-themes": "workspace:*",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react18-loaders": "workspace:*"
+    "react18-loaders": "latest"
   },
   "devDependencies": {
     "@next/eslint-plugin-next": "^14.2.4",

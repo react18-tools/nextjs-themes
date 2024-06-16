@@ -28,12 +28,12 @@
     },
     "RX4J5v4y5IOe_ucf8pMRT": {
       "id": "RX4J5v4y5IOe_ucf8pMRT",
-      "description": "🌟 Enable [private vulnerability reporting] (For public repo - do this after updating visibility to public)",
+      "description": "🌟 Enable [private vulnerability reporting](https://github.com/react18-tools/nextjs-themes/security) (For public repo - do this after updating visibility to public)",
       "columnId": "column-todo"
     },
     "EdPbrbJLllUHfZmCS80f7": {
       "id": "EdPbrbJLllUHfZmCS80f7",
-      "description": "Set up `CodeCov`\n  - Visit Codecov and set up your repo\n  - Create [repository secret] for `CODECOV_TOKEN`",
+      "description": "Set up `CodeCov`\n  - Visit Codecov and set up your repo\n  - Create [repository secret]((https://github.com/react18-tools/nextjs-themes/settings/secrets/actions)) for `CODECOV_TOKEN`",
       "columnId": "column-todo"
     },
     "MLLUsAhCKaKxvEXFY0HSq": {
@@ -68,7 +68,7 @@
     },
     "5vS1JNXoMhDl5IBljwh2v": {
       "id": "5vS1JNXoMhDl5IBljwh2v",
-      "description": "Set up GitHub pages to deploy docs\n  - Go to [repo settings] -> pages (On the left panel); Select deploy from a branch; Then Select `main` and `/docs`",
+      "description": "Set up GitHub pages to deploy docs\n  - Go to [repo settings](https://github.com/react18-tools/nextjs-themes/settings/pages) -> pages (On the left panel); Select deploy from a branch; Then Select `main` and `/docs`",
       "columnId": "column-todo"
     },
     "55DAZwduwTvlaxaJC8hlX": {

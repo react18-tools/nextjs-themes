@@ -3,7 +3,7 @@ import { LandingPage } from "@repo/shared/dist/server";
 import { Demo } from "@repo/shared";
 
 export const metadata = {
-  title: "React 18 Loaders",
+  title: "Nextjs Themes",
 };
 
 /** next.js landing page */

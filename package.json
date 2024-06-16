@@ -9,7 +9,6 @@
     "lint": "turbo lint",
     "test": "turbo test",
     "typecheck": "turbo typecheck",
-    "postinstall": "node scripts/rebrand.js",
     "preinstall": "node scripts/update-pm.js"
   },
   "devDependencies": {
