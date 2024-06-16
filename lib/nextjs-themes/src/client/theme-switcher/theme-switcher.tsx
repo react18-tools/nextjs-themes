@@ -46,8 +46,6 @@ const updateDOM = (
     target?.setAttribute("data-color-scheme", resolvedColorScheme);
     target?.setAttribute("data-csp", resolvedColorSchemePref); /** color-scheme-preference */
   });
-  const shouldCreateCookie = target?.getAttribute("data-nth") === "next";
-  return shouldCreateCookie;
 };
 
 /** disable transition while switching theme */
@@ -87,10 +85,9 @@ export const useThemeSwitcher = (props: ThemeSwitcherProps) => {
   useEffect(() => {
     const restoreTransitions = disableTransition(props.themeTransition);
     const resolvedData = resolveTheme(themeState, props);
-    const shouldCreateCookie = updateDOM(resolvedData, props);
+    updateDOM(resolvedData, props);
     const stateStr = JSON.stringify(themeState);
     localStorage.setItem(key, stateStr);
-    if (shouldCreateCookie) document.cookie = `${key}=${stateStr};max-age=31536000;SameSite=Strict;`;
     restoreTransitions();
   }, [props, themeState]);
 };
