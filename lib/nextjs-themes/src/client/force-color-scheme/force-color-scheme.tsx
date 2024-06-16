@@ -1,6 +1,6 @@
 "use client";
 import { useEffect } from "react";
-import type { ColorSchemeType } from "../../constants";
+import type { ColorSchemeType } from "../../types";
 import { useTheme } from "../../hooks";
 
 /** Force color scheme on a page */

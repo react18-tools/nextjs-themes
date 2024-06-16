@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { resolveTheme, MEDIA, useStore } from "../../utils";
-import { ColorSchemeType, DARK, DEFAULT_ID, LIGHT, ResolvedColorSchemeType } from "../../constants";
+import { DARK, DEFAULT_ID, LIGHT } from "../../constants";
+import { ColorSchemeType, ResolvedColorSchemeType } from "../../types";
 
 export interface ThemeSwitcherProps {
   forcedTheme?: string;
@@ -29,12 +30,23 @@ export interface UpdateProps {
   th: string;
 }
 
+declare global {
+  var u: () => void;
+}
+
+/** Script to inject to avoid FOUC (Flash of Unstyled Content) */
+const NoFOUCScript = (key: string, styles?: Record<string, string>) => {
+  window.u = () => {
+    const target = document.querySelector(key);
+  };
+};
+
 const updateDOM = (
   { resolvedTheme, resolvedColorScheme, resolvedColorSchemePref, th }: UpdateProps,
   props: ThemeSwitcherProps,
 ) => {
   const { targetSelector, targetId, styles } = props;
-  const target = document.querySelector(targetSelector || `#${targetId || DEFAULT_ID}`);
+  const target = document.querySelector("");
   let classes = [resolvedColorScheme, `theme-${resolvedTheme}`, `th-${th}`, `csp-${resolvedColorSchemePref}`];
   if (styles) classes = classes.map(cls => styles[cls] ?? cls);
   /** don't apply theme to documentElement for localized targets */
@@ -69,7 +81,7 @@ const disableTransition = (themeTransition = "none") => {
  */
 export const useThemeSwitcher = (props: ThemeSwitcherProps) => {
   // not using ?? as we don't want key to be an empty string ever
-  const key = props.targetId || props.targetSelector || DEFAULT_ID;
+  const key = props.targetSelector || `#${props.targetId || DEFAULT_ID}`;
   const [themeState, setThemeState] = useStore(key);
   /** set listeners for system preference and syncing store */
   useEffect(() => {

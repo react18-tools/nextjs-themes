@@ -1,20 +1,14 @@
-import type { SetStateAction } from "r18gs";
-import { ColorSchemeType, ThemeStoreType } from "../constants";
+import type { ColorSchemeType } from "../types";
 import { resolveTheme, useStore } from "../utils";
-import { useMemo } from "react";
-
-/** create setter for memoized setter */
-const createSetter = (setThemeState: SetStateAction<ThemeStoreType>) => {
-  return <T>(key: string) =>
-    (arg: T) =>
-      setThemeState(state => ({ ...state, [key]: arg }));
-};
 
 /** useTheme hook */
 export const useTheme = (targetId?: string) => {
   const [themeState, setThemeState] = useStore(targetId);
   const { resolvedColorScheme, resolvedTheme } = resolveTheme(themeState);
-  const setter = useMemo(() => createSetter(setThemeState), []);
+  const setter =
+    <T>(key: string) =>
+    (arg: T) =>
+      setThemeState(prev => ({ ...prev, [key]: arg }));
   return {
     ...themeState,
     resolvedColorScheme,

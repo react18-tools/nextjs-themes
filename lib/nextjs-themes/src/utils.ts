@@ -1,6 +1,7 @@
 import useRGS from "r18gs";
 import { ThemeSwitcherProps, UpdateProps } from "./client";
-import { DARK, DEFAULT_ID, LIGHT, ResolvedColorSchemeType, SYSTEM, ThemeStoreType, initialState } from "./constants";
+import { DARK, DEFAULT_ID, LIGHT, SYSTEM, initialState } from "./constants";
+import { ResolvedColorSchemeType, ThemeStoreType } from "./types";
 
 /** resolve props and state to a final attributes that should be applied to the DOM */
 export const resolveTheme = (state?: ThemeStoreType, props?: ThemeSwitcherProps): UpdateProps => {
