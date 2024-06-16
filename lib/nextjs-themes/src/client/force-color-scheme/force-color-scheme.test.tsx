@@ -11,8 +11,8 @@ describe.concurrent("force-color-scheme", () => {
     const { result } = renderHook(() => useTheme());
     act(() => result.current.setForcedColorScheme(LIGHT));
     const { unmount } = await act(() => render(<ForceColorScheme colorScheme={DARK} />));
-    expect(result.current.forcedColorScheme).toBe(DARK);
+    expect(result.current.fc).toBe(DARK);
     act(() => unmount());
-    expect(result.current.forcedColorScheme).toBe(undefined);
+    expect(result.current.fc).toBe(undefined);
   });
 });

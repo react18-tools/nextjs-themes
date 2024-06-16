@@ -28,12 +28,12 @@ const colorSchemes: ColorSchemeType[] = [SYSTEM, DARK, LIGHT];
  * ```
  */
 export const ColorSwitch = ({ size = 25, skipSystem, targetId }: ColorSwitchProps) => {
-  const [{ colorSchemePref }, setThemeState] = useStore(targetId);
+  const [{ c: colorSchemePref }, setThemeState] = useStore(targetId);
   const toggleColorScheme = () => {
     let index = colorSchemes.indexOf(colorSchemePref);
     const n = colorSchemes.length;
     if (skipSystem && index === n - 1) index = 0;
-    setThemeState(state => ({ ...state, colorSchemePref: colorSchemes[(index + 1) % n] }));
+    setThemeState(state => ({ ...state, c: colorSchemes[(index + 1) % n] }));
   };
   return (
     <button

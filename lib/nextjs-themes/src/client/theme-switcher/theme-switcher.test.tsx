@@ -109,7 +109,7 @@ describe("theme-switcher", () => {
         }),
       ),
     );
-    expect(hook.result.current.theme).toBe(MY_THEME);
+    expect(hook.result.current.t).toBe(MY_THEME);
   });
 });
 

@@ -3,13 +3,16 @@ export type ColorSchemeType = "" | "system" | "dark" | "light";
 export type ResolvedColorSchemeType = "dark" | "light";
 
 export interface ThemeStoreType {
-  theme: string;
-  darkTheme: string;
-  lightTheme: string;
-  colorSchemePref: ColorSchemeType;
-  systemColorScheme: "dark" | "light";
-  forcedTheme?: string;
-  forcedColorScheme?: ColorSchemeType;
+  /** theme */
+  t: string;
+  /** darkTheme */
+  d: string;
+  /** lightTheme */
+  l: string;
+  /** colorSchemePref */
+  c: ColorSchemeType;
+  /** systemColorScheme */
+  s: "dark" | "light";
 }
 
 export interface ThemeStoreActionsType {

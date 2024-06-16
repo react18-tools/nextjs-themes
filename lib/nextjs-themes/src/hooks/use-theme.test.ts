@@ -6,6 +6,6 @@ describe("use-theme", () => {
   test("setThemeSet", ({ expect }) => {
     const hook = renderHook(() => useTheme());
     act(() => hook.result.current.setThemeSet({ darkTheme: "dark-1", lightTheme: "light-1" }));
-    expect(hook.result.current.darkTheme).toBe("dark-1");
+    expect(hook.result.current.d).toBe("dark-1");
   });
 });
