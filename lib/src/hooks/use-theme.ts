@@ -4,7 +4,7 @@ import { ResolveFunc } from "../client/theme-switcher/no-fouc";
 import { ColorSchemeType, ResolvedColorSchemeType } from "../types";
 import { DARK, LIGHT, SYSTEM } from "../constants";
 
-const colorSchemes = [SYSTEM, LIGHT, DARK] as ColorSchemeType[];
+const colorSchemes = [SYSTEM, DARK, LIGHT] as ColorSchemeType[];
 let resolveTheme: ResolveFunc;
 
 interface UseThemeYield {
@@ -38,7 +38,7 @@ interface UseThemeYield {
 export const useTheme = (targetSelector?: string): UseThemeYield => {
   const [state, setState] = useStore(targetSelector);
   useEffect(() => {
-    resolveTheme = r;
+    resolveTheme = window.r;
   }, []);
 
   /** helper */
