@@ -1,4 +1,4 @@
-import useRGS from "r18gs";
+import { useRGS } from "r18gs";
 import { DARK, DEFAULT_ID, LIGHT, SYSTEM } from "./constants";
 import { ColorSchemeType, ResolvedColorSchemeType } from "./types";
 
