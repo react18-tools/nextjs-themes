@@ -3,7 +3,7 @@ import { Card, CardProps } from "./card";
 import { ReactNode } from "react";
 
 /** Component to render cards */
-export function Cards({ cards, children }: { cards: CardProps[]; children: ReactNode }) {
+export function Cards({ cards, children }: { cards: CardProps[]; children?: ReactNode }) {
   return (
     <div className={styles.cards}>
       {children}

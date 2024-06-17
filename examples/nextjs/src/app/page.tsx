@@ -34,9 +34,7 @@ export default function Page(): JSX.Element {
       <ThemeController />
       {/* <Demo /> */}
       {/* <MyButton /> */}
-      <Cards cards={cards}>
-        <PageNavigatorCard LinkElement={Link} />
-      </Cards>
+      <Cards cards={cards}>{/* <PageNavigatorCard LinkElement={Link} /> */}</Cards>
     </LandingPage>
   );
 }
