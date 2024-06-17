@@ -12,7 +12,10 @@ export default defineConfig(
       clean: !options.watch,
       bundle: true,
       minify: !options.watch,
-      esbuildPlugins: [react18Plugin(), cssPlugin({ generateScopedName: "[folder]__[local]" })],
+      esbuildPlugins: [
+        react18Plugin(),
+        cssPlugin({ generateScopedName: "nextjs-themes--[local]" }),
+      ],
       ...options,
     }) as Options,
 );
