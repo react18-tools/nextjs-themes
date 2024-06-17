@@ -8,6 +8,4 @@
 
 // client component exports
 export * from "./theme-switcher";
-export * from "./force-theme";
-export * from "./force-color-scheme";
 export * from "./color-switch";
