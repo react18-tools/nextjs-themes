@@ -2,6 +2,7 @@ import * as React from "react";
 import { AppProps } from "next/app";
 import { ColorSchemeType, ThemeSwitcher } from "nextjs-themes";
 import { Layout } from "@repo/shared/dist/server";
+import "../styles/global.css";
 
 type _AppProps = AppProps & { Component: { theme?: string; colorScheme?: ColorSchemeType } };
 
