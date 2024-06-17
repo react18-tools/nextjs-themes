@@ -2,8 +2,9 @@ import { useEffect } from "react";
 import { useStore } from "../store";
 import { ResolveFunc } from "../client/theme-switcher/no-fouc";
 import { ColorSchemeType, ResolvedColorSchemeType } from "../types";
-import { SYSTEM } from "../constants";
+import { DARK, LIGHT, SYSTEM } from "../constants";
 
+const colorSchemes = [SYSTEM, LIGHT, DARK] as ColorSchemeType[];
 let resolveTheme: ResolveFunc;
 
 interface UseThemeYield {
@@ -20,6 +21,7 @@ interface UseThemeYield {
   setLightTheme: (lightTheme: string) => void;
   setThemeSet: (themeSet: { darkTheme: string; lightTheme: string }) => void;
   setColorSchemePref: (colorSchemePref: ColorSchemeType) => void;
+  toggleColorScheme: (skipSystem?: boolean) => void;
 }
 
 /**
@@ -58,6 +60,12 @@ export const useTheme = (targetSelector?: string): UseThemeYield => {
     setLightTheme: setter<string>("l"),
     setThemeSet: ({ darkTheme: d, lightTheme: l }) => setState(state => ({ ...state, d, l })),
     setColorSchemePref: setter<ColorSchemeType>("c"),
+    toggleColorScheme(skipSystem) {
+      let index = colorSchemes.indexOf(state.c);
+      const len = colorSchemes.length;
+      if (index === -1 || (skipSystem && index === len - 1)) index = 0;
+      setter("c")(colorSchemes[(index + 1) % len]);
+    },
   };
 
   if (resolveTheme) {
