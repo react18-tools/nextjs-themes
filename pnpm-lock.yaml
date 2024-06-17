@@ -118,6 +118,9 @@ importers:
       '@repo/logger':
         specifier: workspace:*
         version: link:../../packages/logger
+      '@repo/scripts':
+        specifier: workspace:*
+        version: link:../../scripts
       '@repo/shared':
         specifier: workspace:*
         version: link:../../packages/shared
@@ -311,9 +314,6 @@ importers:
 
   lib:
     dependencies:
-      next:
-        specifier: 10 - 14
-        version: 14.2.4(@babel/core@7.24.7)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.5)
       r18gs:
         specifier: ^1.1.2
         version: 1.1.2(@types/react@18.3.3)(next@14.2.4(@babel/core@7.24.7)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.5))(react@18.3.1)
@@ -347,7 +347,7 @@ importers:
         version: 1.6.0(vitest@1.6.0(@types/node@20.14.2)(jsdom@24.1.0)(sass@1.77.5))
       esbuild-plugin-react18:
         specifier: 0.2.4
-        version: 0.2.4(@types/react@18.3.3)(next@14.2.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.5))(react@18.3.1)
+        version: 0.2.4(@types/react@18.3.3)(next@14.2.4(@babel/core@7.24.7)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.5))(react@18.3.1)
       esbuild-plugin-react18-css:
         specifier: ^0.0.4
         version: 0.0.4
@@ -434,7 +434,7 @@ importers:
     dependencies:
       '@mayank1513/fork-me':
         specifier: ^2.1.2
-        version: 2.1.2(@types/react@18.3.3)(next@14.2.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.5))(react@18.3.1)
+        version: 2.1.2(@types/react@18.3.3)(next@14.2.4(@babel/core@7.24.7)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.5))(react@18.3.1)
       '@repo/scripts':
         specifier: workspace:*
         version: link:../../scripts
@@ -486,7 +486,7 @@ importers:
         version: 1.6.0(vitest@1.6.0(@types/node@20.14.2)(jsdom@24.1.0)(sass@1.77.5))
       esbuild-plugin-react18:
         specifier: ^0.2.4
-        version: 0.2.4(@types/react@18.3.3)(next@14.2.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.5))(react@18.3.1)
+        version: 0.2.4(@types/react@18.3.3)(next@14.2.4(@babel/core@7.24.7)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.5))(react@18.3.1)
       esbuild-plugin-react18-css:
         specifier: ^0.0.4
         version: 0.0.4
@@ -7586,7 +7586,7 @@ snapshots:
       globby: 11.1.0
       read-yaml-file: 1.1.0
 
-  '@mayank1513/fork-me@2.1.2(@types/react@18.3.3)(next@14.2.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.5))(react@18.3.1)':
+  '@mayank1513/fork-me@2.1.2(@types/react@18.3.3)(next@14.2.4(@babel/core@7.24.7)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.5))(react@18.3.1)':
     dependencies:
       '@types/react': 18.3.3
       react: 18.3.1
@@ -9493,7 +9493,7 @@ snapshots:
       postcss-modules: 6.0.0(postcss@8.4.38)
       sass: 1.77.5
 
-  esbuild-plugin-react18@0.2.4(@types/react@18.3.3)(next@14.2.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.5))(react@18.3.1):
+  esbuild-plugin-react18@0.2.4(@types/react@18.3.3)(next@14.2.4(@babel/core@7.24.7)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.5))(react@18.3.1):
     dependencies:
       '@types/react': 18.3.3
       react: 18.3.1

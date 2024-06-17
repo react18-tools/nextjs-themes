@@ -1,6 +1,6 @@
 import { useState } from "react";
 import styles from "./header.module.scss";
-import ThemeSwitch from "./theme-switch";
+import { ThemeSwitch } from "./theme-switch";
 import { DrawerButton } from "../drawer-button";
 import { Logo } from "../../server";
 
