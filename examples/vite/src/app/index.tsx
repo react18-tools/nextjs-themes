@@ -1,9 +1,9 @@
 import React, { useCallback } from "react";
 import "./styles.css";
-import { Bars1, Bars2, Dots1, Dots2 } from "react18-loaders/dist/server";
+import { Bars1 } from "react18-loaders/dist/server/bars/bars1";
 import { LoaderContainer, useLoader } from "react18-loaders";
 import { LandingPage, Layout } from "@repo/shared/dist/server";
-import { Core } from "nextjs-darkmode";
+import { ThemeSwitcher } from "nextjs-themes";
 import { Demo, Header } from "@repo/shared";
 
 /** Vite App */
@@ -12,7 +12,7 @@ function App(): JSX.Element {
   const handleClick = useCallback(() => setLoading(true), []);
   return (
     <Layout>
-      <Core t="background .5s" />
+      <ThemeSwitcher themeTransition="background .5s" />
       <Header />
       <LandingPage title="Vite Example">
         <Demo />

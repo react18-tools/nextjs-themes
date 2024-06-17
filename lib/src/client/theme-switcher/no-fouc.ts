@@ -23,9 +23,9 @@ export const noFOUCScript = (
   forcedTheme?: string,
   forcedColorScheme?: ColorSchemeType,
 ) => {
-  m = matchMedia("(prefers-color-scheme: dark)");
+  window.m = matchMedia("(prefers-color-scheme: dark)");
   const keys = ["color-scheme", "csp", "theme", "th"];
-  u = values => {
+  window.u = values => {
     const el = document.querySelector(key) ?? document.documentElement;
     let classes = [];
     keys.forEach((key, index) => {
@@ -42,7 +42,7 @@ export const noFOUCScript = (
     ? { ...JSON.parse(str), s: m.matches ? initialState.d : initialState.l }
     : initialState;
 
-  r = (store: ThemeStoreType) => {
+  window.r = (store: ThemeStoreType) => {
     const colorSchemePref = forcedColorScheme ?? store.c;
     const colorScheme = colorSchemePref === initialState.c ? store.s : colorSchemePref;
     const theme = colorScheme === "" ? store.t : colorScheme === initialState.d ? store.d : store.l;

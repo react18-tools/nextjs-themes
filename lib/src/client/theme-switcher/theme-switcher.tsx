@@ -80,6 +80,10 @@ export const ThemeSwitcher = ({
   nonce,
 }: ThemeSwitcherProps) => {
   const k = targetSelector || `#${DEFAULT_ID}`;
+  // handle client side exceptions when script is not run. <- for client side apps like vite or CRA
+  if (typeof window !== "undefined" && !window.m)
+    noFOUCScript(k, initialState, styles, forcedTheme, forcedColorScheme);
+
   const [state, setState] = useStore(targetSelector);
 
   useEffect(() => {
