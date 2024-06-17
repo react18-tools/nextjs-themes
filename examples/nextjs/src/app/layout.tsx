@@ -1,6 +1,6 @@
 import "./styles.css";
 import "react18-loaders/dist/index.css";
-import { Core } from "nextjs-darkmode";
+import { ThemeSwitcher } from "nextjs-themes";
 import { Layout } from "@repo/shared/dist/server";
 import { GlobalLoader, Header } from "@repo/shared";
 import { Inter } from "next/font/google";
@@ -12,7 +12,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }):
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Core />
+        <ThemeSwitcher />
         <Layout>
           <Header />
           {children}
