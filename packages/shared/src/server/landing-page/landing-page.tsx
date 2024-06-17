@@ -46,11 +46,6 @@ export function LandingPage({ title, children }: LandingPageProps) {
         <strong>Harness the full potential of React 18 Server Components!</strong>
       </div>
       {children}
-      <div className={styles.featured}>
-        <h2>Featured packages built with this template.</h2>
-        <hr />
-        <Cards cards={featured} />
-      </div>
       <Cards cards={cards} />
     </main>
   );

@@ -54,6 +54,74 @@
   --secondary-glow: radial-gradient(#aaf5, #f0f0, #f0f0);
 }
 
+/* dark themes */
+[data-theme="dark"],
+[data-theme="dark"] ~ * {
+  --bg-color: #000;
+  --text-color: #fff;
+}
+
+[data-theme="gray"],
+[data-theme="gray"] ~ * {
+  --bg-color: gray;
+  --text-color: #fff;
+}
+
+[data-theme="dark-blue"],
+[data-theme="dark-blue"] ~ * {
+  --bg-color: #006;
+  --text-color: #ff0;
+}
+
+[data-theme="dark"],
+[data-theme="dark"] ~ *,
+[data-theme="gray"],
+[data-theme="gray"] ~ *,
+[data-theme="dark-blue"],
+[data-theme="dark-blue"] ~ * {
+  --primary-glow: radial-gradient(rgba(1, 65, 255, 0.4), rgba(1, 65, 255, 0));
+  --secondary-glow: linear-gradient(
+    to bottom right,
+    rgba(1, 65, 255, 0),
+    rgba(1, 65, 255, 0),
+    rgba(1, 65, 255, 0.3)
+  );
+
+  --callout-rgb: 20, 20, 20;
+  --callout-border-rgb: 108, 108, 108;
+  --card-rgb: 100, 100, 100;
+  --card-border-rgb: 200, 200, 200;
+  --tile-border: conic-gradient(
+    #ffffff80,
+    #ffffff40,
+    #ffffff30,
+    #ffffff20,
+    #ffffff10,
+    #ffffff10,
+    #ffffff80
+  );
+}
+
+/* light themes */
+
+[data-theme="white"],
+[data-theme="white"] ~ * {
+  --bg-color: #fff;
+  --text-color: #000;
+}
+
+[data-theme="yellow"],
+[data-theme="yellow"] ~ * {
+  --bg-color: #ff0;
+  --text-color: #00f;
+}
+
+[data-theme="orange"],
+[data-theme="orange"] ~ * {
+  --bg-color: #ffa500;
+  --text-color: #05f;
+}
+
 html {
   padding: 0;
   margin: 0;

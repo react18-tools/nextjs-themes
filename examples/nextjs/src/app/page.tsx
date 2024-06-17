@@ -1,6 +1,5 @@
-import MyButton from "./button";
 import { LandingPage } from "@repo/shared/dist/server";
-import { Demo } from "@repo/shared";
+import { ThemeController } from "@repo/shared";
 
 export const metadata = {
   title: "Nextjs Themes",
@@ -10,8 +9,9 @@ export const metadata = {
 export default function Page(): JSX.Element {
   return (
     <LandingPage title="Next.js Example">
-      <Demo />
-      <MyButton />
+      <ThemeController />
+      {/* <Demo /> */}
+      {/* <MyButton /> */}
     </LandingPage>
   );
 }
