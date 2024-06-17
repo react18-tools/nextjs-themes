@@ -1,7 +1,6 @@
 import { Cards, LandingPage } from "@repo/shared/dist/server";
-import { ThemeController, PageNavigatorCard } from "@repo/shared";
+import { ThemeController } from "@repo/shared";
 import { ColorSwitch } from "nextjs-themes";
-import Link from "next/link";
 
 export const metadata = {
   title: "Nextjs Themes",

@@ -1,8 +1,9 @@
+import { darkThemes, lightThemes } from "@repo/shared";
+import { GetStaticPaths, GetStaticProps } from "next";
 import { useRouter } from "next/router";
 
-export default function PageWithForcedColorScheme() {
+export default function PageWithForcedTheme({ theme }: { theme: string }) {
   const router = useRouter();
-  const { theme } = router.query;
   return (
     <>
       <h1>
@@ -12,3 +13,27 @@ export default function PageWithForcedColorScheme() {
     </>
   );
 }
+
+export const getStaticPaths: GetStaticPaths = () => {
+  return {
+    paths: [darkThemes, lightThemes].map(theme => {
+      return {
+        params: {
+          theme,
+        },
+      };
+    }),
+    fallback: false,
+  };
+};
+
+// @ts-expect-error -- ok
+export const getStaticProps: GetStaticProps = ({ params: { theme } }) => {
+  // @ts-expect-error -- ok
+  PageWithForcedTheme.theme = theme;
+  return {
+    props: {
+      theme,
+    },
+  };
+};

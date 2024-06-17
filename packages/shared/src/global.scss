@@ -147,6 +147,11 @@ a {
   flex-grow: 1;
 }
 
+.center {
+  margin: auto;
+  display: block;
+}
+
 @media screen and (min-width: 800px) {
   .mb {
     display: none !important;
