@@ -9,7 +9,9 @@ export default function ThemeSwitch(): JSX.Element {
   const { colorSchemePref } = useTheme();
   return (
     <div className={styles.themeswitch}>
-      <span className="mb">{colorSchemePref}</span>
+      <span className="mb" suppressHydrationWarning>
+        {colorSchemePref}
+      </span>
       <ColorSwitch />
     </div>
   );
