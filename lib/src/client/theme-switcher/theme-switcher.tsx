@@ -102,5 +102,6 @@ export const ThemeSwitcher = ({
     localStorage.setItem(k, JSON.stringify(state));
   }, [state]);
 
+  console.log({ forcedColorScheme, forcedTheme });
   return <Script {...{ k, n: nonce, s: styles, t: forcedTheme, c: forcedColorScheme }} />;
 };

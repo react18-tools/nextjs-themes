@@ -1,3 +1,4 @@
+import { GetStaticPaths } from "next";
 import { useRouter } from "next/router";
 
 export default function PageWithForcedColorScheme() {
@@ -13,3 +14,27 @@ export default function PageWithForcedColorScheme() {
     </>
   );
 }
+
+export const getStaticPaths: GetStaticPaths = () => {
+  return {
+    paths: ["system", "dark", "light"].map(colorScheme => {
+      return {
+        params: {
+          colorScheme,
+        },
+      };
+    }),
+    fallback: false,
+  };
+};
+
+// @ts-expect-error -- ok
+export const getStaticProps: GetStaticProps = ({ params: { colorScheme } }) => {
+  // @ts-expect-error -- ok
+  PageWithForcedTheme.colorScheme = colorScheme;
+  return {
+    props: {
+      colorScheme,
+    },
+  };
+};
