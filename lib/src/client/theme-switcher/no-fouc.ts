@@ -49,7 +49,7 @@ export const noFOUCScript = (
     const resolvedTheme = forcedTheme ?? theme;
     return [
       colorScheme || store.s,
-      colorScheme,
+      colorSchemePref,
       resolvedTheme,
       forcedTheme ?? store.t,
     ] as ValuesType;
