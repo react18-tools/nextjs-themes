@@ -1,5 +1,5 @@
-import { ThemeStoreType } from "../../store";
-import { ColorSchemeType, ResolvedColorSchemeType } from "../../types";
+import type { ThemeStoreType } from "../../store";
+import type { ColorSchemeType, ResolvedColorSchemeType } from "../../types";
 
 type ValuesType = [ResolvedColorSchemeType, ColorSchemeType, string, string];
 export type UpdateDOMFunc = (values: ValuesType) => void;

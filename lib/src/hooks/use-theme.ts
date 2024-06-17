@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useStore } from "../store";
 import { ResolveFunc } from "../client/theme-switcher/no-fouc";
 import { ColorSchemeType, ResolvedColorSchemeType } from "../types";
+import { SYSTEM } from "../constants";
 
 let resolveTheme: ResolveFunc;
 
@@ -38,26 +39,32 @@ export const useTheme = (targetSelector?: string): UseThemeYield => {
     resolveTheme = r;
   }, []);
 
-  const [resolvedColorScheme, _, resolvedTheme] = resolveTheme(state);
-
   /** helper */
   const setter =
     <T>(key: string) =>
     (arg: T) =>
       setState(state => ({ ...state, [key]: arg }));
 
-  return {
+  const hookResult: UseThemeYield = {
     theme: state.t,
     darkTheme: state.d,
     lightTheme: state.l,
     colorSchemePref: state.c,
     systemColorScheme: state.s,
-    resolvedColorScheme,
-    resolvedTheme,
+    resolvedColorScheme: state.c === SYSTEM || state.c === "" ? state.s : state.c,
+    resolvedTheme: state.t,
     setTheme: setter<string>("t"),
     setDarkTheme: setter<string>("d"),
     setLightTheme: setter<string>("l"),
     setThemeSet: ({ darkTheme: d, lightTheme: l }) => setState(state => ({ ...state, d, l })),
     setColorSchemePref: setter<ColorSchemeType>("c"),
   };
+
+  if (resolveTheme) {
+    const resolvedValues = resolveTheme(state);
+    hookResult.resolvedColorScheme = resolvedValues[0];
+    hookResult.resolvedTheme = resolvedValues[1];
+  }
+
+  return hookResult;
 };
