@@ -108,13 +108,7 @@
   },
   "peerDependencies": {
     "@types/react": "16.8 - 19",
-    "next": "10 - 15",
     "react": "16.8 - 19"
-  },
-  "peerDependenciesMeta": {
-    "next": {
-      "optional": true
-    }
   },
   "funding": [
     {
