@@ -15,8 +15,68 @@
   "files": [
     "dist/**"
   ],
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.ts"
+    },
+    "./client": {
+      "require": "./dist/client/index.js",
+      "import": "./dist/client/index.mjs",
+      "types": "./dist/client/index.d.ts"
+    },
+    "./client/color-switch": {
+      "require": "./dist/client/color-switch/index.js",
+      "import": "./dist/client/color-switch/index.mjs",
+      "types": "./dist/client/color-switch/index.d.ts"
+    },
+    "./color-switch": {
+      "require": "./dist/client/color-switch/index.js",
+      "import": "./dist/client/color-switch/index.mjs",
+      "types": "./dist/client/color-switch/index.d.ts"
+    },
+    "./client/theme-switcher": {
+      "require": "./dist/client/theme-switcher/index.js",
+      "import": "./dist/client/theme-switcher/index.mjs",
+      "types": "./dist/client/theme-switcher/index.d.ts"
+    },
+    "./theme-switcher": {
+      "require": "./dist/client/theme-switcher/index.js",
+      "import": "./dist/client/theme-switcher/index.mjs",
+      "types": "./dist/client/theme-switcher/index.d.ts"
+    },
+    "./server": {
+      "require": "./dist/server/index.js",
+      "import": "./dist/server/index.mjs",
+      "types": "./dist/server/index.d.ts"
+    },
+    "./server/nextjs": {
+      "require": "./dist/server/index.js",
+      "import": "./dist/server/index.mjs",
+      "types": "./dist/server/index.d.ts"
+    },
+    "./server/nextjs/server-side-wrapper": {
+      "require": "./dist/server/index.js",
+      "import": "./dist/server/index.mjs",
+      "types": "./dist/server/index.d.ts"
+    },
+    "./hooks": {
+      "require": "./dist/hooks/index.js",
+      "import": "./dist/hooks/index.mjs",
+      "types": "./dist/hooks/index.d.ts"
+    },
+    "./hooks/use-theme": {
+      "require": "./dist/hooks/index.js",
+      "import": "./dist/hooks/index.mjs",
+      "types": "./dist/hooks/index.d.ts"
+    },
+    "./styles.css": "./dist/index.css",
+    "./styles": "./dist/index.css",
+    "./css": "./dist/index.css"
+  },
   "scripts": {
-    "build": "tsup && tsc -p tsconfig-build.json && cp dist/index.css dist/styles.css",
+    "build": "tsup && tsc -p tsconfig-build.json",
     "clean": "rm -rf dist",
     "dev": "tsup --watch && tsc -p tsconfig-build.json -w",
     "typecheck": "tsc --noEmit",
