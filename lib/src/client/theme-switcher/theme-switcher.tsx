@@ -33,9 +33,7 @@ let updateDOM: UpdateDOMFunc;
 let resolveTheme: ResolveFunc;
 
 const Script = memo(({ k, n = "", s, t, c }: ScriptProps) => {
-  media = m;
-  updateDOM = u;
-  resolveTheme = r;
+  if (typeof m !== "undefined") [media, updateDOM, resolveTheme] = [m, u, r];
   return (
     <script
       // skipcq: JS-0440
