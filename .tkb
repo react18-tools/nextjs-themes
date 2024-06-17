@@ -1,11 +1,6 @@
 {
   "scope": "Workspace",
   "tasks": {
-    "_BfuX7quWBANpDK1bI7YM": {
-      "id": "_BfuX7quWBANpDK1bI7YM",
-      "description": "Update description in `lib/package.json`",
-      "columnId": "column-todo"
-    },
     "dC7QDBLH8BmHUfaYmIt81": {
       "id": "dC7QDBLH8BmHUfaYmIt81",
       "description": "(Optional) Add Repo Stats by visiting and setting up [repobeats](https://repobeats.axiom.co/)",
@@ -52,7 +47,6 @@
       "id": "column-todo",
       "title": "To do",
       "tasksIds": [
-        "_BfuX7quWBANpDK1bI7YM",
         "dC7QDBLH8BmHUfaYmIt81",
         "P_NrSJQ8m91Odgz8E1fS6",
         "1dRWJhy45E1Rq5wZAmPHt",
