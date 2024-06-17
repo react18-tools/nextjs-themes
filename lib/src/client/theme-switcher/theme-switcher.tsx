@@ -36,6 +36,7 @@ const Script = memo(({ k, n = "", s, t, c }: ScriptProps) => {
   if (typeof m !== "undefined") [media, updateDOM, resolveTheme] = [m, u, r];
   return (
     <script
+      suppressHydrationWarning
       // skipcq: JS-0440
       dangerouslySetInnerHTML={{
         __html: `(${noFOUCScript.toString()})(${JSON.stringify([k, initialState, s, t, c]).slice(1, -1)})`,
