@@ -2,8 +2,8 @@
   "name": "nextjs-themes",
   "author": "Mayank Kumar Chaudhari <https://mayank-chaudhari.vercel.app>",
   "private": false,
-  "version": "0.0.0",
-  "description": "",
+  "version": "3.1.2",
+  "description": "Unleash the Power of React Server Components! Use multiple themes on your site with confidence, without losing any advantages of React Server Components.",
   "license": "MPL-2.0",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -108,7 +108,7 @@
   },
   "peerDependencies": {
     "@types/react": "16.8 - 19",
-    "next": "10 - 14",
+    "next": "10 - 15",
     "react": "16.8 - 19"
   },
   "peerDependenciesMeta": {
