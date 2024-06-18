@@ -7,7 +7,6 @@ import ThemedPage from "./app/themed-page";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import { Layout } from "@repo/shared/dist/server";
 import { ThemeSwitcher } from "nextjs-themes";
-import { Header } from "@repo/shared";
 
 const routes = [
   {

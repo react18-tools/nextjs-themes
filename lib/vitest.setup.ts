@@ -31,8 +31,3 @@ Object.defineProperty(window, "media", {
   writable: true,
   value: "dark",
 });
-
-vi.mock("next/headers", () => ({
-  cookies: () => ({ get: (cookieName: string) => globalThis.cookies[cookieName] }),
-  headers: () => ({ get: (h: string) => globalThis.path }),
-}));

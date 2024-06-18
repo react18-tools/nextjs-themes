@@ -1,4 +1,4 @@
-import { ComponentType, FC, HTMLProps } from "react";
+import { FC, HTMLProps } from "react";
 import styles from "./cards.module.scss";
 
 export interface CardProps {

@@ -1,5 +1,5 @@
 import styles from "./cards.module.scss";
-import { Card, CardProps } from "./card";
+import { Card } from "./card";
 import { ReactNode } from "react";
 
 export const cards = [
