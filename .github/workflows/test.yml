@@ -4,32 +4,29 @@ on:
   push:
   pull_request:
   schedule:
-    - cron: "0 */8 * * *"
-
+    - cron: "5 */8 * * *"
 jobs:
   test:
+    if: github.run_number != 1
     runs-on: ubuntu-latest
-
-    defaults:
-      run:
-        working-directory: ./lib/nextjs-themes
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-          registry-url: https://registry.npmjs.org
       - run: npm i -g pnpm && pnpm i
         name: Install dependencies
-      - name: Test
-        run: npm test
+      - name: Run unit tests
+        run: pnpm test
       - name: Upload coverage reports to Codecov
+        continue-on-error: true
         uses: codecov/codecov-action@v4
-        env:
-          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+        with:
+          directory: ./lib
+          token: ${{ secrets.CODECOV_TOKEN }}
       - uses: paambaati/codeclimate-action@v5.0.0
         continue-on-error: true
         env:
           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
         with:
-          coverageLocations: ./lib/nextjs-themes/coverage/*.xml:clover
+          coverageLocations: ./lib/coverage/*.xml:clover

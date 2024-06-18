@@ -1,10 +1,12 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
-import App from "./App.tsx";
-import { createBrowserRouter, Link, Outlet, RouterProvider } from "react-router-dom";
-import ForcedColorSchemePage from "./forced-color-scheme-page.tsx";
-import ThemedPage from "./themed-page.tsx";
-import { SharedRootLayout } from "shared-ui";
+import { createRoot } from "react-dom/client";
+import App from "./app";
+import "./index.css";
+import ForcedColorSchemePage from "./app/forced-color-scheme-page";
+import ThemedPage from "./app/themed-page";
+import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
+import { Layout } from "@repo/shared/dist/server";
+import { ThemeSwitcher } from "nextjs-themes";
 
 const routes = [
   {
@@ -25,16 +27,23 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: (
-      <SharedRootLayout LinkElement={Link}>
+      <Layout>
         <Outlet />
-      </SharedRootLayout>
+      </Layout>
     ),
     children: routes,
   },
 ]);
 
-ReactDOM.createRoot(document.getElementById("root")!).render(
-  <React.StrictMode>
-    <RouterProvider router={router} />
-  </React.StrictMode>,
-);
+const el = document.getElementById("root");
+if (el) {
+  const root = createRoot(el);
+  root.render(
+    <React.StrictMode>
+      <ThemeSwitcher themeTransition="background .5s" />
+      <RouterProvider router={router} />
+    </React.StrictMode>,
+  );
+} else {
+  throw new Error("Could not find root element");
+}

@@ -4,21 +4,17 @@ name: Publish to NPM
 on:
   push:
     branches: [main]
-    paths: "lib/nextjs-themes/package.json"
-  workflow_dispatch:
+    paths: "lib/package.json"
 
 jobs:
   publish:
-    if: github.event.repository.owner.login == 'react18-tools'
+    # Don't run just after creating repo from template
+    # Also avoid running after merging set-up PR
+    if: github.run_number > 2 && github.event.repository.owner.login == 'react18-tools'
     runs-on: ubuntu-latest
     permissions:
-      packages: write
       contents: write
       id-token: write
-
-    defaults:
-      run:
-        working-directory: ./lib/nextjs-themes
 
     steps:
       - uses: actions/checkout@v4
@@ -27,30 +23,24 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          registry-url: https://registry.npmjs.org
           node-version: 20
+          registry-url: https://registry.npmjs.org
+      - name: Setup Git
+        run: |
+          git config --global user.name "mayank1513"
+          git config --global user.email "mayank.srmu@gmail.com"
       - run: npm i -g pnpm && pnpm i
         name: Install dependencies
         # fail and not publish if any of the unit tests are failing
       - name: Test
         run: pnpm test
-      - name: Create release and Publish to NPM
-        run: pnpm build && pnpm publish-package && node scope.js && pnpm publish-package
+      - name: Copy Readme file
+        run: cp ./README.md ./lib # will be uncommented while rebranding
+      - name: Apply changesets, publish and create release, branches and tags
+        run: node ./scripts/publish.js
         env:
+          BRANCH: ${{ github.ref_name }}
+          DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
-          TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          OWNER: ${{ github.event.repository.owner.login }}
-          REPO: ${{ github.event.repository.name }}
-
-      # Publish lite version
-      - run: node lite.js && pnpm build && pnpm publish-package && node scope.js && pnpm publish-package
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
-          OWNER: ${{ github.event.repository.owner.login }}
-
-      - name: Mark scoped package as deprecated
-        run: |
-          npm deprecate @mayank1513/nextjs-themes "Please use https://www.npmjs.com/package/nextjs-themes instead. We initially created scoped packages to have similarities with the GitHub Public Repository (which requires packages to be scoped). We are no longer using GPR and thus deprecating all scoped packages for which corresponding un-scoped packages exist."
-          npm deprecate @mayank1513/nextjs-themes-lite "Please use https://www.npmjs.com/package/nextjs-themes-lite instead. We initially created scoped packages to have similarities with the GitHub Public Repository (which requires packages to be scoped). We are no longer using GPR and thus deprecating all scoped packages for which corresponding un-scoped packages exist."
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}

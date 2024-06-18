@@ -1,25 +1,34 @@
-# Nextjs-Themes
+# Next.js Themes <img src="https://github.com/react18-tools/turborepo-template/blob/main/popper.png?raw=true" style="height: 40px"/>
 
-[![test](https://github.com/react18-tools/nextjs-themes/actions/workflows/test.yml/badge.svg)](https://github.com/react18-tools/nextjs-themes/actions/workflows/test.yml) [![Maintainability](https://api.codeclimate.com/v1/badges/149263e95a1388369bb9/maintainability)](https://codeclimate.com/github/react18-tools/nextjs-themes/maintainability) [![codecov](https://codecov.io/gh/react18-tools/nextjs-themes/branch/main/graph/badge.svg?token=SUTY0GHPHV)](https://codecov.io/gh/react18-tools/nextjs-themes) [![Version](https://img.shields.io/npm/v/nextjs-themes.svg?colorB=green)](https://www.npmjs.com/package/nextjs-themes) [![Downloads](https://img.jsdelivr.com/img.shields.io/npm/d18m/nextjs-themes.svg)](https://www.npmjs.com/package/nextjs-themes) [![npm bundle size](https://img.shields.io/bundlephobia/minzip/nextjs-themes)](https://www.npmjs.com/package/nextjs-themes) [![Contact me on Codementor](https://www.codementor.io/m-badges/mayank1513/get-help.svg)](https://www.codementor.io/@mayank1513?refer=badge)
+[![test](https://github.com/react18-tools/nextjs-themes/actions/workflows/test.yml/badge.svg)](https://github.com/react18-tools/nextjs-themes/actions/workflows/test.yml) [![Maintainability](https://api.codeclimate.com/v1/badges/149263e95a1388369bb9/maintainability)](https://codeclimate.com/github/react18-tools/nextjs-themes/maintainability) [![codecov](https://codecov.io/gh/react18-tools/nextjs-themes/branch/main/graph/badge.svg?token=SUTY0GHPHV)](https://codecov.io/gh/react18-tools/nextjs-themes) [![Version](https://img.shields.io/npm/v/nextjs-themes.svg?colorB=green)](https://www.npmjs.com/package/nextjs-themes) [![Downloads](https://img.jsdelivr.com/img.shields.io/npm/d18m/nextjs-themes.svg)](https://www.npmjs.com/package/nextjs-themes) ![npm bundle size](https://img.shields.io/bundlephobia/minzip/nextjs-themes) [![Contact me on Codementor](https://www.codementor.io/m-badges/mayank1513/get-help.svg)](https://www.codementor.io/@mayank1513?refer=badge)
 
-> We are launching version 3.0 with minor API changes and major performance improvement and fixes.
-> We have tried our best to ensure minimum changes to existing APIs.
-> For most users we recommend using [nthul](https://github.com/react18-tools/nextjs-themes-ultralight) package.
+<details>
+<summary>Version 3 Short Notes:</summary>
+Version 3.0 brings minor API changes along with major performance improvements and fixes. We have minimized changes to existing APIs.
 
-> We recommend using [react18-themes](https://github.com/react18-tools/react18-themes/) for Remix. This package is maintained with specific focus on Next.js and Vite. Most of the functionality of this package along with extended support for other build tools is available in [react18-themes](https://github.com/react18-tools/react18-themes/)
+Note: [react18-themes](https://github.com/react18-tools/react18-themes/) will now be maintained as `nextjs-themes`, as server-specific APIs are no longer needed.
+
+</details>
 
 🤟 👉 [Unleash the Power of React Server Components](https://medium.com/javascript-in-plain-english/unleash-the-power-of-react-server-components-eb3fe7201231)
 
-This project was originally inspired by next-themes. Next-themes is an awesome package, however, it requires wrapping everything in a provider. The provider has to be a client component as it uses hooks. And thus, it takes away all the benefits of Server Components.
+- ✅ Perfect dark mode in 2 lines of code
+- ✅ Fully Treeshakable (`import from nextjs-themes/client/component`)
+- ✅ Full TypeScript Support
+- ✅ Unleash the full power of React 18 Server components
 
-`nextjs-themes` removes this limitation and enables you to unleash the full power of React 18 Server Components. In addition, it adds more features and control over how you theme your app. Stay tuned!
+> Exampand following to see more features.
+
+<details>
+<summary><h2 style="display:inline">Motivation and Key Features:</h2></summary>
+
+This project was inspired by next-themes. Unlike next-themes, `nextjs-themes` doesn't require wrapping everything in a provider, allowing you to take full advantage of React 18 Server Components. Additionally, it offers more features and control over your app's theming.
 
 - ✅ Perfect dark mode in 2 lines of code
 - ✅ Fully Treeshakable (`import from nextjs-themes/client/component`)
 - ✅ Designed for excellence
 - ✅ Full TypeScript Support
-- ✅ Unleash the full power of React18 Server components
-- ✅ Perfect dark mode in 2 lines of code
+- ✅ Unleash the full power of React 18 Server components
 - ✅ System setting with prefers-color-scheme
 - ✅ Themed browser UI with color-scheme
 - ✅ Support for Next.js 13 & Next.js 14 `appDir`
@@ -30,31 +39,39 @@ This project was originally inspired by next-themes. Next-themes is an awesome p
 - ✅ Class and data attribute selector
 - ✅ Manipulate theme via `useTheme` hook
 - ✅ Documented with [Typedoc](https://react18-tools.github.io/nextjs-themes) ([Docs](https://react18-tools.github.io/nextjs-themes))
-- ✅ Use combinations of [data-th=""] and [data-color-scheme=""] for dark/light varients of themes
+- ✅ Use combinations of [data-th=""] and [data-color-scheme=""] for dark/light variants of themes
 - ✅ Use [data-csp=""] to style based on colorSchemePreference.
-- ✅ Want to avoid cookies (Not recommended), set storage prop to `localStorage` or `sessionStorage` (to avoid persistance)
+</details>
 
-Check out the [live example](https://nextjs-themes.vercel.app/).
+> Check out the [live example](https://nextjs-themes.vercel.app/).
 
-## Install
+<details>
+<summary><h2 style="display:inline">Installation</h2></summary>
 
 ```bash
 $ pnpm add nextjs-themes
 ```
 
-**OR**
+**_or_**
 
 ```bash
 $ npm install nextjs-themes
 ```
 
-**OR**
+**_or_**
 
 ```bash
 $ yarn add nextjs-themes
 ```
 
-## Want Lite Version? [![npm bundle size](https://img.shields.io/bundlephobia/minzip/nextjs-themes-lite)](https://www.npmjs.com/package/nextjs-themes-lite) [![Version](https://img.shields.io/npm/v/nextjs-themes-lite.svg?colorB=green)](https://www.npmjs.com/package/nextjs-themes-lite) [![Downloads](https://img.jsdelivr.com/img.shields.io/npm/dt/nextjs-themes-lite.svg)](https://www.npmjs.com/package/nextjs-themes-lite)
+</details>
+
+<details>
+<summary><h2 style="display:inline">Want Lite Version?</h2>
+
+[![npm bundle size](https://img.shields.io/bundlephobia/minzip/nextjs-themes-lite)](https://www.npmjs.com/package/nextjs-themes-lite) [![Version](https://img.shields.io/npm/v/nextjs-themes-lite.svg?colorB=green)](https://www.npmjs.com/package/nextjs-themes-lite) [![Downloads](https://img.jsdelivr.com/img.shields.io/npm/d18m/nextjs-themes-lite.svg)](https://www.npmjs.com/package/nextjs-themes-lite)
+
+</summary>
 
 ```bash
 $ pnpm add nextjs-themes-lite
@@ -72,19 +89,15 @@ $ npm install nextjs-themes-lite
 $ yarn add nextjs-themes-lite
 ```
 
-> You need r18gs as a peer-dependency
+> Note: `r18gs` is a peer dependency
 
-## To do
-
-- [ ] Update examples, docs and Readme
+</details>
 
 ## Usage
 
 ### SPA (e.g., Vite, CRA) and Next.js pages directory (No server components)
 
-The best way is to add a [Custom `App`](https://nextjs.org/docs/advanced-features/custom-app) to use by modifying `_app` as follows:
-
-Adding dark mode support takes 2 lines of code:
+To add dark mode support, modify `_app.js` as follows:
 
 ```js
 import { ThemeSwitcher } from "nextjs-themes";
@@ -101,31 +114,21 @@ function MyApp({ Component, pageProps }) {
 export default MyApp;
 ```
 
-⚡🎉Boom! Just a couple of lines and your dark mode is ready!
-
-Check out examples for advanced usage.
+⚡🎉Boom! Dark mode is ready in just a couple of lines!
 
 ### With Next.js `app` router (Server Components)
 
-#### Prefer static generation over SSR - No wrapper component
-
-> If your app is mostly serving static content, you do not want the overhead of SSR. Use `NextJsSSGThemeSwitcher` in this case.
-> When using this approach, you need to use CSS general sibling Combinator (~) to make sure your themed CSS is properly applied. See (HTML & CSS)[#html--css].
-
-Update your `app/layout.jsx` to add `ThemeSwitcher` from `nextjs-themes`, and `NextJsSSGThemeSwitcher` from `nextjs-themes/server`. `NextJsSSGThemeSwitcher` is required to avoid flash of un-themed content on reload.
+Update `app/layout.jsx` to add `ThemeSwitcher` from `nextjs-themes`:
 
 ```tsx
 // app/layout.jsx
 import { ThemeSwitcher } from "nextjs-themes";
-import { NextJsSSGThemeSwitcher } from "nextjs-themes/server/nextjs";
 
 export default function Layout({ children }) {
   return (
     <html lang="en">
       <head />
       <body>
-        /** use NextJsSSGThemeSwitcher as first element inside body */
-        <NextJsSSGThemeSwitcher />
         <ThemeSwitcher />
         {children}
       </body>
@@ -134,41 +137,14 @@ export default function Layout({ children }) {
 }
 ```
 
-Woohoo! You just added multiple theme modes and you can also use Server Component! Isn't that awesome!
-
-#### Prefer SSR over SSG - Use wrapper component
-
-> If your app is serving dynamic content and you want to utilize SSR, continue using `ServerSideWrapper` component to replace `html` tag in `layout.tsx` file.
-
-Update your `app/layout.jsx` to add `ThemeSwitcher` and `ServerSideWrapper` from `nextjs-themes`. `ServerSideWrapper` is required to avoid flash of un-themed content on reload.
-
-```tsx
-// app/layout.jsx
-import { ThemeSwitcher } from "nextjs-themes";
-import { ServerSideWrapper } from "nextjs-themes/server/nextjs";
-
-export default function Layout({ children }) {
-  return (
-    <ServerSideWrapper tag="html" lang="en">
-      <head />
-      <body>
-        <ThemeSwitcher />
-        {children}
-      </body>
-    </ServerSideWrapper>
-  );
-}
-```
-
-Woohoo! You just added dark mode and you can also use Server Component! Isn't that awesome!
+Woohoo! Multiple theme modes with Server Components support!
 
 ### HTML & CSS
 
-That's it, your Next.js app fully supports dark mode, including System preference with `prefers-color-scheme`. The theme is also immediately synced between tabs. By default, nextjs-themes modifies the `data-theme` attribute on the `html` element, which you can easily use to style your app:
+Next.js app supports dark mode, including System preference with `prefers-color-scheme`. The theme is synced between tabs, modifying the `data-theme` attribute on the `html` element:
 
 ```css
 :root {
-  /* Your default theme */
   --background: white;
   --foreground: black;
 }
@@ -177,17 +153,11 @@ That's it, your Next.js app fully supports dark mode, including System preferenc
   --background: black;
   --foreground: white;
 }
-
-// v2 onwards when using NextJsSSGThemeSwitcher, we need to use CSS Combinators
-[data-theme="dark"] ~ * {
-  --background: black;
-  --foreground: white;
-}
 ```
 
 ## Images
 
-You can also show different images based on the current theme.
+Show different images based on the current theme:
 
 ```jsx
 import Image from "next/image";
@@ -195,20 +165,7 @@ import { useTheme } from "nextjs-themes";
 
 function ThemedImage() {
   const { resolvedTheme } = useTheme();
-  let src;
-
-  switch (resolvedTheme) {
-    case "light":
-      src = "/light.png";
-      break;
-    case "dark":
-      src = "/dark.png";
-      break;
-    default:
-      src = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
-      break;
-  }
-
+  const src = resolvedTheme === "light" ? "/light.png" : "/dark.png";
   return <Image src={src} width={400} height={400} />;
 }
 
@@ -217,7 +174,7 @@ export default ThemedImage;
 
 ### useTheme
 
-In case your components need to know the current theme and be able to change it. The `useTheme` hook provides theme information:
+The `useTheme` hook provides theme information and allows changing the theme:
 
 ```js
 import { useTheme } from "nextjs-themes";
@@ -235,17 +192,40 @@ const ThemeChanger = () => {
 };
 ```
 
-## Force per page theme and color-scheme
+The `useTheme` hook returns the following object:
 
-### Next.js app router
+```tsx
+interface UseThemeYield {
+  theme: string;
+  darkTheme: string;
+  lightTheme: string;
+  colorSchemePref: ColorSchemeType;
+  systemColorScheme: ResolvedColorSchemeType;
+  resolvedColorScheme: ResolvedColorSchemeType;
+  resolvedTheme: string;
+  setTheme: (theme: string) => void;
+  setDarkTheme: (darkTheme: string) => void;
+  setLightTheme: (lightTheme: string) => void;
+  setThemeSet: (themeSet: { darkTheme: string; lightTheme: string }) => void;
+  setColorSchemePref: (colorSchemePref: ColorSchemeType) => void;
+  toggleColorScheme: (skipSystem?: boolean) => void;
+  setForcedTheme: (forcedTheme: string) => void;
+  setForcedColorScheme: (forcedColorScheme: ColorSchemeType) => void;
+}
+```
 
-```javascript
+<details>
+<summary><h2 style="display:inline">Force per page theme and color-scheme</h2></summary>
+
+### Next.js App Router
+
+```tsx
 import { ForceTheme } from "nextjs-themes";
 
 function MyPage() {
   return (
     <>
-      <ForceTheme theme={"my-theme"} />
+      <ForceTheme theme="my-theme" />
       ...
     </>
   );
@@ -254,9 +234,9 @@ function MyPage() {
 export default MyPage;
 ```
 
-### Next.js pages router
+### Next.js Pages Router
 
-For pages router, you have 2 options. One is the same as the app router and the other option which is compatible with `next-themes` is to add `theme` to your page component as follows.
+For the pages router, you have two options. The first option is the same as the app router, and the second option, which is compatible with `next-themes`, involves adding the `theme` property to your page component like this:
 
 ```javascript
 function MyPage() {
@@ -268,20 +248,19 @@ MyPage.theme = "my-theme";
 export default MyPage;
 ```
 
-In a similar way, you can also force color scheme.
+Similarly, you can force a color scheme. This will apply your `defaultDark` or `defaultLight` theme, which can be configured via hooks.
 
-Forcing color scheme will apply your defaultDark or defaultLight theme, configurable via hooks.
+</details>
 
 ### With Styled Components and any CSS-in-JS
 
-Next Themes is completely CSS independent, it will work with any library. For example, with Styled Components you just need to `createGlobalStyle` in your custom App:
+Next Themes works with any library. For Styled Components, `createGlobalStyle` in your custom App:
 
 ```js
 // pages/_app.js
 import { createGlobalStyle } from "styled-components";
 import { ThemeSwitcher } from "nextjs-themes";
 
-// Your themeing variables
 const GlobalStyle = createGlobalStyle`
   :root {
     --fg: #000;
@@ -307,7 +286,7 @@ function MyApp({ Component, pageProps }) {
 
 ### With Tailwind
 
-In your `tailwind.config.js`, set the dark mode property to class:
+In `tailwind.config.js`, set the dark mode property to class:
 
 ```js
 // tailwind.config.js
@@ -316,68 +295,33 @@ module.exports = {
 };
 ```
 
-⚡🎉Boom! You are ready to use darkTheme in tailwind.
+⚡🎉Ready to use dark mode in Tailwind!
 
-> Caution! Your class must be set to `"dark"`, which is the default value we have used for this library. Tailwind, as of now, requires that class name must be `"dark"` for dark-theme.
+> Caution: Your class must be `"dark"`, which is the default value used in this library. Tailwind requires the class name `"dark"` for dark-theme.
 
-That's it! Now you can use dark-mode specific classes:
+Use dark-mode specific classes:
 
 ```tsx
 <h1 className="text-black dark:text-white">
 ```
 
-## Migrating from v1 to v2
+## Migration
 
-## 2.0.0
-
-### Major Changes
-
-- 6f17cce: # Additonal CSS Combinations + Ensure seamless support for Tailwind
-
-  - No changes required for client side code as `[data-theme=]` selectors work as before.
-  - If you are using `ServerSideWrapper` or `NextJsServerTarget` or `NextJsSSGThemeSwitcher`, you need to convert `forcedPages` elements to objects of the shape `{ pathMatcher: RegExp | string; props: ThemeSwitcherProps }`.
-  - Use `resolvedColorScheme` for more sturdy dark/light/system modes
-  - Use combinations of `[data-th=""]` and `[data-color-scheme=""]` for dark/light varients of themes
-  - Use `[data-csp=""]` to style based on colorSchemePreference.
-
-### Minor Changes
-
-- # Support custom themeTransition
-
-  - Provide `themeTransition` prop to `ThemeSwitcher` component to apply smooth transition while changing theme.
-  - Use `setThemeSet` to set `lightTheme` and `darkTheme` together.
-
-#### Motivation:
-
-For server side syncing, we need to use cookies and headers. This means that this component and its children can not be static. They will be rendered server side for each request. Thus, we are avoiding the wrapper. Now, only the `NextJsSSGThemeSwitcher` will be rendered server side for each request and rest of your app can be server statically.
-
-Take care of the following while migrating to `v2`.
-
-- No changes required for projects not using `Next.js` app router or server components other than updating cookies policy if needed.
-- The persistent storage is realized with `cookies` in place of `localStorage`. (You might want to update cookies policy accordingly.)
-- We have provided `NextJsSSGThemeSwitcher` in addition to `ServerSideWrapper` for `Next.js`. You no longer need to use a wrapper component which broke static generation and forced SSR.
-- Visit [With Next.js `app` router (Server Components)](#with-nextjs-app-router-server-components)
-
-## Migrating from v0 to v1
-
-- `defaultDarkTheme` is renamed to `darkTheme`
-- `setDefaultDarkTheme` is renamed to `setDarkTheme`
-- `defaultLightTheme` is renamed to `lightTheme`
-- `setDefaultLightTheme` is renamed to `setLightTheme`
+> Refer to the [migration guide](./guides/migration.md).
 
 ## Docs
 
 [Typedoc](https://react18-tools.github.io/nextjs-themes)
 
-### 🤩 Don't forger to start this repo!
+### 🤩 Don't forget to star this repo!
 
-Want handson course for getting started with Turborepo? Check out [React and Next.js with TypeScript](https://www.udemy.com/course/react-and-next-js-with-typescript/?referralCode=7202184A1E57C3DCA8B2)
+Want a hands-on course for getting started with Turborepo? Check out [React and Next.js with TypeScript](https://www.udemy.com/course/react-and-next-js-with-typescript/?referralCode=7202184A1E57C3DCA8B2)
 
 ## FAQ
 
 **Do I need to use CSS variables with this library?**
 
-Nope. It's just a convenient way. You can hard code values for every class as follows.
+No. You can hard code values for every class:
 
 ```css
 .my-class {
@@ -391,25 +335,24 @@ Nope. It's just a convenient way. You can hard code values for every class as fo
 
 **Why is `resolvedTheme` and `resolvedColorScheme` necessary?**
 
-When supporting the System theme preference, and forced theme/colorScheme pages, you want to make sure that's reflected in your UI. This means your buttons, selects, dropdowns, or whatever you use to indicate the current colorScheme should say "system" when the System colorScheme preference is active. And also the appropreate theme is available in resolvedTheme.
+To reflect the System theme preference and forced theme/colorScheme pages in your UI. For instance, buttons or dropdowns indicating the current colorScheme should say "system" when the System colorScheme preference is active.
 
-`resolvedTheme` is then useful for modifying behavior or styles at runtime:
+`resolvedTheme` is useful for modifying behavior or styles at runtime:
 
 ```js
 const { resolvedTheme, resolvedColorScheme } = useTheme();
-
 const background = getBackground(resolvedTheme);
 
 <div style={{ color: resolvedColorScheme === 'dark' ? white : black, background }}>
 ```
 
-If we didn't have `resolvedTheme` and only used `theme`, you'd lose information about the state of your UI (you would only know the theme is "system", and not what it resolved to).
+Without `resolvedTheme`, you would only know the theme is "system", not what it resolved to.
 
 ## License
 
-Licensed as MIT open source.
+This library is licensed under the MPL-2.0 open-source license.
 
-> Note: This package uses cookies to sync theme with server components
+> <img src="https://github.com/react18-tools/turborepo-template/blob/main/popper.png?raw=true" style="height: 20px"/> Please consider enrolling in [our courses](https://mayank-chaudhari.vercel.app/courses) or [sponsoring](https://github.com/sponsors/mayank1513) our work.
 
 <hr />
 

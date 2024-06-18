@@ -1,5 +1,12 @@
 version = 1
 
+test_patterns = ["**/*.test.*"]
+
+exclude_patterns = [
+  "docs/**",
+  "**/*.test.*"
+]
+
 [[analyzers]]
 name = "javascript"
 
@@ -7,6 +14,9 @@ name = "javascript"
   plugins = ["react"]
   environment = [
     "nodejs",
-    "browser",
-    "vitest"
+    "vitest",
+    "browser"
   ]
+
+[[transformers]]
+name = "prettier"

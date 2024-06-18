@@ -1,0 +1,24 @@
+@import "nextjs-themes/css";
+@import "@repo/shared/dist/global.css";
+@import "@repo/shared/dist";
+
+html {
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: transparent;
+  line-height: 1.5;
+  tab-size: 4;
+}
+
+.code {
+  text-align: start;
+  max-width: 400px;
+  margin: auto;
+}
+
+.code pre {
+  border-radius: 10px;
+  pointer-events: none;
+  box-shadow: 0 0 10px currentColor;
+}
