@@ -1,7 +1,7 @@
 import { memo, useEffect } from "react";
 import { ColorSchemeType } from "../../types";
 import { ResolveFunc, UpdateDOMFunc, UpdateForcedPropsFunc, noFOUCScript } from "./no-fouc";
-import { initialState, useStore } from "../../store";
+import { initialState, useForcedStore, useThemeStore } from "../../store";
 import { DARK, DEFAULT_ID, LIGHT } from "../../constants";
 
 export interface ThemeSwitcherProps {
@@ -32,11 +32,12 @@ let media: MediaQueryList;
 let updateDOM: UpdateDOMFunc;
 let resolveTheme: ResolveFunc;
 let updateForcedProps: UpdateForcedPropsFunc;
+let updateForcedState: UpdateForcedPropsFunc;
 
 const Script = memo(
   ({ k, n = "", s, t, c }: ScriptProps) => {
     if (typeof m !== "undefined")
-      [media, updateDOM, resolveTheme, updateForcedProps] = [m, u, r, f];
+      [media, updateDOM, resolveTheme, updateForcedProps, updateForcedState] = [m, u, r, f, g];
     return (
       <script
         suppressHydrationWarning
@@ -89,7 +90,8 @@ export const ThemeSwitcher = ({
   if (typeof window !== "undefined" && !window.m)
     noFOUCScript(k, initialState, styles, forcedTheme, forcedColorScheme);
 
-  const [state, setState] = useStore(targetSelector);
+  const [state, setState] = useThemeStore(targetSelector);
+  const [{ f, fc }] = useForcedStore(targetSelector);
 
   useEffect(() => {
     media.addEventListener("change", () =>
@@ -111,6 +113,11 @@ export const ThemeSwitcher = ({
     updateForcedProps(forcedTheme, forcedColorScheme);
     updateDOM(resolveTheme(state));
   }, [forcedColorScheme, forcedTheme]);
+
+  useEffect(() => {
+    updateForcedState(f, fc);
+    updateDOM(resolveTheme(state));
+  }, [f, fc]);
 
   return <Script {...{ k, n: nonce, s: styles, t: forcedTheme, c: forcedColorScheme }} />;
 };

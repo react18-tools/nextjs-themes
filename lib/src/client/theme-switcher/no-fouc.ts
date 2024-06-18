@@ -20,6 +20,8 @@ declare global {
   var r: ResolveFunc;
   // skipcq: JS-0102, JS-C1002, JS-0239
   var f: UpdateForcedPropsFunc;
+  // skipcq: JS-0102, JS-C1002, JS-0239 update forcedState
+  var g: UpdateForcedPropsFunc;
 }
 
 /** Script to be injected for avoiding FOUC */
@@ -50,11 +52,19 @@ export const noFOUCScript = (
     s: m.matches ? initialState.d : initialState.l,
   };
 
-  let forcedColorScheme: ColorSchemeType | undefined, forcedTheme: string | undefined;
+  let forcedColorScheme: ColorSchemeType | undefined,
+    forcedTheme: string | undefined,
+    forcedColorSchemeProp_: ColorSchemeType | undefined,
+    forcedThemeProps_: string | undefined;
 
   window.f = (forcedThemeProp, forcedColorSchemeProp) => {
-    forcedColorScheme = forcedColorSchemeProp;
-    forcedTheme = forcedThemeProp;
+    forcedTheme = forcedThemeProps_ = forcedThemeProp;
+    forcedColorScheme = forcedColorSchemeProp_ = forcedColorSchemeProp;
+  };
+
+  window.g = (forcedThemeState, forcedColorSchemeState) => {
+    forcedTheme = forcedThemeProps_ ?? forcedThemeState;
+    forcedColorScheme = forcedColorSchemeProp_ ?? forcedColorSchemeState;
   };
 
   f(forcedTheme_, forcedColorScheme_);

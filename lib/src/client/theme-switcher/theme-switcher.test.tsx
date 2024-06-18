@@ -12,7 +12,7 @@ import { ThemeSwitcher } from "./theme-switcher";
 import { useRGS, SetterArgType } from "r18gs";
 import { DARK, DEFAULT_ID, LIGHT } from "../../constants";
 import { noFOUCScript } from "./no-fouc";
-import { initialState, ThemeStoreType, useStore } from "../../store";
+import { initialState, ThemeStoreType, useThemeStore } from "../../store";
 
 const MEDIA = "(prefers-color-scheme: dark)";
 const storageKey = `#${DEFAULT_ID}`;

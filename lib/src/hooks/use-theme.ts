@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useStore } from "../store";
+import { useThemeStore } from "../store";
 import { ResolveFunc } from "../client/theme-switcher/no-fouc";
 import { ColorSchemeType, ResolvedColorSchemeType } from "../types";
 import { DARK, LIGHT, SYSTEM } from "../constants";
@@ -36,7 +36,7 @@ interface UseThemeYield {
  */
 
 export const useTheme = (targetSelector?: string): UseThemeYield => {
-  const [state, setState] = useStore(targetSelector);
+  const [state, setState] = useThemeStore(targetSelector);
   useEffect(() => {
     resolveTheme = window.r;
   }, []);

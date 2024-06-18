@@ -24,10 +24,20 @@ export const initialState: ThemeStoreType = {
 };
 
 /** internal store */
-export const useStore = (targetSelector?: string) => {
+export const useThemeStore = (targetSelector?: string) => {
   const key = targetSelector ?? `#${DEFAULT_ID}`;
   return useRGS<ThemeStoreType>(key, () => {
     const str = typeof m !== "undefined" && localStorage.getItem(key);
     return str ? { ...JSON.parse(str), s: m.matches ? DARK : LIGHT } : initialState;
   });
+};
+
+export interface ForcedStoreType {
+  /** forced theme */ f?: string;
+  /** forced colorScheme */ fc?: ColorSchemeType;
+}
+
+export const useForcedStore = (targetSelector?: string) => {
+  const key = `${targetSelector ?? `#${DEFAULT_ID}`}-`;
+  return useRGS<ForcedStoreType>(key, {});
 };
