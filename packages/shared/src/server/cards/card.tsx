@@ -12,7 +12,11 @@ export interface CardProps {
 export function Card({ href, title, description, linkComponent }: CardProps) {
   const Link = (linkComponent || "a") as FC<{ to?: string } & HTMLProps<HTMLAnchorElement>>;
   return (
-    <Link className={styles.card} href={href} rel="noopener noreferrer" target="_blank">
+    <Link
+      className={styles.card}
+      href={href}
+      rel="noopener noreferrer"
+      target={linkComponent ? "" : "_blank"}>
       <h2>
         {title} <span>-&gt;</span>
       </h2>

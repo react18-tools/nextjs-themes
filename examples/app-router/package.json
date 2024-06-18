@@ -1,5 +1,5 @@
 {
-  "name": "@example/nextjs",
+  "name": "@example/app",
   "version": "0.0.0",
   "private": true,
   "scripts": {

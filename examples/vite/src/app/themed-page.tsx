@@ -9,7 +9,7 @@ export default function ThemedPage() {
     <>
       <Header linkComponent={Link} />
       <ForceTheme theme={theme as string} />
-      <p className="p">
+      <p className="center">
         Theme is forced to {theme} theme. Try changing theme or colorScheme and verify!
       </p>
     </>

@@ -9,7 +9,7 @@ export default function ForcedColorSchemePage() {
     <>
       <Header linkComponent={Link} />
       <ForceColorScheme colorScheme={colorScheme as ColorSchemeType} />
-      <p className="p">
+      <p className="center">
         Color scheme is forced to {colorScheme} color scheme. Thus, default-{colorScheme}-theme is
         applied
       </p>
