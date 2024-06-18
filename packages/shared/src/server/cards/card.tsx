@@ -5,7 +5,7 @@ export interface CardProps {
   href: string;
   title: string;
   description: string;
-  linkComponent?: ComponentType;
+  linkComponent?: unknown;
 }
 
 /** Display component */

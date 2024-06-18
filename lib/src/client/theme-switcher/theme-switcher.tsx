@@ -91,7 +91,7 @@ export const ThemeSwitcher = ({
     noFOUCScript(k, initialState, styles, forcedTheme, forcedColorScheme);
 
   const [state, setState] = useThemeStore(targetSelector);
-  const [{ f, fc }] = useForcedStore(targetSelector);
+  const [forced] = useForcedStore(targetSelector);
 
   useEffect(() => {
     media.addEventListener("change", () =>
@@ -115,9 +115,9 @@ export const ThemeSwitcher = ({
   }, [forcedColorScheme, forcedTheme]);
 
   useEffect(() => {
-    updateForcedState(f, fc);
+    updateForcedState(forced.f, forced.fc);
     updateDOM(resolveTheme(state));
-  }, [f, fc]);
+  }, [forced]);
 
   return <Script {...{ k, n: nonce, s: styles, t: forcedTheme, c: forcedColorScheme }} />;
 };
