@@ -1,7 +1,8 @@
 import type { HTMLProps, ReactNode } from "react";
 import { type ColorSchemeType } from "../../types";
 
-type ForcedPage =
+/** @deprecated as no longer needed. */
+export type ForcedPage =
   | {
       pathMatcher: RegExp | string;
       props: { forcedTheme?: string; forcedColorScheme?: ColorSchemeType };
@@ -36,7 +37,7 @@ const sharedServerComponentRenderer = (
 /**
  * @deprecated No longer need to add this component for avoiding FOUC.
  *
- * This component is deprecated and will be removed in the next major release. Use `ServerSideWrapper` instead.
+ * This component is deprecated and will be removed in the next major release.
  * This component is kept here only to ensure no sudden breaking changes are introduced.
  */
 export const NextJsSSGThemeSwitcher = (props: NextJsSSRThemeSwitcherProps) => {

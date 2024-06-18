@@ -31,7 +31,7 @@ export const getStaticPaths: GetStaticPaths = () => {
 // @ts-expect-error -- ok
 export const getStaticProps: GetStaticProps = ({ params: { colorScheme } }) => {
   // @ts-expect-error -- ok
-  PageWithForcedTheme.colorScheme = colorScheme;
+  PageWithForcedColorScheme.colorScheme = colorScheme;
   return {
     props: {
       colorScheme,

@@ -6,6 +6,11 @@ export type UpdateDOMFunc = (values: ValuesType) => void;
 
 export type ResolveFunc = (store: ThemeStoreType) => ValuesType;
 
+export type UpdateForcedPropsFunc = (
+  forcedThemeProp?: string,
+  forcedColorSchemeProp?: ColorSchemeType,
+) => void;
+
 declare global {
   // skipcq: JS-0102, JS-C1002, JS-0239
   var m: MediaQueryList;
@@ -13,6 +18,8 @@ declare global {
   var u: UpdateDOMFunc;
   // skipcq: JS-0102, JS-C1002, JS-0239
   var r: ResolveFunc;
+  // skipcq: JS-0102, JS-C1002, JS-0239
+  var f: UpdateForcedPropsFunc;
 }
 
 /** Script to be injected for avoiding FOUC */
@@ -20,8 +27,8 @@ export const noFOUCScript = (
   key: string,
   initialState: ThemeStoreType,
   styles?: Record<string, string>,
-  forcedTheme?: string,
-  forcedColorScheme?: ColorSchemeType,
+  forcedTheme_?: string,
+  forcedColorScheme_?: ColorSchemeType,
 ) => {
   window.m = matchMedia("(prefers-color-scheme: dark)");
   const keys = ["color-scheme", "csp", "theme", "th"];
@@ -38,10 +45,19 @@ export const noFOUCScript = (
   };
 
   const str = localStorage.getItem(key);
-  const store: ThemeStoreType = str
-    ? { ...JSON.parse(str), s: m.matches ? initialState.d : initialState.l }
-    : initialState;
+  const store: ThemeStoreType = {
+    ...(str ? JSON.parse(str) : initialState),
+    s: m.matches ? initialState.d : initialState.l,
+  };
 
+  let forcedColorScheme: ColorSchemeType | undefined, forcedTheme: string | undefined;
+
+  window.f = (forcedThemeProp, forcedColorSchemeProp) => {
+    forcedColorScheme = forcedColorSchemeProp;
+    forcedTheme = forcedThemeProp;
+  };
+
+  f(forcedTheme_, forcedColorScheme_);
   window.r = (store: ThemeStoreType) => {
     const colorSchemePref = forcedColorScheme ?? store.c;
     const colorScheme = colorSchemePref === initialState.c ? store.s : colorSchemePref;

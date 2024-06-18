@@ -1,6 +1,6 @@
 import { memo, useEffect } from "react";
 import { ColorSchemeType } from "../../types";
-import { ResolveFunc, UpdateDOMFunc, noFOUCScript } from "./no-fouc";
+import { ResolveFunc, UpdateDOMFunc, UpdateForcedPropsFunc, noFOUCScript } from "./no-fouc";
 import { initialState, useStore } from "../../store";
 import { DARK, DEFAULT_ID, LIGHT } from "../../constants";
 
@@ -31,20 +31,25 @@ interface ScriptProps {
 let media: MediaQueryList;
 let updateDOM: UpdateDOMFunc;
 let resolveTheme: ResolveFunc;
+let updateForcedProps: UpdateForcedPropsFunc;
 
-const Script = memo(({ k, n = "", s, t, c }: ScriptProps) => {
-  if (typeof m !== "undefined") [media, updateDOM, resolveTheme] = [m, u, r];
-  return (
-    <script
-      suppressHydrationWarning
-      // skipcq: JS-0440
-      dangerouslySetInnerHTML={{
-        __html: `(${noFOUCScript.toString()})(${JSON.stringify([k, initialState, s, t, c]).slice(1, -1)})`,
-      }}
-      nonce={n}
-    />
-  );
-});
+const Script = memo(
+  ({ k, n = "", s, t, c }: ScriptProps) => {
+    if (typeof m !== "undefined")
+      [media, updateDOM, resolveTheme, updateForcedProps] = [m, u, r, f];
+    return (
+      <script
+        suppressHydrationWarning
+        // skipcq: JS-0440
+        dangerouslySetInnerHTML={{
+          __html: `(${noFOUCScript.toString()})(${JSON.stringify([k, initialState, s, t, c]).slice(1, -1)})`,
+        }}
+        nonce={n}
+      />
+    );
+  },
+  () => true,
+);
 
 /** disable transition while switching theme */
 const modifyTransition = (themeTransition = "none") => {
@@ -102,6 +107,10 @@ export const ThemeSwitcher = ({
     localStorage.setItem(k, JSON.stringify(state));
   }, [state]);
 
-  console.log({ forcedColorScheme, forcedTheme });
+  useEffect(() => {
+    updateForcedProps(forcedTheme, forcedColorScheme);
+    updateDOM(resolveTheme(state));
+  }, [forcedColorScheme, forcedTheme]);
+
   return <Script {...{ k, n: nonce, s: styles, t: forcedTheme, c: forcedColorScheme }} />;
 };

@@ -17,6 +17,6 @@ export default MyPage;`}
   );
 }
 
-StaticBlackTheme.theme = "black";
+StaticBlackTheme.theme = "dark";
 
 export default StaticBlackTheme;

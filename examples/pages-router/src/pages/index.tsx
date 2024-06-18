@@ -35,6 +35,7 @@ export default function Home(): JSX.Element {
       {/* <Demo /> */}
       {/* <MyButton /> */}
       <Cards cards={cards}>
+        <Link href="./static-black-theme">dark</Link>
         <PageNavigatorCard LinkElement={Link} />
       </Cards>
     </LandingPage>
