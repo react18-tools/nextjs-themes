@@ -22,12 +22,7 @@ export function Logo({ href, linkComponent }: LogoProps) {
     );
   const Link = (linkComponent || "a") as FC<{ to?: string } & HTMLProps<HTMLAnchorElement>>;
   return (
-    <Link
-      href={href ?? "/"}
-      to={href ?? "/"}
-      target="_blank"
-      rel="noopener noreferrer"
-      className={styles.logo}>
+    <Link href={href ?? "/"} to={href ?? "/"} rel="noopener noreferrer" className={styles.logo}>
       <span>{repo}</span>
     </Link>
   );

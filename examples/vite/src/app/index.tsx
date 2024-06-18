@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 function App(): JSX.Element {
   return (
     <>
+      <Header linkComponent={Link} />
       <LandingPage title="Vite Example">
         <ColorSwitch className="center" />
         <ThemeController />

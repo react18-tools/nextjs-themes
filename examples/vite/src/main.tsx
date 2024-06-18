@@ -42,7 +42,6 @@ if (el) {
   root.render(
     <React.StrictMode>
       <ThemeSwitcher themeTransition="background .5s" />
-      <Header />
       <RouterProvider router={router} />
     </React.StrictMode>,
   );
