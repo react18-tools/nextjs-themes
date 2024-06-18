@@ -1,25 +1,16 @@
-import { HTMLProps, ReactNode } from "react";
-import styles from "./force-color-scheme.module.scss";
+"use client";
+import { useEffect } from "react";
+import { useForcedStore } from "../../store";
+import { ColorSchemeType } from "../../types";
 
-export interface ForceColorSchemeProps extends HTMLProps<HTMLDivElement> {
-	children?: ReactNode;
-}
-
-/**
- * 
- *
- * @example
- * ```tsx
- * <ForceColorScheme />
- * ```
- * 
- * @source - Source code
- */
-export const ForceColorScheme = ({ children, ...props }: ForceColorSchemeProps) => {
-  const className = [props.className, styles["force-color-scheme"]].filter(Boolean).join(" ");
-	return (
-		<div {...props} className={className} data-testid="force-color-scheme">
-			{children}
-		</div>
-	);
-}
+/** Force color scheme on a page */
+export const ForceColorScheme = (props: { colorScheme: ColorSchemeType }) => {
+  const [_, setState] = useForcedStore();
+  useEffect(() => {
+    setState(state => ({ ...state, fc: props.colorScheme }));
+    return () => {
+      setState(state => ({ ...state, fc: undefined }));
+    };
+  }, [props.colorScheme]);
+  return null;
+};

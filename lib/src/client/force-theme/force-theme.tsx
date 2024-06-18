@@ -1,25 +1,15 @@
-import { HTMLProps, ReactNode } from "react";
-import styles from "./force-theme.module.scss";
+"use client";
+import { useEffect } from "react";
+import { useForcedStore } from "../../store";
 
-export interface ForceThemeProps extends HTMLProps<HTMLDivElement> {
-	children?: ReactNode;
-}
-
-/**
- * 
- *
- * @example
- * ```tsx
- * <ForceTheme />
- * ```
- * 
- * @source - Source code
- */
-export const ForceTheme = ({ children, ...props }: ForceThemeProps) => {
-  const className = [props.className, styles["force-theme"]].filter(Boolean).join(" ");
-	return (
-		<div {...props} className={className} data-testid="force-theme">
-			{children}
-		</div>
-	);
-}
+/** Force theme on a page */
+export const ForceTheme = (props: { theme: string }) => {
+  const [_, setState] = useForcedStore();
+  useEffect(() => {
+    setState(state => ({ ...state, f: props.theme }));
+    return () => {
+      setState(state => ({ ...state, f: undefined }));
+    };
+  }, [props.theme]);
+  return null;
+};
