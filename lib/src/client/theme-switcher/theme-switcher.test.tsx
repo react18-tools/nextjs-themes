@@ -12,16 +12,13 @@ import { ThemeSwitcher } from "./theme-switcher";
 import { useRGS, SetterArgType } from "r18gs";
 import { DARK, DEFAULT_ID, LIGHT } from "../../constants";
 import { noFOUCScript } from "./no-fouc";
-import { initialState, ThemeStoreType, useThemeStore } from "../../store";
+import { initialState, ThemeStoreType } from "../../store";
 
 const MEDIA = "(prefers-color-scheme: dark)";
 const storageKey = `#${DEFAULT_ID}`;
 
 /** get dom attribute */
-const getResolvedTheme = () => {
-  const theme = document.documentElement.getAttribute("data-theme");
-  return theme;
-};
+const getResolvedTheme = () => document.documentElement.getAttribute("data-theme");
 
 /**
  * -> concurrency is not feasible because of global store conflicts
@@ -45,12 +42,11 @@ describe("theme-switcher", () => {
     expect(getResolvedTheme()).toBe(lightTheme);
   });
 
-  test.only("Test defaultDark theme", async ({ expect }) => {
+  test("Test defaultDark theme", async ({ expect }) => {
     const darkTheme = "dark1";
-    /** simulate changing darkTheme by another component by user */
     const { result } = renderHook(() => useTheme());
     /** simulate system dark mode */
-    act(() => result.current.setTheme(DARK));
+    act(() => result.current.setColorSchemePref(DARK));
     act(() => result.current.setDarkTheme(darkTheme));
     /** await for the first time delay for setting state */
     expect(getResolvedTheme()).toBe(darkTheme);
@@ -82,12 +78,11 @@ describe("theme-switcher", () => {
       fireEvent(
         window,
         new StorageEvent("storage", {
-          key: DEFAULT_ID,
+          key: storageKey,
           newValue: JSON.stringify({ ...initialState, t: MY_THEME }),
         }),
       ),
     );
-    console.log("--->", hook.result.current);
     expect(hook.result.current.theme).toBe(MY_THEME);
   });
 });
@@ -114,16 +109,17 @@ describe("theme-switcher with props", () => {
 
   test("forced colorScheme prop", async ({ expect }) => {
     // global state is continuing from previous testss
+    noFOUCScript(storageKey, initialState);
     await act(() => render(<ThemeSwitcher forcedColorScheme="light" />));
-    expect(getResolvedTheme()).toBe("");
+    expect(getResolvedTheme()).toBe(LIGHT);
   });
 
-  // test("media change event", async ({ expect }) => {
-  //   await act(() => render(<ThemeSwitcher />));
-  //   await act(() => {
-  //     // globalThis.window.media = LIGHT as ResolvedScheme;
-  //     matchMedia(MEDIA).onchange?.();
-  //   });
-  //   expect(getResolvedTheme()).toBe(DARK);
-  // });
+  test("media change event", async ({ expect }) => {
+    await act(() => render(<ThemeSwitcher />));
+    await act(() => {
+      // @ts-ignore
+      matchMedia(MEDIA).onchange();
+    });
+    expect(getResolvedTheme()).toBe(DARK);
+  });
 });
