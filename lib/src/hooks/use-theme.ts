@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useThemeStore } from "../store";
+import { useForcedStore, useThemeStore } from "../store";
 import { ResolveFunc } from "../client/theme-switcher/no-fouc";
 import { ColorSchemeType, ResolvedColorSchemeType } from "../types";
 import { DARK, LIGHT, SYSTEM } from "../constants";
@@ -22,6 +22,8 @@ interface UseThemeYield {
   setThemeSet: (themeSet: { darkTheme: string; lightTheme: string }) => void;
   setColorSchemePref: (colorSchemePref: ColorSchemeType) => void;
   toggleColorScheme: (skipSystem?: boolean) => void;
+  setForcedTheme: (forcedTheme: string) => void;
+  setForcedColorScheme: (forcedColorScheme: ColorSchemeType) => void;
 }
 
 /**
@@ -37,6 +39,7 @@ interface UseThemeYield {
 
 export const useTheme = (targetSelector?: string): UseThemeYield => {
   const [state, setState] = useThemeStore(targetSelector);
+  const [_, setForcedState] = useForcedStore(targetSelector);
   useEffect(() => {
     resolveTheme = window.r;
   }, []);
@@ -66,6 +69,9 @@ export const useTheme = (targetSelector?: string): UseThemeYield => {
       if (index === -1 || (skipSystem && index === len - 1)) index = 0;
       setter("c")(colorSchemes[(index + 1) % len]);
     },
+    setForcedColorScheme: forcedColorScheme =>
+      setForcedState(state => ({ ...state, fc: forcedColorScheme })),
+    setForcedTheme: forcedTheme => setForcedState(state => ({ ...state, f: forcedTheme })),
   };
 
   if (resolveTheme) {

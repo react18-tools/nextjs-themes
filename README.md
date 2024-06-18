@@ -209,6 +209,8 @@ interface UseThemeYield {
   setThemeSet: (themeSet: { darkTheme: string; lightTheme: string }) => void;
   setColorSchemePref: (colorSchemePref: ColorSchemeType) => void;
   toggleColorScheme: (skipSystem?: boolean) => void;
+  setForcedTheme: (forcedTheme: string) => void;
+  setForcedColorScheme: (forcedColorScheme: ColorSchemeType) => void;
 }
 ```
 
