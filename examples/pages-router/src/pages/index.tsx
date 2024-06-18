@@ -1,4 +1,4 @@
-import { Cards, LandingPage } from "@repo/shared/dist/server";
+import { Card, Cards, LandingPage } from "@repo/shared/dist/server";
 import { ThemeController, PageNavigatorCard } from "@repo/shared";
 import { ColorSwitch } from "nextjs-themes";
 import Link from "next/link";
@@ -14,7 +14,12 @@ export default function Home(): JSX.Element {
       <ColorSwitch className="center" />
       <ThemeController />
       <Cards>
-        <Link href="./static-black-theme">dark</Link>
+        <Card
+          title="Static Themed Page"
+          href="static-black-theme"
+          description="Example for non dynamic page with forced theme. Uses Component.them"
+          linkComponent={Link}
+        />
         <PageNavigatorCard LinkElement={Link} />
       </Cards>
     </LandingPage>

@@ -1,19 +1,22 @@
+import { ComponentType, FC, HTMLProps } from "react";
 import styles from "./cards.module.scss";
 
 export interface CardProps {
   href: string;
   title: string;
   description: string;
+  linkComponent?: ComponentType;
 }
 
 /** Display component */
-export function Card({ href, title, description }: CardProps) {
+export function Card({ href, title, description, linkComponent }: CardProps) {
+  const Link = (linkComponent || "a") as FC<{ to?: string } & HTMLProps<HTMLAnchorElement>>;
   return (
-    <a className={styles.card} href={href} rel="noopener noreferrer" target="_blank">
+    <Link className={styles.card} href={href} rel="noopener noreferrer" target="_blank">
       <h2>
         {title} <span>-&gt;</span>
       </h2>
       <p>{description}</p>
-    </a>
+    </Link>
   );
 }

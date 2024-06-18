@@ -1,6 +1,6 @@
 function StaticBlackTheme() {
   return (
-    <div>
+    <div className="center">
       <h1>Static Black theme by setting theme on page Component</h1>
       <code>
         <pre>
