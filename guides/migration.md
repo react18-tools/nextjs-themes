@@ -1,13 +1,5 @@
 # Migration Guide
 
-## Migrating to v4
-
-### Major Changes
-
-- ServerTargets and Wrappers are deprecated.
-- `ForceTheme` and `ForceColorScheme` components are removed.
-- No longer need to use server-targets means no need to work with CSS sibling combinator. Though you can, if you like to. But not necessary.
-
 ## Migrating from v1 to v2
 
 ### Major Changes

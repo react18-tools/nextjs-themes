@@ -1,6 +1,8 @@
 # nextjs-themes
 
-## 4.0.0
+## 3.1.3
+
+> Complete rewrite but no breaking changes
 
 ### Major Changes
 
