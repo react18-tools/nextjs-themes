@@ -13,7 +13,7 @@ interface LogoProps {
  */
 export function Logo({ href }: LogoProps) {
   return (
-    <a href={href ?? "/"} target="_blank" rel="noopener noreferrer" className={styles.logo}>
+    <a href={href ?? "/"} rel="noopener noreferrer" className={styles.logo}>
       <span>{repo}</span>
     </a>
   );
