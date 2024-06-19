@@ -1,5 +1,11 @@
 # nextjs-themes
 
+## 3.1.5
+
+### Patch Changes
+
+- c204415: Publish from within dist directory to avoid build issues.
+
 ## 3.1.4
 
 ### Patch Changes
