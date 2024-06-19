@@ -5,4 +5,4 @@
  */
 
 // server component exports
-export * from "./server-side-wrapper";
+export * from "./nextjs";
