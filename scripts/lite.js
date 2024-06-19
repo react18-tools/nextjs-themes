@@ -13,11 +13,11 @@ if (Object.keys(packageJson.devDependencies).length === 0) delete packageJson.de
 packageJson.name = `${ref}-lite`;
 
 fs.writeFileSync(
-  path.resolve(__dirname, "../lib/dist/package.json"),
+  path.resolve(__dirname, "../lib/package.json"),
   JSON.stringify(packageJson, null, 2),
 );
 
-const readMePath = path.resolve(__dirname, "../lib/dist", "README.md");
+const readMePath = path.resolve(__dirname, "../lib", "README.md");
 
 let readMe = fs.readFileSync(readMePath, { encoding: "utf8" });
 const tmp = "!---";
