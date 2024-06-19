@@ -17,7 +17,7 @@ fs.writeFileSync(
   JSON.stringify(packageJson, null, 2),
 );
 
-const readMePath = path.resolve(__dirname, "../lib", "README.md");
+const readMePath = path.resolve(__dirname, "../lib/dist", "README.md");
 
 let readMe = fs.readFileSync(readMePath, { encoding: "utf8" });
 const tmp = "!---";

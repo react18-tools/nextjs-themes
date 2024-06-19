@@ -52,6 +52,11 @@ fs.writeFileSync(
   JSON.stringify(pkg, null, 2).replace(/dist\//g, ""),
 );
 
+fs.copyFileSync(
+  path.join(__dirname, "../README.md"),
+  path.join(__dirname, "../lib/dist/README.md"),
+);
+
 execSync("cd lib/dist && npm publish --provenance --access public");
 
 /** Create GitHub release */
