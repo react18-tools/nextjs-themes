@@ -13,8 +13,8 @@
   },
   "dependencies": {
     "@repo/logger": "workspace:*",
-    "@repo/shared": "workspace:*",
     "@repo/scripts": "workspace:*",
+    "@repo/shared": "workspace:*",
     "next": "^14.2.4",
     "nextjs-darkmode": "^1.0.2",
     "nextjs-themes": "workspace:*",
@@ -26,7 +26,7 @@
     "@next/eslint-plugin-next": "^14.2.4",
     "@repo/eslint-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
-    "@types/node": "^20.14.2",
+    "@types/node": "^20.14.5",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "typescript": "^5.4.5"
