@@ -1,5 +1,7 @@
 /** It is assumed that this is called only from the default branch. */
 const { execSync } = require("child_process");
+const fs = require("fs");
+const path = require("path");
 
 // Apply changesets if any -- e.g., coming from pre-release branches
 try {
@@ -16,7 +18,8 @@ try {
   // no changesets to be applied
 }
 
-const { version: VERSION, name } = require("../lib/package.json");
+const pkg = require("../lib/package.json");
+const { version: VERSION, name } = pkg;
 let LATEST_VERSION = "0.0.-1";
 
 try {
@@ -40,7 +43,16 @@ if (!isPatch) {
 }
 
 /** Create release */
-execSync("cd lib && pnpm build && npm publish --provenance --access public");
+execSync("cd lib && pnpm build");
+
+delete pkg.files;
+
+fs.writeFileSync(
+  path.join(__dirname, "../lib/dist/package.json"),
+  JSON.stringify(pkg, null, 2).replace(/dist\//g, ""),
+);
+
+execSync("cd lib/dist && npm publish --provenance --access public");
 
 /** Create GitHub release */
 execSync(

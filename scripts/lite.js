@@ -4,7 +4,7 @@ const fs = require("node:fs");
 const path = require("node:path");
 const config = require("./rebrand.config.json");
 
-const packageJson = require("../lib/package.json");
+const packageJson = require("../lib/dist/package.json");
 
 const ref = packageJson.name;
 packageJson.peerDependencies.r18gs = `${packageJson.dependencies.r18gs.split(".")[0]}`;
@@ -13,7 +13,7 @@ if (Object.keys(packageJson.devDependencies).length === 0) delete packageJson.de
 packageJson.name = `${ref}-lite`;
 
 fs.writeFileSync(
-  path.resolve(__dirname, "../lib/package.json"),
+  path.resolve(__dirname, "../lib/dist/package.json"),
   JSON.stringify(packageJson, null, 2),
 );
 
