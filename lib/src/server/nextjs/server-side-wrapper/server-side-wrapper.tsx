@@ -1,5 +1,5 @@
 import type { HTMLProps, ReactNode } from "react";
-import { type ColorSchemeType } from "../../types";
+import { type ColorSchemeType } from "../../../types";
 
 /** @deprecated as no longer needed. */
 export type ForcedPage =
