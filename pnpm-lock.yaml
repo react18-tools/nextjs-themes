@@ -65,7 +65,7 @@ importers:
         version: link:../../packages/shared
       next:
         specifier: ^14.2.4
-        version: 14.2.4(@babel/core@7.24.7)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.6)
+        version: 14.2.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.6)
       nextjs-darkmode:
         specifier: ^1.0.2
         version: 1.0.2(@types/react@18.3.3)(next@14.2.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.6))(react@18.3.1)
@@ -111,7 +111,7 @@ importers:
         version: link:../../packages/shared
       next:
         specifier: ^14.2.4
-        version: 14.2.4(@babel/core@7.24.7)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.6)
+        version: 14.2.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.6)
       nextjs-themes:
         specifier: workspace:*
         version: link:../../lib
@@ -216,7 +216,7 @@ importers:
         version: 4.3.1(vite@5.3.1(@types/node@20.14.6)(sass@1.77.6))
       '@vitest/coverage-v8':
         specifier: ^1.6.0
-        version: 1.6.0(vitest@1.6.0(@types/node@20.14.5)(jsdom@24.1.0)(sass@1.77.6))
+        version: 1.6.0(vitest@1.6.0(@types/node@20.14.6)(jsdom@24.1.0)(sass@1.77.6))
       esbuild-plugin-rdi:
         specifier: ^0.0.0
         version: 0.0.0
@@ -315,7 +315,7 @@ importers:
         version: link:../../scripts
       next:
         specifier: 10 - 14
-        version: 14.2.4(@babel/core@7.24.7)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.6)
+        version: 14.2.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.6)
       nextjs-darkmode:
         specifier: ^1.0.2
         version: 1.0.2(@types/react@18.3.3)(next@14.2.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.6))(react@18.3.1)
@@ -6057,7 +6057,7 @@ snapshots:
       '@types/react': 18.3.3
       react: 18.3.1
     optionalDependencies:
-      next: 14.2.4(@babel/core@7.24.7)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.6)
+      next: 14.2.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.6)
 
   '@microsoft/tsdoc-config@0.16.2':
     dependencies:
@@ -7465,7 +7465,7 @@ snapshots:
       '@types/react': 18.3.3
       react: 18.3.1
     optionalDependencies:
-      next: 14.2.4(@babel/core@7.24.7)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.6)
+      next: 14.2.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.6)
 
   esbuild@0.21.5:
     optionalDependencies:
@@ -9559,7 +9559,7 @@ snapshots:
 
   neo-async@2.6.2: {}
 
-  next@14.2.4(@babel/core@7.24.7)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.6):
+  next@14.2.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.6):
     dependencies:
       '@next/env': 14.2.4
       '@swc/helpers': 0.5.5
@@ -9569,7 +9569,7 @@ snapshots:
       postcss: 8.4.31
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
-      styled-jsx: 5.1.1(@babel/core@7.24.7)(react@18.3.1)
+      styled-jsx: 5.1.1(react@18.3.1)
     optionalDependencies:
       '@next/swc-darwin-arm64': 14.2.4
       '@next/swc-darwin-x64': 14.2.4
@@ -9591,7 +9591,7 @@ snapshots:
       r18gs: 1.1.2(@types/react@18.3.3)(next@14.2.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.6))(react@18.3.1)
       react: 18.3.1
     optionalDependencies:
-      next: 14.2.4(@babel/core@7.24.7)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.6)
+      next: 14.2.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.6)
 
   no-case@3.0.4:
     dependencies:
@@ -10048,7 +10048,7 @@ snapshots:
       '@types/react': 18.3.3
       react: 18.3.1
     optionalDependencies:
-      next: 14.2.4(@babel/core@7.24.7)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.6)
+      next: 14.2.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.6)
 
   react-dom@18.3.1(react@18.3.1):
     dependencies:
@@ -10090,7 +10090,7 @@ snapshots:
       r18gs: 1.1.2(@types/react@18.3.3)(next@14.2.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.6))(react@18.3.1)
       react: 18.3.1
     optionalDependencies:
-      next: 14.2.4(@babel/core@7.24.7)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.6)
+      next: 14.2.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.6)
 
   react@18.3.1:
     dependencies:
@@ -10570,12 +10570,10 @@ snapshots:
     dependencies:
       js-tokens: 9.0.0
 
-  styled-jsx@5.1.1(@babel/core@7.24.7)(react@18.3.1):
+  styled-jsx@5.1.1(react@18.3.1):
     dependencies:
       client-only: 0.0.1
       react: 18.3.1
-    optionalDependencies:
-      '@babel/core': 7.24.7
 
   sucrase@3.35.0:
     dependencies:
