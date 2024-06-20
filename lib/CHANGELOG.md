@@ -1,5 +1,11 @@
 # nextjs-themes
 
+## 3.1.6
+
+### Patch Changes
+
+- f9d99da: Minify better with rdiPlugin
+
 ## 3.1.5
 
 ### Patch Changes

@@ -12,7 +12,6 @@
     "postinstall": "next telemetry disable"
   },
   "dependencies": {
-    "@repo/logger": "workspace:*",
     "@repo/scripts": "workspace:*",
     "@repo/shared": "workspace:*",
     "next": "^14.2.4",
