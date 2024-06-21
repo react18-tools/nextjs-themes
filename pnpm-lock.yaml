@@ -64,8 +64,8 @@ importers:
         specifier: ^14.2.4
         version: 14.2.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.6)
       nextjs-darkmode:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/react@18.3.3)(next@14.2.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.6))(react@18.3.1)
+        specifier: ^1.0.3
+        version: 1.0.3(@types/react@18.3.3)(next@14.2.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.6))(react@18.3.1)
       nextjs-themes:
         specifier: workspace:*
         version: link:../../lib
@@ -274,8 +274,8 @@ importers:
         specifier: 10 - 14
         version: 14.2.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.6)
       nextjs-darkmode:
-        specifier: ^1.0.2
-        version: 1.0.2(@types/react@18.3.3)(next@14.2.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.6))(react@18.3.1)
+        specifier: ^1.0.3
+        version: 1.0.3(@types/react@18.3.3)(next@14.2.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.6))(react@18.3.1)
       nextjs-themes:
         specifier: workspace:*
         version: link:../../lib
@@ -3603,15 +3603,11 @@ packages:
       sass:
         optional: true
 
-  nextjs-darkmode@1.0.2:
-    resolution: {integrity: sha512-sleu+xNninNKrHhuuXDttGa/iwifSfvLX60w8kC9fKXgFNzDpi/vRlW9ZiLkus1HfKHjBnph1L0jyzDFGIGCSQ==}
+  nextjs-darkmode@1.0.3:
+    resolution: {integrity: sha512-Mof4E4I0BHMkIEdBv8y3Nsh2nqB9fazJsArFgHABfLt4UCRMa9j4M7CAZCMi3DPjAGGGHxtqM5qFGvTDH8a4ug==}
     peerDependencies:
       '@types/react': 16.8 - 19
-      next: 10 - 15
       react: 16.8 - 19
-    peerDependenciesMeta:
-      next:
-        optional: true
 
   no-case@3.0.4:
     resolution: {integrity: sha512-fgAN3jGAh+RoxUGZHTSOLJIqUc2wmoBwGR4tbpNAKmmovFoWq0OdRkb0VkldReO2a2iBT/OEulG9XSUc10r3zg==}
@@ -9367,13 +9363,13 @@ snapshots:
       - '@babel/core'
       - babel-plugin-macros
 
-  nextjs-darkmode@1.0.2(@types/react@18.3.3)(next@14.2.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.6))(react@18.3.1):
+  nextjs-darkmode@1.0.3(@types/react@18.3.3)(next@14.2.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.6))(react@18.3.1):
     dependencies:
       '@types/react': 18.3.3
       r18gs: 1.1.2(@types/react@18.3.3)(next@14.2.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.6))(react@18.3.1)
       react: 18.3.1
-    optionalDependencies:
-      next: 14.2.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.6)
+    transitivePeerDependencies:
+      - next
 
   no-case@3.0.4:
     dependencies:
