@@ -159,7 +159,7 @@ Next.js app supports dark mode, including System preference with `prefers-color-
 
 Show different images based on the current theme:
 
-```jsx
+```ts
 import Image from "next/image";
 import { useTheme } from "nextjs-themes";
 
