@@ -348,6 +348,8 @@ const background = getBackground(resolvedTheme);
 
 Without `resolvedTheme`, you would only know the theme is "system", not what it resolved to.
 
+![Repo stats](https://repobeats.axiom.co/api/embed/3cc219825aee3c38bad8829fb9da0dd6301a1867.svg "Repobeats analytics image")
+
 ## License
 
 This library is licensed under the MPL-2.0 open-source license.
