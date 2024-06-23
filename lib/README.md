@@ -220,7 +220,7 @@ interface UseThemeYield {
 ### Next.js App Router
 
 ```tsx
-import { ForceTheme } from "nextjs-themes";
+import { ForceTheme } from "nextjs-themes/force-theme";
 
 function MyPage() {
   return (
@@ -233,6 +233,8 @@ function MyPage() {
 
 export default MyPage;
 ```
+
+> If you are using TypeScript and have not set nodeResolution to `Bundler` or `Node16` or `NodeNext`, you need to import from `nextjs-themes/client/force-theme`
 
 ### Next.js Pages Router
 
@@ -347,6 +349,8 @@ const background = getBackground(resolvedTheme);
 ```
 
 Without `resolvedTheme`, you would only know the theme is "system", not what it resolved to.
+
+![Repo stats](https://repobeats.axiom.co/api/embed/3cc219825aee3c38bad8829fb9da0dd6301a1867.svg "Repobeats analytics image")
 
 ## License
 
