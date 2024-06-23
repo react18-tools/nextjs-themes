@@ -1,5 +1,11 @@
 # nextjs-themes
 
+## 4.0.0-alpha.1
+
+### Patch Changes
+
+- 4ca22c1: Patch alpha to avoid publishing over previously published version
+
 ## 4.0.0-alpha.0
 
 ### Major Changes
