@@ -46,6 +46,26 @@
       "import": "./dist/client/theme-switcher/index.mjs",
       "types": "./dist/client/theme-switcher/index.d.ts"
     },
+    "./client/force-color-scheme": {
+      "require": "./dist/client/force-color-scheme/index.js",
+      "import": "./dist/client/force-color-scheme/index.mjs",
+      "types": "./dist/client/force-color-scheme/index.d.ts"
+    },
+    "./force-color-scheme": {
+      "require": "./dist/client/force-color-scheme/index.js",
+      "import": "./dist/client/force-color-scheme/index.mjs",
+      "types": "./dist/client/force-color-scheme/index.d.ts"
+    },
+    "./client/force-theme": {
+      "require": "./dist/client/force-theme/index.js",
+      "import": "./dist/client/force-theme/index.mjs",
+      "types": "./dist/client/force-theme/index.d.ts"
+    },
+    "./force-theme": {
+      "require": "./dist/client/force-theme/index.js",
+      "import": "./dist/client/force-theme/index.mjs",
+      "types": "./dist/client/force-theme/index.d.ts"
+    },
     "./server": {
       "require": "./dist/server/index.js",
       "import": "./dist/server/index.mjs",
