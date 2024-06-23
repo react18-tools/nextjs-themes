@@ -77,4 +77,6 @@ execSync(
 );
 
 execSync("node ./scripts/lite.js");
-execSync(`cd lib && pnpm build && npm publish --provenance --access public --tag ${tag}`);
+execSync(
+  "cd lib && pnpm build && cp package.json dist/package.json && cp README.md dist/README.md && cd dist && npm publish --provenance --access public --tag ${tag}",
+);
