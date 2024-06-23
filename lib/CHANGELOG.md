@@ -1,5 +1,11 @@
 # nextjs-themes
 
+## 3.1.7
+
+### Patch Changes
+
+- 99a0702: Update exports.
+
 ## 3.1.6
 
 ### Patch Changes

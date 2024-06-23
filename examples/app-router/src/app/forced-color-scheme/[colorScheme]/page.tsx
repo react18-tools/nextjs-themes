@@ -1,5 +1,5 @@
 import type { ColorSchemeType } from "nextjs-themes";
-import { ForceColorScheme } from "nextjs-themes";
+import { ForceColorScheme } from "nextjs-themes/force-color-scheme";
 
 interface PageWithForcedColorSchemeProps {
   params: { colorScheme: ColorSchemeType };

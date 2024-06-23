@@ -1,4 +1,4 @@
-import { ForceColorScheme } from "nextjs-themes";
+import { ForceColorScheme } from "nextjs-themes/force-color-scheme";
 
 export default function PageWithForcedColorScheme(): JSX.Element {
   return (

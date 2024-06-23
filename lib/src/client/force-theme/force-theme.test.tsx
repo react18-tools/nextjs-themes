@@ -1,6 +1,6 @@
 import { cleanup, render } from "@testing-library/react";
 import { afterEach, describe, test } from "vitest";
-import { DARK, DEFAULT_ID } from "../../constants";
+import { DEFAULT_ID } from "../../constants";
 import { ThemeSwitcher } from "../theme-switcher";
 import { noFOUCScript } from "../theme-switcher/no-fouc";
 import { initialState } from "../../store";

@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useParams } from "react-router-dom";
-import { ForceTheme } from "nextjs-themes";
+import { ForceTheme } from "nextjs-themes/force-theme";
 import { Header } from "@repo/shared";
 
 export default function ThemedPage() {
