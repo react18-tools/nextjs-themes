@@ -61,7 +61,7 @@ execSync("cd lib/dist && npm publish --provenance --access public");
 
 /** Create GitHub release */
 execSync(
-  `gh release create ${VERSION} --generate-notes --latest -n "$(sed '1,/^## /d;/^## /,$d' CHANGELOG.md)" --title "Release v${VERSION}"`,
+  `gh release create ${VERSION} --generate-notes --latest -n "$(sed '1,/^## /d;/^## /,$d' lib/CHANGELOG.md)" --title "Release v${VERSION}"`,
 );
 
 execSync("node ./scripts/lite.js");
