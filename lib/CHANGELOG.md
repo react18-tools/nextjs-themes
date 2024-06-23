@@ -1,5 +1,11 @@
 # nextjs-themes
 
+## 4.0.0-alpha.0
+
+### Major Changes
+
+- aa3d50e: Do not export force-theme and force-color-scheme components from root.
+
 ## 3.1.7
 
 ### Patch Changes
