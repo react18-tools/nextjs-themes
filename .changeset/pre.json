@@ -5,13 +5,14 @@
     "@example/app": "0.0.0",
     "@example/pages": "0.0.0",
     "@example/vite": "0.0.0",
-    "nextjs-themes": "3.1.7",
+    "nextjs-themes": "4.0.0-alpha.0",
     "@repo/eslint-config": "0.0.0",
     "@repo/typescript-config": "0.0.0",
-    "@repo/shared": "0.0.5",
+    "@repo/shared": "0.0.6-alpha.0",
     "@repo/scripts": "0.0.0"
   },
   "changesets": [
-    "fuzzy-timers-lie"
+    "fuzzy-timers-lie",
+    "good-cobras-deny"
   ]
 }
