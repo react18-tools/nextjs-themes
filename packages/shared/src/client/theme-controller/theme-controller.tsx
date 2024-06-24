@@ -6,6 +6,7 @@ export interface ThemeControllerProps {
   targetSelector?: string;
 }
 
+/** ThemeController */
 export function ThemeController({ targetSelector }: ThemeControllerProps) {
   return (
     <div className={[styles.center, styles.prefs].join(" ")}>
