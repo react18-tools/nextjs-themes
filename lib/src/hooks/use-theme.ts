@@ -33,8 +33,6 @@ interface UseThemeYield {
  * ```tsx
  * const [] = useTheme(options);
  * ```
- *
- * @source - Source code
  */
 
 export const useTheme = (targetSelector?: string): UseThemeYield => {
