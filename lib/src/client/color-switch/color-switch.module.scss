@@ -1,4 +1,4 @@
-.color-switch {
+.s {
   all: unset;
   position: relative;
   box-shadow: none;
@@ -12,9 +12,9 @@
   transition: all 0.3s ease-in-out 0s !important;
 }
 
-[data-csp="system"] .color-switch::after,
-[data-csp="system"] ~ .color-switch::after,
-[data-csp="system"] ~ * .color-switch::after {
+[data-csp="system"] .s::after,
+[data-csp="system"] ~ .s::after,
+[data-csp="system"] ~ * .s::after {
   position: absolute;
   height: 100%;
   width: 100%;
@@ -28,24 +28,24 @@
   content: "A";
 }
 
-[data-csp="dark"] .color-switch,
-[data-csp="dark"] ~ .color-switch,
-[data-csp="dark"] ~ * .color-switch {
+[data-csp="dark"] .s,
+[data-csp="dark"] ~ .s,
+[data-csp="dark"] ~ * .s {
   box-shadow: calc(var(--size) / 4) calc(var(--size) / -4) calc(var(--size) / 8) inset #fff;
   border: none;
   background: transparent;
-  animation: swing linear 0.5s;
+  animation: a linear 0.5s;
 }
 
-[data-csp="light"] .color-switch,
-[data-csp="light"] ~ .color-switch,
-[data-csp="light"] ~ * .color-switch {
+[data-csp="light"] .s,
+[data-csp="light"] ~ .s,
+[data-csp="light"] ~ * .s {
   box-shadow: 0 0 50px 10px yellow;
   background-color: yellow;
   border: 1px solid orangered;
 }
 
-@keyframes swing {
+@keyframes a {
   40% {
     transform: rotate(-15deg);
   }
