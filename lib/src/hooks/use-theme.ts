@@ -7,7 +7,7 @@ import { DARK, LIGHT, SYSTEM } from "../constants";
 const colorSchemes = [SYSTEM, DARK, LIGHT] as ColorSchemeType[];
 let resolveTheme: ResolveFunc;
 
-interface UseThemeYield {
+export interface UseThemeYield {
   theme: string;
   darkTheme: string;
   lightTheme: string;
