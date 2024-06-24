@@ -22,9 +22,9 @@ export interface ThemeSwitcherProps {
    */
   targetSelector?: string;
   /**
-   * @defaultValue 'none'
-   * the transition property to enforce on all elements, preventing unwanted transitions during theme changes.
+   * The transition property to enforce on all elements, preventing unwanted transitions during theme changes.
    * @example 'background .3s'
+   * @defaultValue 'none'
    */
   themeTransition?: string;
   /**

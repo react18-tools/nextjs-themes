@@ -22,6 +22,14 @@ module.exports = {
   excludeExternals: true,
   excludeInternal: true,
   projectDocuments: ["guides/*.md"],
+  hideGenerator: true,
+  cleanOutputDir: true,
+  navigationLinks: {
+    GitHub: "https://github.com/react18-tools/nextjs-themes",
+  },
+  navigation: {
+    includeFolders: false,
+  },
   plugin: [
     "typedoc-plugin-mdn-links",
     "typedoc-plugin-rename-defaults",
