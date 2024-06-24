@@ -1,5 +1,11 @@
 # nextjs-themes
 
+## 4.0.0-alpha.2
+
+### Patch Changes
+
+- b8164f7: Avoid rerendering without memo. Attempt to minify minzip further
+
 ## 4.0.0-alpha.1
 
 ### Patch Changes
