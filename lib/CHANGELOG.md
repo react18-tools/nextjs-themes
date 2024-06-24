@@ -1,5 +1,22 @@
 # nextjs-themes
 
+## 4.0.0
+
+### Major Changes
+
+- 4afdf90: Do not export force-theme and force-color-scheme components from root.
+
+### Patch Changes
+
+- 5a267f7: Updaet patch
+- be0acc7: Touchup
+- 6dc46b7: Patch alpha to avoid publishing over previously published version
+- fc363fb: Test bundle size by re-exporting forced components.
+- 6407a5d: Minify CSS
+- 6556849: Remove rarely used exports
+- e72c49c: Avoid rerendering without memo. Attempt to minify minzip further
+- 2e377ec: Import hook and color-switch from their own files.
+
 ## 4.0.0-alpha.8
 
 ### Patch Changes
