@@ -1,5 +1,11 @@
 # nextjs-themes
 
+## 4.0.0-alpha.6
+
+### Patch Changes
+
+- c21dd8f: Minify CSS
+
 ## 4.0.0-alpha.5
 
 ### Patch Changes
