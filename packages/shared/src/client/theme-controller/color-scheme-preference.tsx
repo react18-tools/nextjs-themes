@@ -7,8 +7,8 @@ import styles from "./theme-controller.module.scss";
 
 const colorSchemes: ColorSchemeType[] = ["", "system", "light", "dark"];
 
-export function ColorSchemePreference() {
-  const { colorSchemePref, setColorSchemePref } = useTheme();
+export function ColorSchemePreference({ targetSelector }: { targetSelector?: string }) {
+  const { colorSchemePref, setColorSchemePref } = useTheme(targetSelector);
   const handleChange: (e: ChangeEvent<HTMLSelectElement>) => void = e =>
     setColorSchemePref(e.target.value as ColorSchemeType);
 

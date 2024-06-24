@@ -2,16 +2,21 @@ import styles from "./theme-controller.module.scss";
 import { ColorSchemePreference } from "./color-scheme-preference";
 import { ThemeSelector } from "./theme-selector";
 
-export function ThemeController() {
+export interface ThemeControllerProps {
+  targetSelector?: string;
+}
+
+/** ThemeController */
+export function ThemeController({ targetSelector }: ThemeControllerProps) {
   return (
     <div className={[styles.center, styles.prefs].join(" ")}>
       <div>
-        <ColorSchemePreference />
-        <ThemeSelector scope="" />
+        <ColorSchemePreference targetSelector={targetSelector} />
+        <ThemeSelector scope="" targetSelector={targetSelector} />
       </div>
       <div>
-        <ThemeSelector scope="dark" />
-        <ThemeSelector scope="light" />
+        <ThemeSelector scope="dark" targetSelector={targetSelector} />
+        <ThemeSelector scope="light" targetSelector={targetSelector} />
       </div>
     </div>
   );

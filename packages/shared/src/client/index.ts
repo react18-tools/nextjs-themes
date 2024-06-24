@@ -7,7 +7,7 @@
  */
 
 // client component exports
-export * from "./demo";
+export * from "./scoped-themes";
 export * from "./header";
 export * from "./global-loader";
 export * from "./drawer-button";
