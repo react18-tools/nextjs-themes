@@ -5,14 +5,15 @@
     "@example/app": "0.0.0",
     "@example/pages": "0.0.0",
     "@example/vite": "0.0.0",
-    "nextjs-themes": "4.0.0-alpha.0",
+    "nextjs-themes": "4.0.0-alpha.1",
     "@repo/eslint-config": "0.0.0",
     "@repo/typescript-config": "0.0.0",
-    "@repo/shared": "0.0.6-alpha.0",
+    "@repo/shared": "0.0.6-alpha.1",
     "@repo/scripts": "0.0.0"
   },
   "changesets": [
     "fuzzy-timers-lie",
-    "good-cobras-deny"
+    "good-cobras-deny",
+    "purple-waves-marry"
   ]
 }
