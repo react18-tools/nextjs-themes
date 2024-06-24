@@ -49,6 +49,9 @@ This project was inspired by next-themes. Unlike next-themes, `nextjs-themes` do
 
 > See [Getting Started](./guides/getting-started.md)
 
+> Want Lite Version? [![npm bundle size](https://img.shields.io/bundlephobia/minzip/nextjs-themes-lite)](https://www.npmjs.com/package/nextjs-themes-lite) [![Version](https://img.shields.io/npm/v/nextjs-themes-lite.svg?colorB=green)](https://www.npmjs.com/package/nextjs-themes-lite) [![Downloads](https://img.jsdelivr.com/img.shields.io/npm/d18m/nextjs-themes-lite.svg)](https://www.npmjs.com/package/nextjs-themes-lite)
+> In case you are using `r18gs` in your project, you may use lite version which requires `r18gs` as a peerDependency.
+
 ## Migration
 
 > Refer to the [migration guide](./guides/migration.md).

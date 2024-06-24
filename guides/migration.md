@@ -12,7 +12,7 @@ title: Migration Guide
 - If you have been using these components, they will have no effect. We recommend removing them.
 - There is no need to use sibling selectors. Without `NextJsSSGThemeSwitcher` or `NextJsServerTarget`, you are free to use any target, whether as a wrapper or a sibling.
 
-### Breaking Changes
+### Breaking Changes - these should only affect a very small fraction of library users
 
 - `ForceColorScheme` and `ForceTheme` are no longer exported from `nextjs-themes` or `nextjs-themes/client`. Use `nextjs-themes/force-color-scheme` or `nextjs-themes/force-theme` instead.
 - The class names for `ColorSwitch` have been shortened.
