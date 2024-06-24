@@ -1,5 +1,11 @@
 # nextjs-themes
 
+## 4.0.0-alpha.4
+
+### Patch Changes
+
+- 66038c5: Test bundle size by re-exporting forced components.
+
 ## 4.0.0-alpha.3
 
 ### Patch Changes
