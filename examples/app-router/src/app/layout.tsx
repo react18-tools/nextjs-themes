@@ -1,5 +1,4 @@
 import "./styles.css";
-import "react18-loaders/dist/index.css";
 import { ThemeSwitcher } from "nextjs-themes";
 import { Layout } from "@repo/shared/dist/server";
 import { GlobalLoader, Header } from "@repo/shared";
