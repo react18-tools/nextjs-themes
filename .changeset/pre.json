@@ -5,10 +5,10 @@
     "@example/app": "0.0.0",
     "@example/pages": "0.0.0",
     "@example/vite": "0.0.0",
-    "nextjs-themes": "4.0.0-alpha.2",
+    "nextjs-themes": "4.0.0-alpha.3",
     "@repo/eslint-config": "0.0.0",
     "@repo/typescript-config": "0.0.0",
-    "@repo/shared": "0.0.6-alpha.2",
+    "@repo/shared": "0.0.6-alpha.3",
     "@repo/scripts": "0.0.0"
   },
   "changesets": [
