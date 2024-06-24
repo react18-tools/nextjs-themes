@@ -1,5 +1,11 @@
 # nextjs-themes
 
+## 4.0.0-alpha.3
+
+### Patch Changes
+
+- a31d6e0: Touchup
+
 ## 4.0.0-alpha.2
 
 ### Patch Changes

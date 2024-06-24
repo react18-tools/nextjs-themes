@@ -1,5 +1,12 @@
 # @repo/shared
 
+## 0.0.6-alpha.3
+
+### Patch Changes
+
+- Updated dependencies [a31d6e0]
+  - nextjs-themes@4.0.0-alpha.3
+
 ## 0.0.6-alpha.2
 
 ### Patch Changes
