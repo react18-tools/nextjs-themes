@@ -4,7 +4,9 @@ title: Migration Guide
 
 # Migration Guide
 
-## Migrating to V4
+## Migrating to V3 and V4
+
+> V3 was entirely re-written with minimal API changes. V4 optimises V3 by minor refactors.
 
 - No more cookies.
 - You no longer need to use `NextJsSSGThemeSwitcher`, `NextJsServerTarget`, or `ServerSideWrapper`.
