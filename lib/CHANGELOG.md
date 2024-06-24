@@ -1,5 +1,11 @@
 # nextjs-themes
 
+## 4.0.0-alpha.7
+
+### Patch Changes
+
+- 691038e: Remove rarely used exports
+
 ## 4.0.0-alpha.6
 
 ### Patch Changes
