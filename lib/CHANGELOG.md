@@ -1,5 +1,11 @@
 # nextjs-themes
 
+## 4.0.0-alpha.5
+
+### Patch Changes
+
+- dfe139c: Updaet patch
+
 ## 4.0.0-alpha.4
 
 ### Patch Changes
