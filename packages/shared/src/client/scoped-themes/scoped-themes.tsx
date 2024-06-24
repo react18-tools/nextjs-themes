@@ -2,7 +2,7 @@
 import { ColorSwitch, ThemeSwitcher } from "nextjs-themes";
 import { ThemeController } from "../theme-controller";
 
-export default function ScopedThemes() {
+export function ScopedThemes() {
   const id = "scoped-themes";
   const targetSelector = `#${id}`;
   return (

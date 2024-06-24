@@ -1,4 +1,4 @@
 "use client";
 
 // component exports
-export * from "./scoped-theme";
+export * from "./scoped-themes";
