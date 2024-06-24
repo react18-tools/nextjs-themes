@@ -1,5 +1,11 @@
 # nextjs-themes
 
+## 4.0.0-alpha.8
+
+### Patch Changes
+
+- c72dd2d: Import hook and color-switch from their own files.
+
 ## 4.0.0-alpha.7
 
 ### Patch Changes
