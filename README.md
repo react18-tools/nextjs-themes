@@ -161,7 +161,7 @@ Show different images based on the current theme:
 
 ```ts
 import Image from "next/image";
-import { useTheme } from "nextjs-themes";
+import { useTheme } from "nextjs-themes/hooks";
 
 function ThemedImage() {
   const { resolvedTheme } = useTheme();
@@ -177,7 +177,7 @@ export default ThemedImage;
 The `useTheme` hook provides theme information and allows changing the theme:
 
 ```js
-import { useTheme } from "nextjs-themes";
+import { useTheme } from "nextjs-themes/hooks";
 
 const ThemeChanger = () => {
   const { theme, setTheme } = useTheme();
