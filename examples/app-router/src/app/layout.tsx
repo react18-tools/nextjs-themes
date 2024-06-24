@@ -7,6 +7,7 @@ import Link from "next/link";
 import { Cards, LandingPage } from "@repo/shared/dist/server";
 import { PageNavigatorCard, ThemeController } from "@repo/shared";
 import { ColorSwitch } from "nextjs-themes/color-switch";
+import ScopedThemes from "./scoped-themes";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,6 +23,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }):
           <LandingPage title="Next.js Example">
             <ColorSwitch className="center" />
             <ThemeController />
+            <ScopedThemes />
             <Cards>
               <PageNavigatorCard LinkElement={Link} />{" "}
             </Cards>

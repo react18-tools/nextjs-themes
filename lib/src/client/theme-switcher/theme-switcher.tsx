@@ -106,19 +106,19 @@ const Switcher = ({
 
   useEffect(() => {
     const restoreThansitions = modifyTransition(themeTransition);
-    updateDOM(resolveTheme(state));
+    updateDOM(resolveTheme(state), k);
     restoreThansitions();
     localStorage.setItem(k, JSON.stringify(state));
   }, [state]);
 
   useEffect(() => {
     updateForcedProps(forcedTheme, forcedColorScheme);
-    updateDOM(resolveTheme(state));
+    updateDOM(resolveTheme(state), k);
   }, [forcedColorScheme, forcedTheme]);
 
   useEffect(() => {
     updateForcedState(forced.f, forced.fc);
-    updateDOM(resolveTheme(state));
+    updateDOM(resolveTheme(state), k);
   }, [forced]);
   return null;
 };

@@ -2,7 +2,7 @@ import type { ThemeStoreType } from "../../store";
 import type { ColorSchemeType, ResolvedColorSchemeType } from "../../types";
 
 type ValuesType = [ResolvedColorSchemeType, ColorSchemeType, string, string];
-export type UpdateDOMFunc = (values: ValuesType) => void;
+export type UpdateDOMFunc = (values: ValuesType, targetSelector: string) => void;
 
 export type ResolveFunc = (store: ThemeStoreType) => ValuesType;
 
@@ -34,7 +34,7 @@ export const noFOUCScript = (
 ) => {
   window.m = matchMedia("(prefers-color-scheme: dark)");
   const keys = ["color-scheme", "csp", "theme", "th"];
-  window.u = values => {
+  window.u = (values, key) => {
     const el = document.querySelector(key) ?? document.documentElement;
     let classes = [];
     keys.forEach((key, index) => {
@@ -80,5 +80,5 @@ export const noFOUCScript = (
       forcedTheme ?? store.t,
     ] as ValuesType;
   };
-  u(r(store));
+  u(r(store), key);
 };
