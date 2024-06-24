@@ -6,7 +6,6 @@ describe("server-side-target", () => {
   afterEach(cleanup);
 
   test("test default tag", ({ expect }) => {
-    globalThis.cookies = {};
     render(<NextJsSSGThemeSwitcher />);
     expect(screen.getByTestId("server-side-target").tagName).toBe("DIV");
   });
