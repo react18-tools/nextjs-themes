@@ -6,13 +6,14 @@ import type { ChangeEvent } from "react";
 import { Select } from "../select";
 import styles from "./theme-controller.module.scss";
 import { darkThemes, lightThemes } from "./themes";
+import { ThemeControllerProps } from "./theme-controller";
 
-interface ThemeSelectorProps {
+interface ThemeSelectorProps extends ThemeControllerProps {
   scope: "" | "dark" | "light";
 }
 
-export function ThemeSelector({ scope }: ThemeSelectorProps) {
-  const { colorSchemePref, theme, setTheme } = useThemeStates(scope);
+export function ThemeSelector({ scope, targetSelector }: ThemeSelectorProps) {
+  const { colorSchemePref, theme, setTheme } = useThemeStates(scope, targetSelector);
   const themes = useMemo(() => {
     switch (scope) {
       case "":
@@ -49,9 +50,9 @@ function getClassName(scope: ThemeSelectorProps["scope"], colorSchemePref: Color
   return colorSchemePref === "system" ? styles[scope] : "";
 }
 
-function useThemeStates(scope: ThemeSelectorProps["scope"]) {
+function useThemeStates(scope: ThemeSelectorProps["scope"], targetSelector?: string) {
   const { colorSchemePref, theme, darkTheme, lightTheme, setTheme, setDarkTheme, setLightTheme } =
-    useTheme();
+    useTheme(targetSelector);
   switch (scope) {
     case "":
       return { colorSchemePref, theme, setTheme };
