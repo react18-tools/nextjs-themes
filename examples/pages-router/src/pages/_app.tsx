@@ -9,6 +9,7 @@ import Link from "next/link";
 import { Card, Cards, LandingPage } from "@repo/shared/dist/server";
 import { ThemeController, PageNavigatorCard } from "@repo/shared";
 import { ColorSwitch } from "nextjs-themes/color-switch";
+import ScopedThemes from "@repo/shared/dist/client/scoped-theme/scoped-theme";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -38,6 +39,7 @@ export default function App({ Component, pageProps }: _AppProps) {
         <LandingPage title="Next.js Example">
           <ColorSwitch className="center" />
           <ThemeController />
+          <ScopedThemes />
           <Cards>
             <PageNavigatorCard LinkElement={Link} />
             {staticCards.map(card => (

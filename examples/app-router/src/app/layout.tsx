@@ -7,7 +7,7 @@ import Link from "next/link";
 import { Cards, LandingPage } from "@repo/shared/dist/server";
 import { PageNavigatorCard, ThemeController } from "@repo/shared";
 import { ColorSwitch } from "nextjs-themes/color-switch";
-import ScopedThemes from "./scoped-themes";
+import ScopedThemes from "@repo/shared/dist/client/scoped-theme/scoped-theme";
 
 const inter = Inter({ subsets: ["latin"] });
 
