@@ -12,6 +12,7 @@ module.exports = {
   cleanOutputDir: true,
   excludePrivate: true,
   excludeExternals: true,
+  excludeInternal: true,
   projectDocuments: ["guides/*.md"],
   plugin: [
     "typedoc-plugin-mdn-links",
