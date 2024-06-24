@@ -32,7 +32,7 @@ export const noFOUCScript = (
   forcedTheme_?: string,
   forcedColorScheme_?: ColorSchemeType,
 ) => {
-  window.m = matchMedia("(prefers-color-scheme: dark)");
+  window.m = matchMedia(`(prefers-color-scheme:${initialState.d})`);
   const keys = ["color-scheme", "csp", "theme", "th"];
   window.u = values => {
     const el = document.querySelector(key) ?? document.documentElement;
