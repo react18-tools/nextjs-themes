@@ -5,10 +5,10 @@
     "@example/app": "0.0.0",
     "@example/pages": "0.0.0",
     "@example/vite": "0.0.0",
-    "nextjs-themes": "4.0.0-alpha.5",
+    "nextjs-themes": "4.0.0-alpha.6",
     "@repo/eslint-config": "0.0.0",
     "@repo/typescript-config": "0.0.0",
-    "@repo/shared": "0.0.6-alpha.5",
+    "@repo/shared": "0.0.6-alpha.6",
     "@repo/scripts": "0.0.0"
   },
   "changesets": [
@@ -18,6 +18,7 @@
     "good-cobras-deny",
     "mighty-toes-boil",
     "moody-eggs-report",
+    "plenty-chicken-provide",
     "purple-waves-marry"
   ]
 }
