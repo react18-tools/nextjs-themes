@@ -35,14 +35,7 @@ importers:
         version: 0.26.2(typescript@5.5.2)
       typedoc-plugin-extras:
         specifier: ^3.0.0
-<<<<<<< HEAD
         version: 3.0.0(typedoc@0.26.2(typescript@5.5.2))
-      typedoc-plugin-inline-sources:
-        specifier: ^1.0.2
-        version: 1.0.2(typedoc@0.26.2(typescript@5.5.2))
-=======
-        version: 3.0.0(typedoc@0.26.1(typescript@5.5.2))
->>>>>>> 6c4d75c (Update lock file)
       typedoc-plugin-mdn-links:
         specifier: ^3.2.1
         version: 3.2.1(typedoc@0.26.2(typescript@5.5.2))
@@ -10409,15 +10402,7 @@ snapshots:
     dependencies:
       typedoc: 0.26.2(typescript@5.5.2)
 
-<<<<<<< HEAD
-  typedoc-plugin-inline-sources@1.0.2(typedoc@0.26.2(typescript@5.5.2)):
-    dependencies:
-      typedoc: 0.26.2(typescript@5.5.2)
-
   typedoc-plugin-mdn-links@3.2.1(typedoc@0.26.2(typescript@5.5.2)):
-=======
-  typedoc-plugin-mdn-links@3.2.1(typedoc@0.26.1(typescript@5.5.2)):
->>>>>>> 6c4d75c (Update lock file)
     dependencies:
       typedoc: 0.26.2(typescript@5.5.2)
 
