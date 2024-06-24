@@ -9,6 +9,7 @@ export type ForcedPage =
     }
   | [pathMatcher: RegExp | string, themes: { theme?: string; colorScheme?: ColorSchemeType }];
 
+/** @deprecated */
 export interface NextJsSSRThemeSwitcherProps extends HTMLProps<HTMLElement> {
   children?: ReactNode;
   /** @defaultValue 'div' */
@@ -52,6 +53,7 @@ export const NextJsSSGThemeSwitcher = (props: NextJsSSRThemeSwitcherProps) => {
  */
 export { NextJsSSGThemeSwitcher as NextJsServerTarget };
 
+/** @deprecated */
 export interface ServerSideWrapperProps extends NextJsSSRThemeSwitcherProps {
   /** @defaultValue 'html' */
   tag?: keyof JSX.IntrinsicElements;

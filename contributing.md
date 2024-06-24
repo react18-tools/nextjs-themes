@@ -4,39 +4,43 @@
 
 ### Included Utilities
 
-This template is equipped with pre-configured tools to streamline your development process:
+This project is configured with a suite of pre-configured tools to enhance development experience:
 
-- Monorepo setup powered by TurboRepo
-  - TurboRepo is renowned for its efficient builds and caching mechanisms, minimizing unnecessary builds.
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
-- Plop-based code generator for effortlessly scaffolding new components
-- Automatic rebranding functionality for this template
-- Workflows facilitating testing, documentation, dependency updates, and deployment of your docs and packages
-- Build setup capable of creating appropriate CJS and ESM builds to support React 18 server and client component exports from the same library
-- Out-of-the-box support for SCSS modules for `lib` and `packages/shared`
+- **Monorepo setup with TurboRepo**:
+  - TurboRepo provides efficient builds and caching, reducing unnecessary rebuilds.
+- [TypeScript](https://www.typescriptlang.org/) for static type checking.
+- [ESLint](https://eslint.org/) for code linting.
+- [Prettier](https://prettier.io) for code formatting.
+- A Plop-based code generator for easy component scaffolding.
+- Workflows for testing, documentation, dependency updates, and deployment of docs and packages.
+- Build setup for generating both CJS and ESM builds to support React 18 server and client component exports from the same library.
+- Native support for SCSS modules in `lib` and `packages/shared`.
 
 ### Apps and Packages
 
-This TurboRepo comprises the following packages/examples, all written in [TypeScript](https://www.typescriptlang.org/):
+This TurboRepo includes the following packages/examples, all in [TypeScript](https://www.typescriptlang.org/):
 
-- `@example/nextjs`: a [Next.js](https://nextjs.org/) app
-- `@example/vite`: a [Vite.js](https://vitest.dev) app
-- `@example/remix`: a Remix app
-- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
-- `@repo/jest-presets`: Jest presets for unit testing
-- `@repo/shared`: An internal library of components utilized by the examples
-- `react18-loaders`: a React component library (The core package published to NPM)
+- **`nextjs-themes`**: The core React component library (published to NPM).
+- **`@example/app-router`**: A [Next.js](https://nextjs.org/) example app using the app router/directory.
+- **`@example/pages-router`**: A [Next.js](https://nextjs.org/) example app using the pages router.
+- **`@example/vite`**: A [Vite.js](https://vitejs.dev) app.
+- **`@repo/config-eslint`**: ESLint configurations (includes `eslint-config-next` and `eslint-config-prettier`).
+- **`@repo/config-typescript`**: `tsconfig.json` configurations used throughout the monorepo.
+- **`@repo/shared`**: An internal library of components used by the examples.
 
 ## Automated File Generation
 
-Simply execute `yarn turbo gen` and follow the prompts to automatically generate your new component along with a test file and dependency linking, adhering to best practices.
+To automatically generate a new component along with a test file and dependency linking, run:
+
+```bash
+yarn plop
+```
+
+Follow the prompts to ensure adherence to best practices.
 
 ### Build
 
-To build all apps and packages, execute the following command:
+To build all apps and packages, run:
 
 ```bash
 pnpm build
@@ -44,7 +48,7 @@ pnpm build
 
 ### Development
 
-For development of all apps and packages, run:
+For developing all apps and packages, use:
 
 ```bash
 pnpm dev
@@ -52,7 +56,7 @@ pnpm dev
 
 ### Running Unit Tests
 
-To execute unit tests, use:
+To run unit tests, execute:
 
 ```bash
 pnpm test
@@ -60,7 +64,7 @@ pnpm test
 
 ### Linting and Formatting
 
-Before creating a PR, ensure that linting passes and format the code properly with:
+Before submitting a PR, ensure your code passes linting and is properly formatted by running:
 
 ```bash
 pnpm lint
@@ -74,9 +78,9 @@ pnpm format
 
 ## Useful Resources
 
-Explore more about TurboRepo and Next.js through the following links:
+Learn more about TurboRepo and Next.js through these links:
 
-- [React and Next.js with TypeScript](https://www.udemy.com/course/react-and-next-js-with-typescript/?referralCode=7202184A1E57C3DCA8B2) - an interactive Next.js course.
+- [React and Next.js with TypeScript](https://www.udemy.com/course/react-and-next-js-with-typescript/?referralCode=7202184A1E57C3DCA8B2) - An interactive Next.js course.
 - [The Game of Chess with Next.js, React, and TypeScript](https://www.udemy.com/course/game-of-chess-with-nextjs-react-and-typescrypt/?referralCode=851A28F10B254A8523FE)
 - [Tasks](https://turbo.build/repo/docs/core-concepts/monorepos/running-tasks)
 - [Caching](https://turbo.build/repo/docs/core-concepts/caching)
@@ -85,7 +89,11 @@ Explore more about TurboRepo and Next.js through the following links:
 - [Configuration Options](https://turbo.build/repo/docs/reference/configuration)
 - [CLI Usage](https://turbo.build/repo/docs/reference/command-line-reference)
 
-> Quick tip: Remove all stale branches with `git branch --merged main | grep -v '^[ *]*main$' | xargs git branch -d`
+> **Quick tip**: Remove all stale branches with:
+>
+> ```bash
+> git branch --merged main | grep -v '^[ *]*main$' | xargs git branch -d
+> ```
 
 > <img src="https://github.com/react18-tools/turborepo-template/blob/main/popper.png?raw=true" style="height: 20px"/> Consider enrolling in [our courses](https://mayank-chaudhari.vercel.app/courses) or [sponsoring](https://github.com/sponsors/mayank1513) our work.
 

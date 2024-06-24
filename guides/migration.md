@@ -1,41 +1,60 @@
+---
+title: Migration Guide
+---
+
 # Migration Guide
 
-## Migrating from v1 to v2
+## Migrating to V3 and V4
+
+> V3 was entirely re-written with minimal API changes. V4 optimises V3 by minor refactors.
+
+- No more cookies.
+- You no longer need to use `NextJsSSGThemeSwitcher`, `NextJsServerTarget`, or `ServerSideWrapper`.
+- Flash of Unstyled Content (FOUC) is now handled by an injected script.
+- If you have been using these components, they will have no effect. We recommend removing them.
+- There is no need to use sibling selectors. Without `NextJsSSGThemeSwitcher` or `NextJsServerTarget`, you are free to use any target, whether as a wrapper or a sibling.
+
+### Breaking Changes - these should only affect a very small fraction of library users
+
+- `ForceColorScheme` and `ForceTheme` are no longer exported from `nextjs-themes` or `nextjs-themes/client`. Use `nextjs-themes/force-color-scheme` or `nextjs-themes/force-theme` instead.
+- The class names for `ColorSwitch` have been shortened.
+
+## Migrating from V1 to V2
 
 ### Major Changes
 
-- 6f17cce: # Additonal CSS Combinations + Ensure seamless support for Tailwind
+- Commit `6f17cce`: Added additional CSS combinations to ensure seamless support for Tailwind.
 
-  - No changes required for client side code as `[data-theme=]` selectors work as before.
-  - If you are using `ServerSideWrapper` or `NextJsServerTarget` or `NextJsSSGThemeSwitcher`, you need to convert `forcedPages` elements to objects of the shape `{ pathMatcher: RegExp | string; props: ThemeSwitcherProps }`.
-  - Use `resolvedColorScheme` for more sturdy dark/light/system modes
-  - Use combinations of `[data-th=""]` and `[data-color-scheme=""]` for dark/light varients of themes
-  - Use `[data-csp=""]` to style based on colorSchemePreference.
+  - No changes are required for client-side code as `[data-theme=]` selectors function as before.
+  - If you are using `ServerSideWrapper`, `NextJsServerTarget`, or `NextJsSSGThemeSwitcher`, you need to convert `forcedPages` elements to objects shaped like `{ pathMatcher: RegExp | string; props: ThemeSwitcherProps }`.
+  - Use `resolvedColorScheme` for more robust dark/light/system modes.
+  - Use combinations of `[data-th=""]` and `[data-color-scheme=""]` for dark/light theme variants.
+  - Use `[data-csp=""]` to style based on color scheme preference.
 
 ### Minor Changes
 
-- # Support custom themeTransition
+- Support for custom `themeTransition`.
 
-  - Provide `themeTransition` prop to `ThemeSwitcher` component to apply smooth transition while changing theme.
+  - Provide the `themeTransition` prop to the `ThemeSwitcher` component to apply a smooth transition when changing the theme.
   - Use `setThemeSet` to set `lightTheme` and `darkTheme` together.
 
-#### Motivation:
+#### Motivation
 
-For server side syncing, we need to use cookies and headers. This means that this component and its children can not be static. They will be rendered server side for each request. Thus, we are avoiding the wrapper. Now, only the `NextJsSSGThemeSwitcher` will be rendered server side for each request and rest of your app can be server statically.
+For server-side syncing, cookies and headers are required. This means that this component and its children cannot be static and will be rendered server-side for each request. To avoid the wrapper, only the `NextJsSSGThemeSwitcher` will be rendered server-side for each request, while the rest of your app can be served statically.
 
-Take care of the following while migrating to `v2`.
+Consider the following when migrating to V2:
 
-- No changes required for projects not using `Next.js` app router or server components other than updating cookies policy if needed.
-- The persistent storage is realized with `cookies` in place of `localStorage`. (You might want to update cookies policy accordingly.)
-- We have provided `NextJsSSGThemeSwitcher` in addition to `ServerSideWrapper` for `Next.js`. You no longer need to use a wrapper component which broke static generation and forced SSR.
-- Visit [With Next.js `app` router (Server Components)](#with-nextjs-app-router-server-components)
+- No changes are required for projects not using the `Next.js` app router or server components, aside from updating the cookies policy if needed.
+- Persistent storage now uses cookies instead of `localStorage`. (You might need to update your cookies policy accordingly.)
+- We have introduced `NextJsSSGThemeSwitcher` in addition to `ServerSideWrapper` for `Next.js`. You no longer need to use a wrapper component that breaks static generation and forces SSR.
+- For more details, visit [With Next.js `app` router (Server Components)](#with-nextjs-app-router-server-components).
 
-## Migrating from v0 to v1
+## Migrating from V0 to V1
 
-- `defaultDarkTheme` is renamed to `darkTheme`
-- `setDefaultDarkTheme` is renamed to `setDarkTheme`
-- `defaultLightTheme` is renamed to `lightTheme`
-- `setDefaultLightTheme` is renamed to `setLightTheme`
+- `defaultDarkTheme` has been renamed to `darkTheme`.
+- `setDefaultDarkTheme` has been renamed to `setDarkTheme`.
+- `defaultLightTheme` has been renamed to `lightTheme`.
+- `setDefaultLightTheme` has been renamed to `setLightTheme`.
 
 <hr />
 

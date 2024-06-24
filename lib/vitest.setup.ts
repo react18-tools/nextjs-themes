@@ -5,8 +5,6 @@ declare global {
     media: "dark" | "light";
     matchMedia: (query: string) => MediaQueryList;
   }
-  var cookies: Record<string, { value: string }>; // eslint-disable-line no-var -- let is not supported in defining global due to block scope
-  var path: string; // eslint-disable-line no-var -- let is not supported in defining global due to block scope
 }
 
 const mediaListeners: (() => void)[] = [];

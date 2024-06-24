@@ -17,7 +17,10 @@ const DEFAULT_BRANCH = process.env.DEFAULT_BRANCH;
 const isLatestRelease = BRANCH === DEFAULT_BRANCH || BRANCH.includes("release-");
 let tag = "latest";
 
-const OLD_VERSION = require("../lib/package.json").version;
+const pkg = require("../lib/package.json");
+
+const OLD_VERSION = pkg.version;
+
 if (!isLatestRelease) {
   /** pre-release branch name should be the tag name (e.g., beta, canery, etc.) or tag name followed by a '-' and version or other specifiers. e.g. beta-2.0 */
   tag = BRANCH.split("-")[0];
@@ -68,15 +71,26 @@ if (isNotPatch && BRANCH === DEFAULT_BRANCH) {
   execSync(pushCmd);
 }
 
-/** Create release */
-execSync(`cd lib && pnpm build && npm publish --provenance --access public --tag ${tag}`);
+delete pkg.files;
+
+fs.writeFileSync(
+  path.join(__dirname, "../lib/dist/package.json"),
+  JSON.stringify(pkg, null, 2).replace(/dist\//g, ""),
+);
+
+fs.copyFileSync(
+  path.join(__dirname, "../README.md"),
+  path.join(__dirname, "../lib/dist/README.md"),
+);
+
+execSync(`cd lib/dist && npm publish --provenance --access public --tag ${tag}`);
 
 /** Create GitHub release */
 execSync(
-  `gh release create ${NEW_VERSION} --generate-notes${isLatestRelease ? " --latest" : ""} -n "$(sed '1,/^## /d;/^## /,$d' CHANGELOG.md)" --title "Release v${NEW_VERSION}"`,
+  `gh release create ${NEW_VERSION} --generate-notes${isLatestRelease ? " --latest" : ""} -n "$(sed '1,/^## /d;/^## /,$d' lib/CHANGELOG.md)" --title "Release v${NEW_VERSION}"`,
 );
 
 execSync("node ./scripts/lite.js");
 execSync(
-  "cd lib && pnpm build && cp package.json dist/package.json && cp README.md dist/README.md && cd dist && npm publish --provenance --access public --tag ${tag}",
+  `cd lib && pnpm build && cp package.json dist/package.json && cp README.md dist/README.md && cd dist && npm publish --provenance --access public --tag ${tag}`,
 );

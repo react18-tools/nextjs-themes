@@ -1,11 +1,19 @@
 {
   "scope": "Workspace",
-  "tasks": {},
+  "tasks": {
+    "0o1UME_ZgqZdcbYksPgDI": {
+      "id": "0o1UME_ZgqZdcbYksPgDI",
+      "description": "Update Docs\n- Use wiki - Export typedoc as md and then publish to wiki",
+      "columnId": "column-todo"
+    }
+  },
   "columns": [
     {
       "id": "column-todo",
       "title": "To do",
-      "tasksIds": []
+      "tasksIds": [
+        "0o1UME_ZgqZdcbYksPgDI"
+      ]
     },
     {
       "id": "column-doing",

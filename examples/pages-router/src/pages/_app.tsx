@@ -8,7 +8,7 @@ import { Header } from "@repo/shared";
 import Link from "next/link";
 import { Card, Cards, LandingPage } from "@repo/shared/dist/server";
 import { ThemeController, PageNavigatorCard } from "@repo/shared";
-import { ColorSwitch } from "nextjs-themes";
+import { ColorSwitch } from "nextjs-themes/color-switch";
 
 const inter = Inter({ subsets: ["latin"] });
 

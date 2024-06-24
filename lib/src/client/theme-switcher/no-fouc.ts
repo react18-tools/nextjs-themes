@@ -24,7 +24,7 @@ declare global {
   var g: UpdateForcedPropsFunc;
 }
 
-/** Script to be injected for avoiding FOUC */
+/** @internal Script to be injected for avoiding FOUC */
 export const noFOUCScript = (
   key: string,
   initialState: ThemeStoreType,

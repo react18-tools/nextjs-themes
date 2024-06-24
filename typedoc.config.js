@@ -1,20 +1,40 @@
 /** @type {import('typedoc').TypeDocOptions} */
 module.exports = {
   tsconfig: "tsconfig.docs.json",
-  name: "React18 Loaders",
+  name: "Nextjs Themes",
   entryPoints: ["./lib/src"],
-  exclude: ["**/*.test.tsx", "**/index.ts", "**/declaration.d.ts"],
+  exclude: [
+    "**/*.test.tsx",
+    "**/index.ts",
+    "**/server/**",
+    "**/constants.ts",
+    "**/store.ts",
+    "**/no-fouc.ts",
+    "**/declaration.d.ts",
+  ],
   entryPointStrategy: "Expand",
   out: "./docs",
   commentStyle: "all",
   searchInComments: true,
+  searchInDocuments: true,
+  cleanOutputDir: true,
+  excludePrivate: true,
   excludeExternals: true,
+  excludeInternal: true,
+  projectDocuments: ["guides/*.md"],
+  hideGenerator: true,
+  cleanOutputDir: true,
+  navigationLinks: {
+    GitHub: "https://github.com/react18-tools/nextjs-themes",
+  },
+  navigation: {
+    includeFolders: false,
+  },
   plugin: [
     "typedoc-plugin-mdn-links",
     "typedoc-plugin-rename-defaults",
     "typedoc-plugin-missing-exports",
     "typedoc-plugin-zod",
-    "typedoc-plugin-inline-sources",
     // "typedoc-plugin-extras",
   ],
 };

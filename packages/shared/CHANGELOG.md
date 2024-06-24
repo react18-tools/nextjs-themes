@@ -1,5 +1,68 @@
 # @repo/shared
 
+## 0.0.6-alpha.8
+
+### Patch Changes
+
+- Updated dependencies [c72dd2d]
+  - nextjs-themes@4.0.0-alpha.8
+
+## 0.0.6-alpha.7
+
+### Patch Changes
+
+- Updated dependencies [691038e]
+  - nextjs-themes@4.0.0-alpha.7
+
+## 0.0.6-alpha.6
+
+### Patch Changes
+
+- Updated dependencies [c21dd8f]
+  - nextjs-themes@4.0.0-alpha.6
+
+## 0.0.6-alpha.5
+
+### Patch Changes
+
+- Updated dependencies [dfe139c]
+  - nextjs-themes@4.0.0-alpha.5
+
+## 0.0.6-alpha.4
+
+### Patch Changes
+
+- Updated dependencies [66038c5]
+  - nextjs-themes@4.0.0-alpha.4
+
+## 0.0.6-alpha.3
+
+### Patch Changes
+
+- Updated dependencies [a31d6e0]
+  - nextjs-themes@4.0.0-alpha.3
+
+## 0.0.6-alpha.2
+
+### Patch Changes
+
+- Updated dependencies [b8164f7]
+  - nextjs-themes@4.0.0-alpha.2
+
+## 0.0.6-alpha.1
+
+### Patch Changes
+
+- Updated dependencies [4ca22c1]
+  - nextjs-themes@4.0.0-alpha.1
+
+## 0.0.6-alpha.0
+
+### Patch Changes
+
+- Updated dependencies [aa3d50e]
+  - nextjs-themes@4.0.0-alpha.0
+
 ## 0.0.5
 
 ### Patch Changes
