@@ -2,6 +2,7 @@ import { useRGS } from "r18gs";
 import { DARK, DEFAULT_ID, LIGHT, SYSTEM } from "./constants";
 import { ColorSchemeType, ResolvedColorSchemeType } from "./types";
 
+/** @internal */
 export interface ThemeStoreType {
   /** theme */
   t: string;
@@ -15,6 +16,7 @@ export interface ThemeStoreType {
   s: ResolvedColorSchemeType;
 }
 
+/** @internal */
 export const initialState: ThemeStoreType = {
   t: "",
   d: DARK,
@@ -23,7 +25,7 @@ export const initialState: ThemeStoreType = {
   s: LIGHT,
 };
 
-/** internal store */
+/** @internal store */
 export const useThemeStore = (targetSelector?: string) => {
   const key = targetSelector ?? `#${DEFAULT_ID}`;
   return useRGS<ThemeStoreType>(key, () => {
@@ -32,11 +34,13 @@ export const useThemeStore = (targetSelector?: string) => {
   });
 };
 
+/** @internal */
 export interface ForcedStoreType {
   /** forced theme */ f?: string;
   /** forced colorScheme */ fc?: ColorSchemeType;
 }
 
+/** @internal */
 export const useForcedStore = (targetSelector?: string) => {
   const key = `${targetSelector ?? `#${DEFAULT_ID}`}-`;
   return useRGS<ForcedStoreType>(key, {});
