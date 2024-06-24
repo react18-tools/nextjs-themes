@@ -6,9 +6,9 @@
   border-radius: 50%;
   border: 1px dashed gray;
   cursor: pointer;
-  --size: 25px;
-  height: var(--size);
-  width: var(--size);
+  --s: 25px;
+  height: var(--s);
+  width: var(--s);
   transition: all 0.3s ease-in-out 0s !important;
 }
 
@@ -21,7 +21,7 @@
   top: 0;
   left: 0;
   font-weight: 600;
-  font-size: calc(1 * var(--size) / 2);
+  font-size: calc(1 * var(--s) / 2);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -31,7 +31,7 @@
 [data-csp="dark"] .s,
 [data-csp="dark"] ~ .s,
 [data-csp="dark"] ~ * .s {
-  box-shadow: calc(var(--size) / 4) calc(var(--size) / -4) calc(var(--size) / 8) inset #fff;
+  box-shadow: calc(var(--s) / 4) calc(var(--s) / -4) calc(var(--s) / 8) inset #fff;
   border: none;
   background: transparent;
   animation: a linear 0.5s;

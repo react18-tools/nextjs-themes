@@ -33,7 +33,7 @@ export const ColorSwitch = ({
 }: ColorSwitchProps) => {
   const { toggleColorScheme } = useTheme(targetSelector);
 
-  const cls = [styles["color-switch"], className].join(" ");
+  const cls = [styles.s, className].join(" ");
   return (
     <button
       className={cls}
@@ -41,7 +41,7 @@ export const ColorSwitch = ({
       // skipcq: JS-0417
       onClick={() => toggleColorScheme(skipSystem)}
       // @ts-expect-error -- setting custom attribute
-      style={{ "--size": `${size}px` }}
+      style={{ "--s": `${size}px` }}
       {...props}
     />
   );
