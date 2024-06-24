@@ -1,5 +1,11 @@
 # nextjs-themes
 
+## 4.0.1
+
+### Patch Changes
+
+- a2fd744: Update forced components to use targetSelector
+
 ## 4.0.0
 
 ### Major Changes
