@@ -5,13 +5,35 @@ import { initialState, useForcedStore, useThemeStore } from "../../store";
 import { DARK, DEFAULT_ID, LIGHT } from "../../constants";
 
 export interface ThemeSwitcherProps {
+  /**
+   * Forced theme name for the current page
+   * @see [Force per page theme and color-scheme](https://github.com/react18-tools/nextjs-themes?tab=readme-ov-file#force-per-page-theme-and-color-scheme)
+   */
   forcedTheme?: string;
+  /**
+   * Forced color scheme for the current page
+   * @see [Force per page theme and color-scheme](https://github.com/react18-tools/nextjs-themes?tab=readme-ov-file#force-per-page-theme-and-color-scheme)
+   */
   forcedColorScheme?: ColorSchemeType;
+  /**
+   * CSS selector for the target element to apply the theme.
+   * Use this to specify a different target element than the default (html or documentElement).
+   * This is particularly useful for controlling the theme of different parts of the page independently.
+   */
   targetSelector?: string;
+  /**
+   * @defaultValue 'none'
+   * the transition property to enforce on all elements, preventing unwanted transitions during theme changes.
+   * @example 'background .3s'
+   */
   themeTransition?: string;
-  /** provide styles object imported from CSS/SCSS modules, if you are using CSS/SCSS modules. */
+  /**
+   * Provide a styles object imported from CSS/SCSS modules if you are using these modules to define theme and color-scheme classes.
+   * All classes applied to the target are modified using the styles object as follows:
+   * `if (styles) classes = classes.map(cls => styles[cls] ?? cls);`
+   */
   styles?: Record<string, string>;
-  /** The nonce value for your Content Security Policy. @defaultValue '' */
+  /** The nonce value for your Content Security Policy. */
   nonce?: string;
 }
 
@@ -21,6 +43,7 @@ let resolveTheme: ResolveFunc;
 let updateForcedProps: UpdateForcedPropsFunc;
 let updateForcedState: UpdateForcedPropsFunc;
 
+/** Script component to inject script before hydration */
 const Script = ({
   targetSelector,
   nonce,
@@ -101,11 +124,11 @@ const Switcher = ({
 };
 
 /**
- *
+ * The Core component wich applies classes and transitions.
  *
  * @example
  * ```tsx
- * <ThemeSwitcher />
+ * <ThemeSwitcher [...props] />
  * ```
  */
 export const ThemeSwitcher = (props: ThemeSwitcherProps) => {

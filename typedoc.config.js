@@ -8,7 +8,11 @@ module.exports = {
   out: "./docs",
   commentStyle: "all",
   searchInComments: true,
+  searchInDocuments: true,
+  cleanOutputDir: true,
+  excludePrivate: true,
   excludeExternals: true,
+  projectDocuments: ["guides/*.md"],
   plugin: [
     "typedoc-plugin-mdn-links",
     "typedoc-plugin-rename-defaults",
