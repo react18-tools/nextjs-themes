@@ -1,7 +1,7 @@
 import React from "react";
 import "./styles.css";
 import { Cards, LandingPage } from "@repo/shared/dist/server";
-import { ColorSwitch } from "nextjs-themes";
+import { ColorSwitch } from "nextjs-themes/color-switch";
 import { Header, PageNavigatorCard, ThemeController } from "@repo/shared";
 import { Link } from "react-router-dom";
 
