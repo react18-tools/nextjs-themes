@@ -8,7 +8,6 @@
 
 // client component exports
 export * from "./scoped-theme";
-export * from "./demo";
 export * from "./header";
 export * from "./global-loader";
 export * from "./drawer-button";
