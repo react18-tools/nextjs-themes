@@ -5,6 +5,16 @@
       "id": "0o1UME_ZgqZdcbYksPgDI",
       "description": "Update Docs\n- Use wiki - Export typedoc as md and then publish to wiki",
       "columnId": "column-todo"
+    },
+    "UM-Jb2pIb9vEaDWML-_Qf": {
+      "id": "UM-Jb2pIb9vEaDWML-_Qf",
+      "description": "Update logo",
+      "columnId": "column-todo"
+    },
+    "dkbgaoz9hHeYNGjMi8R9L": {
+      "id": "dkbgaoz9hHeYNGjMi8R9L",
+      "description": "Add badges to the website",
+      "columnId": "column-todo"
     }
   },
   "columns": [
@@ -12,7 +22,9 @@
       "id": "column-todo",
       "title": "To do",
       "tasksIds": [
-        "0o1UME_ZgqZdcbYksPgDI"
+        "0o1UME_ZgqZdcbYksPgDI",
+        "UM-Jb2pIb9vEaDWML-_Qf",
+        "dkbgaoz9hHeYNGjMi8R9L"
       ]
     },
     {

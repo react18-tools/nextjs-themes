@@ -45,6 +45,8 @@ const NEW_VERSION = JSON.parse(
   fs.readFileSync(path.resolve(__dirname, "..", "lib", "package.json")),
 ).version;
 
+pkg.version = NEW_VERSION;
+
 const [newMajor, newMinor] = NEW_VERSION.split(".");
 const [oldMajor, oldMinor] = OLD_VERSION.split(".");
 
