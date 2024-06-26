@@ -32,5 +32,13 @@
     "@types/node": "^20.14.9",
     "enquirer": "^2.4.1"
   },
-  "name": "turborepo-template"
+  "name": "turborepo-template",
+  "pnpm": {
+    "overrides": {
+      "eslint": "8.0.0"
+    }
+  },
+  "overrides": {
+    "eslint": "8.0.0"
+  }
 }
