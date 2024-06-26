@@ -1,15 +1,14 @@
 import * as React from "react";
 import { AppProps } from "next/app";
 import { ColorSchemeType, ThemeSwitcher } from "nextjs-themes";
-import { CardProps, Layout } from "@repo/shared/dist/server";
 import "../styles/global.css";
 import { Inter } from "next/font/google";
-import { Header } from "@repo/shared";
 import Link from "next/link";
-import { Card, Cards, LandingPage } from "@repo/shared/dist/server";
-import { ThemeController, PageNavigatorCard } from "@repo/shared";
+import { Card, Cards, LandingPage, Layout, type CardProps } from "@repo/shared/dist/server";
+import { ThemeController, PageNavigatorCard, Header } from "@repo/shared";
 import { ColorSwitch } from "nextjs-themes/color-switch";
 import { ScopedThemes } from "@repo/shared/dist/client/scoped-themes";
+import { MouseTrail } from "react-webgl-trails";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -48,6 +47,7 @@ export default function App({ Component, pageProps }: _AppProps) {
           </Cards>
         </LandingPage>
       </Layout>
+      <MouseTrail />
     </div>
   );
 }

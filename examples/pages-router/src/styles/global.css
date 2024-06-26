@@ -1,6 +1,7 @@
 @import "nextjs-themes/css";
 @import "@repo/shared/dist/global.css";
 @import "@repo/shared/dist";
+@import "react-webgl-trails/dist";
 
 html {
   -webkit-text-size-adjust: 100%;
