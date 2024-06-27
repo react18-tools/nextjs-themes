@@ -23,7 +23,7 @@ const OLD_VERSION = pkg.version;
 
 if (!isLatestRelease) {
   /** pre-release branch name should be the tag name (e.g., beta, canery, etc.) or tag name followed by a '-' and version or other specifiers. e.g. beta-2.0 */
-  tag = BRANCH.split("-")[0];
+  tag = BRANCH.split("-")[0].replace("/", "_");
   try {
     execSync(`pnpm changeset pre enter ${tag}`);
   } catch (e) {

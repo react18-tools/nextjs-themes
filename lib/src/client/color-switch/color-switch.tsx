@@ -31,9 +31,9 @@ export const ColorSwitch = ({
   className,
   ...props
 }: ColorSwitchProps) => {
-  const { toggleColorScheme } = useTheme(targetSelector);
+  const { toggleColorScheme, colorSchemePref } = useTheme(targetSelector);
 
-  const cls = [styles.s, className].join(" ");
+  const cls = [styles.s, styles[colorSchemePref], className].join(" ");
   return (
     <button
       className={cls}

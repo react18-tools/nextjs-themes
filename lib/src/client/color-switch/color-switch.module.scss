@@ -12,9 +12,7 @@
   transition: all 0.3s ease-in-out 0s !important;
 }
 
-[data-csp="system"] .s::after,
-[data-csp="system"] ~ .s::after,
-[data-csp="system"] ~ * .s::after {
+.system.s::after {
   position: absolute;
   height: 100%;
   width: 100%;
@@ -28,18 +26,14 @@
   content: "A";
 }
 
-[data-csp="dark"] .s,
-[data-csp="dark"] ~ .s,
-[data-csp="dark"] ~ * .s {
+.dark.s {
   box-shadow: calc(var(--s) / 4) calc(var(--s) / -4) calc(var(--s) / 8) inset #fff;
   border: none;
   background: transparent;
   animation: a linear 0.5s;
 }
 
-[data-csp="light"] .s,
-[data-csp="light"] ~ .s,
-[data-csp="light"] ~ * .s {
+.light.s {
   box-shadow: 0 0 50px 10px yellow;
   background-color: yellow;
   border: 1px solid orangered;
