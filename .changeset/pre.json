@@ -1,0 +1,16 @@
+{
+  "mode": "exit",
+  "tag": "feat/39",
+  "initialVersions": {
+    "@example/app": "0.0.0",
+    "@example/pages": "0.0.0",
+    "@example/tailwind": "0.0.0",
+    "@example/vite": "0.0.0",
+    "nextjs-themes": "4.0.2",
+    "@repo/eslint-config": "0.0.0",
+    "@repo/typescript-config": "0.0.0",
+    "@repo/shared": "0.0.8",
+    "@repo/scripts": "0.0.0"
+  },
+  "changesets": []
+}
