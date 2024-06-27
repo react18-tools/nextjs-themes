@@ -4,6 +4,7 @@ interface CardProps {
   text: string;
 }
 
+/** Card */
 export default function Card({ href, title, text }: CardProps) {
   return (
     <a
@@ -12,7 +13,7 @@ export default function Card({ href, title, text }: CardProps) {
       target="_blank"
       rel="noopener noreferrer">
       <h2 className={"mb-3 text-2xl font-semibold"}>
-        {title + " "}
+        {`${title} `}
         <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
           -&gt;
         </span>

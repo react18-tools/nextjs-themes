@@ -3,6 +3,7 @@ import Image from "next/image";
 import { ColorSwitch } from "nextjs-themes";
 import Card from "./_components/card";
 
+/** Home */
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
