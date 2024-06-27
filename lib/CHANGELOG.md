@@ -1,5 +1,11 @@
 # nextjs-themes
 
+## 4.0.3-feat_39.0
+
+### Patch Changes
+
+- 6e02178: Fix color-switch styles in containerized styles.
+
 ## 4.0.2
 
 ### Patch Changes
