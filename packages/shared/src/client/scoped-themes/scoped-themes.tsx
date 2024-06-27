@@ -1,5 +1,6 @@
 "use client";
-import { ColorSwitch, ThemeSwitcher } from "nextjs-themes";
+import { ColorSwitch } from "nextjs-themes";
+import { Switcher } from "nextjs-themes/switcher";
 import { ThemeController } from "../theme-controller";
 
 export function ScopedThemes() {
@@ -13,7 +14,7 @@ export function ScopedThemes() {
         Apply themes locally using <code>targetSelector</code>
       </h1>
       <ColorSwitch targetSelector={targetSelector} />
-      <ThemeSwitcher targetSelector={targetSelector} themeTransition="all .5s" />
+      <Switcher targetSelector={targetSelector} themeTransition="all .5s" />
       <ThemeController targetSelector={targetSelector} />
     </div>
   );

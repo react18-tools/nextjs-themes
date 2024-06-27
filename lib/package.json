@@ -46,6 +46,16 @@
       "import": "./dist/client/theme-switcher/index.mjs",
       "types": "./dist/client/theme-switcher/index.d.ts"
     },
+    "./client/switcher": {
+      "require": "./dist/client/switcher/index.js",
+      "import": "./dist/client/switcher/index.mjs",
+      "types": "./dist/client/switcher/index.d.ts"
+    },
+    "./switcher": {
+      "require": "./dist/client/switcher/index.js",
+      "import": "./dist/client/switcher/index.mjs",
+      "types": "./dist/client/switcher/index.d.ts"
+    },
     "./client/force-color-scheme": {
       "require": "./dist/client/force-color-scheme/index.js",
       "import": "./dist/client/force-color-scheme/index.mjs",
