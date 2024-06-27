@@ -26,15 +26,16 @@ const modifyTransition = (themeTransition = "none") => {
 };
 
 /**
+ * The Core component applies classes and transitions without injecting any scripts. Use ThemeSwitcher only once per page. For scoped styles, use this component instead.
  *
+ * Please note that you need to use suitable techniques to increase specificity of CSS selecors when using data- attributes for targetting a container which is within another themed container (including the html if you have used ThemeSwitcher without targetSelector)
  *
  * @example
  * ```tsx
- * <Switcher />
+ * <Switcher targetSelector="#container1" />
  * ```
  */
-export /** Root switcher */
-const Switcher = ({
+export const Switcher = ({
   forcedTheme,
   forcedColorScheme,
   targetSelector,

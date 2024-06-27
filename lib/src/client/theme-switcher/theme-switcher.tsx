@@ -61,7 +61,9 @@ const Script = ({
 };
 
 /**
- * The Core component wich applies classes and transitions.
+ * The Core component wich applies classes and transitions. Use this only once on a layout.
+ *
+ * For contained themes you may use Switcher from `nextjs-themes/client/switcher`
  *
  * @example
  * ```tsx
