@@ -1,5 +1,5 @@
 import { ColorSchemeType } from "../../types";
-import { noFOUCScript } from "./no-fouc";
+import { noFOUCScript, type ScriptArgs } from "./no-fouc";
 import { initialState } from "../../store";
 import { DEFAULT_ID } from "../../constants";
 import { Switcher } from "../switcher";
@@ -45,15 +45,20 @@ const Script = ({
   forcedTheme,
   forcedColorScheme,
 }: ThemeSwitcherProps) => {
-  const k = targetSelector || `#${DEFAULT_ID}`;
+  const args = [
+    targetSelector || `#${DEFAULT_ID}`,
+    initialState,
+    styles,
+    forcedTheme,
+    forcedColorScheme,
+  ] as ScriptArgs;
   // handle client side exceptions when script is not run. <- for client side apps like vite or CRA
-  if (typeof window !== "undefined" && !window.m)
-    noFOUCScript(k, initialState, styles, forcedTheme, forcedColorScheme);
+  if (typeof window !== "undefined" && !window.m) noFOUCScript(...args);
   return (
     <script
       // skipcq: JS-0440
       dangerouslySetInnerHTML={{
-        __html: `(${noFOUCScript})(${JSON.stringify([k, initialState, styles, forcedTheme, forcedColorScheme]).slice(1, -1)})`,
+        __html: `(${noFOUCScript})(${JSON.stringify(args).slice(1, -1)})`,
       }}
       nonce={nonce}
     />
