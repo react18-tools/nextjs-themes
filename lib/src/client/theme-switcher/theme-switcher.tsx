@@ -46,14 +46,14 @@ const Script = ({
   forcedColorScheme,
 }: ThemeSwitcherProps) => {
   const args = [
-    targetSelector || `#${DEFAULT_ID}`,
+    targetSelector || "#" + DEFAULT_ID,
     initialState,
     styles,
     forcedTheme,
     forcedColorScheme,
   ] as ScriptArgs;
   // handle client side exceptions when script is not run. <- for client side apps like vite or CRA
-  if (typeof window !== "undefined" && !window.m) noFOUCScript(...args);
+  typeof window !== "undefined" && noFOUCScript(...args);
   return (
     <script
       // skipcq: JS-0440
