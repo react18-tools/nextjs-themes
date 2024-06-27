@@ -40,7 +40,7 @@ export const ColorSwitch = ({
       // skipcq: JS-0417
       onClick={() => toggleColorScheme(skipSystem)}
       // @ts-expect-error -- setting custom attribute
-      style={{ "--s": `${size}px` }}
+      style={{ "--s": size + "px" }}
       {...props}
     />
   );
