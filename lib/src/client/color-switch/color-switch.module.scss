@@ -2,9 +2,9 @@
   all: unset;
   position: relative;
   box-shadow: none;
-  color: #aaa;
+  color: currentColor;
   border-radius: 50%;
-  border: 1px dashed gray;
+  border: 1px dashed currentColor;
   cursor: pointer;
   --s: 25px;
   height: var(--s);
@@ -23,6 +23,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  opacity: 0.5;
   content: "A";
 }
 

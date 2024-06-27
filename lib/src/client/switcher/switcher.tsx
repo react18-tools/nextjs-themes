@@ -14,7 +14,7 @@ let updateForcedState: UpdateForcedPropsFunc;
 const modifyTransition = (themeTransition = "none") => {
   const css = document.createElement("style");
   /** split by ';' to prevent CSS injection */
-  css.textContent = `transition: ${themeTransition.split(";")[0]} !important;`;
+  css.textContent = `transition:${themeTransition.split(";")[0]}!important;`;
   document.head.appendChild(css);
 
   return () => {

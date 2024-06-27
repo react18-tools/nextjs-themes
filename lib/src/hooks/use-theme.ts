@@ -67,9 +67,8 @@ export const useTheme = (targetSelector?: string): UseThemeYield => {
       if (index === -1 || (skipSystem && index === len - 1)) index = 0;
       setter("c")(colorSchemes[(index + 1) % len]);
     },
-    setForcedColorScheme: forcedColorScheme =>
-      setForcedState(state => ({ ...state, fc: forcedColorScheme })),
-    setForcedTheme: forcedTheme => setForcedState(state => ({ ...state, f: forcedTheme })),
+    setForcedColorScheme: fc => setForcedState(state => ({ ...state, fc })),
+    setForcedTheme: f => setForcedState(state => ({ ...state, f })),
   };
 
   if (resolveTheme) {
