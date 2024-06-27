@@ -1,5 +1,11 @@
 # nextjs-themes
 
+## 4.0.4-squize.0
+
+### Patch Changes
+
+- 04ea9ea: Attempt to Squeeze out...
+
 ## 4.0.3
 
 ### Patch Changes
