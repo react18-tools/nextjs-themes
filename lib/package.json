@@ -2,7 +2,7 @@
   "name": "nextjs-themes",
   "author": "Mayank Kumar Chaudhari <https://mayank-chaudhari.vercel.app>",
   "private": false,
-  "version": "4.0.1",
+  "version": "4.0.3-feat.0",
   "description": "Unleash the Power of React Server Components! Use multiple themes on your site with confidence, without losing any advantages of React Server Components.",
   "license": "MPL-2.0",
   "main": "./dist/index.js",
@@ -45,6 +45,16 @@
       "require": "./dist/client/theme-switcher/index.js",
       "import": "./dist/client/theme-switcher/index.mjs",
       "types": "./dist/client/theme-switcher/index.d.ts"
+    },
+    "./client/switcher": {
+      "require": "./dist/client/switcher/index.js",
+      "import": "./dist/client/switcher/index.mjs",
+      "types": "./dist/client/switcher/index.d.ts"
+    },
+    "./switcher": {
+      "require": "./dist/client/switcher/index.js",
+      "import": "./dist/client/switcher/index.mjs",
+      "types": "./dist/client/switcher/index.d.ts"
     },
     "./client/force-color-scheme": {
       "require": "./dist/client/force-color-scheme/index.js",

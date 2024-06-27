@@ -5,9 +5,8 @@ import "../styles/global.css";
 import { Inter } from "next/font/google";
 import Link from "next/link";
 import { Card, Cards, LandingPage, Layout, type CardProps } from "@repo/shared/dist/server";
-import { ThemeController, PageNavigatorCard, Header } from "@repo/shared";
+import { ThemeController, PageNavigatorCard, Header, ScopedThemes } from "@repo/shared";
 import { ColorSwitch } from "nextjs-themes/color-switch";
-import { ScopedThemes } from "@repo/shared/dist/client/scoped-themes";
 import { MouseTrail } from "react-webgl-trails";
 
 const inter = Inter({ subsets: ["latin"] });

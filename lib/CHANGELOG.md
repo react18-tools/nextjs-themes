@@ -1,5 +1,29 @@
 # nextjs-themes
 
+## 4.0.3-feat.0
+
+### Patch Changes
+
+- d89d157: Create Switcher without injecting scripts for containerized themes.
+
+## 4.0.3
+
+### Patch Changes
+
+- 6e02178: Fix color-switch styles in containerized styles.
+
+## 4.0.3-feat_39.0
+
+### Patch Changes
+
+- 6e02178: Fix color-switch styles in containerized styles.
+
+## 4.0.2
+
+### Patch Changes
+
+- 3d3e015: Enhance: Avoid unnecessary script injection when adding contenarized themes for a target other than html element.
+
 ## 4.0.1
 
 ### Patch Changes

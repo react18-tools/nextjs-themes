@@ -1,8 +1,8 @@
-import { useEffect } from "react";
 import { ColorSchemeType } from "../../types";
-import { ResolveFunc, UpdateDOMFunc, UpdateForcedPropsFunc, noFOUCScript } from "./no-fouc";
-import { initialState, useForcedStore, useThemeStore } from "../../store";
-import { DARK, DEFAULT_ID, LIGHT } from "../../constants";
+import { noFOUCScript, type ScriptArgs } from "./no-fouc";
+import { initialState } from "../../store";
+import { DEFAULT_ID } from "../../constants";
+import { Switcher } from "../switcher";
 
 export interface ThemeSwitcherProps {
   /**
@@ -37,12 +37,6 @@ export interface ThemeSwitcherProps {
   nonce?: string;
 }
 
-let media: MediaQueryList;
-let updateDOM: UpdateDOMFunc;
-let resolveTheme: ResolveFunc;
-let updateForcedProps: UpdateForcedPropsFunc;
-let updateForcedState: UpdateForcedPropsFunc;
-
 /** Script component to inject script before hydration */
 const Script = ({
   targetSelector,
@@ -51,80 +45,30 @@ const Script = ({
   forcedTheme,
   forcedColorScheme,
 }: ThemeSwitcherProps) => {
-  const k = targetSelector || `#${DEFAULT_ID}`;
+  const args = [
+    targetSelector || `#${DEFAULT_ID}`,
+    initialState,
+    styles,
+    forcedTheme,
+    forcedColorScheme,
+  ] as ScriptArgs;
   // handle client side exceptions when script is not run. <- for client side apps like vite or CRA
-  if (typeof window !== "undefined" && !window.m)
-    noFOUCScript(k, initialState, styles, forcedTheme, forcedColorScheme);
-  if (typeof m !== "undefined")
-    [media, updateDOM, resolveTheme, updateForcedProps, updateForcedState] = [m, u, r, f, g];
+  if (typeof window !== "undefined" && !window.m) noFOUCScript(...args);
   return (
     <script
       // skipcq: JS-0440
       dangerouslySetInnerHTML={{
-        __html: `(${noFOUCScript})(${JSON.stringify([k, initialState, styles, forcedTheme, forcedColorScheme]).slice(1, -1)})`,
+        __html: `(${noFOUCScript})(${JSON.stringify(args).slice(1, -1)})`,
       }}
       nonce={nonce}
     />
   );
 };
 
-/** disable transition while switching theme */
-const modifyTransition = (themeTransition = "none") => {
-  const css = document.createElement("style");
-  /** split by ';' to prevent CSS injection */
-  css.textContent = `transition: ${themeTransition.split(";")[0]} !important;`;
-  document.head.appendChild(css);
-
-  return () => {
-    // Force restyle
-    getComputedStyle(document.body);
-    // Wait for next tick before removing
-    setTimeout(() => document.head.removeChild(css), 1);
-  };
-};
-
-/** Root switcher */
-const Switcher = ({
-  forcedTheme,
-  forcedColorScheme,
-  targetSelector,
-  themeTransition,
-}: ThemeSwitcherProps) => {
-  const k = targetSelector || `#${DEFAULT_ID}`;
-
-  const [state, setState] = useThemeStore(targetSelector);
-  const [forced] = useForcedStore(targetSelector);
-
-  useEffect(() => {
-    media.addEventListener("change", () =>
-      setState(state => ({ ...state, s: media.matches ? DARK : LIGHT })),
-    );
-    addEventListener("storage", e => {
-      if (e.key === k) setState(state => ({ ...state, ...JSON.parse(e.newValue || "{}") }));
-    });
-  }, []);
-
-  useEffect(() => {
-    const restoreThansitions = modifyTransition(themeTransition);
-    updateDOM(resolveTheme(state), k);
-    restoreThansitions();
-    localStorage.setItem(k, JSON.stringify(state));
-  }, [state]);
-
-  useEffect(() => {
-    updateForcedProps(forcedTheme, forcedColorScheme);
-    updateDOM(resolveTheme(state), k);
-  }, [forcedColorScheme, forcedTheme]);
-
-  useEffect(() => {
-    updateForcedState(forced.f, forced.fc);
-    updateDOM(resolveTheme(state), k);
-  }, [forced]);
-  return null;
-};
-
 /**
- * The Core component wich applies classes and transitions.
+ * The Core component wich applies classes and transitions. Use this only once on a layout.
+ *
+ * For contained themes you may use Switcher from `nextjs-themes/client/switcher`
  *
  * @example
  * ```tsx

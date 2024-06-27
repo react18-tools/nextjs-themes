@@ -31,12 +31,11 @@ export const ColorSwitch = ({
   className,
   ...props
 }: ColorSwitchProps) => {
-  const { toggleColorScheme } = useTheme(targetSelector);
+  const { toggleColorScheme, colorSchemePref } = useTheme(targetSelector);
 
-  const cls = [styles.s, className].join(" ");
   return (
     <button
-      className={cls}
+      className={[styles.s, styles[colorSchemePref], className].join(" ")}
       data-testid="color-switch"
       // skipcq: JS-0417
       onClick={() => toggleColorScheme(skipSystem)}

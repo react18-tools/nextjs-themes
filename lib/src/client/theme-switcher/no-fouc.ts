@@ -24,6 +24,14 @@ declare global {
   var g: UpdateForcedPropsFunc;
 }
 
+export type ScriptArgs = [
+  string,
+  ThemeStoreType,
+  Record<string, string> | undefined,
+  string | undefined,
+  ColorSchemeType | undefined,
+];
+
 /** @internal Script to be injected for avoiding FOUC */
 export const noFOUCScript = (
   key: string,

@@ -1,5 +1,33 @@
 # @repo/shared
 
+## 0.0.1-feat.0
+
+### Patch Changes
+
+- Updated dependencies [d89d157]
+  - nextjs-themes@4.0.3-feat.0
+
+## null
+
+### Patch Changes
+
+- Updated dependencies [6e02178]
+  - nextjs-themes@4.0.3
+
+## 0.0.9-feat_39.0
+
+### Patch Changes
+
+- Updated dependencies [6e02178]
+  - nextjs-themes@4.0.3-feat_39.0
+
+## 0.0.8
+
+### Patch Changes
+
+- Updated dependencies [3d3e015]
+  - nextjs-themes@4.0.2
+
 ## 0.0.7
 
 ### Patch Changes
