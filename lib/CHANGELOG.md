@@ -1,5 +1,11 @@
 # nextjs-themes
 
+## 4.0.3-feat.0
+
+### Patch Changes
+
+- d89d157: Create Switcher without injecting scripts for containerized themes.
+
 ## 4.0.3
 
 ### Patch Changes
