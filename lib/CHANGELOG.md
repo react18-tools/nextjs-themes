@@ -1,5 +1,11 @@
 # nextjs-themes
 
+## 4.0.2
+
+### Patch Changes
+
+- 3d3e015: Enhance: Avoid unnecessary script injection when adding contenarized themes for a target other than html element.
+
 ## 4.0.1
 
 ### Patch Changes
