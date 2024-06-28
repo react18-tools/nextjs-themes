@@ -41,7 +41,7 @@ export const Switcher = ({
   targetSelector,
   themeTransition,
 }: ThemeSwitcherProps) => {
-  const k = targetSelector || `#${DEFAULT_ID}`;
+  const k = targetSelector || "#" + DEFAULT_ID;
 
   const [state, setState] = useThemeStore(targetSelector);
   const [forced] = useForcedStore(targetSelector);

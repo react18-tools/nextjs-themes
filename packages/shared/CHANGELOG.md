@@ -1,5 +1,12 @@
 # @repo/shared
 
+## 0.0.2-squize.0
+
+### Patch Changes
+
+- Updated dependencies [04ea9ea]
+  - nextjs-themes@4.0.4-squize.0
+
 ## 0.0.1
 
 ### Patch Changes

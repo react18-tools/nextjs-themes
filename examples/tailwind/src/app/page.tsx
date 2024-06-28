@@ -1,4 +1,3 @@
-import { StarMe } from "@mayank1513/fork-me";
 import Image from "next/image";
 import { ColorSwitch } from "nextjs-themes";
 import Card from "./_components/card";
@@ -48,19 +47,6 @@ export default function Home() {
           title="Examples"
           text="Learn through more examples on official GitHub repo."
         />
-        <StarMe
-          gitHubUrl="https://github.com/react18-tools/nextjs-themes"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30">
-          <h2 className={"mb-3 text-2xl font-semibold"}>
-            Star Me{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={"m-0 max-w-[30ch] text-sm opacity-50"}>
-            Explore and star official <code>nextjs-themes</code> repo.
-          </p>
-        </StarMe>
         <Card
           href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
           title="Deploy"

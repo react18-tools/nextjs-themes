@@ -46,8 +46,8 @@ export const noFOUCScript = (
     const el = document.querySelector(key) ?? document.documentElement;
     let classes = [];
     keys.forEach((key, index) => {
-      classes.push(`${key}-${values[index]}`);
-      el.setAttribute(`data-${key}`, values[index]);
+      classes.push(key + "-" + values[index]);
+      el.setAttribute("data-" + key, values[index]);
     });
     classes[0] = values[0];
     if (styles) classes = classes.map(cls => styles[cls] ?? cls);

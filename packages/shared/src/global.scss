@@ -125,11 +125,18 @@ body,
   display: flex;
   flex-direction: column;
   background: var(--bg-color);
+  color: var(--text-color);
 }
 
 a {
   color: inherit;
   text-decoration: none;
+}
+
+code {
+  padding: 1px 5px;
+  box-shadow: 0 0 2px currentColor inset;
+  border-radius: 20px;
 }
 
 // utils
