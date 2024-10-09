@@ -13,13 +13,13 @@
   "dependencies": {
     "@repo/scripts": "workspace:*",
     "@repo/shared": "workspace:*",
-    "next": "^14.2.14",
+    "next": "^14.2.15",
     "nextjs-themes": "workspace:*",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
-    "@next/eslint-plugin-next": "^14.2.14",
+    "@next/eslint-plugin-next": "^14.2.15",
     "@repo/eslint-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
     "@types/node": "^22.7.5",
@@ -28,6 +28,6 @@
     "autoprefixer": "^10.4.20",
     "postcss": "^8.4.47",
     "tailwindcss": "^3.4.13",
-    "typescript": "^5.6.2"
+    "typescript": "^5.6.3"
   }
 }
