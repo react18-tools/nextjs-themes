@@ -17,89 +17,89 @@
   ],
   "exports": {
     ".": {
+      "types": "./dist/index.d.ts",
       "require": "./dist/index.js",
-      "import": "./dist/index.mjs",
-      "types": "./dist/index.d.ts"
+      "import": "./dist/index.mjs"
     },
     "./client": {
+      "types": "./dist/client/index.d.ts",
       "require": "./dist/client/index.js",
-      "import": "./dist/client/index.mjs",
-      "types": "./dist/client/index.d.ts"
+      "import": "./dist/client/index.mjs"
     },
     "./client/color-switch": {
+      "types": "./dist/client/color-switch/index.d.ts",
       "require": "./dist/client/color-switch/index.js",
-      "import": "./dist/client/color-switch/index.mjs",
-      "types": "./dist/client/color-switch/index.d.ts"
+      "import": "./dist/client/color-switch/index.mjs"
     },
     "./color-switch": {
+      "types": "./dist/client/color-switch/index.d.ts",
       "require": "./dist/client/color-switch/index.js",
-      "import": "./dist/client/color-switch/index.mjs",
-      "types": "./dist/client/color-switch/index.d.ts"
+      "import": "./dist/client/color-switch/index.mjs"
     },
     "./client/theme-switcher": {
+      "types": "./dist/client/theme-switcher/index.d.ts",
       "require": "./dist/client/theme-switcher/index.js",
-      "import": "./dist/client/theme-switcher/index.mjs",
-      "types": "./dist/client/theme-switcher/index.d.ts"
+      "import": "./dist/client/theme-switcher/index.mjs"
     },
     "./theme-switcher": {
+      "types": "./dist/client/theme-switcher/index.d.ts",
       "require": "./dist/client/theme-switcher/index.js",
-      "import": "./dist/client/theme-switcher/index.mjs",
-      "types": "./dist/client/theme-switcher/index.d.ts"
+      "import": "./dist/client/theme-switcher/index.mjs"
     },
     "./client/switcher": {
+      "types": "./dist/client/switcher/index.d.ts",
       "require": "./dist/client/switcher/index.js",
-      "import": "./dist/client/switcher/index.mjs",
-      "types": "./dist/client/switcher/index.d.ts"
+      "import": "./dist/client/switcher/index.mjs"
     },
     "./switcher": {
+      "types": "./dist/client/switcher/index.d.ts",
       "require": "./dist/client/switcher/index.js",
-      "import": "./dist/client/switcher/index.mjs",
-      "types": "./dist/client/switcher/index.d.ts"
+      "import": "./dist/client/switcher/index.mjs"
     },
     "./client/force-color-scheme": {
+      "types": "./dist/client/force-color-scheme/index.d.ts",
       "require": "./dist/client/force-color-scheme/index.js",
-      "import": "./dist/client/force-color-scheme/index.mjs",
-      "types": "./dist/client/force-color-scheme/index.d.ts"
+      "import": "./dist/client/force-color-scheme/index.mjs"
     },
     "./force-color-scheme": {
+      "types": "./dist/client/force-color-scheme/index.d.ts",
       "require": "./dist/client/force-color-scheme/index.js",
-      "import": "./dist/client/force-color-scheme/index.mjs",
-      "types": "./dist/client/force-color-scheme/index.d.ts"
+      "import": "./dist/client/force-color-scheme/index.mjs"
     },
     "./client/force-theme": {
+      "types": "./dist/client/force-theme/index.d.ts",
       "require": "./dist/client/force-theme/index.js",
-      "import": "./dist/client/force-theme/index.mjs",
-      "types": "./dist/client/force-theme/index.d.ts"
+      "import": "./dist/client/force-theme/index.mjs"
     },
     "./force-theme": {
+      "types": "./dist/client/force-theme/index.d.ts",
       "require": "./dist/client/force-theme/index.js",
-      "import": "./dist/client/force-theme/index.mjs",
-      "types": "./dist/client/force-theme/index.d.ts"
+      "import": "./dist/client/force-theme/index.mjs"
     },
     "./server": {
+      "types": "./dist/server/index.d.ts",
       "require": "./dist/server/index.js",
-      "import": "./dist/server/index.mjs",
-      "types": "./dist/server/index.d.ts"
+      "import": "./dist/server/index.mjs"
     },
     "./server/nextjs": {
+      "types": "./dist/server/index.d.ts",
       "require": "./dist/server/index.js",
-      "import": "./dist/server/index.mjs",
-      "types": "./dist/server/index.d.ts"
+      "import": "./dist/server/index.mjs"
     },
     "./server/nextjs/server-side-wrapper": {
+      "types": "./dist/server/index.d.ts",
       "require": "./dist/server/index.js",
-      "import": "./dist/server/index.mjs",
-      "types": "./dist/server/index.d.ts"
+      "import": "./dist/server/index.mjs"
     },
     "./hooks": {
+      "types": "./dist/hooks/index.d.ts",
       "require": "./dist/hooks/index.js",
-      "import": "./dist/hooks/index.mjs",
-      "types": "./dist/hooks/index.d.ts"
+      "import": "./dist/hooks/index.mjs"
     },
     "./hooks/use-theme": {
+      "types": "./dist/hooks/index.d.ts",
       "require": "./dist/hooks/index.js",
-      "import": "./dist/hooks/index.mjs",
-      "types": "./dist/hooks/index.d.ts"
+      "import": "./dist/hooks/index.mjs"
     },
     "./styles.css": "./dist/client/color-switch/index.css",
     "./styles": "./dist/client/color-switch/index.css",
