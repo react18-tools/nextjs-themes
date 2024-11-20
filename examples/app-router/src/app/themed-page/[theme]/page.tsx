@@ -1,10 +1,11 @@
 import { ForceTheme } from "nextjs-themes/force-theme";
 
 interface PageProps {
-  params: { theme: string };
+  params: Promise<{ theme: string }>;
 }
 
-export default function PageWithForcedTheme({ params: { theme } }: PageProps): JSX.Element {
+export default async function PageWithForcedTheme({ params }: PageProps) {
+  const { theme } = await params;
   return (
     <>
       <ForceTheme theme={theme} />

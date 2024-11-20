@@ -2,12 +2,13 @@ import type { ColorSchemeType } from "nextjs-themes";
 import { ForceColorScheme } from "nextjs-themes/force-color-scheme";
 
 interface PageWithForcedColorSchemeProps {
-  params: { colorScheme: ColorSchemeType };
+  params: Promise<{ colorScheme: ColorSchemeType }>;
 }
 
-export default function PageWithForcedColorScheme({
-  params: { colorScheme },
-}: PageWithForcedColorSchemeProps): JSX.Element {
+export default async function PageWithForcedColorScheme({
+  params,
+}: PageWithForcedColorSchemeProps) {
+  const { colorScheme } = await params;
   return (
     <>
       <ForceColorScheme colorScheme={colorScheme} />
