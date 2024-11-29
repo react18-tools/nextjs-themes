@@ -4547,8 +4547,8 @@ packages:
   trough@2.2.0:
     resolution: {integrity: sha512-tmMpK00BjZiUyVyvrBK7knerNgmgvcV/KLVyuma/SC+TQN167GrMRciANTz09+k3zW8L8t60jWO1GpfkZdjTaw==}
 
-  ts-api-utils@1.4.2:
-    resolution: {integrity: sha512-ZF5gQIQa/UmzfvxbHZI3JXN0/Jt+vnAfAviNRAMc491laiK6YCLpCW9ft8oaCRFOTxCZtUTE6XB0ZQAe3olntw==}
+  ts-api-utils@1.4.3:
+    resolution: {integrity: sha512-i3eMG77UTMD0hZhgRS562pv83RC6ukSAC2GMNWc+9dieh/+jDM5u5YG+NHX6VNDRHQcHwmsTHctP9LhbC3WxVw==}
     engines: {node: '>=16'}
     peerDependencies:
       typescript: '>=4.2.0'
@@ -6017,7 +6017,7 @@ snapshots:
       graphemer: 1.4.0
       ignore: 5.3.2
       natural-compare: 1.4.0
-      ts-api-utils: 1.4.2(typescript@5.7.2)
+      ts-api-utils: 1.4.3(typescript@5.7.2)
     optionalDependencies:
       typescript: 5.7.2
     transitivePeerDependencies:
@@ -6057,7 +6057,7 @@ snapshots:
       '@typescript-eslint/utils': 7.18.0(eslint@9.12.0(jiti@2.3.1))(typescript@5.7.2)
       debug: 4.3.7
       eslint: 9.12.0(jiti@2.3.1)
-      ts-api-utils: 1.4.2(typescript@5.7.2)
+      ts-api-utils: 1.4.3(typescript@5.7.2)
     optionalDependencies:
       typescript: 5.7.2
     transitivePeerDependencies:
@@ -6092,7 +6092,7 @@ snapshots:
       is-glob: 4.0.3
       minimatch: 9.0.5
       semver: 7.6.3
-      ts-api-utils: 1.4.2(typescript@5.7.2)
+      ts-api-utils: 1.4.3(typescript@5.7.2)
     optionalDependencies:
       typescript: 5.7.2
     transitivePeerDependencies:
@@ -6107,7 +6107,7 @@ snapshots:
       is-glob: 4.0.3
       minimatch: 9.0.5
       semver: 7.6.3
-      ts-api-utils: 1.4.2(typescript@5.7.2)
+      ts-api-utils: 1.4.3(typescript@5.7.2)
     optionalDependencies:
       typescript: 5.7.2
     transitivePeerDependencies:
@@ -9694,7 +9694,7 @@ snapshots:
 
   trough@2.2.0: {}
 
-  ts-api-utils@1.4.2(typescript@5.7.2):
+  ts-api-utils@1.4.3(typescript@5.7.2):
     dependencies:
       typescript: 5.7.2
 
