@@ -13,7 +13,7 @@ export type ForcedPage =
 export interface NextJsSSRThemeSwitcherProps extends HTMLProps<HTMLElement> {
   children?: ReactNode;
   /** @defaultValue 'div' */
-  tag?: keyof JSX.IntrinsicElements;
+  tag?: keyof HTMLElementTagNameMap;
   forcedPages?: ForcedPage[];
   /** id of target element to apply classes to. This is useful when you want to apply theme only to specific container. */
   targetId?: string;
@@ -26,7 +26,7 @@ const sharedServerComponentRenderer = (
   { children, tag, ...props }: NextJsSSRThemeSwitcherProps,
   defaultTag: "div" | "html",
 ) => {
-  const Tag: keyof JSX.IntrinsicElements = tag || defaultTag;
+  const Tag: keyof HTMLElementTagNameMap = tag || defaultTag;
   return (
     // @ts-expect-error -> svg props and html element props conflict
     <Tag {...props} data-testid="server-side-target">
@@ -56,7 +56,7 @@ export { NextJsSSGThemeSwitcher as NextJsServerTarget };
 /** @deprecated */
 export interface ServerSideWrapperProps extends NextJsSSRThemeSwitcherProps {
   /** @defaultValue 'html' */
-  tag?: keyof JSX.IntrinsicElements;
+  tag?: keyof HTMLElementTagNameMap;
 }
 
 /**
