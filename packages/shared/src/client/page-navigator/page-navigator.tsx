@@ -11,7 +11,7 @@ export interface PageNavigatorCardProps {
   LinkElement: unknown;
 }
 
-export function PageNavigatorCard({ LinkElement }: PageNavigatorCardProps): JSX.Element {
+export function PageNavigatorCard({ LinkElement }: PageNavigatorCardProps) {
   const [exampleType, setExampleType] = useState("Themed Page");
   const [example, setExample] = useState(darkThemes[0]);
   const [exampleOptions, setExampleOptions] = useState([...darkThemes, ...lightThemes]);

@@ -7,7 +7,7 @@ import { KeyboardEvent, useCallback } from "react";
 
 /** This is a wrapper around `nextjs-themes's ColorSwitch component to improve mobile view. */
 
-export function ThemeSwitch(): JSX.Element {
+export function ThemeSwitch() {
   const { colorSchemePref, toggleColorScheme } = useTheme();
 
   const handleKeyDown = useCallback(

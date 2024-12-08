@@ -6,7 +6,7 @@ import { Header, PageNavigatorCard, ThemeController } from "@repo/shared";
 import { Link } from "react-router-dom";
 
 /** Vite App */
-function App(): JSX.Element {
+function App() {
   return (
     <>
       <Header linkComponent={Link} />
