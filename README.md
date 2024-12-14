@@ -16,6 +16,7 @@ Note: [react18-themes](https://github.com/react18-tools/react18-themes/) will no
 - ✅ Fully Treeshakable (`import from nextjs-themes/client/component`)
 - ✅ Full TypeScript Support
 - ✅ Unleash the full power of React 18 Server components
+- ✅ No flash on load (both SSR and SSG)
 
 > Exampand following to see more features.
 
@@ -41,6 +42,7 @@ This project was inspired by next-themes. Unlike next-themes, `nextjs-themes` do
 - ✅ Documented with [Typedoc](https://react18-tools.github.io/nextjs-themes) ([Docs](https://react18-tools.github.io/nextjs-themes))
 - ✅ Use combinations of [data-th=""] and [data-color-scheme=""] for dark/light variants of themes
 - ✅ Use [data-csp=""] to style based on colorSchemePreference.
+- ✅ Compatible with Tailwind CSS, StyledComponents, emotion, Material UI, ...
 </details>
 
 > Check out the [live example](https://nextjs-themes.vercel.app/).
@@ -51,6 +53,27 @@ This project was inspired by next-themes. Unlike next-themes, `nextjs-themes` do
 
 > Want Lite Version? [![npm bundle size](https://img.shields.io/bundlephobia/minzip/nextjs-themes-lite)](https://www.npmjs.com/package/nextjs-themes-lite) [![Version](https://img.shields.io/npm/v/nextjs-themes-lite.svg?colorB=green)](https://www.npmjs.com/package/nextjs-themes-lite) [![Downloads](https://img.jsdelivr.com/img.shields.io/npm/d18m/nextjs-themes-lite.svg)](https://www.npmjs.com/package/nextjs-themes-lite)
 > In case you are using `r18gs` in your project, you may use lite version which requires `r18gs` as a peerDependency.
+
+### With Tailwind
+
+In `tailwind.config.js`, set the dark mode property to class:
+
+```js
+// tailwind.config.js
+module.exports = {
+  darkMode: "class",
+};
+```
+
+⚡🎉Ready to use dark mode in Tailwind!
+
+> Caution: Your class must be `"dark"`, which is the default value used in this library. Tailwind requires the class name `"dark"` for dark-theme.
+
+Use dark-mode specific classes:
+
+```tsx
+<h1 className="text-black dark:text-white">
+```
 
 ## Migration
 
