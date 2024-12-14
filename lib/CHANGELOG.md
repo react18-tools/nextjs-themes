@@ -1,5 +1,11 @@
 # nextjs-themes
 
+## 4.0.4
+
+### Patch Changes
+
+- a6708c9: Update dependencies
+
 ## 4.0.4-squize.0
 
 ### Patch Changes
