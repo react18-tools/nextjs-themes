@@ -291,8 +291,8 @@ importers:
         specifier: 10 - 15
         version: 14.2.15(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.83.0)
       r18gs:
-        specifier: 3.0.0
-        version: 3.0.0(@types/react@19.0.1)(react@19.0.0)
+        specifier: 3.0.1
+        version: 3.0.1(@types/react@19.0.1)(react@19.0.0)
     devDependencies:
       '@repo/eslint-config':
         specifier: workspace:*
@@ -387,8 +387,8 @@ importers:
         specifier: workspace:*
         version: link:../../lib
       r18gs:
-        specifier: ^3.0.0
-        version: 3.0.0(@types/react@19.0.1)(react@19.0.0)
+        specifier: ^3.0.1
+        version: 3.0.1(@types/react@19.0.1)(react@19.0.0)
       react-live:
         specifier: ^4.1.8
         version: 4.1.8(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
@@ -4145,8 +4145,8 @@ packages:
       '@types/react': 16.8 - 19
       react: 16.8 - 19
 
-  r18gs@3.0.0:
-    resolution: {integrity: sha512-PZ6ccZqBh2NCjQN2X8aT0vweJsvMmW0sFeW2Eg8DCqbkhdphbBn7VrD4KOtnU1vm3fIbYXMcZhuKU3EsAJbVQA==}
+  r18gs@3.0.1:
+    resolution: {integrity: sha512-cuH/f+jlfJ5Se6OnQ6FJDF6GrugwBeWDYVSDvK4hL9Prxe7bHTRn0ep7ZOh/QYg1TKx6FFiV8IpeYmmFpQNCgw==}
     peerDependencies:
       '@types/react': 16.8 - 19
       react: 16.8 - 19
@@ -9340,7 +9340,7 @@ snapshots:
       '@types/react': 19.0.1
       react: 19.0.0
 
-  r18gs@3.0.0(@types/react@19.0.1)(react@19.0.0):
+  r18gs@3.0.1(@types/react@19.0.1)(react@19.0.0):
     dependencies:
       '@types/react': 19.0.1
       react: 19.0.0
