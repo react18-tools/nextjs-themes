@@ -19,8 +19,8 @@ importers:
         version: 2.4.1
     devDependencies:
       '@changesets/cli':
-        specifier: ^2.27.10
-        version: 2.27.10
+        specifier: ^2.27.11
+        version: 2.27.11
       '@repo/typescript-config':
         specifier: workspace:*
         version: link:packages/config-typescript
@@ -322,8 +322,8 @@ importers:
         specifier: ^0.0.0
         version: 0.0.0
       esbuild-plugin-react18:
-        specifier: 0.2.5
-        version: 0.2.5(@types/react@19.0.1)(next@14.2.15(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.83.0))(react@19.0.0)
+        specifier: 0.2.6
+        version: 0.2.6
       esbuild-plugin-react18-css:
         specifier: ^0.0.4
         version: 0.0.4
@@ -373,13 +373,13 @@ importers:
     dependencies:
       '@mayank1513/fork-me':
         specifier: ^2.1.3
-        version: 2.1.3(@types/react@19.0.1)(next@14.2.15(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.83.0))(react@19.0.0)
+        version: 2.1.3(@types/react@19.0.1)(next@15.1.1(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.83.0))(react@19.0.0)
       '@repo/scripts':
         specifier: workspace:*
         version: link:../../scripts
       next:
         specifier: 10 - 14
-        version: 14.2.15(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.83.0)
+        version: 15.1.1(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.83.0)
       nextjs-darkmode:
         specifier: ^1.0.7
         version: 1.0.7(@types/react@19.0.1)(react@19.0.0)
@@ -394,7 +394,7 @@ importers:
         version: 4.1.8(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       react18-loaders:
         specifier: ^1.1.4
-        version: 1.1.4(@types/react@19.0.1)(next@14.2.15(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.83.0))(react@19.0.0)
+        version: 1.1.4(@types/react@19.0.1)(next@15.1.1(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.83.0))(react@19.0.0)
     devDependencies:
       '@repo/eslint-config':
         specifier: workspace:*
@@ -421,8 +421,8 @@ importers:
         specifier: ^2.1.8
         version: 2.1.8(vitest@2.1.8(@types/node@22.10.2)(jsdom@25.0.1)(sass@1.83.0))
       esbuild-plugin-react18:
-        specifier: ^0.2.5
-        version: 0.2.5(@types/react@19.0.1)(next@14.2.15(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.83.0))(react@19.0.0)
+        specifier: ^0.2.6
+        version: 0.2.6
       esbuild-plugin-react18-css:
         specifier: ^0.0.4
         version: 0.0.4
@@ -553,8 +553,8 @@ packages:
   '@bcoe/v8-coverage@0.2.3':
     resolution: {integrity: sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==}
 
-  '@changesets/apply-release-plan@7.0.6':
-    resolution: {integrity: sha512-TKhVLtiwtQOgMAC0fCJfmv93faiViKSDqr8oMEqrnNs99gtSC1sZh/aEMS9a+dseU1ESZRCK+ofLgGY7o0fw/Q==}
+  '@changesets/apply-release-plan@7.0.7':
+    resolution: {integrity: sha512-qnPOcmmmnD0MfMg9DjU1/onORFyRpDXkMMl2IJg9mECY6RnxL3wN0TCCc92b2sXt1jt8DgjAUUsZYGUGTdYIXA==}
 
   '@changesets/assemble-release-plan@6.0.5':
     resolution: {integrity: sha512-IgvBWLNKZd6k4t72MBTBK3nkygi0j3t3zdC1zrfusYo0KpdsvnDjrMM9vPnTCLCMlfNs55jRL4gIMybxa64FCQ==}
@@ -562,12 +562,12 @@ packages:
   '@changesets/changelog-git@0.2.0':
     resolution: {integrity: sha512-bHOx97iFI4OClIT35Lok3sJAwM31VbUM++gnMBV16fdbtBhgYu4dxsphBF/0AZZsyAHMrnM0yFcj5gZM1py6uQ==}
 
-  '@changesets/cli@2.27.10':
-    resolution: {integrity: sha512-PfeXjvs9OfQJV8QSFFHjwHX3QnUL9elPEQ47SgkiwzLgtKGyuikWjrdM+lO9MXzOE22FO9jEGkcs4b+B6D6X0Q==}
+  '@changesets/cli@2.27.11':
+    resolution: {integrity: sha512-1QislpE+nvJgSZZo9+Lj3Lno5pKBgN46dAV8IVxKJy9wX8AOrs9nn5pYVZuDpoxWJJCALmbfOsHkyxujgetQSg==}
     hasBin: true
 
-  '@changesets/config@3.0.4':
-    resolution: {integrity: sha512-+DiIwtEBpvvv1z30f8bbOsUQGuccnZl9KRKMM/LxUHuDu5oEjmN+bJQ1RIBKNJjfYMQn8RZzoPiX0UgPaLQyXw==}
+  '@changesets/config@3.0.5':
+    resolution: {integrity: sha512-QyXLSSd10GquX7hY0Mt4yQFMEeqnO5z/XLpbIr4PAkNNoQNKwDyiSrx4yd749WddusH1v3OSiA0NRAYmH/APpQ==}
 
   '@changesets/errors@0.2.0':
     resolution: {integrity: sha512-6BLOQUscTpZeGljvyQXlWOItQyU71kCdGz7Pi8H8zdw6BI0g3m43iL4xKUVPWtG+qrrL9DTjpdn8eYuCQSRpow==}
@@ -575,8 +575,8 @@ packages:
   '@changesets/get-dependents-graph@2.1.2':
     resolution: {integrity: sha512-sgcHRkiBY9i4zWYBwlVyAjEM9sAzs4wYVwJUdnbDLnVG3QwAaia1Mk5P8M7kraTOZN+vBET7n8KyB0YXCbFRLQ==}
 
-  '@changesets/get-release-plan@4.0.5':
-    resolution: {integrity: sha512-E6wW7JoSMcctdVakut0UB76FrrN3KIeJSXvB+DHMFo99CnC3ZVnNYDCVNClMlqAhYGmLmAj77QfApaI3ca4Fkw==}
+  '@changesets/get-release-plan@4.0.6':
+    resolution: {integrity: sha512-FHRwBkY7Eili04Y5YMOZb0ezQzKikTka4wL753vfUA5COSebt7KThqiuCN9BewE4/qFGgF/5t3AuzXx1/UAY4w==}
 
   '@changesets/get-version-range-type@0.4.0':
     resolution: {integrity: sha512-hwawtob9DryoGTpixy1D3ZXbGgJu1Rhr+ySH2PvTLHvkZuQ7sRT4oQwMh0hbqZH1weAooedEjRsbrWcGLCeyVQ==}
@@ -2370,15 +2370,8 @@ packages:
   esbuild-plugin-react18-css@0.0.4:
     resolution: {integrity: sha512-dg/6DB8c0ODubeahYa/4rWO5lk/Bn22lRD6n3+1ZFOvNU4d+Q/gGMiRq01ndrX7p70QYEnrjYmV8p59zrjTtIg==}
 
-  esbuild-plugin-react18@0.2.5:
-    resolution: {integrity: sha512-NSduhuSvLJscrLgs8IOLcM96f5GPC7izzlkCvCFPK+FIMbNuCNR+G/+AU7u295aUWWSyyZtTLsibs7llNZTyHg==}
-    peerDependencies:
-      '@types/react': 16.8 - 19
-      next: 10 - 14
-      react: 16.8 - 19
-    peerDependenciesMeta:
-      next:
-        optional: true
+  esbuild-plugin-react18@0.2.6:
+    resolution: {integrity: sha512-ckg4Nmj0pHiS+QGyQUc1+aXDawTyVXRUb4jE8say8JL0V2BlTjJ8Z2CTmF6Lr89MQ0jToa/2bIqmVENtifxe1g==}
 
   esbuild@0.21.5:
     resolution: {integrity: sha512-mg3OPMV4hXywwpoDxu3Qda5xCKQi+vCTZq8S9J/EpkhB2HzKXq4SNFZE3+NK93JYxc8VMSep+lOUSC/RVKaBqw==}
@@ -5356,9 +5349,9 @@ snapshots:
 
   '@bcoe/v8-coverage@0.2.3': {}
 
-  '@changesets/apply-release-plan@7.0.6':
+  '@changesets/apply-release-plan@7.0.7':
     dependencies:
-      '@changesets/config': 3.0.4
+      '@changesets/config': 3.0.5
       '@changesets/get-version-range-type': 0.4.0
       '@changesets/git': 3.0.2
       '@changesets/should-skip-package': 0.1.1
@@ -5385,15 +5378,15 @@ snapshots:
     dependencies:
       '@changesets/types': 6.0.0
 
-  '@changesets/cli@2.27.10':
+  '@changesets/cli@2.27.11':
     dependencies:
-      '@changesets/apply-release-plan': 7.0.6
+      '@changesets/apply-release-plan': 7.0.7
       '@changesets/assemble-release-plan': 6.0.5
       '@changesets/changelog-git': 0.2.0
-      '@changesets/config': 3.0.4
+      '@changesets/config': 3.0.5
       '@changesets/errors': 0.2.0
       '@changesets/get-dependents-graph': 2.1.2
-      '@changesets/get-release-plan': 4.0.5
+      '@changesets/get-release-plan': 4.0.6
       '@changesets/git': 3.0.2
       '@changesets/logger': 0.1.1
       '@changesets/pre': 2.0.1
@@ -5416,7 +5409,7 @@ snapshots:
       spawndamnit: 3.0.1
       term-size: 2.2.1
 
-  '@changesets/config@3.0.4':
+  '@changesets/config@3.0.5':
     dependencies:
       '@changesets/errors': 0.2.0
       '@changesets/get-dependents-graph': 2.1.2
@@ -5437,10 +5430,10 @@ snapshots:
       picocolors: 1.1.1
       semver: 7.6.3
 
-  '@changesets/get-release-plan@4.0.5':
+  '@changesets/get-release-plan@4.0.6':
     dependencies:
       '@changesets/assemble-release-plan': 6.0.5
-      '@changesets/config': 3.0.4
+      '@changesets/config': 3.0.5
       '@changesets/pre': 2.0.1
       '@changesets/read': 0.6.2
       '@changesets/types': 6.0.0
@@ -5835,12 +5828,12 @@ snapshots:
       globby: 11.1.0
       read-yaml-file: 1.1.0
 
-  '@mayank1513/fork-me@2.1.3(@types/react@19.0.1)(next@14.2.15(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.83.0))(react@19.0.0)':
+  '@mayank1513/fork-me@2.1.3(@types/react@19.0.1)(next@15.1.1(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.83.0))(react@19.0.0)':
     dependencies:
       '@types/react': 19.0.1
       react: 19.0.0
     optionalDependencies:
-      next: 14.2.15(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.83.0)
+      next: 15.1.1(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.83.0)
 
   '@microsoft/tsdoc-config@0.16.2':
     dependencies:
@@ -7199,12 +7192,7 @@ snapshots:
       postcss-modules: 6.0.1(postcss@8.4.49)
       sass: 1.83.0
 
-  esbuild-plugin-react18@0.2.5(@types/react@19.0.1)(next@14.2.15(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.83.0))(react@19.0.0):
-    dependencies:
-      '@types/react': 19.0.1
-      react: 19.0.0
-    optionalDependencies:
-      next: 14.2.15(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.83.0)
+  esbuild-plugin-react18@0.2.6: {}
 
   esbuild@0.21.5:
     optionalDependencies:
@@ -9385,14 +9373,6 @@ snapshots:
     dependencies:
       '@types/react': 19.0.1
       react: 19.0.0
-
-  react18-loaders@1.1.4(@types/react@19.0.1)(next@14.2.15(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.83.0))(react@19.0.0):
-    dependencies:
-      '@types/react': 19.0.1
-      r18gs: 2.1.0(@types/react@19.0.1)(react@19.0.0)
-      react: 19.0.0
-    optionalDependencies:
-      next: 14.2.15(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.83.0)
 
   react18-loaders@1.1.4(@types/react@19.0.1)(next@15.1.1(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.83.0))(react@19.0.0):
     dependencies:
