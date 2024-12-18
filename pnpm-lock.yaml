@@ -291,8 +291,8 @@ importers:
         specifier: 10 - 15
         version: 14.2.15(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.83.0)
       r18gs:
-        specifier: 2.1.0
-        version: 2.1.0(@types/react@19.0.1)(react@19.0.0)
+        specifier: 3.0.0
+        version: 3.0.0(@types/react@19.0.1)(react@19.0.0)
     devDependencies:
       '@repo/eslint-config':
         specifier: workspace:*
@@ -387,8 +387,8 @@ importers:
         specifier: workspace:*
         version: link:../../lib
       r18gs:
-        specifier: ^2.1.0
-        version: 2.1.0(@types/react@19.0.1)(react@19.0.0)
+        specifier: ^3.0.0
+        version: 3.0.0(@types/react@19.0.1)(react@19.0.0)
       react-live:
         specifier: ^4.1.8
         version: 4.1.8(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
@@ -4141,6 +4141,12 @@ packages:
 
   r18gs@2.1.0:
     resolution: {integrity: sha512-OYUmx+QW8I1uy40+VFXsLhSOTlMPPlV2NsJppeYD+8VM6jYiFQOsgsdlPnuD9ocpQwi6hT4rr6+BM6AILh86+Q==}
+    peerDependencies:
+      '@types/react': 16.8 - 19
+      react: 16.8 - 19
+
+  r18gs@3.0.0:
+    resolution: {integrity: sha512-PZ6ccZqBh2NCjQN2X8aT0vweJsvMmW0sFeW2Eg8DCqbkhdphbBn7VrD4KOtnU1vm3fIbYXMcZhuKU3EsAJbVQA==}
     peerDependencies:
       '@types/react': 16.8 - 19
       react: 16.8 - 19
@@ -9330,6 +9336,11 @@ snapshots:
   queue-microtask@1.2.3: {}
 
   r18gs@2.1.0(@types/react@19.0.1)(react@19.0.0):
+    dependencies:
+      '@types/react': 19.0.1
+      react: 19.0.0
+
+  r18gs@3.0.0(@types/react@19.0.1)(react@19.0.0):
     dependencies:
       '@types/react': 19.0.1
       react: 19.0.0
