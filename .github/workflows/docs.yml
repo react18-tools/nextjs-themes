@@ -33,7 +33,7 @@ jobs:
         name: clean up working directory
       - run: npx @turbo/codemod update . && pnpm update --latest -r
         name: Update dependencies
-      - run: pnpm build --filter @examples/nextjs
+      - run: pnpm build --filter @examples/app
         name: Build all apps to make sure it is not broken due to dependency upgrades
       - name: Run unit tests
         run: pnpm test
