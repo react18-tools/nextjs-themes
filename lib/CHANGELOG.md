@@ -1,5 +1,11 @@
 # nextjs-themes
 
+## 4.0.5
+
+### Patch Changes
+
+- ba2e6b4: Improve performance and minify
+
 ## 4.0.4
 
 ### Patch Changes
