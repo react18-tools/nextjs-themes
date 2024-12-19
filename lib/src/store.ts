@@ -30,11 +30,13 @@ export const initialState: ThemeStoreType = {
   s: LIGHT,
 };
 
+export const UNDEFINED = "undefined";
+
 /** @internal store */
 export const useThemeStore = (targetSelector?: string) => {
   const key = targetSelector ?? "#" + DEFAULT_ID;
   return useRGS<ThemeStoreType>(key, () => {
-    const str = typeof m !== "undefined" && localStorage.getItem(key);
+    const str = typeof m !== UNDEFINED && localStorage.getItem(key);
     return str ? { ...JSON.parse(str), s: m.matches ? DARK : LIGHT } : initialState;
   });
 };

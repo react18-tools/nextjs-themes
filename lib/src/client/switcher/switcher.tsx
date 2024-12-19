@@ -1,6 +1,6 @@
 import { ThemeSwitcherProps } from "../theme-switcher";
 import { DARK, DEFAULT_ID, LIGHT } from "../../constants";
-import { useThemeStore } from "../../store";
+import { UNDEFINED, useThemeStore } from "../../store";
 import type { ResolveFunc, UpdateDOMFunc, UpdateForcedPropsFunc } from "../theme-switcher/no-fouc";
 
 let media: MediaQueryList;
@@ -43,7 +43,7 @@ export const Switcher = ({
 
   const [state, setState] = useThemeStore(targetSelector);
 
-  if (typeof m != "undefined" && !updateForcedProps) {
+  if (typeof m != UNDEFINED && !updateForcedProps) {
     [media, updateDOM, resolveTheme, updateForcedProps] = [m, u, r, f];
 
     media.addEventListener("change", () =>

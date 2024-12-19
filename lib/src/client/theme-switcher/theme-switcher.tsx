@@ -1,6 +1,6 @@
 import { ColorSchemeType } from "../../types";
 import { noFOUCScript, type ScriptArgs } from "./no-fouc";
-import { initialState } from "../../store";
+import { initialState, UNDEFINED } from "../../store";
 import { DEFAULT_ID } from "../../constants";
 import { Switcher } from "../switcher";
 
@@ -53,7 +53,7 @@ const Script = ({
     forcedColorScheme,
   ] as ScriptArgs;
   // handle client side exceptions when script is not run. <- for client side apps like vite or CRA
-  typeof window !== "undefined" && noFOUCScript(...args);
+  typeof window != UNDEFINED && noFOUCScript(...args);
   return (
     <script
       // skipcq: JS-0440
