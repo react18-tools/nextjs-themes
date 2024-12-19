@@ -20,8 +20,6 @@ declare global {
   var r: ResolveFunc;
   // skipcq: JS-0102, JS-C1002, JS-0239
   var f: UpdateForcedPropsFunc;
-  // skipcq: JS-0102, JS-C1002, JS-0239 update forcedState
-  var g: UpdateForcedPropsFunc;
 }
 
 export type ScriptArgs = [
@@ -70,13 +68,10 @@ export const noFOUCScript = (
     forcedColorScheme = forcedColorSchemeProp_ = forcedColorSchemeProp;
   };
 
-  window.g = (forcedThemeState, forcedColorSchemeState) => {
-    forcedTheme = forcedThemeProps_ ?? forcedThemeState;
-    forcedColorScheme = forcedColorSchemeProp_ ?? forcedColorSchemeState;
-  };
-
   f(forcedTheme_, forcedColorScheme_);
   window.r = (store: ThemeStoreType) => {
+    forcedTheme = forcedThemeProps_ ?? store.f;
+    forcedColorScheme = forcedColorSchemeProp_ ?? store.fc;
     const colorSchemePref = forcedColorScheme ?? store.c;
     const colorScheme = colorSchemePref === initialState.c ? store.s : colorSchemePref;
     const theme = colorScheme === "" ? store.t : colorScheme === initialState.d ? store.d : store.l;

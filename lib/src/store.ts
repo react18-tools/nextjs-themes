@@ -14,6 +14,11 @@ export interface ThemeStoreType {
   c: ColorSchemeType;
   /** systemColorScheme */
   s: ResolvedColorSchemeType;
+
+  /** forced theme */
+  f?: string;
+  /** forced colorScheme */
+  fc?: ColorSchemeType;
 }
 
 /** @internal */
@@ -32,16 +37,4 @@ export const useThemeStore = (targetSelector?: string) => {
     const str = typeof m !== "undefined" && localStorage.getItem(key);
     return str ? { ...JSON.parse(str), s: m.matches ? DARK : LIGHT } : initialState;
   });
-};
-
-/** @internal */
-export interface ForcedStoreType {
-  /** forced theme */ f?: string;
-  /** forced colorScheme */ fc?: ColorSchemeType;
-}
-
-/** @internal */
-export const useForcedStore = (targetSelector?: string) => {
-  const key = `${targetSelector ?? `#${DEFAULT_ID}`}-`;
-  return useRGS<ForcedStoreType>(key, {});
 };

@@ -1,14 +1,13 @@
 import { useEffect } from "react";
 import { ThemeSwitcherProps } from "../theme-switcher";
 import { DARK, DEFAULT_ID, LIGHT } from "../../constants";
-import { useForcedStore, useThemeStore } from "../../store";
+import { useThemeStore } from "../../store";
 import type { ResolveFunc, UpdateDOMFunc, UpdateForcedPropsFunc } from "../theme-switcher/no-fouc";
 
 let media: MediaQueryList;
 let updateDOM: UpdateDOMFunc;
 let resolveTheme: ResolveFunc;
 let updateForcedProps: UpdateForcedPropsFunc;
-let updateForcedState: UpdateForcedPropsFunc;
 
 /** disable transition while switching theme */
 const modifyTransition = (themeTransition = "none") => {
@@ -44,11 +43,10 @@ export const Switcher = ({
   const k = targetSelector || "#" + DEFAULT_ID;
 
   const [state, setState] = useThemeStore(targetSelector);
-  const [forced] = useForcedStore(targetSelector);
 
   useEffect(() => {
     if (typeof m !== "undefined")
-      [media, updateDOM, resolveTheme, updateForcedProps, updateForcedState] = [m, u, r, f, g];
+      [media, updateDOM, resolveTheme, updateForcedProps] = [m, u, r, f];
 
     media.addEventListener("change", () =>
       setState(state => ({ ...state, s: media.matches ? DARK : LIGHT })),
@@ -62,7 +60,8 @@ export const Switcher = ({
     const restoreThansitions = modifyTransition(themeTransition);
     updateDOM(resolveTheme(state), k);
     restoreThansitions();
-    localStorage.setItem(k, JSON.stringify(state));
+    const { f, fc, ...others } = state;
+    localStorage.setItem(k, JSON.stringify(others));
   }, [state]);
 
   useEffect(() => {
@@ -70,9 +69,5 @@ export const Switcher = ({
     updateDOM(resolveTheme(state), k);
   }, [forcedColorScheme, forcedTheme]);
 
-  useEffect(() => {
-    updateForcedState(forced.f, forced.fc);
-    updateDOM(resolveTheme(state), k);
-  }, [forced]);
   return null;
 };

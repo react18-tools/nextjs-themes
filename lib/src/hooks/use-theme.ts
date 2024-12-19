@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useForcedStore, useThemeStore } from "../store";
+import { useThemeStore } from "../store";
 import { ResolveFunc } from "../client/theme-switcher/no-fouc";
 import { ColorSchemeType, ResolvedColorSchemeType } from "../types";
 import { DARK, LIGHT, SYSTEM } from "../constants";
@@ -37,7 +37,6 @@ export interface UseThemeYield {
 
 export const useTheme = (targetSelector?: string): UseThemeYield => {
   const [state, setState] = useThemeStore(targetSelector);
-  const [_, setForcedState] = useForcedStore(targetSelector);
   useEffect(() => {
     resolveTheme = window.r;
   }, []);
@@ -67,8 +66,8 @@ export const useTheme = (targetSelector?: string): UseThemeYield => {
       if (index === -1 || (skipSystem && index === len - 1)) index = 0;
       setter("c")(colorSchemes[(index + 1) % len]);
     },
-    setForcedColorScheme: fc => setForcedState(state => ({ ...state, fc })),
-    setForcedTheme: f => setForcedState(state => ({ ...state, f })),
+    setForcedColorScheme: setter<ColorSchemeType>("fc"),
+    setForcedTheme: setter<string>("f"),
   };
 
   if (resolveTheme) {
