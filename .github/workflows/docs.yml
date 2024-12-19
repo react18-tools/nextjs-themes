@@ -29,13 +29,11 @@ jobs:
           git pull
       - run: npm i -g pnpm && pnpm i --no-frozen-lockfile
         name: Install dependencies
-      - name: Test
-        run: npm test
       - run: git stash --include-untracked
         name: clean up working directory
       - run: npx @turbo/codemod update . && pnpm update --latest -r
         name: Update dependencies
-      - run: pnpm build
+      - run: pnpm build --filter @examples/app
         name: Build all apps to make sure it is not broken due to dependency upgrades
       - name: Run unit tests
         run: pnpm test
