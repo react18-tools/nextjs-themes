@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { ThemeSwitcherProps } from "../theme-switcher";
 import { DARK, DEFAULT_ID, LIGHT } from "../../constants";
 import { useThemeStore } from "../../store";
@@ -44,9 +43,8 @@ export const Switcher = ({
 
   const [state, setState] = useThemeStore(targetSelector);
 
-  useEffect(() => {
-    if (typeof m !== "undefined")
-      [media, updateDOM, resolveTheme, updateForcedProps] = [m, u, r, f];
+  if (typeof m != "undefined" && !updateForcedProps) {
+    [media, updateDOM, resolveTheme, updateForcedProps] = [m, u, r, f];
 
     media.addEventListener("change", () =>
       setState(state => ({ ...state, s: media.matches ? DARK : LIGHT })),
@@ -54,20 +52,14 @@ export const Switcher = ({
     addEventListener("storage", e => {
       if (e.key === k) setState(state => ({ ...state, ...JSON.parse(e.newValue || "{}") }));
     });
-  }, []);
-
-  useEffect(() => {
+  }
+  if (updateForcedProps) {
+    updateForcedProps(forcedTheme, forcedColorScheme);
     const restoreThansitions = modifyTransition(themeTransition);
     updateDOM(resolveTheme(state), k);
     restoreThansitions();
     const { f, fc, ...others } = state;
     localStorage.setItem(k, JSON.stringify(others));
-  }, [state]);
-
-  useEffect(() => {
-    updateForcedProps(forcedTheme, forcedColorScheme);
-    updateDOM(resolveTheme(state), k);
-  }, [forcedColorScheme, forcedTheme]);
-
+  }
   return null;
 };
