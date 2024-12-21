@@ -22,7 +22,7 @@
     "@types/node": "^22.10.2",
     "@types/react": "^19.0.2",
     "@types/react-dom": "^19.0.2",
-    "react-webgl-trails": "^0.0.4",
+    "react-webgl-trails": "^0.0.5",
     "typescript": "^5.7.2"
   }
 }
