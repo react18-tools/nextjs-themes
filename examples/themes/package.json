@@ -14,7 +14,7 @@
   "dependencies": {
     "@repo/scripts": "workspace:*",
     "@repo/shared": "workspace:*",
-    "next": "^15.1.4",
+    "next": "^15.1.5",
     "nextjs-darkmode": "^1.0.9",
     "nextjs-themes": "workspace:*",
     "react": "^19.0.0",
@@ -22,7 +22,7 @@
     "react18-loaders": "^1.1.4"
   },
   "devDependencies": {
-    "@next/eslint-plugin-next": "^15.1.4",
+    "@next/eslint-plugin-next": "^15.1.5",
     "@repo/eslint-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
     "@types/node": "^22.10.7",
