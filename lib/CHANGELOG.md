@@ -1,5 +1,11 @@
 # nextjs-themes
 
+## 4.0.6
+
+### Patch Changes
+
+- 7c04f58: Upgrade r18gs
+
 ## 4.0.5
 
 ### Patch Changes
