@@ -64,8 +64,8 @@ importers:
         specifier: ^15.1.6
         version: 15.1.6(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.83.4)
       nextjs-darkmode:
-        specifier: ^1.0.9
-        version: 1.0.9(@types/react@19.0.8)(next@15.1.6(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.83.4))(react@19.0.0)
+        specifier: ^1.0.10
+        version: 1.0.10(@types/react@19.0.8)(react@19.0.0)
       nextjs-themes:
         specifier: workspace:*
         version: link:../../lib
@@ -208,8 +208,8 @@ importers:
         specifier: ^15.1.6
         version: 15.1.6(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.83.4)
       nextjs-darkmode:
-        specifier: ^1.0.9
-        version: 1.0.9(@types/react@19.0.8)(next@15.1.6(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.83.4))(react@19.0.0)
+        specifier: ^1.0.10
+        version: 1.0.10(@types/react@19.0.8)(react@19.0.0)
       nextjs-themes:
         specifier: workspace:*
         version: link:../../lib
@@ -381,8 +381,8 @@ importers:
         specifier: 10 - 14
         version: 15.1.6(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.83.4)
       nextjs-darkmode:
-        specifier: ^1.0.9
-        version: 1.0.9(@types/react@19.0.8)(next@15.1.6(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.83.4))(react@19.0.0)
+        specifier: ^1.0.10
+        version: 1.0.10(@types/react@19.0.8)(react@19.0.0)
       nextjs-themes:
         specifier: workspace:*
         version: link:../../lib
@@ -3570,8 +3570,8 @@ packages:
       sass:
         optional: true
 
-  nextjs-darkmode@1.0.9:
-    resolution: {integrity: sha512-T3AsJv3QaP6LZCZsS8UYQomcWfM1WAVvyPmxlBO9bqhJAVuvAnhwfzib6bADLJ2ObCKHVxen4BCIMB4BIiOZSg==}
+  nextjs-darkmode@1.0.10:
+    resolution: {integrity: sha512-dJiL6IU344QYsDT/94hW2aUfKtrjU3fERvNzXfjRy5SC5JY3dxuS/qh7XX8j+J7o4AwGwGj8Mqc0sRPEQ7YeTg==}
     peerDependencies:
       '@types/react': '>=16.8'
       react: '>=16.8'
@@ -3970,16 +3970,6 @@ packages:
 
   queue-microtask@1.2.3:
     resolution: {integrity: sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==}
-
-  r18gs@2.0.2:
-    resolution: {integrity: sha512-sO3gq+c8essYacmFr42Vsi0EQZdtrV/kfjiz5JBJCyXek4u0o/8qhLFnljHxPH58BvK5hQsORl5w/mx1EYuZJw==}
-    peerDependencies:
-      '@types/react': 16.8 - 19
-      next: '*'
-      react: 16.8 - 19
-    peerDependenciesMeta:
-      next:
-        optional: true
 
   r18gs@2.1.0:
     resolution: {integrity: sha512-OYUmx+QW8I1uy40+VFXsLhSOTlMPPlV2NsJppeYD+8VM6jYiFQOsgsdlPnuD9ocpQwi6hT4rr6+BM6AILh86+Q==}
@@ -8610,13 +8600,11 @@ snapshots:
       - '@babel/core'
       - babel-plugin-macros
 
-  nextjs-darkmode@1.0.9(@types/react@19.0.8)(next@15.1.6(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.83.4))(react@19.0.0):
+  nextjs-darkmode@1.0.10(@types/react@19.0.8)(react@19.0.0):
     dependencies:
       '@types/react': 19.0.8
-      r18gs: 2.0.2(@types/react@19.0.8)(next@15.1.6(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.83.4))(react@19.0.0)
+      r18gs: 3.0.1(@types/react@19.0.8)(react@19.0.0)
       react: 19.0.0
-    transitivePeerDependencies:
-      - next
 
   no-case@3.0.4:
     dependencies:
@@ -9049,13 +9037,6 @@ snapshots:
   punycode@2.3.1: {}
 
   queue-microtask@1.2.3: {}
-
-  r18gs@2.0.2(@types/react@19.0.8)(next@15.1.6(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.83.4))(react@19.0.0):
-    dependencies:
-      '@types/react': 19.0.8
-      react: 19.0.0
-    optionalDependencies:
-      next: 15.1.6(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.83.4)
 
   r18gs@2.1.0(@types/react@19.0.8)(react@19.0.0):
     dependencies:

@@ -15,7 +15,7 @@
     "@repo/scripts": "workspace:*",
     "@repo/shared": "workspace:*",
     "next": "^15.1.6",
-    "nextjs-darkmode": "^1.0.9",
+    "nextjs-darkmode": "^1.0.10",
     "nextjs-themes": "workspace:*",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
