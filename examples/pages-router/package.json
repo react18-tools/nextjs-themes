@@ -10,13 +10,13 @@
   },
   "dependencies": {
     "@repo/shared": "workspace:*",
-    "next": "^15.1.6",
+    "next": "^15.1.7",
     "nextjs-themes": "workspace:*",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
   "devDependencies": {
-    "@next/eslint-plugin-next": "^15.1.6",
+    "@next/eslint-plugin-next": "^15.1.7",
     "@repo/eslint-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
     "@types/node": "^22.13.1",
