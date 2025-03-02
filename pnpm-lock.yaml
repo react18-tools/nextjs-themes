@@ -40,8 +40,8 @@ importers:
         specifier: ^4.0.0
         version: 4.0.0(typedoc@0.27.9(typescript@5.8.2))
       typedoc-plugin-mdn-links:
-        specifier: ^4.0.14
-        version: 4.0.14(typedoc@0.27.9(typescript@5.8.2))
+        specifier: ^4.0.15
+        version: 4.0.15(typedoc@0.27.9(typescript@5.8.2))
       typedoc-plugin-missing-exports:
         specifier: ^3.1.0
         version: 3.1.0(typedoc@0.27.9(typescript@5.8.2))
@@ -2034,8 +2034,8 @@ packages:
     resolution: {integrity: sha512-9Kr/j4O16ISv8zBBhJoi4bXOYNTkFLOqSL3UDB0njXxCXNezjeyVrJyGOWtgfs/q2km1gwBcfH8q1yEGoMYunA==}
     engines: {node: '>=18'}
 
-  core-js-compat@3.40.0:
-    resolution: {integrity: sha512-0XEDpr5y5mijvw8Lbc6E5AkjrHfp7eEoPlu36SWeAbcL8fn1G1ANe8DBlo2XoNN89oVpxWwOjYIPVzR4ZvsKCQ==}
+  core-js-compat@3.41.0:
+    resolution: {integrity: sha512-RFsU9LySVue9RTwdDVX/T0e2Y6jRYWXERKElIjpuEOEnxaXffI0X7RUwVzfYLfzuLXSNJDYoRYUAmRUcyln20A==}
 
   cross-spawn@7.0.6:
     resolution: {integrity: sha512-uV2QOWP2nWzsy2aMp8aRibhi9dlzF5Hgh5SHaB9OiTGEyDTiJJyx0uy51QXdyWbtAHNua4XJzUKca3OzKUd3vA==}
@@ -4694,8 +4694,8 @@ packages:
     peerDependencies:
       typedoc: 0.27.x
 
-  typedoc-plugin-mdn-links@4.0.14:
-    resolution: {integrity: sha512-IDILzJr4OzNb5uAWWRMZYny80Q6jUQerAwskdYbNMwaHMRwsB3+y8oqYYE7/PyH+kJVvJnCC4G2wnAQ3CLdgqA==}
+  typedoc-plugin-mdn-links@4.0.15:
+    resolution: {integrity: sha512-ZdZLBVMSJzHckVJt902j5xIbujza5Z8l802sXd6G38bOZS6R+ZkjB6RmSdYdKlxiEle8Yqjxn4lZ2NZIeUe2lA==}
     peerDependencies:
       typedoc: 0.26.x || 0.27.x
 
@@ -6678,7 +6678,7 @@ snapshots:
 
   cookie@1.0.2: {}
 
-  core-js-compat@3.40.0:
+  core-js-compat@3.41.0:
     dependencies:
       browserslist: 4.24.4
 
@@ -7215,7 +7215,7 @@ snapshots:
       '@eslint/eslintrc': 2.1.4
       ci-info: 4.1.0
       clean-regexp: 1.0.0
-      core-js-compat: 3.40.0
+      core-js-compat: 3.41.0
       eslint: 9.12.0(jiti@2.3.1)
       esquery: 1.6.0
       indent-string: 4.0.0
@@ -9840,7 +9840,7 @@ snapshots:
     dependencies:
       typedoc: 0.27.9(typescript@5.8.2)
 
-  typedoc-plugin-mdn-links@4.0.14(typedoc@0.27.9(typescript@5.8.2)):
+  typedoc-plugin-mdn-links@4.0.15(typedoc@0.27.9(typescript@5.8.2)):
     dependencies:
       typedoc: 0.27.9(typescript@5.8.2)
 
