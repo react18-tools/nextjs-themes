@@ -19,7 +19,7 @@
     "@next/eslint-plugin-next": "^15.2.4",
     "@repo/eslint-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
-    "@types/node": "^22.13.17",
+    "@types/node": "^22.14.0",
     "@types/react": "^19.1.0",
     "@types/react-dom": "^19.1.1",
     "react-webgl-trails": "^0.0.5",
